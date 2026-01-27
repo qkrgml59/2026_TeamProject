@@ -1,7 +1,6 @@
-using NUnit.Framework;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "UnitStatSO", menuName = "UnitSO/UnitStatSO")]
+[CreateAssetMenu(fileName = "new UnitStat", menuName = "UnitStatSO/UnitStatSO")]
 public class UnitStatSO : ScriptableObject
 {
     [Header("기물 성급에 따른 기초 스텟")]
