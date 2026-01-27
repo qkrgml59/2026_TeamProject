@@ -5,7 +5,7 @@ public class StatSet
 {
     Dictionary<StatType, Stat> stats;
 
-    //생성자 초기화s
+    //생성자 초기화
     public StatSet(UnitStatSO unitStatSO)
     {
         stats = new Dictionary<StatType, Stat>();
@@ -24,16 +24,21 @@ public class StatSet
         // 특수 스텟 선언(고정값)
         stats.Add(StatType.CriticalChance, new Stat(25));
         stats.Add(StatType.CriticalDamage, new Stat(140));
+        stats.Add(StatType.DamageIncrease, new Stat(0));
+        stats.Add(StatType.DamageReduction, new Stat(0));
         stats.Add(StatType.Omnivamp, new Stat(0));
 
         stats.Add(StatType.AttackRange, new Stat(unitStatSO.Attack_Rage));     // 사거리 초기값
         stats.Add(StatType.MoveSpeed, new Stat(unitStatSO.Move_Speed));        // 이동속도 초기값
+
+        // 1성으로 초기화
+        SetStatByStar(unitStatSO, 0);       
     }
 
     /// <summary>
     /// 유닛의 성급에 따른 기초 스텟 적용
     /// </summary>
-    /// <param name="star">유닛의 성급</param>
+    /// <param name="star">유닛의 성급 ( 1성 = 0 )</param>
     public void SetStatByStar(UnitStatSO unitStatSO, int star)
     {
         if (unitStatSO.statsByStart.Length <= star)
