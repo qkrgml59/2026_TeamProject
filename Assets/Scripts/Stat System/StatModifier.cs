@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// 스텟 강화 효과를 관리하는 클래스
+/// 추가 스텟을 관리하는 클래스
 /// </summary>
 [System.Serializable]
 public class StatModifier

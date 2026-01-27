@@ -7,7 +7,7 @@ public enum StatType
     AttackDamage,          // 공격력
     AbilityPower,          // 주문력
     AttackSpeed,           // 공격 속도
-    Defense,                // 방어력
+    Defense,               // 방어력
     MagicResistance,       // 마법 저항력
     ManaRegeneration,      // 마나 재생
     CriticalChance,        // 치명타 확률

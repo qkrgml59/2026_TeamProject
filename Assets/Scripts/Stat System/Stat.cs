@@ -10,7 +10,10 @@ public class Stat
 
     public Stat(float value = 0)
     {
-        baseValue = value;
+        // 기초 스텟 적용
+        SetBaseValue(value); 
+
+        // 추가 스텟 초기화
         modifiers = new Dictionary<object, StatModifier>();
     }
 
