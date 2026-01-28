@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Default_Item", menuName = "ItemSO/Default")]
-public abstract class ItemSO : MonoBehaviour
+public class ItemSO : ScriptableObject
 {
     [Header("아이템 이름")] public string itemName;
     [Header("아이템 설명")] public string itemDescription;
