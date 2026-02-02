@@ -6,7 +6,7 @@ using UnityEngine;
 /// 상태 머신을 실행만 한다
 /// 판단은 각 State가 담당
 /// </summary>
-public abstract class UnitBase : MonoBehaviour
+public abstract class UnitBase : MonoBehaviour, IDamageable
 {  
     //현재 유닛이 수행중인 상태
     protected IUnitState currentState;
@@ -36,35 +36,100 @@ public abstract class UnitBase : MonoBehaviour
         currentState?.StateEnter();
     }
 
-    /// <summary>
-    /// 공통 데이터
-    /// </summary>
+
+    [Header("스탯")]
+    public UnitStatSO unitStatSO;           //스탯 원본 데이터
+    [SerializeField] float searchRadius = 20f;
+    float atkTimer;
 
     //스탯 묶음
-    protected StatSet stateSet;
+    protected StatSet statSet;
 
-    //스탯 원본 데이터
-    public UnitStatSO unitStatSO;
+    protected float currentHp;         //현재 Hp    
 
-    //현재 공격 / 추적 중인 대상
-    protected UnitBase currentTarget;
+    // 이렇게 해도 되는지 모르겠는데 형 정답을 알려줘,,,,,,,,,,,,,,,,,,,,,,,,,,,
+    //현재 체력 int값으로 하기로 했는지 float으로 하기로 했는지 기억이 안 남
 
-    protected virtual void Start()
+
+    [Header("Team")]
+    [SerializeField] protected int teamId = 0;                  //팀 ID  Ex) 아군 0팀, 적 1팀
+    public int TeamID => teamId;
+
+    protected IDamageable target;
+
+    public bool IsDead => currentHp <= 0;               //현재 Hp가 0보다 작으면 사망 상태
+
+
+    ///<summary>
+    ///데미지 처리
+    ///체력 감소
+    ///사망 여부 판단
+    ///상태 전환은 여기서
+    /// </summary>
+
+
+    //기본 이동
+    protected virtual void MoveToward(Vector3 p)
     {
-        stateSet = new StatSet(unitStatSO);         //SO기반으로 스탯 초기화
+
+        Vector3 dir = (p - transform.position);
+        dir.y = 0;
+        if (dir.sqrMagnitude < 0.0001f) return;
+
+        dir.Normalize();
+        transform.position += dir * statSet.MoveSpeed().Value * Time.deltaTime;
+        transform.forward = Vector3.Lerp(transform.forward, dir, 15f * Time.deltaTime);
     }
 
-    public void SetTarget(UnitBase target)
+    /// <summary>
+    /// 공격 실행 명령
+    /// </summary>
+    protected virtual void DoAttack(IDamageable target)
     {
-        currentTarget = target;
+        OnAttack(target);
+    
     }
 
-    public bool HasTarget()
+    /// <summary>
+    /// 공격 강제 구현
+    /// </summary>
+    protected abstract void OnAttack(IDamageable t);
+
+    ///<summary>
+    ///데미지 처리 
+    ///탱커/방어막은 override
+    /// </summary>
+    public virtual void TakeDamage(int amount)
     {
-        return currentTarget != null;
+        if (IsDead) return;
+        currentHp -= amount;
+        DamageText.Spawn(amount, transform.position + Vector3.up * 1.6f);
+
+        if (currentHp <= 0) Destroy(gameObject);
     }
 
+    /// <summary>
+    /// 적(타겟) 탐지
+    /// 같은 팀 제외, 가장 가까운 적 선택
+    /// </summary>
+    /// <returns></returns>
+    IDamageable FindNearestEnemy()
+    {
+        // 레지스트리/매니저 없이 Physics로 “주변에서 찾기”
+        Collider[] hits = Physics.OverlapSphere(transform.position, searchRadius);
+        float best = float.PositiveInfinity;
+        IDamageable bestTarget = null;
 
-    //우선 수정 중이빈다.
+        foreach (var h in hits)
+        {
+            var d = h.GetComponentInParent<IDamageable>();
+            if (d == null || d.IsDead || d.TeamID == TeamID) continue;
+
+            float dist = (h.transform.position - transform.position).sqrMagnitude;
+            if (dist < best) { best = dist; bestTarget = d; }
+        }
+
+        return bestTarget;
+    }
 
 }
