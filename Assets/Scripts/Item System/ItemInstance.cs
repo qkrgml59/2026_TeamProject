@@ -15,25 +15,18 @@ namespace Item
         public ItemEffectBase _effect { get; private set; }    // 아이템 부가 효과
 
         
-        public ItemInstance(ItemSO itemData)
+        public ItemInstance(ItemSO itemData, UnitBase unit)
         {
             _itemData = itemData;
+            _unit = unit;
         }
 
         /// <summary>
         /// 아이템 장착
         /// </summary>
-        /// <param name="unit"></param>
         /// <returns>장착 성공 여부</returns>
-        public bool TryEquip(UnitBase unit)
+        public bool TryEquip()
         {
-            if (unit == null) return false;
-
-            if (_unit != null) return false;
-
-            _unit = unit;
-
-
             // 스텟 유닛에 적용
             // _unit.스텟 추가();
 
@@ -43,7 +36,7 @@ namespace Item
                 // 효과 생성 과정에서 문제가 생기는 경우 추척이 힘듦으로 try-catch
                 try
                 {
-                    _effect = _itemData.effect.GetItemEffect(unit);     // 아이템 부가 효과의 런타임 객체 생성
+                    _effect = _itemData.effect.GetItemEffect(_unit);     // 아이템 부가 효과의 런타임 객체 생성
 
                     if (_effect == null || !_effect.TryEquip())
                     {
@@ -69,9 +62,6 @@ namespace Item
         public void Unequip()
         {
             // 스탯 제거
-
-            // 유닛 제거
-            _unit = null;
 
             // 아이템 효과 제거
             if (_effect != null)
