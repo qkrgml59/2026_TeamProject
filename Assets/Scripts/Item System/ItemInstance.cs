@@ -80,10 +80,5 @@ namespace Item
                 _effect = null;
             }
         }
-
-        void OnDestroy()
-        {
-            Unequip();
-        }
     }
 }

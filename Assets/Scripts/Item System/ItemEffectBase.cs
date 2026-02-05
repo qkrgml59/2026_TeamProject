@@ -104,10 +104,5 @@ namespace Item
         protected abstract void OnUnregisterEvents();
 
         #endregion
-    
-        void OnDestory()
-        {
-            Unequip();
-        }
     }
 }
