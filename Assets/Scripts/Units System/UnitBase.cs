@@ -1,5 +1,6 @@
 using System.Xml;
 using UnityEngine;
+using Stat;
 
 /// <summary>
 /// 모든 기물(Unit)이 상속받는 공통 베이스 클래스
