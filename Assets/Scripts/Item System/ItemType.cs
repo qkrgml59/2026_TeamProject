@@ -1,5 +1,8 @@
 
-public enum ItemType
+namespace Item
 {
-    
+    public enum ItemType
+    {
+
+    }
 }
