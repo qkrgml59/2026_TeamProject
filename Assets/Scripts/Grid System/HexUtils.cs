@@ -26,7 +26,7 @@ namespace Grid
                 CubeCoord ca = new CubeCoord(a.x, a.y);
                 CubeCoord cb = new CubeCoord(b.x, b.y);
 
-                // 3축의 차이 절대값 합의 절반이 곧 거리입니다. (Manhattan Distance 변형)
+                // 3축의 차이 절대값 합의 절반이 거리
                 return (Mathf.Abs(ca.x - cb.x) + Mathf.Abs(ca.y - cb.y) + Mathf.Abs(ca.z - cb.z)) / 2;
             }
         }
