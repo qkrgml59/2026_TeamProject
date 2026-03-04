@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ac86ad5d13ce0634a85fbe190a2fc446
+timeCreated: 1493086978
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Prefabs/Buildings/SM_Bld_Room_Long_03.prefab
+  uploadId: 735248

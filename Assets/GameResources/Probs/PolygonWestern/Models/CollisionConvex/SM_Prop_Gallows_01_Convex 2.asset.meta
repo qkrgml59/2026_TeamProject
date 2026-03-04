@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 03d276993b0f6c443b265efe70e5cf98
+timeCreated: 1580089525
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Models/CollisionConvex/SM_Prop_Gallows_01_Convex
+    2.asset
+  uploadId: 751513

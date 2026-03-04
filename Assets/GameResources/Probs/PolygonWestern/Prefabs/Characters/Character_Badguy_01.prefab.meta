@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 085e53ee40ad24b40a83bd90705ad460
+timeCreated: 1519177779
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Characters/Character_Badguy_01.prefab
+  uploadId: 751513

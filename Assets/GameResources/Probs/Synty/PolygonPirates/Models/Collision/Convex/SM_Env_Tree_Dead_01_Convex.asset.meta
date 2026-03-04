@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f68c51cf8b81e374b9fe74936083d95c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43680129539808120
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Env_Tree_Dead_01_Convex.asset
+  uploadId: 865072

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 69d1077976566a74db3c1f633db2a741
+timeCreated: 1580702557
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Models/ConvexCollisions/SM_Bld_Temple_Roof_Tip_01_Convex.asset
+  uploadId: 735248

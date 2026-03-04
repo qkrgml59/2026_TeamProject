@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: fb1da96fa8d7438418add9d8ff8e648b
+timeCreated: 1644528856
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Models/Convex/SM_Bld_Wall_Hole_02_Monster_01_Convex.asset
+  uploadId: 756023

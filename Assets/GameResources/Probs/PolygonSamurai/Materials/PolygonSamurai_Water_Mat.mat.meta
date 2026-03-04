@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 670efced5793a754f8ef786c262b4727
+timeCreated: 1493182129
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Materials/PolygonSamurai_Water_Mat.mat
+  uploadId: 735248

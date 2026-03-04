@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2b4db85464d9b394c9dc14cc2fba12ad
+timeCreated: 1493348823
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Materials/PolygonSamurai_Clouds_Mat.mat
+  uploadId: 735248

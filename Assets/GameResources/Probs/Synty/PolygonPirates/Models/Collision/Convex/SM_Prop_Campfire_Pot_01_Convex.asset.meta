@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e40ce3beed30e4a4085a636a112bec32
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43337437325792322
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Prop_Campfire_Pot_01_Convex.asset
+  uploadId: 865072

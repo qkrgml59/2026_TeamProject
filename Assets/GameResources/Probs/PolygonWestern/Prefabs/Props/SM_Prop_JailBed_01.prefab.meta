@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: fdf5a07f6096b4b48932df51784ab3bd
+timeCreated: 1519251970
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Props/SM_Prop_JailBed_01.prefab
+  uploadId: 751513

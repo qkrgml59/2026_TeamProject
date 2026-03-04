@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 1791948436d363242a5c10b63817d1fe
+timeCreated: 1580783047
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Models/ConvexCollisions/SM_Prop_Snow_Flag_01_Convex.asset
+  uploadId: 735248

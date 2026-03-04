@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9758aab6372fa2e4ca492284a8af1a91
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43193781560895528
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Prop_Shipwreck_02_Convex.asset
+  uploadId: 865072

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8e5e26cd710de4540b96b8a319eecebf
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43886848111970248
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Bld_Fort_Door_03_Convex.asset
+  uploadId: 865072

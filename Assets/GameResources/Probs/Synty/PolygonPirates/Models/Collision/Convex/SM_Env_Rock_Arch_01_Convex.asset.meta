@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fffafe32e67be1e4ea1bbf37aed59839
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43698588073751676
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Env_Rock_Arch_01_Convex.asset
+  uploadId: 865072

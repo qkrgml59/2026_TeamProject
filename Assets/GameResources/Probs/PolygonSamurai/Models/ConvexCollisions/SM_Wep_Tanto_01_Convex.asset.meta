@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: f50fe48b5a1b3c94cb89fddeb15ea848
+timeCreated: 1580695555
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Models/ConvexCollisions/SM_Wep_Tanto_01_Convex.asset
+  uploadId: 735248

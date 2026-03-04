@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: e1eba52ac2eb6e04ea6678039d9868f1
+timeCreated: 1580089345
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Models/CollisionConvex/SM_Prop_Curtain_02_Convex
+    1.asset
+  uploadId: 751513

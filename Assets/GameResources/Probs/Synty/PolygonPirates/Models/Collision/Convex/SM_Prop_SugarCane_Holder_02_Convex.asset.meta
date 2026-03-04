@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a18b59d739fbec1439c0891c406f12cd
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43533316846643536
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Prop_SugarCane_Holder_02_Convex.asset
+  uploadId: 865072

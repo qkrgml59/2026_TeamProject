@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: dfdfcc87a48f82e4dba534879331d562
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43412268829281534
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Prop_Chimney_02_Convex.asset
+  uploadId: 865072

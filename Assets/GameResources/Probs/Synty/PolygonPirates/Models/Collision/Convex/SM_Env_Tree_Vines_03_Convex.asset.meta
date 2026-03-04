@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 642181d6648e93c49a651847a0f6a355
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43711585846944036
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Env_Tree_Vines_03_Convex.asset
+  uploadId: 865072

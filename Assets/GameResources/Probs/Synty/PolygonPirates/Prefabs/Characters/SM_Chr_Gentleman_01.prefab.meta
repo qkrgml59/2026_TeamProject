@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 44b145332bb92a94c9bf4f109fe62be9
+timeCreated: 1545080203
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Prefabs/Characters/SM_Chr_Gentleman_01.prefab
+  uploadId: 865072

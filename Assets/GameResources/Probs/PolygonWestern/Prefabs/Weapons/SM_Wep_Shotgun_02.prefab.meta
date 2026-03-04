@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 5fb00c8822a8e7f43a78ba89a7971e2f
+timeCreated: 1519089498
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Weapons/SM_Wep_Shotgun_02.prefab
+  uploadId: 751513

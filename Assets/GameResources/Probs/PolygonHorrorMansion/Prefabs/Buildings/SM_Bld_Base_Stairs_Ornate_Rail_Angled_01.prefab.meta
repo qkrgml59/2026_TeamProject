@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ef1dbb093c1e23f47a6dd7629e449a8c
+timeCreated: 1639969666
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Prefabs/Buildings/SM_Bld_Base_Stairs_Ornate_Rail_Angled_01.prefab
+  uploadId: 756023

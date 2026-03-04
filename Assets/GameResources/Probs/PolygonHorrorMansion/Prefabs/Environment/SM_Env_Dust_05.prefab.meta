@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 76c73e9394d40a448982c6483403f35e
+timeCreated: 1643068835
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Prefabs/Environment/SM_Env_Dust_05.prefab
+  uploadId: 756023

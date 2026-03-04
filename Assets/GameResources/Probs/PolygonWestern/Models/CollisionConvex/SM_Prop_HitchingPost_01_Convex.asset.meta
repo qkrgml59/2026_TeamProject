@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 927d27a046453fc4bb11accbc5120da5
+timeCreated: 1580089475
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Models/CollisionConvex/SM_Prop_HitchingPost_01_Convex.asset
+  uploadId: 751513

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7876eb16b31024b51a9f27f48cd2f024
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 319123
+  packageName: Stylized Critical Slash FX
+  packageVersion: 1.1
+  assetPath: Assets/CriticalVFX/StylizedCriticalSlashFX/Prefab/Slash/PS_Common_HIT_Explosion.prefab
+  uploadId: 776167

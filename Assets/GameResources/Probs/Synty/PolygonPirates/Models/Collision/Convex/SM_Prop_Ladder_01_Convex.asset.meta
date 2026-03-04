@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: aea6056f0d1654c459c44da7173500a3
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43707757731535146
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Prop_Ladder_01_Convex.asset
+  uploadId: 865072

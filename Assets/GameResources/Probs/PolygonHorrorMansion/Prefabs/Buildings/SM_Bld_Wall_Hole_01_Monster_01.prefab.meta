@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 72c67ddc9d8c5624c8d699caf7bdf3b7
+timeCreated: 1640144201
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Prefabs/Buildings/SM_Bld_Wall_Hole_01_Monster_01.prefab
+  uploadId: 756023

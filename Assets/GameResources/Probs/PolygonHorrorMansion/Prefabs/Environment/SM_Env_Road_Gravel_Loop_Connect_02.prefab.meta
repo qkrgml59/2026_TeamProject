@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 6ff9ca2fddfc3694dbacdfdb0fd14beb
+timeCreated: 1642453092
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Prefabs/Environment/SM_Env_Road_Gravel_Loop_Connect_02.prefab
+  uploadId: 756023

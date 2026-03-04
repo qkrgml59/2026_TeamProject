@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5ae75ef4f4ccf50489ef2c160c35e122
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43699262105586882
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Wep_Dagger_02_Convex.asset
+  uploadId: 865072

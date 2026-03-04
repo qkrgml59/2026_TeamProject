@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 2e3f2859e8e90eb4ebb560ab68c49d63
+timeCreated: 1639701881
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Prefabs/Props/SM_Prop_Serving_Trolley_01.prefab
+  uploadId: 756023

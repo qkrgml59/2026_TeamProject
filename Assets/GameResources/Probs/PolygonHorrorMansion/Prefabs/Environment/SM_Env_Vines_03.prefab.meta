@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 91769abb2a048eb44b92666b52645c10
+timeCreated: 1642469527
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Prefabs/Environment/SM_Env_Vines_03.prefab
+  uploadId: 756023

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: cb70b578d1fec1e4892024ee505eda1b
+timeCreated: 1496613711
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Prefabs/Environments/SM_Env_Rock_02.prefab
+  uploadId: 865072

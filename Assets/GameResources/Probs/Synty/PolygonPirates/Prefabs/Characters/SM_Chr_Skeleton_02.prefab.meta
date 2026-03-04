@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c2c0f67a5016e1448a02a52083dbe372
+timeCreated: 1545080177
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Prefabs/Characters/SM_Chr_Skeleton_02.prefab
+  uploadId: 865072

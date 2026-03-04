@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: df12a06ba20b4484d96f15fe0a7ff9e4
+timeCreated: 1493086165
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Prefabs/Environments/SM_Env_Fence_Post_01.prefab
+  uploadId: 735248

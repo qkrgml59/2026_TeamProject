@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fb0fc269003af974a96c22123cc6bea7
+timeCreated: 1493086159
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Prefabs/Buildings/SM_Bld_Block_Stairs_01.prefab
+  uploadId: 735248

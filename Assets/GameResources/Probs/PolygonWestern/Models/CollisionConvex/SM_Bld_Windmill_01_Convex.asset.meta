@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 8c692b61216824747a417e64df7063c6
+timeCreated: 1580097654
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Models/CollisionConvex/SM_Bld_Windmill_01_Convex.asset
+  uploadId: 751513

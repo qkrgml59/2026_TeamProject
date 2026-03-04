@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ff776c7548f78f04d8703a9d21ab5389
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43086126119198266
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Flag_Pirate_02_Convex.asset
+  uploadId: 865072

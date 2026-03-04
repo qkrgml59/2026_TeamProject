@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 91a56ed4bbd7cea42b402e691f87d555
+timeCreated: 1493257781
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Prefabs/Characters/Character_Ninja_Black.prefab
+  uploadId: 735248

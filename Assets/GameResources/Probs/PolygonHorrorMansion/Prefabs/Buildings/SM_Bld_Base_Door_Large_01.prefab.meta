@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 4358bb9c94cc4bf4198da2ad8d19089c
+timeCreated: 1635971174
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Prefabs/Buildings/SM_Bld_Base_Door_Large_01.prefab
+  uploadId: 756023

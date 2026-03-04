@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b8f15482c1461834ba4940cda5faeda2
+timeCreated: 1545008009
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Prefabs/Characters/FixedScaleCharacters/Character_Samurai_Warrior_Black_FixedScale.prefab
+  uploadId: 735248

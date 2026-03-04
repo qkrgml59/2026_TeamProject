@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: a210c7cdd0be0a340aba5ab44add0bb6
+timeCreated: 1580782782
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Models/ConvexCollisions/SM_Prop_Snow_Stone_Lantern_02_Convex
+    1.asset
+  uploadId: 735248

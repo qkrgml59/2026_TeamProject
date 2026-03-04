@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d13b08b90150e5842a2ab7c566c0ba2b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43824372219235506
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Prop_Crate_Cannonballs_01_Convex.asset
+  uploadId: 865072

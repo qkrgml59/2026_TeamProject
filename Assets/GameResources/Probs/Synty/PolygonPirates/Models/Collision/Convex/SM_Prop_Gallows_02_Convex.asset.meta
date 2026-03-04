@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c90ef4011f800834ba9b49cde7a3a49f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43199973370207930
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Prop_Gallows_02_Convex.asset
+  uploadId: 865072

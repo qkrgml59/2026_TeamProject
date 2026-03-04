@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 496bff5c12380e743b610d2716b2218a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43832592982258556
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Wep_Rapier_01_Sheath_Convex.asset
+  uploadId: 865072

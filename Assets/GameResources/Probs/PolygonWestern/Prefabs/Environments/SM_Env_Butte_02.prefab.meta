@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 4f93dd837a4f7a54bb95d10ec4233866
+timeCreated: 1519247608
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Environments/SM_Env_Butte_02.prefab
+  uploadId: 751513

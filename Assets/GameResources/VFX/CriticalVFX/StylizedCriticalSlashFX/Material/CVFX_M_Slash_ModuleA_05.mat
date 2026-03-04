@@ -1,0 +1,257 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8143344189891820536
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639247ca83abc874e893eb93af2b5e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 0
+--- !u!114 &-3088167342869067147
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 10
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CVFX_M_Slash_ModuleA_05
+  m_Shader: {fileID: -6465566751694194690, guid: 893aaf38128bb43f3848f9b657602cf4, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _DISSOLVETYPE_STEP
+  - _SURFACE_TYPE_TRANSPARENT
+  m_InvalidKeywords:
+  - Step
+  - _CUSTOM_01_A
+  - _CUSTOM_01_NONE
+  - _CUSTOM_01_UV_DISTORTION_INT
+  - _CUSTOM_01_UV_DISTORTION_INTENCITY
+  - _CUSTOM_1_X_UV_DISTORTION_INTENCITY
+  - _DISSOLVE_LOGIC_STEP
+  - _DISSOLVE_STYLE_STEP
+  - _ENUM_A
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    QUEUE: Transparent
+    RenderType: Transparent
+    ZWrite: Auto
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  - SHADOWCASTER
+  - DepthOnly
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _DissolveTex:
+        m_Texture: {fileID: 2800000, guid: 988c4ebaec137419b98c259ed8ba3160, type: 3}
+        m_Scale: {x: 0.5, y: 0.5}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionTex:
+        m_Texture: {fileID: 2800000, guid: f317f36fe048a4d4c94d5d8960e3b39d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GradTex:
+        m_Texture: {fileID: 2800000, guid: 0ec47f504834e4770abde4663ce0b8ef, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GradientTex:
+        m_Texture: {fileID: 2800000, guid: 0ec47f504834e4770abde4663ce0b8ef, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: c856a4d9603cd4012a114a023287568a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 2800000, guid: 6881953619a354ce89e0c1f08f289efb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NTexture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 2800000, guid: 988c4ebaec137419b98c259ed8ba3160, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_9e9a4b0cecc542a5bf03835f772dfdb0_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 369f9249d2f4e6a44a27cdab5748af1e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2D:
+        m_Texture: {fileID: 2800000, guid: ee31d6896d10f411fa95595196cbb59a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_a063db8d86e146fbaf84bf33a4817e96_Out_0_Texture2D:
+        m_Texture: {fileID: 2800000, guid: f7c50389eaef2264aa2d871601e29014, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaClip: 0
+    - _AlphaToMask: 0
+    - _BOOLEAN: 0
+    - _BUILTIN_AlphaClip: 0
+    - _BUILTIN_Blend: 0
+    - _BUILTIN_CullMode: 0
+    - _BUILTIN_DstBlend: 0
+    - _BUILTIN_QueueControl: -1
+    - _BUILTIN_QueueOffset: 0
+    - _BUILTIN_SrcBlend: 1
+    - _BUILTIN_Surface: 1
+    - _BUILTIN_ZTest: 4
+    - _BUILTIN_ZWrite: 0
+    - _BUILTIN_ZWriteControl: 0
+    - _Blend: 0
+    - _Boolean: 0
+    - _Brightness: 10
+    - _CUSTOM_01: 0
+    - _CUSTOM_1_X: 0
+    - _CastShadows: 0
+    - _Cull: 0
+    - _CustomData1_W_Index: 0
+    - _CustomData1_X_Index: 0
+    - _CustomData1_X_Value: 0
+    - _CustomData1_X_Value_1: 1
+    - _CustomData1_Y_Index: 0
+    - _CustomData1_Y_Value: 0
+    - _CustomData1_Z_Index: 0
+    - _CustomData1_w_Port: 0
+    - _CustomData1_x_Index: 1
+    - _CustomData1_x_Port: 3
+    - _CustomData1_y_Port: 0
+    - _CustomData1_z_Port: 0
+    - _CustomData2_W_Index: 0
+    - _CustomData2_X_Index: 0
+    - _CustomData2_Y_Index: 0
+    - _CustomData2_Z_Index: 0
+    - _CustomData2_w_Port: 0
+    - _CustomData2_x_Port: 0
+    - _CustomData2_y_Port: 0
+    - _CustomData2_z_Port: 0
+    - _CustomData_x_Port: 0
+    - _CustomPort_Index: 0
+    - _DISSOLVETYPE: 0
+    - _DISSOLVE_LOGIC: 0
+    - _DISSOLVE_STYLE: 0
+    - _D_Float: 2.32
+    - _Debug: 0
+    - _Debug_: 0.11
+    - _Debug_01: 0
+    - _Debug_1: 1
+    - _Dissolve_Intencity: 2
+    - _Dissolve_Intencity_Port: 0
+    - _Dissolve_UV_Channel: 0
+    - _DissoveTex_Offset_X: 5
+    - _DissoveTex_Offset_X_Port: 0
+    - _DissoveTex_Offset_Y: 6
+    - _DissoveTex_Offset_Y_Port: 0
+    - _DissoveTex_Tile_X_Port: 0
+    - _DissoveTex_Tile_Y_Port: 0
+    - _DistortionTex_Offset_X: 3
+    - _DistortionTex_Offset_X_Port: 0
+    - _DistortionTex_Offset_Y: 4
+    - _DistortionTex_Offset_Y_Port: 0
+    - _DistortionTex_Tile_X_Port: 0
+    - _DistortionTex_Tile_Y_Port: 0
+    - _Distortion_Intencity: 1
+    - _Distortion_Intencity_Port: 0
+    - _Distortion_UV_Channel: 0
+    - _DstBlend: 10
+    - _ENUM: 0
+    - _EdgeBrightness: 0
+    - _EdgeThinkness: 0
+    - _FadeDistance: 0
+    - _Float: 0
+    - _Intencity: 0.1
+    - _MainTex_Offset_X: 9
+    - _MainTex_Offset_X_Port: 0
+    - _MainTex_Offset_Y: 10
+    - _MainTex_Offset_Y_Port: 0
+    - _MainTex_Tile_X_Port: 0
+    - _MainTex_Tile_Y_Port: 0
+    - _MaskTex_Offset_X: 7
+    - _MaskTex_Offset_X_Port: 0
+    - _MaskTex_Offset_Y: 8
+    - _MaskTex_Offset_Y_Port: 0
+    - _MaskTex_Tile_X_Port: 0
+    - _MaskTex_Tile_Y_Port: 0
+    - _Mask_UV_Channel: 0
+    - _MyDropdown: 0
+    - _NoiseScale: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SmoothStep_Hardness: 1
+    - _SmoothStep_SoftEdge: 1
+    - _SrcBlend: 5
+    - _Step_EdgeBrightness: 0
+    - _Step_EdgeThinkness: 0
+    - _Surface: 1
+    - _UV_Channel_Index: 0
+    - _Use_DepthFade: 0
+    - _Use_Dissolve: 0
+    - _Use_Distortion: 0
+    - _Use_Face_Setting: 0
+    - _Use_Gradient: 0
+    - _Use_InsideBrightness: 1
+    - _Use_Mask: 1
+    - _Use_ScreenPos: 0
+    - _Use_SmoothStep: 0
+    - _Use_Twiril_Uv: 0
+    - _Use_TwoSideColor: 0
+    - _Use_Two_Color: 0
+    - _Use_VertexOffset: 0
+    - _ZTest: 4
+    - _ZWrite: 0
+    - _ZWriteControl: 0
+    m_Colors:
+    - _BackFace_Color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
+    - _Debug_02: {r: 0, g: 0, b: 0, a: 0}
+    - _Debug_02_1: {r: 0, g: 0, b: 0, a: 0}
+    - _DissolveTex_Speed: {r: 0, g: 0, b: 0, a: 0}
+    - _DistortionTex_Speed: {r: 0, g: 0, b: 0, a: 0}
+    - _EdgeColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FaceA_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _FaceB_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _FrontFace_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Speed: {r: 1, g: 0, b: 0, a: 0}
+    - _Step_EdgeColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Vector2: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

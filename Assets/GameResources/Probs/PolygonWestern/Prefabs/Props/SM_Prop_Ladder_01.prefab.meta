@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 77c71902fab40354db75b533794d3b4b
+timeCreated: 1519251970
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Props/SM_Prop_Ladder_01.prefab
+  uploadId: 751513

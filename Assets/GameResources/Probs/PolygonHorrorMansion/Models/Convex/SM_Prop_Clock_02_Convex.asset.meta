@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 40f220e71e6add247ac0182ddb79d32c
+timeCreated: 1644463093
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Models/Convex/SM_Prop_Clock_02_Convex.asset
+  uploadId: 756023

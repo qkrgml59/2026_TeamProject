@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: f25c27b7a1bf7b749aafe3e69b5fce44
+timeCreated: 1519247605
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Buildings/SM_Bld_Tower_01.prefab
+  uploadId: 751513

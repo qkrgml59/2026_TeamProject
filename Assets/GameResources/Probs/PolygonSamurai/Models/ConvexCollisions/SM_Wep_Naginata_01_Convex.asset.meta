@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 51a19614a1f22394da2dc94965a7c75e
+timeCreated: 1580695560
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Models/ConvexCollisions/SM_Wep_Naginata_01_Convex.asset
+  uploadId: 735248

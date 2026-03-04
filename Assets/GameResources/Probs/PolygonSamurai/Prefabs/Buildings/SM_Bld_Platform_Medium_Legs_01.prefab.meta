@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d40faffdf22b9d04a829934954090fb2
+timeCreated: 1493086159
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Prefabs/Buildings/SM_Bld_Platform_Medium_Legs_01.prefab
+  uploadId: 735248

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: eefec6c97afa8f648863a5a76d4bc695
+timeCreated: 1637185194
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Prefabs/Buildings/SM_Bld_Beam_01.prefab
+  uploadId: 756023

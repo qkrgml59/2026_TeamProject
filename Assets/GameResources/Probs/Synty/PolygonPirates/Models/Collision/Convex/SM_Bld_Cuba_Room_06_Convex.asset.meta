@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 663761ae1c88feb4493234cd3ed63c3c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43878348808800386
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Bld_Cuba_Room_06_Convex.asset
+  uploadId: 865072

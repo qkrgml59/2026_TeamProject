@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 5e3d175f3d5b8914cb1c010383991d6d
+timeCreated: 1518378830
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Materials/PolygonWestern_Material_02_B.mat
+  uploadId: 751513

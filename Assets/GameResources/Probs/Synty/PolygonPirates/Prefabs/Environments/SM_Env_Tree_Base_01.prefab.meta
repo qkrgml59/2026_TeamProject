@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 92bb6e2f8fc23254f8d299b6f2b7601c
+timeCreated: 1496613736
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Prefabs/Environments/SM_Env_Tree_Base_01.prefab
+  uploadId: 865072

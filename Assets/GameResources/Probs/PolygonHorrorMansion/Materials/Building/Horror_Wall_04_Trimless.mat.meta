@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ccb167da41fe9f04aa1230c4897e10f8
+timeCreated: 1635900409
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Materials/Building/Horror_Wall_04_Trimless.mat
+  uploadId: 756023

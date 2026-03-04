@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: cc1c9a0d59291dc40b70614d3816e2d9
+timeCreated: 1580094204
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Models/CollisionConvex/SM_Veh_Train_Coal_01_Convex
+    4.asset
+  uploadId: 751513

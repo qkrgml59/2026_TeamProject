@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9a56755269f2a9a4d8b1e97bc72936ef
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43898117691217726
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Env_PalmTree_Tall_01_Convex.asset
+  uploadId: 865072

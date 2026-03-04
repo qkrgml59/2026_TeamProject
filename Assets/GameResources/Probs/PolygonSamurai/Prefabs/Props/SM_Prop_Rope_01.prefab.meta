@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 313e81110a1b6e64f9df76e1107986d5
+timeCreated: 1493335666
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Prefabs/Props/SM_Prop_Rope_01.prefab
+  uploadId: 735248

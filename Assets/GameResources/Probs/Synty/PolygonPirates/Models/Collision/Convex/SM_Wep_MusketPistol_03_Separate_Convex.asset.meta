@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ae6ec3d3b5e16d54f9555a44dcd2631b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43870408770922732
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Wep_MusketPistol_03_Separate_Convex.asset
+  uploadId: 865072

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 3a0895ebb0cffec499dbfaa6ccbfa2f1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263418
+  packageName: UPixelator - Pixel Art Edge Highlights
+  packageVersion: 1.7.0
+  assetPath: Assets/Abiogenesis3d/Shared/SRP/PipelineAssets.cs
+  uploadId: 718288

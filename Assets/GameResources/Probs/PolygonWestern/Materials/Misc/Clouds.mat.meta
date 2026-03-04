@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e80f4bbad8923fc49b9bacc6eaa3ff95
+timeCreated: 1519274304
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Materials/Misc/Clouds.mat
+  uploadId: 751513

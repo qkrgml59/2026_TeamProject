@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 97d780cd24e029c479f4479908356198
+timeCreated: 1580695558
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Models/ConvexCollisions/SM_Wep_Odachi_01_Convex.asset
+  uploadId: 735248

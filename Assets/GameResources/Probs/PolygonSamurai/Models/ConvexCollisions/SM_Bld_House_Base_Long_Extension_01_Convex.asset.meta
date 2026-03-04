@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 91fb32ff662de9f4e99bbb945d2caa2e
+timeCreated: 1580777050
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Models/ConvexCollisions/SM_Bld_House_Base_Long_Extension_01_Convex.asset
+  uploadId: 735248

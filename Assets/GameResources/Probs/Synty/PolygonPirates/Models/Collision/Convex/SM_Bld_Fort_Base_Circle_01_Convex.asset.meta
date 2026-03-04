@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 261025544a64d89479bae912fc19601a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43691607781673098
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Bld_Fort_Base_Circle_01_Convex.asset
+  uploadId: 865072

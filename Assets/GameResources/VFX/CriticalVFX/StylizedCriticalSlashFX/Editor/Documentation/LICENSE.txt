@@ -1,0 +1,20 @@
+CriticalVFX Asset License Agreement
+Copyright (c) 2025 CriticalVFX. All rights reserved.
+
+This asset pack is licensed for use in interactive media projects such as video games, applications, virtual reality experiences, and simulations.
+
+✔ You are allowed to:
+- Use the assets in personal, commercial, or client projects.
+- Modify, combine, and adapt the assets for use within your own Unity project.
+- Distribute the final compiled application that includes these assets.
+
+✘ You are NOT allowed to:
+- Redistribute, repackage, or resell the asset files in their original or modified form.
+- Share or upload the raw asset files (including scripts, prefabs, shaders, textures, or meshes) outside of your compiled project.
+- Use the assets in any way that violates Unity’s EULA, Epic’s EULA, or applicable local laws.
+
+This license applies to all files included in this package, including but not limited to: shaders, scripts, textures, meshes, and prefabs.
+
+Created by: CriticalVFX  
+Website: https://luckycuky.notion.site/critical-vfx-main  
+Email: luckycuky@gmail.com

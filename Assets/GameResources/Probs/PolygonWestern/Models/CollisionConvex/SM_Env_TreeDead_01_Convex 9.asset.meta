@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 58d52129f7973be41b5dce885c407931
+timeCreated: 1580091734
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Models/CollisionConvex/SM_Env_TreeDead_01_Convex
+    9.asset
+  uploadId: 751513

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b7b1cbad7f5864442b1394f2c9a4cbfa
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43063097029998964
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Wep_Boarding_Spear_01_Convex.asset
+  uploadId: 865072

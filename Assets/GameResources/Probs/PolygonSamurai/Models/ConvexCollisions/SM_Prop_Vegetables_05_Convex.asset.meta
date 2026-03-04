@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e59b09f98e18e99419fcd81c532b03ab
+timeCreated: 1580695058
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Models/ConvexCollisions/SM_Prop_Vegetables_05_Convex.asset
+  uploadId: 735248

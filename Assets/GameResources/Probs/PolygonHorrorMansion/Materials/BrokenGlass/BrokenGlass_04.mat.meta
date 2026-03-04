@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: a82c0926a31c5f04a8bb90084212e29c
+timeCreated: 1635971297
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Materials/BrokenGlass/BrokenGlass_04.mat
+  uploadId: 756023

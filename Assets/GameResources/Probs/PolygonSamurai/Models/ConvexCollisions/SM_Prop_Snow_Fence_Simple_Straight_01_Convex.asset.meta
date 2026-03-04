@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 8542261c29a6c2c4f87e5ccc5f2bfa63
+timeCreated: 1580782952
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Models/ConvexCollisions/SM_Prop_Snow_Fence_Simple_Straight_01_Convex.asset
+  uploadId: 735248

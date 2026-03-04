@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bdba843079c59ec429328fed611dd78f
+timeCreated: 1493086168
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Prefabs/Buildings/SM_Bld_House_Base_Long_02.prefab
+  uploadId: 735248

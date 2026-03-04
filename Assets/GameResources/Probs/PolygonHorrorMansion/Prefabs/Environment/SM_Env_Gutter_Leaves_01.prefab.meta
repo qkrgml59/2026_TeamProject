@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b2a5eefc56300b4438d3a6e93a94dde1
+timeCreated: 1642648907
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Prefabs/Environment/SM_Env_Gutter_Leaves_01.prefab
+  uploadId: 756023

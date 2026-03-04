@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c38f5ee00c769ec428b30c9b716d2c2a
+timeCreated: 1635900409
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Materials/Building/Weatherboard_03.mat
+  uploadId: 756023

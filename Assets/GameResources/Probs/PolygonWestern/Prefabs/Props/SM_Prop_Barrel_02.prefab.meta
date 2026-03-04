@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 879a8d323fc98e145966106e9d2018a3
+timeCreated: 1519251969
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Props/SM_Prop_Barrel_02.prefab
+  uploadId: 751513

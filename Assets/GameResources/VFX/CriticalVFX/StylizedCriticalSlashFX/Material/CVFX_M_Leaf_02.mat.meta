@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: cdb8c99c9326c4bd1ae0728367c69d0e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 319123
+  packageName: Stylized Critical Slash FX
+  packageVersion: 1.1
+  assetPath: Assets/CriticalVFX/StylizedCriticalSlashFX/Material/CVFX_M_Leaf_02.mat
+  uploadId: 776167

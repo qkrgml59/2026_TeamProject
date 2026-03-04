@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ebd6d4be532a64a4fb0db99152cef81b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43207233153250500
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Wep_Cutlass_02_Sheath_Convex.asset
+  uploadId: 865072

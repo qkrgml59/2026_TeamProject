@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 74f19d50a5a376b46b7bf03c8dd91a3e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43696865267041568
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Wep_Axe_01_Convex.asset
+  uploadId: 865072

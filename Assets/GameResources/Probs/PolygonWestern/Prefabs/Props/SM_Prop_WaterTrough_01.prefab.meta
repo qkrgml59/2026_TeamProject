@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 0f717847f1d1fe44482d59cfb0032f30
+timeCreated: 1519251976
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Props/SM_Prop_WaterTrough_01.prefab
+  uploadId: 751513

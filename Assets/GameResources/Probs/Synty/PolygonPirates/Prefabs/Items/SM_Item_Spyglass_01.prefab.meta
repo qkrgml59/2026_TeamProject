@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bc4e7899a3ac03046a3077e0e6fee6e3
+timeCreated: 1496613729
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Prefabs/Items/SM_Item_Spyglass_01.prefab
+  uploadId: 865072

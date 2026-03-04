@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 26bcb744c345740498ec2eabdac147cb
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43772988673905698
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Prop_Skeleton_Ground_03_Convex.asset
+  uploadId: 865072

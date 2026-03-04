@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ac06555c9097c3b4b82084396456c1e2
+timeCreated: 1642550199
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Prefabs/Props/SM_Prop_BirdBath_01.prefab
+  uploadId: 756023

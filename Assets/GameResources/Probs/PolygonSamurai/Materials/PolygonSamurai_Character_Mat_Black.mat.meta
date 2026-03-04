@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 15462656d6ff7074ba33213741cb3a6d
+timeCreated: 1493249283
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Materials/PolygonSamurai_Character_Mat_Black.mat
+  uploadId: 735248

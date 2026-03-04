@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 6e214b38f8c825241ad38c3347435dea
+timeCreated: 1639701876
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Prefabs/Props/SM_Prop_Book_Pile_01.prefab
+  uploadId: 756023

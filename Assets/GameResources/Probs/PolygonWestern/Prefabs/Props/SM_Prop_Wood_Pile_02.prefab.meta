@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b6949799c3251354a8c142ed6624ca37
+timeCreated: 1519342401
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Props/SM_Prop_Wood_Pile_02.prefab
+  uploadId: 751513

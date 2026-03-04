@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e1f43bc2dcba7c64096fe743f4d345b7
+timeCreated: 1580094340
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Models/CollisionConvex/SM_Veh_Stagecoach_01_Convex.asset
+  uploadId: 751513

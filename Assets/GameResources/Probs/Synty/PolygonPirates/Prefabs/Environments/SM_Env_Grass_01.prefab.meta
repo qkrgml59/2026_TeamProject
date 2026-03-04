@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4e8a28d96f745674ea61218c6b1c2b0f
+timeCreated: 1496619478
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Prefabs/Environments/SM_Env_Grass_01.prefab
+  uploadId: 865072

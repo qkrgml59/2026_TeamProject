@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 752fcf42626533d43aafcb96a44cd868
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263418
+  packageName: UPixelator - Pixel Art Edge Highlights
+  packageVersion: 1.7.0
+  assetPath: Assets/Abiogenesis3d/PixelArtEdgeHighlights/Prefabs/PixelArtEdgeHighlights
+    - Canvas.prefab
+  uploadId: 718288

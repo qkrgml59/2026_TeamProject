@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 566ab655508602748ad1cb9bc147624d
+timeCreated: 1580702029
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Models/ConvexCollisions/SM_Bld_Castle_Roof_Large_01_Convex.asset
+  uploadId: 735248

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 5d828b280155912429aa717d34cd8879
+timeCreated: 1644543668
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Materials/Shaders/SyntyStudios_Ghost.shader
+  uploadId: 756023

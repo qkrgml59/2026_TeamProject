@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c43e16879b21a7c49a7f2c3559bbdc6b
+timeCreated: 1580695500
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Models/ConvexCollisions/SM_Prop_Bamboo_Pole_02_Convex.asset
+  uploadId: 735248

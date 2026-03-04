@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 689ad2c226fc04e7a84bf982dc66bf71
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 319123
+  packageName: Stylized Critical Slash FX
+  packageVersion: 1.1
+  assetPath: Assets/CriticalVFX/StylizedCriticalSlashFX/Material/CVFX_M_Slash_06.mat
+  uploadId: 776167

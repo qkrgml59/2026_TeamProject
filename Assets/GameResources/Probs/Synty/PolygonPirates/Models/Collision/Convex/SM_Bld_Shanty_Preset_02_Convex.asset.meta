@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4e40d021ee9db624fabdde7fa32cf996
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43599889235822622
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Bld_Shanty_Preset_02_Convex.asset
+  uploadId: 865072

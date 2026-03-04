@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4635bd33ee58fc342bdf2219cd38db35
+timeCreated: 1493088271
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Prefabs/Weapons/SM_Wep_Kunai_02.prefab
+  uploadId: 735248

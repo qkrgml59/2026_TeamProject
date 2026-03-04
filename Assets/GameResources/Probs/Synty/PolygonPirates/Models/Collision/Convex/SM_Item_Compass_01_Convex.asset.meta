@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8c3e69b71223a8846a9719f40a766055
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43368585514038602
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Item_Compass_01_Convex.asset
+  uploadId: 865072

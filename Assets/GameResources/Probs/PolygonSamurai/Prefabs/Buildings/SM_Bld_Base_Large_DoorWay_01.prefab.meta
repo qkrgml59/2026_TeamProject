@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 52be1bc5c78b5724f8ce76dcb760adb6
+timeCreated: 1493168439
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Prefabs/Buildings/SM_Bld_Base_Large_DoorWay_01.prefab
+  uploadId: 735248

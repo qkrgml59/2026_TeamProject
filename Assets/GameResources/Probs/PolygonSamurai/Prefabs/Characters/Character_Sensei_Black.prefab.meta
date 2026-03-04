@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c063fdc5dadc9e74f82a371b7668d3fb
+timeCreated: 1493257790
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Prefabs/Characters/Character_Sensei_Black.prefab
+  uploadId: 735248

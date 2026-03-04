@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 704d0f60cec9abb46a27d56dd767d714
+timeCreated: 1580096960
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Models/CollisionConvex/SM_Bld_Single_Facade_01_Convex
+    3.asset
+  uploadId: 751513

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 4122a30ddce69f6409cdffd06ad44ff4
+timeCreated: 1642976188
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Prefabs/Props/SM_Prop_Doily_04.prefab
+  uploadId: 756023

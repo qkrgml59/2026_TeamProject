@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 13070076aa5130d4898a7e77b777b7ae
+timeCreated: 1644463085
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Models/Convex/SM_Prop_Cat_Stuffed_01_Convex.asset
+  uploadId: 756023

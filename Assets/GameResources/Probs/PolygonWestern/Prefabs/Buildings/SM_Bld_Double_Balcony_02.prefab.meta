@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b0c4f6ce90b46ca4ab3bad8ee306dbdd
+timeCreated: 1519251514
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Buildings/SM_Bld_Double_Balcony_02.prefab
+  uploadId: 751513

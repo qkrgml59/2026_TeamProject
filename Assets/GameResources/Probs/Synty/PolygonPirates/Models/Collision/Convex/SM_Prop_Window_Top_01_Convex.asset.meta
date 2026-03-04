@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 73b79f86a3c8ea34b92e532fedec907c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43984930438952784
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Prop_Window_Top_01_Convex.asset
+  uploadId: 865072

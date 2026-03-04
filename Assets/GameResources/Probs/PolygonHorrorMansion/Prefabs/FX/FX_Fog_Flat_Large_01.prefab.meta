@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e5c5974c400b3fd49ad093ea5889a71d
+timeCreated: 1636000255
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Prefabs/FX/FX_Fog_Flat_Large_01.prefab
+  uploadId: 756023

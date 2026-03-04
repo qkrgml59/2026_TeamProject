@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2dfc6346f7b6a864b84248fa03117919
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43167947585834292
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Item_Candelabra_02_Convex.asset
+  uploadId: 865072

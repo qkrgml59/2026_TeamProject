@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6711eeb44f6e6224e8f32aa9eb75cd34
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43968487463883578
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Prop_Crane_01_Convex.asset
+  uploadId: 865072

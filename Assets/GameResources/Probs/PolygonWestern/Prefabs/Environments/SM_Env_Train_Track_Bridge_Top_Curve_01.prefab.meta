@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: be497f36d3699104384ba9458ca13c50
+timeCreated: 1519274047
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Environments/SM_Env_Train_Track_Bridge_Top_Curve_01.prefab
+  uploadId: 751513

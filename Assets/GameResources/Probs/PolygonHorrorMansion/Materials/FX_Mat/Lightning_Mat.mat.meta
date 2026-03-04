@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c42408e035a4b3b498fd4df7debabb45
+timeCreated: 1643686615
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Materials/FX_Mat/Lightning_Mat.mat
+  uploadId: 756023

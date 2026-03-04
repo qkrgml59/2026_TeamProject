@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: daa0c9bd295572040ba6851b7685f792
+timeCreated: 1580094663
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Models/CollisionConvex/SM_Env_Train_Track_Bridge_Top_Curve_01_Convex.asset
+  uploadId: 751513

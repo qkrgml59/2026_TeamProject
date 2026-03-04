@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 711622cd73e26a647b2d23387b1f05e0
+timeCreated: 1580089134
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Models/CollisionConvex/SM_Prop_Sack_01_Convex
+    1.asset
+  uploadId: 751513

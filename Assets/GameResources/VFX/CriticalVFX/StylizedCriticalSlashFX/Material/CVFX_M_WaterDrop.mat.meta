@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a40ebf79ce02c498d96bc0894a7a3aa6
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 319123
+  packageName: Stylized Critical Slash FX
+  packageVersion: 1.1
+  assetPath: Assets/CriticalVFX/StylizedCriticalSlashFX/Material/CVFX_M_WaterDrop.mat
+  uploadId: 776167

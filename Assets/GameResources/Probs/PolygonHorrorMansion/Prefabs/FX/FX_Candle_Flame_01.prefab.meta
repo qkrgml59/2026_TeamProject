@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 2b3e333d4c91c384abb604cc3e397ec7
+timeCreated: 1643747120
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Prefabs/FX/FX_Candle_Flame_01.prefab
+  uploadId: 756023

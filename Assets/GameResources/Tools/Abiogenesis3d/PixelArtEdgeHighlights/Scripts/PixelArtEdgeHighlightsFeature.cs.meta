@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: e66b92d6a08fd79428b644d1fa8d9096
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263418
+  packageName: UPixelator - Pixel Art Edge Highlights
+  packageVersion: 1.7.0
+  assetPath: Assets/Abiogenesis3d/PixelArtEdgeHighlights/Scripts/PixelArtEdgeHighlightsFeature.cs
+  uploadId: 718288

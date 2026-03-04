@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 131dcd67d4b5c9f418aacd1f6c9bf6f5
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43674570199233792
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Prop_Skeleton_Cage_01_Convex.asset
+  uploadId: 865072

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ccf55de84eef4c948be93ba16e3902ee
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43438026918548026
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Prop_Crate_Covered_01_Convex.asset
+  uploadId: 865072

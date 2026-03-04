@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: d504984c75fa0a94786b4c09c5a882d9
+timeCreated: 1644530109
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Models/Convex/SM_Bld_Basement_Entrance_01_Convex
+    2.asset
+  uploadId: 756023

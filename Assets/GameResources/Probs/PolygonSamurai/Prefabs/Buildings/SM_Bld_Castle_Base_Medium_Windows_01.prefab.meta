@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c99e183b05ec31f42a55046a66c275df
+timeCreated: 1493086676
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Prefabs/Buildings/SM_Bld_Castle_Base_Medium_Windows_01.prefab
+  uploadId: 735248

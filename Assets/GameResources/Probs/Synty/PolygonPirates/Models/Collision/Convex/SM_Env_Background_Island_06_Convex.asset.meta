@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b708636be28029b43a9f36dcb1a90b5f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43839224187138738
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Env_Background_Island_06_Convex.asset
+  uploadId: 865072

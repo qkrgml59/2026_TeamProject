@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3c80457fdcdd5c840a0bf5a9eb10e11f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43317621276508350
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Bld_Fort_Stairs_01_Convex.asset
+  uploadId: 865072

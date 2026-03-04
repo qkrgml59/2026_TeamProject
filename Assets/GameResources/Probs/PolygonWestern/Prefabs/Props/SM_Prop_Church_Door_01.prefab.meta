@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 823285b78361c5a47bec7cca0be04d51
+timeCreated: 1519247610
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Props/SM_Prop_Church_Door_01.prefab
+  uploadId: 751513

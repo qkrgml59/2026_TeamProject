@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: cbfc1637e3937074ba7c6044ab2c1519
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43652338148502932
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Item_Potion_01_Convex.asset
+  uploadId: 865072

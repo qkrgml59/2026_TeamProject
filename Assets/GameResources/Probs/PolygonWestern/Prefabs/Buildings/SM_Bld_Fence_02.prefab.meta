@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 14fe2334655920c41b766609db0e8e79
+timeCreated: 1519251517
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Buildings/SM_Bld_Fence_02.prefab
+  uploadId: 751513

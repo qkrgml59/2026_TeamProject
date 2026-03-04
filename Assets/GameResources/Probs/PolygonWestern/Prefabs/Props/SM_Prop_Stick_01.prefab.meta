@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d25bf43e410e882499ae00b4bd486c10
+timeCreated: 1519342392
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Props/SM_Prop_Stick_01.prefab
+  uploadId: 751513

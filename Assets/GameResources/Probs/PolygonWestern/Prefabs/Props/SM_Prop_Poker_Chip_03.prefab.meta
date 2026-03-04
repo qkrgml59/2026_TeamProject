@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 770ff24c76382354d81afa9b2a6db2b9
+timeCreated: 1519247613
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Props/SM_Prop_Poker_Chip_03.prefab
+  uploadId: 751513

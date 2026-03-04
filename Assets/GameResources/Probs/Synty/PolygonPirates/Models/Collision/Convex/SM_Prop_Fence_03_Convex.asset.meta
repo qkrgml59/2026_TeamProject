@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 32c144f30da6e914e842e1ca0bb642b7
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43318979718977942
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Prop_Fence_03_Convex.asset
+  uploadId: 865072

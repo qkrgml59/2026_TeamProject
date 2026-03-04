@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 1ea23c59a5477a441aec3d67dd6b0f1e
+timeCreated: 1635987821
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Materials/Shaders/GrungeRoofTile_02.mat
+  uploadId: 756023

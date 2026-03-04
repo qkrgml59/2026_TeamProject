@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 6e48720e2686baf4b9170b824aaedf0e
+timeCreated: 1519180900
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Props/SM_Prop_Vegetables_Box_04.prefab
+  uploadId: 751513

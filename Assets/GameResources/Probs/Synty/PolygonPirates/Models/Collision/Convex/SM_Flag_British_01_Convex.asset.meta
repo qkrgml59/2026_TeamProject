@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 51f42bf82c7d44b4587cb11515a90dd5
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43851908402899934
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Flag_British_01_Convex.asset
+  uploadId: 865072

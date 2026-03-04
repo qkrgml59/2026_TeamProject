@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b27658a1492d9bc4899f14519ff12fe3
+timeCreated: 1643077222
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Prefabs/Buildings/SM_Bld_Wall_Bench_Corner_01.prefab
+  uploadId: 756023

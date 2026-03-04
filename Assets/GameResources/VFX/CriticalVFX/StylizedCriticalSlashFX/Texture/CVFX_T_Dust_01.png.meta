@@ -1,0 +1,670 @@
+fileFormatVersion: 2
+guid: 7d1b0f60294a149f8acaa14b1c142c1a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1555546746525481228
+    second: Snow Dust_0
+  - first:
+      213: 3678577472816752580
+    second: Snow Dust_1
+  - first:
+      213: 6055496484877660074
+    second: Snow Dust_2
+  - first:
+      213: 4779719751055565841
+    second: Snow Dust_3
+  - first:
+      213: 5895978221476596400
+    second: Snow Dust_4
+  - first:
+      213: 7301085413908275845
+    second: Snow Dust_5
+  - first:
+      213: -2432766730327416205
+    second: Snow Dust_6
+  - first:
+      213: -2105809083430304343
+    second: Snow Dust_7
+  - first:
+      213: 2100811041376011787
+    second: Snow Dust_8
+  - first:
+      213: 215209274989118989
+    second: Snow Dust_9
+  - first:
+      213: -4450760756315032995
+    second: Snow Dust_10
+  - first:
+      213: 1935485031818233997
+    second: Snow Dust_11
+  - first:
+      213: -3158152305258028580
+    second: Snow Dust_12
+  - first:
+      213: -8793345761714192579
+    second: Snow Dust_13
+  - first:
+      213: 1792226206231654390
+    second: Snow Dust_14
+  - first:
+      213: 548285948743866609
+    second: Snow Dust_15
+  - first:
+      213: 1271858284103465235
+    second: Snow Dust_16
+  - first:
+      213: 6700729263342141300
+    second: Snow Dust_17
+  - first:
+      213: 2216316768383237250
+    second: Snow Dust_18
+  - first:
+      213: 7921660145826801424
+    second: Snow Dust_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Snow Dust_0
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 765
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c097a2a3689669510800000000000000
+      internalID: 1555546746525481228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Dust_1
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 763
+        width: 156
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c72ff9b8beec0330800000000000000
+      internalID: 3678577472816752580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Dust_2
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 704
+        width: 231
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaf62c738f1790450800000000000000
+      internalID: 6055496484877660074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Dust_3
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 611
+        width: 235
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 114e59f1ac9f45240800000000000000
+      internalID: 4779719751055565841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Dust_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 709
+        width: 45
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ba4d8644f8b2d150800000000000000
+      internalID: 5895978221476596400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Dust_5
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 708
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 582e9ca408aa25560800000000000000
+      internalID: 7301085413908275845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Dust_6
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 730
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37222715c831d3ed0800000000000000
+      internalID: -2432766730327416205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Dust_7
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 650
+        width: 40
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a58851bbc9a6c2e0800000000000000
+      internalID: -2105809083430304343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Dust_8
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 618
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b068f65f284972d10800000000000000
+      internalID: 2100811041376011787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Dust_9
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 628
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d06881402b39cf200800000000000000
+      internalID: 215209274989118989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Dust_10
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 498
+        width: 260
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d52f79b5ca8bb32c0800000000000000
+      internalID: -4450760756315032995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Dust_11
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 602
+        width: 63
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d888c9db1693cda10800000000000000
+      internalID: 1935485031818233997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Dust_12
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 543
+        width: 60
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd1a382063dfb24d0800000000000000
+      internalID: -3158152305258028580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Dust_13
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 389
+        width: 141
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3fb6dd6e92c7f580800000000000000
+      internalID: -8793345761714192579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Dust_14
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 143
+        width: 518
+        height: 488
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ff659b2d344fd810800000000000000
+      internalID: 1792226206231654390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Dust_15
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 416
+        width: 32
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f8573a5a27eb9700800000000000000
+      internalID: 548285948743866609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Dust_16
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 355
+        width: 66
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 319ff9cee5c86a110800000000000000
+      internalID: 1271858284103465235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Dust_17
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 317
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47fb29553c5cdfc50800000000000000
+      internalID: 6700729263342141300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Dust_18
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 273
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28c7939bb50f1ce10800000000000000
+      internalID: 2216316768383237250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Dust_19
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 123
+        width: 109
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 017206f8ee36fed60800000000000000
+      internalID: 7921660145826801424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Snow Dust_0: 1555546746525481228
+      Snow Dust_1: 3678577472816752580
+      Snow Dust_10: -4450760756315032995
+      Snow Dust_11: 1935485031818233997
+      Snow Dust_12: -3158152305258028580
+      Snow Dust_13: -8793345761714192579
+      Snow Dust_14: 1792226206231654390
+      Snow Dust_15: 548285948743866609
+      Snow Dust_16: 1271858284103465235
+      Snow Dust_17: 6700729263342141300
+      Snow Dust_18: 2216316768383237250
+      Snow Dust_19: 7921660145826801424
+      Snow Dust_2: 6055496484877660074
+      Snow Dust_3: 4779719751055565841
+      Snow Dust_4: 5895978221476596400
+      Snow Dust_5: 7301085413908275845
+      Snow Dust_6: -2432766730327416205
+      Snow Dust_7: -2105809083430304343
+      Snow Dust_8: 2100811041376011787
+      Snow Dust_9: 215209274989118989
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 319123
+  packageName: Stylized Critical Slash FX
+  packageVersion: 1.1
+  assetPath: Assets/CriticalVFX/StylizedCriticalSlashFX/Texture/CVFX_T_Dust_01.png
+  uploadId: 776167

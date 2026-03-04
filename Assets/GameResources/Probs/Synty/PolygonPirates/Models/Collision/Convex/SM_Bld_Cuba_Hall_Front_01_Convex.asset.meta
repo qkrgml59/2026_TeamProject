@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: cda007f40966f1e478921d0c26410a1f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43663360263256264
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Bld_Cuba_Hall_Front_01_Convex.asset
+  uploadId: 865072

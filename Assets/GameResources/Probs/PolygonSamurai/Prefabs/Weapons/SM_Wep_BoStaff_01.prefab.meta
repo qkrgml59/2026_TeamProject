@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e42a540304b70c642a220ce9574f7e60
+timeCreated: 1493086168
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Prefabs/Weapons/SM_Wep_BoStaff_01.prefab
+  uploadId: 735248

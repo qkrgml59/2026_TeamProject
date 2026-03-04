@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e97800b9d65860e46a9a6bf740dfeabe
+timeCreated: 1519172570
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Environments/SM_Env_DustPile_Small_02.prefab
+  uploadId: 751513

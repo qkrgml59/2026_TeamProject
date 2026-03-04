@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 6aa43cee182a20e4587aba4c27d6ba0e
+timeCreated: 1545008001
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Prefabs/Characters/FixedScaleCharacters/Character_Village_Man_White_FixedScale.prefab
+  uploadId: 735248

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 899ed5235046cbe449597b80d569ce50
+timeCreated: 1644463317
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Models/Convex/SM_Prop_Radio_01_Convex.asset
+  uploadId: 756023

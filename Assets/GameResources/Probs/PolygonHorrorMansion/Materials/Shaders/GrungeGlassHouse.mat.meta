@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: fe76afd7f87f27844905de0f209e063d
+timeCreated: 1635987821
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Materials/Shaders/GrungeGlassHouse.mat
+  uploadId: 756023

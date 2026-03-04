@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 81d43fafa19a14e74b4f5990fe978ee2
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 319123
+  packageName: Stylized Critical Slash FX
+  packageVersion: 1.1
+  assetPath: Assets/CriticalVFX/StylizedCriticalSlashFX/Material/CVFX_M_Slash_03_Dark.mat
+  uploadId: 776167

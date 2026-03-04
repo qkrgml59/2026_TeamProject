@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d1cb9d13f1c0f634785b3d2591b3a74e
+timeCreated: 1642379537
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Prefabs/Environment/SM_Env_Road_Gravel_Straight_01.prefab
+  uploadId: 756023

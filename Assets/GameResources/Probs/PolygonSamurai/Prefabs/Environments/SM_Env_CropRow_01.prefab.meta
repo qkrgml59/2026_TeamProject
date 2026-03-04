@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ce9e372b27f55164cb299747f469d6e5
+timeCreated: 1493086167
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Prefabs/Environments/SM_Env_CropRow_01.prefab
+  uploadId: 735248

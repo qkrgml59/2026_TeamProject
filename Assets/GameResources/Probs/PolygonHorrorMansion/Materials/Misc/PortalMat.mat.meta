@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 651c303327c02654998b2916ec077acf
+timeCreated: 1643330115
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Materials/Misc/PortalMat.mat
+  uploadId: 756023

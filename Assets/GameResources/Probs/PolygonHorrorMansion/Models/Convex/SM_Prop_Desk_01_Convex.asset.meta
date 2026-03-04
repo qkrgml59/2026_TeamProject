@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 98c363d62d3d44c4e963fd90919a0cd1
+timeCreated: 1644463175
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Models/Convex/SM_Prop_Desk_01_Convex.asset
+  uploadId: 756023

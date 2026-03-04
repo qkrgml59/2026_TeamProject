@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 1e4a515269a5cd24598d22bf3c9adb7a
+timeCreated: 1639001766
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Materials/Decals/Stain_Blood_01.mat
+  uploadId: 756023

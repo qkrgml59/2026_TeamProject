@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b10f5891c8ce12043beacb65b7ae5ce1
+timeCreated: 1644463265
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Models/Convex/SM_Prop_Kitchen_Pan_Rack_02_Convex.asset
+  uploadId: 756023

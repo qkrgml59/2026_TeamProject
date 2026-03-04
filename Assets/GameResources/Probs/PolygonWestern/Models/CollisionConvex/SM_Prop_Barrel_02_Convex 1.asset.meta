@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 7ad90e8c401acae4bb519ce903856230
+timeCreated: 1580085968
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Models/CollisionConvex/SM_Prop_Barrel_02_Convex
+    1.asset
+  uploadId: 751513

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b6b0764dbc9d8af47a9396cd3ed1f41a
+timeCreated: 1493086156
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Prefabs/Weapons/SM_Wep_Naginata_01.prefab
+  uploadId: 735248

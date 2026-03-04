@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 871faf4133b4805458c1fb7519aebc02
+timeCreated: 1580097722
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Models/CollisionConvex/SM_Prop_Water_Tower_01_Convex
+    2.asset
+  uploadId: 751513

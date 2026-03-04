@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d7d0124d2891240c0aa9dc350e509e84
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 319123
+  packageName: Stylized Critical Slash FX
+  packageVersion: 1.1
+  assetPath: Assets/CriticalVFX/StylizedCriticalSlashFX/Shader/CustomDataSelector.hlsl
+  uploadId: 776167

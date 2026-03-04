@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: eeae15084067db443bde9d74d1009041
+timeCreated: 1519247605
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Props/SM_Prop_Saloon_Swinging_Doors_01.prefab
+  uploadId: 751513

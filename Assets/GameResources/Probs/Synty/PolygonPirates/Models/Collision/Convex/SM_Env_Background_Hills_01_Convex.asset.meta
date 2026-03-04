@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d45dc3e184beb7f47a0c566ed732e798
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43568136983727582
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Env_Background_Hills_01_Convex.asset
+  uploadId: 865072

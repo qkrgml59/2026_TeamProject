@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: a11739727c632904488a970d42a3646d
+timeCreated: 1580090018
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Models/CollisionConvex/SM_Env_Butte_04_Convex
+    1.asset
+  uploadId: 751513

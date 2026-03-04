@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 79cb06eb2d3b7094a8726c78ff6ee177
+timeCreated: 1519334606
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Props/SM_Prop_Lantern_Lit_02.prefab
+  uploadId: 751513

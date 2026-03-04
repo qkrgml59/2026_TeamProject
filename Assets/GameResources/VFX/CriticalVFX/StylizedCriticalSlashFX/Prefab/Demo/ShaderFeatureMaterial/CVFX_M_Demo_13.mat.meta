@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bd03ec571c7964ad28f65c7d8430c3d8
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 319123
+  packageName: Stylized Critical Slash FX
+  packageVersion: 1.1
+  assetPath: Assets/CriticalVFX/StylizedCriticalSlashFX/Prefab/Demo/ShaderFeatureMaterial/CVFX_M_Demo_13.mat
+  uploadId: 776167

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e72121a7df4802c4ab486fd94cb370ed
+timeCreated: 1519102002
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Vehicles/SM_Veh_Stagecoach_01.prefab
+  uploadId: 751513

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: cd75b869c71e9e4428aefbd1aeea2195
+timeCreated: 1580086613
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Models/CollisionConvex/SM_Prop_Coffin_01_Convex.asset
+  uploadId: 751513

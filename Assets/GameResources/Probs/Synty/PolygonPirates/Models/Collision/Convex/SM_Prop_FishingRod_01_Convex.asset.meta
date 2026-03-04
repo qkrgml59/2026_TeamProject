@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a0b6c3401d588ac41a5014662016a05a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43431469001053006
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Prop_FishingRod_01_Convex.asset
+  uploadId: 865072

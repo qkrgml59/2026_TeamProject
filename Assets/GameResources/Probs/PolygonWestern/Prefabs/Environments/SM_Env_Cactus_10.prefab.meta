@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 3fa438ca35fecfb4185d1e1a79c06df5
+timeCreated: 1519252349
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Environments/SM_Env_Cactus_10.prefab
+  uploadId: 751513

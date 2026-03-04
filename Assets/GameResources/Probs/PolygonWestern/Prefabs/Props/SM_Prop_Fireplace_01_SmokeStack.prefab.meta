@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: faa463506ac0dcc48818b180dd502858
+timeCreated: 1519186444
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Props/SM_Prop_Fireplace_01_SmokeStack.prefab
+  uploadId: 751513

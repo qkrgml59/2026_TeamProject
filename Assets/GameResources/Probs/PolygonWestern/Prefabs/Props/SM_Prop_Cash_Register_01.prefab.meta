@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 8436ade1af7215243a097f79db2a91fb
+timeCreated: 1519180911
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Props/SM_Prop_Cash_Register_01.prefab
+  uploadId: 751513

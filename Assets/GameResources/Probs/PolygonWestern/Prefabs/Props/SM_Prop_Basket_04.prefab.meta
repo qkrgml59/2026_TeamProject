@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: fdc33394ad17377469a33f067c8841f2
+timeCreated: 1519342734
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Props/SM_Prop_Basket_04.prefab
+  uploadId: 751513

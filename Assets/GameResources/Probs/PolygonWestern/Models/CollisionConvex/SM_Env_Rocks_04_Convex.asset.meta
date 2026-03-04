@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 5b02b38f0e34cdb479d07775c52118cf
+timeCreated: 1580090310
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Models/CollisionConvex/SM_Env_Rocks_04_Convex.asset
+  uploadId: 751513

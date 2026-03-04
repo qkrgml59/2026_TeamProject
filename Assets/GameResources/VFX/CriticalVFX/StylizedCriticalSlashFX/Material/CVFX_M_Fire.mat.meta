@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f6d8d5a0bc04440d4bfe54e528b90a66
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 319123
+  packageName: Stylized Critical Slash FX
+  packageVersion: 1.1
+  assetPath: Assets/CriticalVFX/StylizedCriticalSlashFX/Material/CVFX_M_Fire.mat
+  uploadId: 776167

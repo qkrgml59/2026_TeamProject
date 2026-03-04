@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 6a9423230f356844f946f1383380588c
+timeCreated: 1580702069
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Models/ConvexCollisions/SM_Bld_Tower_01_Convex.asset
+  uploadId: 735248

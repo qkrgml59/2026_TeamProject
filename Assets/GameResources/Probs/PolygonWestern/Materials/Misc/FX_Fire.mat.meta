@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 257e6e00d4d8fbe4993e69e7a0bd96e8
+timeCreated: 1519260180
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Materials/Misc/FX_Fire.mat
+  uploadId: 751513

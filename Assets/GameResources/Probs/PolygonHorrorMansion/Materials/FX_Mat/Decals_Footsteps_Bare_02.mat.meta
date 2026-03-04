@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ab988d108028534429f63acd26df5b3e
+timeCreated: 1639001766
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Materials/FX_Mat/Decals_Footsteps_Bare_02.mat
+  uploadId: 756023

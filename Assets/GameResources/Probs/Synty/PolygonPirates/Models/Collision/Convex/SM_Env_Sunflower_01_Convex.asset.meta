@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a558f6e9a2cb2e0489ec08caa0665a4c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43744614863450206
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Env_Sunflower_01_Convex.asset
+  uploadId: 865072

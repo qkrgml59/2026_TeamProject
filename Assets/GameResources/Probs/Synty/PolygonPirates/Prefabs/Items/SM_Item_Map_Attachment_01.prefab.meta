@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0c45483e24d322143a7a00a5963dd20d
+timeCreated: 1496613716
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Prefabs/Items/SM_Item_Map_Attachment_01.prefab
+  uploadId: 865072

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 83a3f332d4b3e0245b9283e277e4ddec
+timeCreated: 1519252108
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Buildings/SM_Bld_Sign_07.prefab
+  uploadId: 751513

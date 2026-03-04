@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8a0b026eaaac0614f93a21abbe6db55c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43083380514277500
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Veh_Extra_Cargo_01_Convex.asset
+  uploadId: 865072

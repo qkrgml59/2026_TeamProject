@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 99484f3cde756bc499d5e931728f99b1
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43503890091952872
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Bld_Dock_01_Convex.asset
+  uploadId: 865072

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 7f3f6657f9489934db6cfd86eca34803
+timeCreated: 1519244967
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Environments/SM_Env_Rock_Alt_02.prefab
+  uploadId: 751513

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f6c00e695acbb8840a1c89ae0a7c750c
+timeCreated: 1504046361
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Prefabs/Weapons/SM_Wep_MusketPistol_DoubleBarrel_01_Separate.prefab
+  uploadId: 865072

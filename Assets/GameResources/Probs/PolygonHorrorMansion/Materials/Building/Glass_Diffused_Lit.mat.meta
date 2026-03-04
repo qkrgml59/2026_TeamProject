@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 337ad71d0de4c9347a8fffb077ce55da
+timeCreated: 1635971297
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Materials/Building/Glass_Diffused_Lit.mat
+  uploadId: 756023

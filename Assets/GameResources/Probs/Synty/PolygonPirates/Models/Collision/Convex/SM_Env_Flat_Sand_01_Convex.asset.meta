@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c9383ea7574f84a42b04b1ead554794f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43566445544197570
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Env_Flat_Sand_01_Convex.asset
+  uploadId: 865072

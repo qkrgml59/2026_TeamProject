@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 51bdc75939b5ec04fb4eed4337099b4a
+timeCreated: 1642379538
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Prefabs/Environment/SM_Env_Planter_Pot_01.prefab
+  uploadId: 756023

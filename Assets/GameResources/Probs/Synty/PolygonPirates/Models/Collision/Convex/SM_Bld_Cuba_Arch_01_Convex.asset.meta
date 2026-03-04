@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d5c7577c67801e147a789b67e262f71d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43884677686320988
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Bld_Cuba_Arch_01_Convex.asset
+  uploadId: 865072

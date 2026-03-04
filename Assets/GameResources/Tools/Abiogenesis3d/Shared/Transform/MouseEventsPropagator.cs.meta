@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 886c2bb5ab1cb994fbd8007c026de1e8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263418
+  packageName: UPixelator - Pixel Art Edge Highlights
+  packageVersion: 1.7.0
+  assetPath: Assets/Abiogenesis3d/Shared/Transform/MouseEventsPropagator.cs
+  uploadId: 718288

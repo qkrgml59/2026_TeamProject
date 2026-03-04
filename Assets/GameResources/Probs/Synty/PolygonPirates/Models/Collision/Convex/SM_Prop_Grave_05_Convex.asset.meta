@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 456730e2a3d154f4ba8edcf9f74f35b9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43688821274818308
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Prop_Grave_05_Convex.asset
+  uploadId: 865072

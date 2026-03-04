@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 3d52ec66d27ee224e8b89794093d1b60
+timeCreated: 1519180915
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Props/SM_Prop_Suitcase_02.prefab
+  uploadId: 751513

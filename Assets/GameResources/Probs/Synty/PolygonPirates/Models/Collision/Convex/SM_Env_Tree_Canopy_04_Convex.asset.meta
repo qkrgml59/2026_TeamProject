@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bfe7fb5323c806c43a43637131bba5ec
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43793403482365812
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Env_Tree_Canopy_04_Convex.asset
+  uploadId: 865072

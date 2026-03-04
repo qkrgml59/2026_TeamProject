@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 002e016d4a0f6b74b9526fdd3c98a52d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263418
+  packageName: UPixelator - Pixel Art Edge Highlights
+  packageVersion: 1.7.0
+  assetPath: Assets/Abiogenesis3d/Shared/Transform/LookAtCamera.cs
+  uploadId: 718288

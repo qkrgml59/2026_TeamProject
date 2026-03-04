@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bb255af77a215e4468fbcb741f7b6e33
+timeCreated: 1493086168
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Prefabs/Environments/SM_Env_PondEdge_01.prefab
+  uploadId: 735248

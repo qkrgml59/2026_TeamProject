@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4f73b810e123ce2429697e30436f43ba
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43346703716351174
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Bld_Rickety_Dock_Stairs_01_Convex.asset
+  uploadId: 865072

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: cdc7bbb4e411b524599a5a08883875ed
+timeCreated: 1635888168
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Materials/Building/RoofTar_01.mat
+  uploadId: 756023

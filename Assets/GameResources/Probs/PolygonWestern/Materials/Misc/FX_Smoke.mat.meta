@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ddb0ce61c50ae1240a797d47e4335357
+timeCreated: 1519247307
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Materials/Misc/FX_Smoke.mat
+  uploadId: 751513

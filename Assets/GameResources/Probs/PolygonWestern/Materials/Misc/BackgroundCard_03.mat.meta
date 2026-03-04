@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c74c49e41d195d54f917d854a17ab64c
+timeCreated: 1519338058
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Materials/Misc/BackgroundCard_03.mat
+  uploadId: 751513

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: a12f97abc99dfff4f97ca4f1e8234156
+timeCreated: 1636930075
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Prefabs/Props/SM_Prop_Lamp_02.prefab
+  uploadId: 756023

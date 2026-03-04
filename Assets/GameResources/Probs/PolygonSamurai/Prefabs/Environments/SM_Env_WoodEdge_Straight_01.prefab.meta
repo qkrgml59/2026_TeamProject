@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 83f8ea0ad890006469de7091d250ddae
+timeCreated: 1493086159
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Prefabs/Environments/SM_Env_WoodEdge_Straight_01.prefab
+  uploadId: 735248

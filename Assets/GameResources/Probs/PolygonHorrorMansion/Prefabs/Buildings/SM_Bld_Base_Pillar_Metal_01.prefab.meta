@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 7ecd72ea5b1bb6e4da0d67688695995a
+timeCreated: 1635971178
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Prefabs/Buildings/SM_Bld_Base_Pillar_Metal_01.prefab
+  uploadId: 756023

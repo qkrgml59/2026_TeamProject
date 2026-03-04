@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 9804c91b674b99d4eb2b8fa059505dd8
+timeCreated: 1635987821
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Materials/Shaders/GrungeWeatherboard_01.mat
+  uploadId: 756023

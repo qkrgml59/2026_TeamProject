@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 171a2c601e774044496e4a5da2819e9d
+timeCreated: 1493086159
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Prefabs/Environments/SM_Env_Tile_Zen_02.prefab
+  uploadId: 735248

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 28e6d559a2b0949419125f40858f77a1
+timeCreated: 1519076405
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Vehicles/SM_Veh_Train_Carriage_01.prefab
+  uploadId: 751513

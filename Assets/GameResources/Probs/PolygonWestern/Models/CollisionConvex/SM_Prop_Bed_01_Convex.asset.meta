@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 52f40831300adf542afa888088218d94
+timeCreated: 1580086347
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Models/CollisionConvex/SM_Prop_Bed_01_Convex.asset
+  uploadId: 751513

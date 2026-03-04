@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 8e2e460d565147a4ebdc3c70954aaba6
+timeCreated: 1545080201
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Prefabs/Characters/SM_Chr_Governors_Daughter_01.prefab
+  uploadId: 865072

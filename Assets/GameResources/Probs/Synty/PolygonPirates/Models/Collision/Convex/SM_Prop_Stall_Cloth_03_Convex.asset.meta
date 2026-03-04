@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e654347263523f9459420e1397b25182
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43069170645058948
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Prop_Stall_Cloth_03_Convex.asset
+  uploadId: 865072

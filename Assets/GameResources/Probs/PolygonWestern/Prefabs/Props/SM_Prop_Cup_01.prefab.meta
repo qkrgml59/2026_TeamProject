@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e3dc28775b6601d4db8b54c23e2cfcf7
+timeCreated: 1519247614
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Props/SM_Prop_Cup_01.prefab
+  uploadId: 751513

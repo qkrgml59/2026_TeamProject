@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 1120138232de71b48b06753f44105dc8
+timeCreated: 1638916061
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Prefabs/Props/SM_Prop_Curtain_03_Cracked_01.prefab
+  uploadId: 756023

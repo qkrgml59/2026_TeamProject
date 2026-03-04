@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c839110c71e5a75499554a6b86a81614
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43707744667422576
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Prop_Scrub_Mop_01_Convex.asset
+  uploadId: 865072

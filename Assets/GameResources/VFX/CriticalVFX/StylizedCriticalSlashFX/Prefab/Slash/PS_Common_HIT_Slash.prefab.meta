@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 74e1c5aad48c34449bd9c9cea9ac79dc
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 319123
+  packageName: Stylized Critical Slash FX
+  packageVersion: 1.1
+  assetPath: Assets/CriticalVFX/StylizedCriticalSlashFX/Prefab/Slash/PS_Common_HIT_Slash.prefab
+  uploadId: 776167

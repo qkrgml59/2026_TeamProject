@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 07f3497f6faf9db4e8cb2de991e2e01d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43386362564049006
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Prop_Barrel_05_Convex.asset
+  uploadId: 865072

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 300ea4afcc8afdd49b04afe55a8283f8
+timeCreated: 1580695562
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Models/ConvexCollisions/SM_Wep_JuMonjiYari_01_Convex.asset
+  uploadId: 735248

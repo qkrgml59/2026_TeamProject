@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: aeca04ee6720c3241a547d3db45c7f9e
+timeCreated: 1580097689
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Models/CollisionConvex/SM_Bld_Well_01_Convex.asset
+  uploadId: 751513

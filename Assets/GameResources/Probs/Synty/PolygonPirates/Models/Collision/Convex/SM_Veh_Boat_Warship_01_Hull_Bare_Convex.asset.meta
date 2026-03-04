@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 35401cee9df901b43a19c9318697b062
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 43069664533909888
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Models/Collision/Convex/SM_Veh_Boat_Warship_01_Hull_Bare_Convex.asset
+  uploadId: 865072

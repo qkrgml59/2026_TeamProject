@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c10e5ffecac64c7449e35eb0c82578eb
+timeCreated: 1496613717
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 92579
+  packageName: POLYGON - Pirate Pack - Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/Synty/PolygonPirates/Prefabs/Buildings/SM_Bld_Fort_Wall_02.prefab
+  uploadId: 865072

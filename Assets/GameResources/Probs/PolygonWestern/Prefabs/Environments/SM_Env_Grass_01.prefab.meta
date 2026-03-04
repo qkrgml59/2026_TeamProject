@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c933db8b77a3dbf41bbfbdf437dfaf8e
+timeCreated: 1519251540
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Environments/SM_Env_Grass_01.prefab
+  uploadId: 751513

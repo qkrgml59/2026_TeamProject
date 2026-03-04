@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 12aff56490e12b14f8962523daf449af
+timeCreated: 1636000285
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Materials/FX_Mat/FX_Additive_Circle_Soft_01.mat
+  uploadId: 756023

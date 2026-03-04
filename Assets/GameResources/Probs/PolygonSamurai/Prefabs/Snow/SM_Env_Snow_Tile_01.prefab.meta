@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5ec4ed7ba5ce9cf46b01569966de3bda
+timeCreated: 1493674828
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 89551
+  packageName: POLYGON Samurai - Low Poly 3D Art by Synty
+  packageVersion: 1.6.0
+  assetPath: Assets/PolygonSamurai/Prefabs/Snow/SM_Env_Snow_Tile_01.prefab
+  uploadId: 735248

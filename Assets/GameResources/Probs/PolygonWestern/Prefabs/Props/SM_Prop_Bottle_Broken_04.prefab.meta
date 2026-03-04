@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 7aa3b5b86753c6b41b8545e1743a3f13
+timeCreated: 1519247615
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 112212
+  packageName: POLYGON Western - Low Poly 3D Art by Synty
+  packageVersion: 1.1.3
+  assetPath: Assets/PolygonWestern/Prefabs/Props/SM_Prop_Bottle_Broken_04.prefab
+  uploadId: 751513

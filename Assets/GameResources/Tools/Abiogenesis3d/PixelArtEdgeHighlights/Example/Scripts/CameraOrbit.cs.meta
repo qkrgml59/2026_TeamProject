@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: f4ff695e38179824580c81854de554ec
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263418
+  packageName: UPixelator - Pixel Art Edge Highlights
+  packageVersion: 1.7.0
+  assetPath: Assets/Abiogenesis3d/PixelArtEdgeHighlights/Example/Scripts/CameraOrbit.cs
+  uploadId: 718288

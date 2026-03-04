@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 6a0196f02ae2a8f4a921a20fc4a79b77
+timeCreated: 1644463068
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213346
+  packageName: POLYGON Horror Mansion - Low Poly 3D Art by Synty
+  packageVersion: 1.7.6
+  assetPath: Assets/PolygonHorrorMansion/Models/Convex/SM_Prop_Bowl_02_Convex.asset
+  uploadId: 756023
