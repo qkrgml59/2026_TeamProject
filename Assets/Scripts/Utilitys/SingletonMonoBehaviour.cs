@@ -34,7 +34,7 @@ namespace Tools
             {
                 _instance = this as T;
 
-                if (dontDestroyOnLoad)
+                if (useDontDestroyOnLoad)
                     DontDestroyOnLoad(gameObject);
             }
             else if (_instance != this)
