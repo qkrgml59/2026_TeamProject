@@ -78,7 +78,7 @@ public abstract class UnitBase : MonoBehaviour, IDamageable
         if (dir.sqrMagnitude < 0.0001f) return;
 
         dir.Normalize();
-        transform.position += dir * statSet.MoveSpeed().Value * Time.deltaTime;
+        transform.position += dir * statSet.MoveSpeed.Value * Time.deltaTime;
         transform.forward = Vector3.Lerp(transform.forward, dir, 15f * Time.deltaTime);
     }
 

@@ -73,21 +73,21 @@ namespace Stat
                 return null;
         }
 
-        // Stat 반환 메서드
-        public Stat MaxHp() => Get(StatType.HealthPoint);                   // 최대 체력
-        public Stat AttackDamage() => Get(StatType.AttackDamage);           // 공격력
-        public Stat AbilityPower() => Get(StatType.AbilityPower);           // 주문력
-        public Stat AttackSpeed() => Get(StatType.AttackSpeed);             // 공격 속도
-        public Stat Defense() => Get(StatType.Defense);                     // 방어력
-        public Stat MagicResist() => Get(StatType.MagicResistance);         // 마법 저항력
-        public Stat ManaRegen() => Get(StatType.ManaRegeneration);          // 마나 재생
-        public Stat CritChance() => Get(StatType.CriticalChance);           // 치명타 확률
-        public Stat CritDamage() => Get(StatType.CriticalDamage);           // 치명타 데미지
-        public Stat DamageIncrease() => Get(StatType.DamageIncrease);       // 가하는 피해 증가
-        public Stat DamageReduction() => Get(StatType.DamageReduction);     // 받는 피해 감소
-        public Stat Omnivamp() => Get(StatType.Omnivamp);                   // 생명력 흡수
-        public Stat AttackRange() => Get(StatType.AttackRange);             // 공격 사거리
-        public Stat MoveSpeed() => Get(StatType.MoveSpeed);                 // 이동 속도
+        // Stat 반환
+        public Stat MaxHp => Get(StatType.HealthPoint);                   // 최대 체력
+        public Stat AttackDamage => Get(StatType.AttackDamage);           // 공격력
+        public Stat AbilityPower => Get(StatType.AbilityPower);           // 주문력
+        public Stat AttackSpeed => Get(StatType.AttackSpeed);             // 공격 속도
+        public Stat Defense => Get(StatType.Defense);                     // 방어력
+        public Stat MagicResist => Get(StatType.MagicResistance);         // 마법 저항력
+        public Stat ManaRegen => Get(StatType.ManaRegeneration);          // 마나 재생
+        public Stat CritChance => Get(StatType.CriticalChance);           // 치명타 확률
+        public Stat CritDamage => Get(StatType.CriticalDamage);           // 치명타 데미지
+        public Stat DamageIncrease => Get(StatType.DamageIncrease);       // 가하는 피해 증가
+        public Stat DamageReduction => Get(StatType.DamageReduction);     // 받는 피해 감소
+        public Stat Omnivamp => Get(StatType.Omnivamp);                   // 생명력 흡수
+        public Stat AttackRange => Get(StatType.AttackRange);             // 공격 사거리
+        public Stat MoveSpeed => Get(StatType.MoveSpeed);                 // 이동 속도
 
         #endregion
     }
