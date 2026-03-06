@@ -258,6 +258,8 @@ MonoBehaviour:
   useDontDestroyOnLoad: 1
   column: 7
   row: 8
+  tileSize: 2
+  DebugMode: 1
 --- !u!1 &1423211513
 GameObject:
   m_ObjectHideFlags: 0

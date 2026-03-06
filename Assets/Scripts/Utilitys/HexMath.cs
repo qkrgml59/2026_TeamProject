@@ -81,5 +81,15 @@ namespace Prototype.Grid
             return Distance(OffsetToCube(a), OffsetToCube(b));
         }
         #endregion
+
+        public static Vector3 GetWorldPosition(int col, int row, float tileSize)
+        {
+            float width = Mathf.Sqrt(3f) * tileSize;
+
+            float x = width * (col + 0.5f * (row & 1));
+            float z = tileSize * 1.5f * row;
+
+            return new Vector3(x, 0f, z);
+        }
     }
 }
