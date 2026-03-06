@@ -37,7 +37,19 @@ namespace Prototype.Grid
 
         private void GenerateGrid()
         {
-            map = new HexTile[7, 8];
+            if(column <= 0 || row <= 0)
+            {
+                Debug.LogWarning("올바르지 않은 그리드 크기 입니다.");
+                return;
+            }
+
+            if (tileSize <= 0)
+            {
+                Debug.LogWarning("타일 크기는 양수여야 합니다.");
+                return;
+            }
+
+            map = new HexTile[column, row];
 
             for (int col = 0; col < map.GetLength(0); col++)
                 for (int row = 0; row < map.GetLength(1); row++)
@@ -69,6 +81,8 @@ namespace Prototype.Grid
 
         private void OnDrawGizmos()
         {
+            if (tileSize <= 0) return;
+
             if (Application.isPlaying)
             {
                 if (DebugMode && map != null)
