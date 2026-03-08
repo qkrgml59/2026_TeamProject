@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Prototype.Grid
 {
-    public enum HexDirection
+    public enum HexDirectionType
     {
         Right,
         TopRight,
@@ -34,7 +34,8 @@ namespace Prototype.Grid
         /// <summary>
         /// Cube 좌표계에서의 특정 방향을 반환
         /// </summary>
-        public static Vector3Int GetCubeDirection(HexDirection dir) => CubeDirections[(int)dir];
+        public static Vector3Int GetCubeDirection(HexDirectionType dir) => CubeDirections[(int)dir];
+
         #endregion
 
         #region Coordinate Convert
@@ -76,7 +77,7 @@ namespace Prototype.Grid
         /// <summary>
         /// 두 위치간의 거리를 반환합니다.
         /// </summary>
-        public static int CubeDistance(Vector2Int a, Vector2Int b)
+        public static int Distance(Vector2Int a, Vector2Int b)
         {
             return Distance(OffsetToCube(a), OffsetToCube(b));
         }

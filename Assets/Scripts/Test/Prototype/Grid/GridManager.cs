@@ -66,6 +66,7 @@ namespace Prototype.Grid
                     obj.transform.SetParent(transform);
 
                     HexTile tile = obj.AddComponent<HexTile>();
+                    tile.offset = new Vector2Int(col, row);
                     tile.transform.position = transform.position + HexMath.GetWorldPosition(col, row, tileSize);
                     map[col, row] = tile;
                 }
@@ -86,6 +87,28 @@ namespace Prototype.Grid
                     map[col, row] = null;
                 }
         }
+
+        public bool IsInBounds(Vector2Int offset)
+        {
+            return offset.x >= 0 &&
+                   offset.x < map.GetLength(0) &&
+                   offset.y >= 0 &&
+                   offset.y < map.GetLength(1);
+        }
+
+        public HexTile GetTile(Vector2Int offset)
+        {
+            if (!IsInBounds(offset))
+                return null;
+
+            return map[offset.x, offset.y];
+        }
+
+        public HexTile GetTile(Vector3Int cube)
+        {
+            return GetTile(HexMath.CubeToOffset(cube));
+        }
+
 
         private void OnDrawGizmos()
         {
