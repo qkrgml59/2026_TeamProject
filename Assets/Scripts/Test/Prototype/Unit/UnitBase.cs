@@ -1,3 +1,4 @@
+using Prototype.Grid;
 using Stat;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,6 +28,13 @@ namespace Prototype.Unit
 
         [Header("타겟 정보")]
         [SerializeField] private UnitBase targetUnit;
+
+        // 타일 정보
+        public HexTile currentTile { get; private set; }
+        public HexTile nextTile { get; private set; }
+
+        // 길찾기 경로
+        List<HexTile> path;
 
 
         #region FSM

@@ -1,13 +1,18 @@
 using UnityEngine;
-using Tools;
+using Utilitys;
+using Prototype.Grid.Pathfind;
 
 namespace Prototype.Grid
 {
     /// <summary>
     /// 그리드를 관리하는 매니저입니다.
     /// </summary>
+    [RequireComponent(typeof(HexGridPathfinder))]
     public class GridManager : SingletonMonoBehaviour<GridManager>
     {
+        [Header("디버그 설정")]
+        public bool DebugMode = false;
+
         [Header("그리드 설정")]
         [SerializeField] private int column = 7;
         [SerializeField] private int row = 8;
@@ -16,12 +21,15 @@ namespace Prototype.Grid
         [Header("타일 설정")]
         [SerializeField] private float tileSize = 2f;
 
-        [Header("디버그 설정")]
-        public bool DebugMode = false;
+        [Header("패스파인더")]
+        public HexGridPathfinder pathfinder;
 
         void Start()
         {
             GridInit();
+
+            if(pathfinder == null)
+            pathfinder = GetComponent<HexGridPathfinder>();
         }
 
         /// <summary>

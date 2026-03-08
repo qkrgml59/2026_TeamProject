@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Tools
+namespace Utilitys
 {
     /// <summary>
     /// 모노 오브젝트를 싱글톤으로 설정 시켜주는 클래스입니다.
