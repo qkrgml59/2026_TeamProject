@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c00e679a6977c14bac762d745adb850, type: 3}
+  m_Name: Test Ranged Unit
+  m_EditorClassIdentifier: Assembly-CSharp::UnitStatSO
+  statsByStart:
+  - MaxHp: 700
+    AttackDamage: 32
+    AbilityPower: 0
+    AttackSpeed: 0.7
+    Defense: 30
+    MagicResistance: 30
+  - MaxHp: 1000
+    AttackDamage: 38
+    AbilityPower: 0
+    AttackSpeed: 0.7
+    Defense: 40
+    MagicResistance: 40
+  - MaxHp: 1700
+    AttackDamage: 45
+    AbilityPower: 0
+    AttackSpeed: 0.7
+    Defense: 50
+    MagicResistance: 50
+  Attack_Rage: 3
+  Move_Speed: 5
+  unitType: "\uC804\uC0AC/\uC554\uC0B4\uC790 \uAC19\uC740 \uBD84\uB958 \uC608\uC815"

@@ -91,7 +91,7 @@ namespace Prototype.Grid.Pathfind
             HexTile current = goal;
             result.Add(current);
 
-            while (current != start)
+            while (true)
             {
                 // 부모를 찾을 수 없는 경우 오류 반환
                 if (!parents.ContainsKey(current))
@@ -103,6 +103,10 @@ namespace Prototype.Grid.Pathfind
 
                 // 부모를 현재 타일로 설정
                 current = parents[current];
+
+                if (current == start)
+                    break;
+
                 result.Add(current);
             }
 

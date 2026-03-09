@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c00e679a6977c14bac762d745adb850, type: 3}
-  m_Name: Test Unit
+  m_Name: Test Melee Unit
   m_EditorClassIdentifier: Assembly-CSharp::UnitStatSO
   statsByStart:
   - MaxHp: 700
@@ -32,5 +32,5 @@ MonoBehaviour:
     Defense: 50
     MagicResistance: 50
   Attack_Rage: 1
-  Move_Speed: 1
+  Move_Speed: 5
   unitType: "\uC804\uC0AC/\uC554\uC0B4\uC790 \uAC19\uC740 \uBD84\uB958 \uC608\uC815"

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Prototype.Unit;
 
 namespace Prototype.Grid
 {
