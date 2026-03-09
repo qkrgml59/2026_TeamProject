@@ -35,7 +35,10 @@ namespace Utilitys
                 _instance = this as T;
 
                 if (useDontDestroyOnLoad)
-                    DontDestroyOnLoad(gameObject);
+                    if (transform.parent == null)
+                        DontDestroyOnLoad(gameObject);
+                    else
+                        Debug.LogWarning($"{typeof(T).Name}는 부모가 있어 DontDestroyOnLoad가 적용되지 않습니다.");
             }
             else if (_instance != this)
             {
