@@ -19,15 +19,33 @@ public class BattleManager : SingletonMonoBehaviour<BattleManager>
     public event Action OnBattleStart;
     public event Action OnBattleEnd;
 
-    public BattleState currentBattleState { get; private set; } = BattleState.Prepare; 
+    public BattleState currentBattleState { get; private set; } = BattleState.Prepare;
 
+    [ContextMenu("라운드 시작")]
+    public void RoundStart()
+    {
+        OnRoundStart?.Invoke();
+        currentBattleState = BattleState.Prepare;
+    }
+
+    [ContextMenu("라운드 종료")]
+    public void RoundEnd()
+    {
+        OnRoundEnd?.Invoke();
+        currentBattleState = BattleState.Prepare;
+    }
+
+    [ContextMenu("전투 시작")]
     public void BattleStart()
     {
         OnBattleStart?.Invoke();
+        currentBattleState = BattleState.Combat;
     }
 
+    [ContextMenu("전투 종료")]
     public void BattleEnd()
     {
         OnBattleEnd?.Invoke();
+        currentBattleState = BattleState.RoundEnd;
     }
 }
