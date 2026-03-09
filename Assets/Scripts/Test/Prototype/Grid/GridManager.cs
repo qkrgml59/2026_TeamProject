@@ -112,11 +112,11 @@ namespace Prototype.Grid
 
         private void OnDrawGizmos()
         {
-            if (tileSize <= 0) return;
+            if (tileSize <= 0 || !DebugMode) return;
 
             if (Application.isPlaying)
             {
-                if (DebugMode && map != null)
+                if (map != null)
                 {
                     for (int col = 0; col < map.GetLength(0); col++)
                         for (int row = 0; row < map.GetLength(1); row++)

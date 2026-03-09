@@ -21,7 +21,7 @@ public class StatByStar
     [Header("최대 체력")] public float MaxHp;
     [Header("공격력")] public float AttackDamage;
     [Header("주문력 (기본 0)")] public float AbilityPower;
-    [Header("공격 속도")] public float AttackSpeed;
+    [Header("(초당) 공격 속도")] public float AttackSpeed;
     [Header("방어력")] public float Defense;
     [Header("마법 저항력")] public float MagicResistance;
 }

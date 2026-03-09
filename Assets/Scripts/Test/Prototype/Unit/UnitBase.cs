@@ -19,7 +19,7 @@ namespace Prototype.Unit
         [Header("스텟 정보")]
         [SerializeField] private UnitStatSO unitStatData;
         public StatSet statSet { get; private set; }
-        private float currentHp = 0;
+        [SerializeField] private float currentHp = 0;
 
         [Header("FSM 정보")]
         [SerializeField] private UnitStateType currentUnitState = UnitStateType.Null;
@@ -66,6 +66,18 @@ namespace Prototype.Unit
         }
         #endregion
 
+        #region Physics
+
+        // 컴포넌트
+        Rigidbody _rigidbody;
+
+        public void MoveToTile(Vector3 dir)
+        {
+            _rigidbody.linearVelocity = dir * statSet.MoveSpeed.Value;
+        }
+
+        #endregion
+
         public virtual void ApplyDamage(float amount)
         {
             if (amount < 0) return;
@@ -102,6 +114,7 @@ namespace Prototype.Unit
         {
             // 아이템 등의 효과 초기화(또는 재적용)
             currentHp = statSet.MaxHp.Value;
+            ChangeUnitState(UnitStateType.Idle);
         }
 
         void OnRoundEnd()
@@ -117,23 +130,29 @@ namespace Prototype.Unit
             FSMInit();
 
             if(unitStatData != null)
-                statSet.SetStatByStar(unitStatData, 0);
+                statSet = new StatSet(unitStatData);
         }
 
         private void Start()
         {
             BattleManager.Instance.OnRoundStart += OnRoundStart;
             BattleManager.Instance.OnRoundEnd += OnRoundEnd;
+
+            // 아이템 등의 효과 초기화(또는 재적용)
+            currentHp = statSet.MaxHp.Value;
+            ChangeUnitState(UnitStateType.Idle);
         }
 
         private void Update()
         {
-            
+            if(BattleManager.Instance.currentBattleState == BattleState.Combat)
+                currentFSM?.StateUpdate();
         }
 
         private void FixedUpdate()
         {
-            
+            if (BattleManager.Instance.currentBattleState == BattleState.Combat)
+                currentFSM?.StateFixedUpdate();
         }
 
         private void OnEnable()
