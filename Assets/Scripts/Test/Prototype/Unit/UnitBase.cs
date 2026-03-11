@@ -78,6 +78,8 @@ namespace Prototype.Unit
 
         public void UpdatePathMovement()
         {
+            EnterTile(path[curPathIndex]);
+
             if (path.Count == 0 || curPathIndex >= path.Count)
             {
                 ClaerPath();
@@ -90,8 +92,6 @@ namespace Prototype.Unit
             // 목표 타일에 가까워졌다면
             if(Vector3.Distance(transform.position, path[curPathIndex].transform.position) < 0.1f)
             {
-                EnterTile(path[curPathIndex]);
-
                 curPathIndex++;
 
                 ChangeUnitState(UnitStateType.Think);
