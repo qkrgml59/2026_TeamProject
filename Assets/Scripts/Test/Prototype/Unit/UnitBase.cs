@@ -20,7 +20,7 @@ namespace Prototype.Unit
         [Header("스텟 정보")]
         [SerializeField] private UnitStatSO unitStatData;
         public StatSet statSet { get; private set; }
-        [SerializeField] private float currentHp = 0;
+        public float currentHp { get; private set; } = 0;
 
         [Header("FSM 정보")]
         [SerializeField] private UnitStateType currentUnitState = UnitStateType.Null;

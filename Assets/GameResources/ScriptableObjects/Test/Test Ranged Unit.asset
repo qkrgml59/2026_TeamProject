@@ -13,20 +13,20 @@ MonoBehaviour:
   m_Name: Test Ranged Unit
   m_EditorClassIdentifier: Assembly-CSharp::UnitStatSO
   statsByStart:
-  - MaxHp: 700
-    AttackDamage: 32
+  - MaxHp: 400
+    AttackDamage: 38
     AbilityPower: 0
     AttackSpeed: 0.7
     Defense: 30
     MagicResistance: 30
-  - MaxHp: 1000
-    AttackDamage: 38
+  - MaxHp: 900
+    AttackDamage: 42
     AbilityPower: 0
     AttackSpeed: 0.7
     Defense: 40
     MagicResistance: 40
-  - MaxHp: 1700
-    AttackDamage: 45
+  - MaxHp: 1200
+    AttackDamage: 50
     AbilityPower: 0
     AttackSpeed: 0.7
     Defense: 50
