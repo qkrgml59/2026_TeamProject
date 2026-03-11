@@ -7,30 +7,41 @@ public class TestEnemyPlacer : MonoBehaviour
 {
     public UnitBase meleeUnit;
     public UnitBase rangedUnit;
-    public List<Vector2Int> offsetList = new(); 
+    public int enemyCount = 2;
 
     private const TeamType teamType = TeamType.Enemy;
 
+    void Start()
+    {
+        Place();
+    }
 
     [ContextMenu("유닛 배치")]
     public void Place()
     {
         if(rangedUnit == null || meleeUnit == null) return;
 
-        foreach(Vector2Int offset in offsetList)
-        {
-            if (!GridManager.Instance.IsInBounds(offset)) return;
+        int colSize = GridManager.Instance.map.GetLength(0);
+        int rowMax = GridManager.Instance.map.GetLength(1);
+        int rowMin = rowMax / 2;
 
+
+        for (int i = 0; i < enemyCount;)
+        {
+            int randCol = Random.Range(0, colSize + 1);
+            int randRow = Random.Range(rowMin, rowMax + 1);
+            Vector2Int offset = new Vector2Int(randCol, randRow);
+            
             HexTile targetTile = GridManager.Instance.GetTile(offset);
 
             if (targetTile != null && targetTile.CanEnter())
             {
-                int rand = Random.Range(0, 2);
-                UnitBase target = Instantiate(rand == 0 ? meleeUnit : rangedUnit, targetTile.transform.position, Quaternion.identity);
+                UnitBase target = Instantiate(randRow < rowMin + 2? meleeUnit : rangedUnit, targetTile.transform.position, Quaternion.identity);
                 target.team = teamType;
                 targetTile.EnterTile(target);
                 target.EnterTile(targetTile);
                 UnitManager.Instance.RegisterUnit(target);
+                i++;
             }
         }
 

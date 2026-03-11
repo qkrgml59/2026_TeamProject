@@ -16,7 +16,7 @@ namespace Prototype.Grid
         [Header("그리드 설정")]
         [SerializeField] private int column = 7;
         [SerializeField] private int row = 8;
-        private HexTile[,] map;
+        public HexTile[,] map { get; private set; }
 
         [Header("타일 설정")]
         [SerializeField] private float tileSize = 2f;

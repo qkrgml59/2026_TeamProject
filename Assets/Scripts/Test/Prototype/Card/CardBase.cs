@@ -65,16 +65,17 @@ public class CardBase : MonoBehaviour , IPointerEnterHandler, IPointerExitHandle
 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            ITile tile = hit.transform.GetComponent<ITile>();
+            HexTile tile = hit.transform.GetComponent<HexTile>();
 
             if(tile != null)
             {
                 // 일단 중복 설치 방지
                 if(tile.CanEnter())
                 {
-                    UnitBase unit = Instantiate(unitPrefab, hit.transform.position, Quaternion.identity);
-                    tile.EnterTile(unit);
+                    UnitBase unit = Instantiate(unitPrefab, tile.transform.position, Quaternion.identity);
                     unit.team = TeamType.Ally;
+                    tile.EnterTile(unit);
+                    unit.EnterTile(tile);
                     UnitManager.Instance.RegisterUnit(unit);
                     Destroy(gameObject);
                     return;
