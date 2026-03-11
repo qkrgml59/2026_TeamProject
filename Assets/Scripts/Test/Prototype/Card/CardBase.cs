@@ -1,0 +1,90 @@
+using Prototype.Grid;
+using Prototype.Unit;
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class CardBase : MonoBehaviour , IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler , IDragHandler, IBeginDragHandler, IEndDragHandler
+{
+    public UnitBase unitPrefab;
+    [SerializeField] private RectTransform rectTransform;
+
+    private Vector2 _originAnchoredPos;
+
+    void Awake()
+    {
+        if(rectTransform == null)
+            rectTransform = GetComponent<RectTransform>();
+    }
+
+    #region Hover Event
+    // 마우스가 카드 위에 올라옴
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Debug.Log("마우스 올라옴");
+        rectTransform.localScale = Vector2.one * 1.1f;
+    }
+
+    // 마우스가 카드를 벗어남
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Debug.Log("마우스 내려감");
+        rectTransform.localScale = Vector2.one;
+    }
+
+    #endregion
+
+    // 마우스 클릭
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Debug.Log("클릭!");
+    }
+
+    #region Drag Event
+
+    // 드래그 시작
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        Debug.Log("드래그 시작");
+        _originAnchoredPos = rectTransform.anchoredPosition;
+    }
+
+    // 드래그 중
+    public void OnDrag(PointerEventData eventData)
+    {
+        Vector3 mousePos = eventData.position;
+        rectTransform.position = mousePos;
+    }
+
+    // 드래그 종료
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        Debug.Log("드래그 종료");
+
+
+        Ray ray = Camera.main.ScreenPointToRay(eventData.position);
+
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            ITile tile = hit.transform.GetComponent<ITile>();
+
+            if(tile != null)
+            {
+                // 일단 중복 설치 방지
+                if(tile.CanEnter())
+                {
+                    UnitBase unit = Instantiate(unitPrefab, hit.transform.position, Quaternion.identity);
+                    tile.EnterTile(unit);
+                    unit.team = TeamType.Ally;
+                    UnitManager.Instance.RegisterUnit(unit);
+                    Destroy(gameObject);
+                    return;
+                }
+            }
+        }
+
+        // 타일(또는 다른 상호작용 공간)이 아니라면 돌아가기
+        rectTransform.anchoredPosition = _originAnchoredPos;
+    }
+
+    #endregion
+}

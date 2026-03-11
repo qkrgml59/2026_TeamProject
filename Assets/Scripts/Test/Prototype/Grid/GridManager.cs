@@ -65,6 +65,10 @@ namespace Prototype.Grid
                     GameObject obj = new GameObject($"HexTile [{col}, {row}]");
                     obj.transform.SetParent(transform);
 
+                    BoxCollider collider = obj.AddComponent<BoxCollider>();
+                    collider.size = new Vector3(3, 0.1f, 3);
+                    collider.isTrigger = true;
+
                     HexTile tile = obj.AddComponent<HexTile>();
                     tile.offset = new Vector2Int(col, row);
                     tile.transform.position = transform.position + HexMath.GetWorldPosition(col, row, tileSize);
