@@ -1,9 +1,10 @@
 using Prototype.Grid;
 using Stat;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using UnityEngine.Events;
+using static UnityEngine.GraphicsBuffer;
 
 namespace Prototype.Unit
 {
@@ -80,14 +81,14 @@ namespace Prototype.Unit
 
         public void UpdatePathMovement()
         {
-            EnterTile(path[curPathIndex]);
-
-            if (path.Count == 0 || curPathIndex >= path.Count)
+            if (path.Count == 0 || curPathIndex >= path.Count || !currentTile.CanEnter(this))
             {
                 ClaerPath();
                 ChangeUnitState(UnitStateType.Think);
                 return;
             }
+
+            EnterTile(path[curPathIndex]);
 
             MoveToTile(path[curPathIndex]);
 
@@ -132,12 +133,19 @@ namespace Prototype.Unit
             // 방어력, 피해 감소 등 계산
             // 프로토타입에서는 생략
 
+            // 일단 바로 사망 처리
             if (currentHp - amount < 0)
-                amount = currentHp;
+            {
+                ChangeUnitState(UnitStateType.Dead);
+                unitEvents.OnDead?.Invoke(this);
+                return;
+            }
 
             currentHp -= amount;
 
             Debug.Log($"[{gameObject.name}] -{amount} 데미지", this);
+
+            unitEvents.OnHpChanged?.Invoke(currentHp, statSet.MaxHp.Value);
         }
 
         public void ApplyHeal(float amount)
@@ -153,16 +161,8 @@ namespace Prototype.Unit
             currentHp += amount;
 
             Debug.Log($"[{gameObject.name}] +{amount} 회복", this);
-        }
 
-        public void SetTargetUnit(UnitBase newTarget)
-        {
-            if(newTarget == null) return;
-            Debug.Log($"[{name}] 공격 대상 변경 ({newTarget.transform.name})");
-            targetUnit = newTarget;
-
-            // 이동 경로 초기화
-            ClaerPath();
+            unitEvents.OnHpChanged?.Invoke(currentHp, statSet.MaxHp.Value);
         }
 
         #endregion
@@ -189,6 +189,17 @@ namespace Prototype.Unit
         void OnBattleEnd()
         {
 
+        }
+
+        public void RemoveEventListener()
+        {
+            BattleManager.Instance.OnRoundStart -= OnRoundStart;
+            BattleManager.Instance.OnRoundEnd -= OnRoundEnd;
+            BattleManager.Instance.OnBattleStart -= OnBattleStart;
+            BattleManager.Instance.OnBattleEnd -= OnBattleEnd;
+
+            if (targetUnit != null)
+                targetUnit.unitEvents.OnDead.RemoveListener(OnTargetDead);
         }
 
         #endregion
@@ -240,14 +251,37 @@ namespace Prototype.Unit
 
         private void OnDestroy()
         {
-            BattleManager.Instance.OnRoundStart -= OnRoundStart;
-            BattleManager.Instance.OnRoundEnd -= OnRoundEnd;
-            BattleManager.Instance.OnBattleStart -= OnBattleStart;
-            BattleManager.Instance.OnBattleEnd -= OnBattleEnd;
+            RemoveEventListener();
         }
         #endregion
 
         #region Search Method
+
+        public void SetTargetUnit(UnitBase newTarget)
+        {
+            if (newTarget == null || newTarget == targetUnit) return;
+
+            targetUnit?.unitEvents.OnDead.RemoveListener(OnTargetDead);
+
+            targetUnit = newTarget;
+            newTarget.unitEvents.OnDead.AddListener(OnTargetDead);
+
+            // 이동 경로 초기화
+            ClaerPath();
+
+            Debug.Log($"[{name}] 공격 대상 변경 ({newTarget.transform.name})");
+        }
+
+        private void OnTargetDead(UnitBase deadUnit)
+        {
+            if (targetUnit != deadUnit)
+                return;
+
+            targetUnit = null;
+            ChangeUnitState(UnitStateType.Think);
+            deadUnit.unitEvents.OnDead.RemoveListener(OnTargetDead);
+        }
+
         public UnitBase GetNearestEnemy()
         {
             var enemies = UnitManager.Instance.GetAliveEnemies(team);
@@ -307,7 +341,7 @@ namespace Prototype.Unit
         public void EnterTile(HexTile nextTile)
         {
             currentTile?.ExitTile(this);
-            nextTile.EnterTile(this);
+            nextTile?.EnterTile(this);
             currentTile = nextTile;
         }
 

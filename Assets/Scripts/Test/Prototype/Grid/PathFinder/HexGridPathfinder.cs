@@ -64,7 +64,7 @@ namespace Prototype.Grid.Pathfind
                     HexTile neighbor = GridManager.Instance.GetTile(cubeCoord + neighborDir);
 
                     if (neighbor == null) continue;
-                    if (!neighbor.CanEnter()&& neighbor != goal) continue;
+                    if (!neighbor.CanEnter(null)&& neighbor != goal) continue;
                     if (closed.Contains(neighbor)) continue;
 
                     int cost = gCost[current] + GetMoveCost(current, neighbor);
@@ -136,7 +136,7 @@ namespace Prototype.Grid.Pathfind
             // 현재 타일 이후로 검사
             for (int i = currentIndex + 1; i < path.Count; i++)
             {
-                if (!path[i].CanEnter())
+                if (!path[i].CanEnter(null))
                     return false;
             }
 

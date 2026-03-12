@@ -71,7 +71,7 @@ public class CardBase : MonoBehaviour , IPointerEnterHandler, IPointerExitHandle
             if(tile != null)
             {
                 // 일단 중복 설치 방지
-                if(tile.CanEnter())
+                if(tile.CanEnter(null))
                 {
                     UnitBase unit = Instantiate(unitPrefab, tile.transform.position, Quaternion.identity);
                     unit.team = TeamType.Ally;

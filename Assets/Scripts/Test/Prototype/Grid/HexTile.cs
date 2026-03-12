@@ -12,10 +12,10 @@ namespace Prototype.Grid
 
         public UnitBase OccupantUnit { get; private set; }
 
-        public bool CanEnter()
+        public bool CanEnter(UnitBase unit)
         {
             // TODO: 접근 불가능한 조건이 있다면 여기에 추가
-            return OccupantUnit == null;
+            return OccupantUnit == null || OccupantUnit == unit;
         }
 
         public void EnterTile(UnitBase unit)

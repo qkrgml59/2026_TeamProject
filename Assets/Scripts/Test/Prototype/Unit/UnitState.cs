@@ -175,11 +175,20 @@ namespace Prototype.Unit
 
         public void StateUpdate()
         {
+            if(_unit.targetUnit == null ||
+                HexMath.Distance(_unit.targetUnit.currentTile.offset, _unit.currentTile.offset) > _unit.statSet.AttackRange.Value)
+            {
+                // 적이 없거나 멀어진 경우
+                _unit.ChangeUnitState(UnitStateType.Think);
+            }
+
             interval += Time.deltaTime;
             if(interval >= _unit.statSet.AttackSpeed.Value)
             {
                 Debug.Log($"[{_unit.name}] 공격!");
                 interval = 0;
+
+                _unit.targetUnit?.ApplyDamage(_unit.statSet.AttackDamage.Value);
             }
         }
 
@@ -208,6 +217,8 @@ namespace Prototype.Unit
             _unit.gameObject.SetActive(false);
             _unit.ClaerPath();
             _unit.EnterTile(null);      // 위치했던 타일 제거
+            _unit.RemoveEventListener();
+            UnitManager.Instance.UnregisterUnit(_unit);
         }
 
         public void StateUpdate()

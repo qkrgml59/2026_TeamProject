@@ -23,6 +23,7 @@ namespace Prototype.UI
 
             // 이벤트 등록
             _Unit.unitEvents.OnHpChanged.AddListener(UpdateHp);
+            _Unit.unitEvents.OnDead.AddListener(DeadUnit);
         }
 
         private void Update()
@@ -56,9 +57,14 @@ namespace Prototype.UI
             currentHPBar.fillAmount = current / max;
         }
 
+        public void DeadUnit(UnitBase unit)
+        {
+            gameObject.SetActive(false);
+        }
         private void OnDisable()
         {
             _Unit.unitEvents.OnHpChanged.RemoveListener(UpdateHp);
+            _Unit.unitEvents.OnDead.RemoveListener(DeadUnit);
         }
     }
 }

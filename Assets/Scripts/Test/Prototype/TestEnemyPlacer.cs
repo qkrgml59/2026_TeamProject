@@ -34,7 +34,7 @@ public class TestEnemyPlacer : MonoBehaviour
             
             HexTile targetTile = GridManager.Instance.GetTile(offset);
 
-            if (targetTile != null && targetTile.CanEnter())
+            if (targetTile != null && targetTile.CanEnter(null))
             {
                 UnitBase target = Instantiate(randRow < rowMin + 2? meleeUnit : rangedUnit, targetTile.transform.position, Quaternion.identity);
                 target.team = teamType;
