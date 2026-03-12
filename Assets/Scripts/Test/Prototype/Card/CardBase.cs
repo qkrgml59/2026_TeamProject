@@ -1,93 +1,112 @@
 using Prototype.Grid;
 using Prototype.UI;
 using Prototype.Unit;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class CardBase : MonoBehaviour , IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler , IDragHandler, IBeginDragHandler, IEndDragHandler
+namespace Prototype.Card
 {
-    public UnitBase unitPrefab;
-    [SerializeField] private RectTransform rectTransform;
-
-    private Vector2 _originAnchoredPos;
-
-    void Awake()
+    public class CardBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
     {
-        if(rectTransform == null)
-            rectTransform = GetComponent<RectTransform>();
-    }
+        public CardDataSO cardData;
+        public Image icon;
+        public TextMeshProUGUI cardName;
+        public TextMeshProUGUI cardDescription;
+        public RectTransform rectTransform;
 
-    #region Hover Event
-    // 마우스가 카드 위에 올라옴
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        Debug.Log("마우스 올라옴");
-        rectTransform.localScale = Vector2.one * 1.1f;
-    }
+        private Vector2 _originAnchoredPos;
 
-    // 마우스가 카드를 벗어남
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        Debug.Log("마우스 내려감");
-        rectTransform.localScale = Vector2.one;
-    }
-
-    #endregion
-
-    // 마우스 클릭
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        Debug.Log("클릭!");
-    }
-
-    #region Drag Event
-
-    // 드래그 시작
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        Debug.Log("드래그 시작");
-        _originAnchoredPos = rectTransform.anchoredPosition;
-    }
-
-    // 드래그 중
-    public void OnDrag(PointerEventData eventData)
-    {
-        Vector3 mousePos = eventData.position;
-        rectTransform.position = mousePos;
-    }
-
-    // 드래그 종료
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        Debug.Log("드래그 종료");
-
-
-        Ray ray = Camera.main.ScreenPointToRay(eventData.position);
-
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        void Awake()
         {
-            HexTile tile = hit.transform.GetComponent<HexTile>();
-
-            if(tile != null)
-            {
-                // 일단 중복 설치 방지
-                if(tile.CanEnter(null))
-                {
-                    UnitBase unit = Instantiate(unitPrefab, tile.transform.position, Quaternion.identity);
-                    unit.team = TeamType.Ally;
-                    tile.EnterTile(unit);
-                    unit.EnterTile(tile);
-                    UnitManager.Instance.RegisterUnit(unit);
-                    IndicatorManager.Instance.HPBarPresenter.RegisterHealthBar(unit);
-                    Destroy(gameObject);
-                    return;
-                }
-            }
+            if (rectTransform == null)
+                rectTransform = GetComponent<RectTransform>();
         }
 
-        // 타일(또는 다른 상호작용 공간)이 아니라면 돌아가기
-        rectTransform.anchoredPosition = _originAnchoredPos;
-    }
+        public void Init(CardDataSO data)
+        {
+            cardData = data;
+            icon.sprite = data.icon;
+            cardName.text = data.cardName;
+            cardDescription.text = data.description;
+        }
 
-    #endregion
+        #region Hover Event
+        // 마우스가 카드 위에 올라옴
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            Debug.Log("마우스 올라옴");
+            rectTransform.localScale = Vector2.one * 1.1f;
+        }
+
+        // 마우스가 카드를 벗어남
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            Debug.Log("마우스 내려감");
+            rectTransform.localScale = Vector2.one;
+        }
+
+        #endregion
+
+        // 마우스 클릭
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            Debug.Log("클릭!");
+        }
+
+        #region Drag Event
+
+        // 드래그 시작
+        public void OnBeginDrag(PointerEventData eventData)
+        {
+            Debug.Log("드래그 시작");
+            rectTransform.SetAsLastSibling();
+            _originAnchoredPos = rectTransform.anchoredPosition;
+        }
+
+        // 드래그 중
+        public void OnDrag(PointerEventData eventData)
+        {
+            Vector3 mousePos = eventData.position;
+            rectTransform.position = mousePos;
+        }
+
+        // 드래그 종료
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            Debug.Log("드래그 종료");
+
+
+            Ray ray = Camera.main.ScreenPointToRay(eventData.position);
+
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                HexTile tile = hit.transform.GetComponent<HexTile>();
+
+                if (tile != null)
+                {
+                    // 일단 중복 설치 방지
+                    if (tile.CanReserve(null))
+                    {
+                        UnitBase unit = Instantiate(cardData.unit, tile.transform.position, Quaternion.identity);
+                        unit.team = TeamType.Ally;
+                        tile.EnterTile(unit);
+                        unit.EnterTile(tile);
+                        UnitManager.Instance.RegisterUnit(unit);
+                        IndicatorManager.Instance.HPBarPresenter.RegisterHealthBar(unit);
+
+                        CardManager.Instance.UseCard(this);
+                        Destroy(gameObject);
+                        return;
+                    }
+                }
+            }
+
+            // 타일(또는 다른 상호작용 공간)이 아니라면 돌아가기
+            rectTransform.anchoredPosition = _originAnchoredPos;
+        }
+
+        #endregion
+    }
 }
