@@ -1,4 +1,5 @@
 using Prototype.Grid;
+using Prototype.UI;
 using Prototype.Unit;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -77,6 +78,7 @@ public class CardBase : MonoBehaviour , IPointerEnterHandler, IPointerExitHandle
                     tile.EnterTile(unit);
                     unit.EnterTile(tile);
                     UnitManager.Instance.RegisterUnit(unit);
+                    IndicatorManager.Instance.HPBarPresenter.RegisterHealthBar(unit);
                     Destroy(gameObject);
                     return;
                 }

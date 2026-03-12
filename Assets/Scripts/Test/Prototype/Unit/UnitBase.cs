@@ -2,6 +2,8 @@ using Prototype.Grid;
 using Stat;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEngine.Events;
 
 namespace Prototype.Unit
 {
@@ -29,19 +31,19 @@ namespace Prototype.Unit
         private IUnitState currentFSM;
         private Dictionary<UnitStateType, IUnitState> states;
 
+        [Header("유닛 이벤트")]
+        public UnitEvents unitEvents;
+
         // 타겟 정보
         public UnitBase targetUnit { get; private set; }
-
         // 타일 정보
         public HexTile currentTile { get; private set; }
-        //public HexTile nextTile { get; private set; }
-
         // 길찾기 경로
         public readonly List<HexTile> path = new List<HexTile>();
         public int curPathIndex { get; private set; } = 0;
 
 
-    #region FSM
+        #region FSM
         public void ChangeUnitState(UnitStateType targetState)
         {
             if(states.TryGetValue(targetState, out IUnitState newState))

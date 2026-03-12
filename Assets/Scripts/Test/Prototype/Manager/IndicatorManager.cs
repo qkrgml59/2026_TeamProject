@@ -1,9 +1,11 @@
 using UnityEngine;
 using Utilitys;
 
-public class IndicatorManager : SingletonMonoBehaviour<IndicatorManager>
+namespace Prototype.UI
 {
-    public HealthBarPresenter HPBarPresenter;
-    public DamageTextPresenter DamagePresenter;
-
+    public class IndicatorManager : SingletonMonoBehaviour<IndicatorManager>
+    {
+        public HealthBarPresenter HPBarPresenter;
+        public DamageTextPresenter DamagePresenter;
+    }
 }

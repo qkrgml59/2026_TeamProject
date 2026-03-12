@@ -1,7 +1,7 @@
 using UnityEngine;
 using Prototype.Grid;
 using Prototype.Unit;
-using System.Collections.Generic;
+using Prototype.UI;
 
 public class TestEnemyPlacer : MonoBehaviour
 {
@@ -41,6 +41,7 @@ public class TestEnemyPlacer : MonoBehaviour
                 targetTile.EnterTile(target);
                 target.EnterTile(targetTile);
                 UnitManager.Instance.RegisterUnit(target);
+                IndicatorManager.Instance.HPBarPresenter.RegisterHealthBar(target);
                 i++;
             }
         }
