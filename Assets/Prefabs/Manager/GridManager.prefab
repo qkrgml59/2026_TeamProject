@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f84de60149800e408daec10d205183d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Grid.Pathfind.HexGridPathfinder
-  horizontalCost: 8
+  horizontalCost: 6
   verticalCost: 10
 --- !u!114 &4645087942079409864
 MonoBehaviour:

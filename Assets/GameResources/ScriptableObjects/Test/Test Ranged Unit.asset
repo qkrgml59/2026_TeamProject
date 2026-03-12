@@ -31,6 +31,6 @@ MonoBehaviour:
     AttackSpeed: 0.7
     Defense: 50
     MagicResistance: 50
-  Attack_Rage: 3
+  Attack_Rage: 4
   Move_Speed: 5
   unitType: "\uC804\uC0AC/\uC554\uC0B4\uC790 \uAC19\uC740 \uBD84\uB958 \uC608\uC815"

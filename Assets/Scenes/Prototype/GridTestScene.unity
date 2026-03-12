@@ -4154,7 +4154,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.CardManager
   useDontDestroyOnLoad: 0
   data:
-  - {fileID: 11400000, guid: 79b97c4c4c5e5cc40a34e07edcc1ce6a, type: 2}
   - {fileID: 11400000, guid: bcf1abebcea50ea459bd3a3c6bf0840b, type: 2}
   - {fileID: 11400000, guid: bcf1abebcea50ea459bd3a3c6bf0840b, type: 2}
   - {fileID: 11400000, guid: bcf1abebcea50ea459bd3a3c6bf0840b, type: 2}

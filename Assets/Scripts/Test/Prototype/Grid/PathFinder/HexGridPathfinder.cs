@@ -133,8 +133,7 @@ namespace Prototype.Grid.Pathfind
             if (path == null || path.Count == 0)
                 return false;
 
-            // 현재 타일 이후로 검사
-            for (int i = currentIndex + 1; i < path.Count; i++)
+            for (int i = currentIndex; i < path.Count; i++)
             {
                 if (!path[i].CanReserve(null))
                     return false;

@@ -396,5 +396,17 @@ namespace Prototype.Unit
         {
             ChangeUnitState(UnitStateType.Dead);
         }
+
+        private void OnDrawGizmos()
+        {
+            if (path != null && path.Count > 0)
+            {
+                for (int i = 1; i < path.Count; i++)
+                {
+                    Gizmos.color = Color.red;
+                    Gizmos.DrawLine(path[i - 1].transform.position, path[i].transform.position);
+                }
+            }
+        }
     }
 }
