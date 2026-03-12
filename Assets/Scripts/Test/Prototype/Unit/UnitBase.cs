@@ -1,10 +1,9 @@
 using Prototype.Grid;
 using Stat;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using static UnityEngine.GraphicsBuffer;
+using Prototype.Skill;
+
 
 namespace Prototype.Unit
 {
@@ -32,6 +31,10 @@ namespace Prototype.Unit
         private IUnitState currentFSM;
         private Dictionary<UnitStateType, IUnitState> states;
 
+        [Header("기본 공격")]
+        public SkillBase normalAttack;
+        // 스킬 정보는 따로 저장
+
         [Header("유닛 이벤트")]
         public UnitEvents unitEvents;
 
@@ -39,9 +42,13 @@ namespace Prototype.Unit
         public UnitBase targetUnit { get; private set; }
         // 타일 정보
         public HexTile currentTile { get; private set; }
+        public HexTile reservedTile { get; private set; }
         // 길찾기 경로
         public readonly List<HexTile> path = new List<HexTile>();
         public int curPathIndex { get; private set; } = 0;
+
+        // 컴포넌트
+        Rigidbody _rigidbody;
 
 
         #region FSM
@@ -75,32 +82,6 @@ namespace Prototype.Unit
         #endregion
 
         #region Physics
-
-        // 컴포넌트
-        Rigidbody _rigidbody;
-
-        public void UpdatePathMovement()
-        {
-            if (path.Count == 0 || curPathIndex >= path.Count || !currentTile.CanEnter(this))
-            {
-                ClaerPath();
-                ChangeUnitState(UnitStateType.Think);
-                return;
-            }
-
-            EnterTile(path[curPathIndex]);
-
-            MoveToTile(path[curPathIndex]);
-
-            // 목표 타일에 가까워졌다면
-            if(Vector3.Distance(transform.position, path[curPathIndex].transform.position) < 0.1f)
-            {
-                curPathIndex++;
-
-                ChangeUnitState(UnitStateType.Think);
-            }
-        }
-
         public void MoveToTile(HexTile targetTile)
         {
             Vector3 dir = targetTile.transform.position - transform.position;
@@ -111,7 +92,7 @@ namespace Prototype.Unit
         {
             _rigidbody.linearVelocity = dir.normalized * statSet.MoveSpeed.Value;
         }
-        
+
         public void RigidInit()
         {
             _rigidbody.linearVelocity = Vector3.zero;
@@ -121,13 +102,101 @@ namespace Prototype.Unit
         {
             _rigidbody.isKinematic = isKinematic;
         }
+        #endregion
 
+        #region PathFinding
+
+        public void UpdatePathMovement()
+        {
+            MoveToTile(reservedTile);
+
+            // 목표 타일에 가까워졌다면
+            if(Vector3.Distance(transform.position, reservedTile.transform.position) < 0.1f)
+            {
+                curPathIndex++;
+
+                EnterTile(reservedTile);
+                reservedTile = null;
+
+                ChangeUnitState(UnitStateType.Think);
+            }
+        }
+
+        /// <summary>
+        /// 새로운 경로 탐색
+        /// </summary>
+        public bool TrySetPath()
+        {
+            // 기존 경로 초기화
+            ClaerPath();
+
+            if (currentTile == null) return false;
+            if (targetUnit == null) return false;
+            if (targetUnit.currentTile == null) return false;
+
+            return GridManager.Instance.pathfinder.TryGetPath(currentTile, targetUnit.currentTile, path);
+        }
+
+        /// <summary>
+        /// 진입 타일 설정
+        /// </summary>
+        public void SetReservedTile()
+        {
+            if (curPathIndex < 0 || curPathIndex >= path.Count)
+            {
+                // 경로 문제가 있는 경우
+                // 경로 제거 후 상태 전환
+                ClaerPath();
+                ChangeUnitState(UnitStateType.Think);
+                return;
+            }
+
+
+            if(path[curPathIndex].TryReserve(this))
+            {
+                reservedTile = path[curPathIndex];
+            }
+            else
+            {
+                ClaerPath();
+                ChangeUnitState(UnitStateType.Think);
+            }
+        }
+
+        /// <summary>
+        /// 현재 경로가 아직 유효한지 확인
+        /// </summary>
+        public bool IsPathStillValid()
+        {
+            if (path.Count == 0) return false;
+            if (path.Count <= curPathIndex) return false;
+
+            // 도착 타일에 해당 유닛이 있는지 확인
+            if (path[^1].OccupantUnit != targetUnit)
+                return false;
+
+            return GridManager.Instance.pathfinder.IsPathStillValid(path, curPathIndex);
+        }
+
+        public void ClaerPath()
+        {
+            path.Clear();
+            curPathIndex = 0;
+        }
         #endregion
 
         #region Combat
 
+        public void NormalAttack()
+        {
+            normalAttack?.UseSkill(this, targetUnit);
+            unitEvents.OnNormalAttack?.Invoke(this);
+        }
+
         public virtual void ApplyDamage(float amount)
         {
+            // TODO: 전투 중일때만 체력이 감소하도록 수정
+
             if (amount < 0) return;
 
             // 방어력, 피해 감소 등 계산
@@ -137,7 +206,6 @@ namespace Prototype.Unit
             if (currentHp - amount < 0)
             {
                 ChangeUnitState(UnitStateType.Dead);
-                unitEvents.OnDead?.Invoke(this);
                 return;
             }
 
@@ -150,6 +218,8 @@ namespace Prototype.Unit
 
         public void ApplyHeal(float amount)
         {
+            // TODO: 전투 중일때만 체력이 증가하도록 수정
+
             if (amount < 0) return;
 
             // 회복 증가 등 생략
@@ -303,38 +373,7 @@ namespace Prototype.Unit
             return nearest;
         }
 
-        public bool TrySetPath()
-        {
-            // 기존 경로 초기화
-            ClaerPath();
-
-            if (currentTile == null) return false;
-            if (targetUnit == null) return false;
-            if (targetUnit.currentTile == null) return false;
-
-            return GridManager.Instance.pathfinder.TryGetPath(currentTile, targetUnit.currentTile, path);
-        }
-
-        /// <summary>
-        /// 현재 경로가 아직 유효한지 확인
-        /// </summary>
-        public bool IsPathStillValid()
-        {
-            if (path.Count == 0) return false;
-            if (path.Count <= curPathIndex) return false;
-
-            // 도착 타일에 해당 유닛이 있는지 확인
-            if (path[^1].OccupantUnit != targetUnit)
-                return false;
-
-            return GridManager.Instance.pathfinder.IsPathStillValid(path, curPathIndex);
-        }
-
-        public void ClaerPath()
-        {
-            path.Clear();
-            curPathIndex = 0;
-        }
+       
 
         #endregion
 
@@ -352,5 +391,10 @@ namespace Prototype.Unit
         {
             return this.team == team;
         }    
+
+        public void DestroyUnit()
+        {
+            ChangeUnitState(UnitStateType.Dead);
+        }
     }
 }

@@ -19,6 +19,7 @@ namespace Prototype.Grid
         public HexTile[,] map { get; private set; }
 
         [Header("타일 설정")]
+        public HexTile hexTilePrefab;
         [SerializeField] private float tileSize = 2f;
 
         [Header("패스파인더")]
@@ -38,7 +39,7 @@ namespace Prototype.Grid
         [ContextMenu("그리드 초기화")]
         public void GridInit()
         {
-            GridClear();
+            GridDestroy();
             GenerateGrid();
             Debug.Log("그리드 초기화 완료");
         }
@@ -62,23 +63,19 @@ namespace Prototype.Grid
             for (int col = 0; col < map.GetLength(0); col++)
                 for (int row = 0; row < map.GetLength(1); row++)
                 {
-                    GameObject obj = new GameObject($"HexTile [{col}, {row}]");
-                    obj.transform.SetParent(transform);
-
-                    BoxCollider collider = obj.AddComponent<BoxCollider>();
-                    collider.size = new Vector3(3, 0.1f, 3);
-                    collider.isTrigger = true;
-
-                    HexTile tile = obj.AddComponent<HexTile>();
-                    tile.offset = new Vector2Int(col, row);
+                    HexTile tile = Instantiate(hexTilePrefab);
+                    tile.name = $"HexTile [{col}, {row}]";
+                    tile.transform.SetParent(transform);
                     tile.transform.position = transform.position + HexMath.GetWorldPosition(col, row, tileSize);
+
+                    tile.offset = new Vector2Int(col, row);
                     map[col, row] = tile;
                 }
 
             Debug.Log($"{column} x {row} 사이즈의 그리드 생성");
         }
 
-        private void GridClear()
+        private void GridDestroy()
         {
             if (map == null) return;
 
@@ -91,6 +88,21 @@ namespace Prototype.Grid
                     map[col, row] = null;
                 }
         }
+
+        // TODO: 그리드 초기화 BattleManager 이벤트 구독 형식으로 변경
+        public void GridReset()
+        {
+            if (map == null) return;
+
+            for (int col = 0; col < map.GetLength(0); col++)
+                for (int row = 0; row < map.GetLength(1); row++)
+                {
+                    if (map[col, row] == null) continue;
+
+                    map[col, row].ResetTile();
+                }
+        }
+        
 
         public bool IsInBounds(Vector2Int offset)
         {

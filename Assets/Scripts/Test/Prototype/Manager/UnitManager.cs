@@ -1,6 +1,8 @@
 using UnityEngine;
 using Utilitys;
 using System.Collections.Generic;
+using Prototype.Grid;
+using Unity.VisualScripting;
 
 namespace Prototype.Unit
 {
@@ -33,6 +35,33 @@ namespace Prototype.Unit
             _allUnits.Remove(unit);
             _allyUnits.Remove(unit);
             _enemyUnits.Remove(unit);
+
+
+            // 전투중일 때만 전투 종료 확인
+            if (BattleManager.Instance.currentBattleState != BattleState.Combat) return;
+
+            // TODO: 전투 종료 판단 방식 변경 필요
+            if(_allyUnits.Count == 0 || _enemyUnits.Count == 0)
+            {
+                BattleManager.Instance.BattleEnd();
+            }
+        }
+
+        public void ClaerUnit()
+        {
+            foreach (UnitBase u in _allUnits.ToArray())
+            {
+                u.DestroyUnit();
+            }
+
+            _allUnits.Clear();
+            _allyUnits.Clear();
+            _enemyUnits.Clear();
+
+            foreach (UnitBase u in _allUnits)
+            {
+                Destroy(u.gameObject);
+            }
         }
 
         #region Get Mathod

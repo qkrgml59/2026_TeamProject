@@ -8,6 +8,11 @@ namespace Prototype.UI
     {
         public Image currentHPBar;
         public RectTransform rectTransform;
+
+        [Header("색상 설정")]
+        public Color allyColor = Color.white;
+        public Color enemyColor = Color.white;
+
         UnitBase _Unit;
 
         public void Init(UnitBase unit)
@@ -16,6 +21,9 @@ namespace Prototype.UI
 
             // 포지션 초기화
             UpdatePosition();
+
+            // 색상 설정
+            currentHPBar.color = unit.team == TeamType.Ally ? allyColor : enemyColor;
 
             // 체력 초기화
             float maxHp = _Unit.statSet.MaxHp.Value;

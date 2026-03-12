@@ -13,7 +13,7 @@ public class TestEnemyPlacer : MonoBehaviour
 
     void Start()
     {
-        Place();
+        BattleManager.Instance.OnRoundStart += Place;
     }
 
     [ContextMenu("유닛 배치")]
@@ -28,13 +28,13 @@ public class TestEnemyPlacer : MonoBehaviour
 
         for (int i = 0; i < enemyCount;)
         {
-            int randCol = Random.Range(0, colSize + 1);
-            int randRow = Random.Range(rowMin, rowMax + 1);
+            int randCol = Random.Range(0, colSize );
+            int randRow = Random.Range(rowMin, rowMax);
             Vector2Int offset = new Vector2Int(randCol, randRow);
             
             HexTile targetTile = GridManager.Instance.GetTile(offset);
 
-            if (targetTile != null && targetTile.CanEnter(null))
+            if (targetTile != null && targetTile.CanReserve(null))
             {
                 UnitBase target = Instantiate(randRow < rowMin + 2? meleeUnit : rangedUnit, targetTile.transform.position, Quaternion.identity);
                 target.team = teamType;

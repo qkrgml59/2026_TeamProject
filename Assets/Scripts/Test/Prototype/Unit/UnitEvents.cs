@@ -12,6 +12,9 @@ namespace Prototype.Unit
     [Serializable]
     public class UnitEvents
     {
+        [Header("공격 이벤트")]
+        public UnityEvent<UnitBase> OnNormalAttack;
+
         [Header("체력 관련 이벤트")]
         public UnityEvent<float, float> OnHpChanged;        // TODO: 이벤트 데이터 구조체 추가
 

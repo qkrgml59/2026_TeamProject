@@ -52,6 +52,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HealthBarView
   currentHPBar: {fileID: 2758399134940532883}
   rectTransform: {fileID: 1295387153637663921}
+  allyColor: {r: 0.22964378, g: 0.9150943, b: 0.22877358, a: 1}
+  enemyColor: {r: 0.8207547, g: 0.24390352, b: 0.24390352, a: 1}
 --- !u!1 &4720863154700225643
 GameObject:
   m_ObjectHideFlags: 0

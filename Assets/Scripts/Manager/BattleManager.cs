@@ -1,6 +1,8 @@
 using System;
 using Utilitys;
 using UnityEngine;
+using System.Collections;
+using Prototype.Unit;
 
 public enum BattleState
 {
@@ -11,6 +13,11 @@ public enum BattleState
 
 public class BattleManager : SingletonMonoBehaviour<BattleManager>
 {
+    [Header("각 단계 시간 설정")]
+    public float combatDuration = 30f;
+    public float roundEndDuration = 3f;
+    public float nextRoundDuration = 2f;
+
     // 라운드 이벤트
     public event Action OnRoundStart;
     public event Action OnRoundEnd;
@@ -21,31 +28,110 @@ public class BattleManager : SingletonMonoBehaviour<BattleManager>
 
     public BattleState currentBattleState { get; private set; } = BattleState.Prepare;
 
+    // 임시 코루틴
+    Coroutine delayRountine;
+    private float duration;
+    
+
+    private void Start()
+    {
+        if (delayRountine != null)
+        {
+            StopCoroutine(delayRountine);
+            delayRountine = null;
+        }
+
+        delayRountine = StartCoroutine(DelayRountine(0.1f, () => RoundStart()));
+    }
+
     [ContextMenu("라운드 시작")]
     public void RoundStart()
     {
+        Debug.Log("[Battle Manager] 라운드 시작");
         OnRoundStart?.Invoke();
-        currentBattleState = BattleState.Prepare;
-    }
-
-    [ContextMenu("라운드 종료")]
-    public void RoundEnd()
-    {
-        OnRoundEnd?.Invoke();
         currentBattleState = BattleState.Prepare;
     }
 
     [ContextMenu("전투 시작")]
     public void BattleStart()
     {
+        Debug.Log("[Battle Manager] 전투 시작");
         OnBattleStart?.Invoke();
         currentBattleState = BattleState.Combat;
+
+        if (delayRountine != null)
+        {
+            StopCoroutine(delayRountine);
+            delayRountine = null;
+        }
+
+        delayRountine = StartCoroutine(DelayRountine(combatDuration, () => BattleEnd()));
     }
 
     [ContextMenu("전투 종료")]
     public void BattleEnd()
     {
+        Debug.Log("[Battle Manager] 전투 종료");
         OnBattleEnd?.Invoke();
         currentBattleState = BattleState.RoundEnd;
+
+        if (delayRountine != null)
+        {
+            StopCoroutine(delayRountine);
+            delayRountine = null;
+        }
+
+        delayRountine = StartCoroutine(DelayRountine(roundEndDuration, () => RoundEnd()));
+    }
+
+    [ContextMenu("라운드 종료")]
+    public void RoundEnd()
+    {
+        Debug.Log("[Battle Manager] 라운드 종료");
+        OnRoundEnd?.Invoke();
+
+        UnitManager.Instance.ClaerUnit();
+
+        if(delayRountine != null)
+        {
+            StopCoroutine(delayRountine);
+            delayRountine = null;
+        }    
+
+        delayRountine = StartCoroutine(DelayRountine(nextRoundDuration, () => RoundStart()));
+    }
+
+    private IEnumerator DelayRountine(float delay, Action Callback)
+    {
+        duration = delay;
+
+        while(duration > 0)
+        {
+            duration -= Time.deltaTime;
+            yield return null;
+        }
+
+        duration = 0;
+
+        Callback?.Invoke();
+    }
+
+    void OnGUI()
+    {
+        // 텍스트 표시
+        GUI.Label(new Rect(10, 10, 300, 40), $"현재 상태 : {currentBattleState}");
+
+        if (currentBattleState == BattleState.Prepare)
+        {
+            // 버튼
+            if (GUI.Button(new Rect(10, 50, 150, 40), "전투 시작"))
+            {
+                BattleStart();
+            }
+        }
+        else
+        {
+            GUI.Label(new Rect(10, 50, 300, 40), $"남은 시간 : {duration:F0}초");
+        }
     }
 }

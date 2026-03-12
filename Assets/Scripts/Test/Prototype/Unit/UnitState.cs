@@ -137,10 +137,17 @@ namespace Prototype.Unit
         public void StateEnter()
         {
             _unit.Kinematic(false);
+            _unit.SetReservedTile();
         }
 
         public void StateUpdate()
         {
+            if(_unit.reservedTile == null)
+            {
+                _unit.SetReservedTile();
+                return;
+            }
+
             _unit.UpdatePathMovement();
         }
 
@@ -180,6 +187,7 @@ namespace Prototype.Unit
             {
                 // 적이 없거나 멀어진 경우
                 _unit.ChangeUnitState(UnitStateType.Think);
+                return;
             }
 
             interval += Time.deltaTime;
@@ -188,7 +196,7 @@ namespace Prototype.Unit
                 Debug.Log($"[{_unit.name}] 공격!");
                 interval = 0;
 
-                _unit.targetUnit?.ApplyDamage(_unit.statSet.AttackDamage.Value);
+                _unit.NormalAttack();
             }
         }
 
@@ -217,6 +225,7 @@ namespace Prototype.Unit
             _unit.gameObject.SetActive(false);
             _unit.ClaerPath();
             _unit.EnterTile(null);      // 위치했던 타일 제거
+            _unit.unitEvents.OnDead?.Invoke(_unit);
             _unit.RemoveEventListener();
             UnitManager.Instance.UnregisterUnit(_unit);
         }
