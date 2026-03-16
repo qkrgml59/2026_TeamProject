@@ -14,7 +14,7 @@ public class PathfindTester : MonoBehaviour
     [ContextMenu("경로 시각화")]
     public void ShowPath()
     {
-        if (GridManager.Instance.pathfinder.TryGetPath(startTile, goalTile, path))
+        if (GridManager.Instance.pathfinder.TryGetPath(startTile, goalTile, path, 1))
             Debug.Log("경로 탐색 완료");
         else
             Debug.LogWarning("경로 탐색 실패");

@@ -23,7 +23,7 @@ namespace Prototype.Grid.Pathfind
         private readonly Dictionary<HexTile, int> gCost = new Dictionary<HexTile, int>();
 
 
-        public bool TryGetPath(HexTile start, HexTile goal, List<HexTile> result)
+        public bool TryGetPath(HexTile start, HexTile goal, List<HexTile> result, float attackRange)
         {
             if(start == null || goal == null || result == null) return false;
 
@@ -52,6 +52,12 @@ namespace Prototype.Grid.Pathfind
                 {
                     // 완료 처리
                     return TryGetBuildPath(start, goal, result);
+                }
+
+                if(HexMath.Distance(current.offset, goal.offset) <= attackRange)
+                {
+                    // 공격 가능 범위에 들어오면 공격
+                    return TryGetBuildPath(start, current, result);
                 }
 
                 closed.Add(current);
@@ -128,7 +134,7 @@ namespace Prototype.Grid.Pathfind
         /// <summary>
         /// 해당 경로가 유효한지 확인
         /// </summary>
-        public bool IsPathStillValid(List<HexTile> path, int currentIndex)
+        public bool IsPathStillValid(List<HexTile> path, int currentIndex, HexTile targetTile, float attackRange)
         {
             if (path == null || path.Count == 0)
                 return false;
@@ -139,6 +145,9 @@ namespace Prototype.Grid.Pathfind
                     return false;
             }
 
+            // 도착지에서 사거리 안에 적이 없는 경우
+            if (HexMath.Distance(path[^1].offset, targetTile.offset) > attackRange)
+                return false;
 
             return true;
         }

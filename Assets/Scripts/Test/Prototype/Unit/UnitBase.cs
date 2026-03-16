@@ -134,7 +134,7 @@ namespace Prototype.Unit
             if (targetUnit == null) return false;
             if (targetUnit.currentTile == null) return false;
 
-            return GridManager.Instance.pathfinder.TryGetPath(currentTile, targetUnit.currentTile, path);
+            return GridManager.Instance.pathfinder.TryGetPath(currentTile, targetUnit.currentTile, path, statSet.AttackRange.Value);
         }
 
         /// <summary>
@@ -175,7 +175,7 @@ namespace Prototype.Unit
             if (path[^1].OccupantUnit != targetUnit)
                 return false;
 
-            return GridManager.Instance.pathfinder.IsPathStillValid(path, curPathIndex);
+            return GridManager.Instance.pathfinder.IsPathStillValid(path, curPathIndex, targetUnit.currentTile, statSet.AttackRange.Value);
         }
 
         public void ClaerPath()

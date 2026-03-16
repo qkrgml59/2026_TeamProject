@@ -100,11 +100,11 @@ namespace Prototype.Unit
             // 경로가 없거나 기존 경로가 유효하지 않을 때
             if (!_unit.IsPathStillValid())
             {
-                Debug.LogWarning("경로 없음");
+                Debug.LogWarning("경로가 유효하지 않습니다.", _unit);
                 // 경로 재탐색
                 if (!_unit.TrySetPath())
                 {
-                    Debug.LogWarning("경로 못찾음");
+                    Debug.LogWarning("경로 못찾음", _unit);
                     return;
                 }
             }
