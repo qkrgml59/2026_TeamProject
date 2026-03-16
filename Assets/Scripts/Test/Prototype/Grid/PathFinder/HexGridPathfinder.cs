@@ -141,8 +141,13 @@ namespace Prototype.Grid.Pathfind
 
             for (int i = currentIndex; i < path.Count; i++)
             {
-                if (!path[i].CanReserve(null))
+                // 진입 불가능 하면서 타겟 타일도 아닌 경우
+                if (!path[i].CanReserve(null) && path[i] != targetTile)
                     return false;
+
+                // 이동 중 대상 타일이 사거리 안에 있어도 유효한 경로
+                if (HexMath.Distance(path[i].offset, targetTile.offset) <= attackRange)
+                    return true;
             }
 
             // 도착지에서 사거리 안에 적이 없는 경우

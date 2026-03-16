@@ -178,6 +178,7 @@ namespace Prototype.Unit
         public void StateEnter()
         {
             interval = 0;
+            _unit.ClaerPath();
         }
 
         public void StateUpdate()
