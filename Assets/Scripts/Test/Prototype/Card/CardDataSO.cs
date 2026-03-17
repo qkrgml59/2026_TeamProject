@@ -1,3 +1,4 @@
+using Item;
 using Prototype.Unit;
 using UnityEngine;
 
@@ -14,5 +15,6 @@ namespace Prototype.Card
 
         // 프로토타입에서는 유닛 카드만 존재
         public UnitBase unit;
+        public ItemSO item;
     }
 }

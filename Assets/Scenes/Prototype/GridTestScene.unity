@@ -4159,6 +4159,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bcf1abebcea50ea459bd3a3c6bf0840b, type: 2}
   - {fileID: 11400000, guid: a8dda243c6d902f43ad211e9e8b2445b, type: 2}
   - {fileID: 11400000, guid: a8dda243c6d902f43ad211e9e8b2445b, type: 2}
+  - {fileID: 11400000, guid: f5cf57d552c8f0c489aea7942c76ede6, type: 2}
   cardPrefab: {fileID: 8893161569380422314, guid: b3fff6423b2121547a6a327ce2870f2b, type: 3}
   maxCardCount: 5
   hands: []
