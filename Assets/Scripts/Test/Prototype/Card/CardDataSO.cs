@@ -6,6 +6,8 @@ namespace Prototype.Card
     [CreateAssetMenu(fileName = "CardDataSO", menuName = "CardDataSO/CardDataSO")]
     public class CardDataSO : ScriptableObject
     {
+        public string cardId;
+
         public Sprite icon;
         public string cardName;
         public string description;
