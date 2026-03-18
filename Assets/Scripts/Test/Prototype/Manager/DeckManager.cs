@@ -7,12 +7,31 @@ namespace Prototype.Card
     public class DeckManager : SingletonMonoBehaviour<DeckManager>
     {
         [Header("덱 정보")]
-        [SerializeField]private Dictionary<string, CardEntry> ownedDeck = new ();
-        public IReadOnlyDictionary<string, CardEntry> OwnedDeck => ownedDeck;
+        [SerializeField]private List<CardDataSO> _testDeck = new();       // 초기 덱 설정을 위한 테스트 목록
+        public Dictionary<string, CardEntry> ownedDeck { get; private set; } = new ();
 
         [Header("덱 설정")]
         public int maxDeckSize = 40;            // 덱 최대/최소 설정 (사용 하려나요)
         public int minDeckSize = 20;
+
+        private void Start()
+        {
+            InitDeck();
+        }
+
+        [ContextMenu("덱 초기화")]
+        public void InitDeck()
+        {
+            ownedDeck.Clear();
+            foreach (var card in _testDeck)
+            {
+                if(!TryAddCard(card))
+                {
+                    Debug.LogError("덱 초기화 실패");
+                    return;
+                }
+            }
+        }
 
         /// <summary>
         ///  덱에 카드 추가를 시도합니다.
@@ -92,7 +111,7 @@ namespace Prototype.Card
         public int GetTotalCardCount()
         {
             int total = 0;
-            foreach (var entry in OwnedDeck.Values)
+            foreach (var entry in ownedDeck.Values)
                 total += entry.count;
 
             return total;
