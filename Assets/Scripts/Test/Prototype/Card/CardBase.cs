@@ -97,7 +97,6 @@ namespace Prototype.Card
                         IndicatorManager.Instance.HPBarPresenter.RegisterHealthBar(unit);
 
                         CardManager.Instance.UseCard(this);
-                        Destroy(gameObject);
                         return;
                     }
                 }

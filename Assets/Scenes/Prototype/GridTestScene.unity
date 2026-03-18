@@ -4052,7 +4052,7 @@ GameObject:
   - component: {fileID: 974802595}
   - component: {fileID: 974802594}
   m_Layer: 5
-  m_Name: Card Canvas
+  m_Name: CardManager & Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4155,7 +4155,8 @@ MonoBehaviour:
   useDontDestroyOnLoad: 0
   cardPrefab: {fileID: 8893161569380422314, guid: b3fff6423b2121547a6a327ce2870f2b, type: 3}
   cardCanvas: {fileID: 974802596}
-  maxHandCount: 5
+  defaultDrawCount: 3
+  maxHandCount: 9
   _deck: []
   _hand: []
   _used: []
@@ -5139,22 +5140,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.DeckManager
   useDontDestroyOnLoad: 1
-  _testDeck:
-  - {fileID: 11400000, guid: bcf1abebcea50ea459bd3a3c6bf0840b, type: 2}
-  - {fileID: 11400000, guid: bcf1abebcea50ea459bd3a3c6bf0840b, type: 2}
-  - {fileID: 11400000, guid: bcf1abebcea50ea459bd3a3c6bf0840b, type: 2}
-  - {fileID: 11400000, guid: bcf1abebcea50ea459bd3a3c6bf0840b, type: 2}
-  - {fileID: 11400000, guid: bcf1abebcea50ea459bd3a3c6bf0840b, type: 2}
-  - {fileID: 11400000, guid: bcf1abebcea50ea459bd3a3c6bf0840b, type: 2}
-  - {fileID: 11400000, guid: bcf1abebcea50ea459bd3a3c6bf0840b, type: 2}
-  - {fileID: 11400000, guid: a8dda243c6d902f43ad211e9e8b2445b, type: 2}
-  - {fileID: 11400000, guid: a8dda243c6d902f43ad211e9e8b2445b, type: 2}
-  - {fileID: 11400000, guid: a8dda243c6d902f43ad211e9e8b2445b, type: 2}
-  - {fileID: 11400000, guid: a8dda243c6d902f43ad211e9e8b2445b, type: 2}
-  - {fileID: 11400000, guid: a8dda243c6d902f43ad211e9e8b2445b, type: 2}
-  - {fileID: 11400000, guid: a8dda243c6d902f43ad211e9e8b2445b, type: 2}
-  - {fileID: 11400000, guid: a8dda243c6d902f43ad211e9e8b2445b, type: 2}
-  - {fileID: 11400000, guid: a8dda243c6d902f43ad211e9e8b2445b, type: 2}
+  _testEntries:
+  - cardData: {fileID: 11400000, guid: bcf1abebcea50ea459bd3a3c6bf0840b, type: 2}
+    count: 8
+  - cardData: {fileID: 11400000, guid: a8dda243c6d902f43ad211e9e8b2445b, type: 2}
+    count: 4
   maxDeckSize: 40
   minDeckSize: 20
 --- !u!4 &1358473884

@@ -5,7 +5,6 @@ using System.Collections;
 
 namespace Prototype.Card
 {
-    // 임시로 만든 매니저, 덱이랑 분리 필요.
     public class CardManager : SingletonMonoBehaviour<CardManager>
     {
         [Header("컴포넌트 설정")]
@@ -13,7 +12,8 @@ namespace Prototype.Card
         public Canvas cardCanvas;
 
         [Header("핸드 설정")]
-        public int maxHandCount = 5;
+        public int defaultDrawCount = 2;
+        public int maxHandCount = 9;
 
         [Header("현재 카드 구성")]
         [SerializeField] private List<CardDataSO> _deck = new();
@@ -21,6 +21,7 @@ namespace Prototype.Card
         [SerializeField] private List<CardDataSO> _used = new();
 
         [SerializeField] private List<CardBase> _handObjects = new();
+
 
 
         private void Start()
@@ -32,31 +33,21 @@ namespace Prototype.Card
 
         public void InitializeDeck()
         {
-            // TODO: 덱 초기화 시 셔플 기능 추가
-
+            // 초기화 시 사용된 카드에 카드를 넣어 셔플 시킨다.
             foreach(CardEntry entry in DeckManager.Instance.ownedDeck.Values)
             {
                 for (int i = 0; i < entry.count; i++)
                 {
-                    _deck.Add(entry.cardData);
+                    _used.Add(entry.cardData);
                 }
             }
         }
 
         public void OnRoundStart()
         {
-            StopAllCoroutines();
-            StartCoroutine(DrawCards());
+            DrawCard(defaultDrawCount);
         }
 
-        IEnumerator DrawCards()
-        {
-            while (_hand.Count < maxHandCount)
-            {
-                DrawCard();
-                yield return new WaitForSeconds(0.05f);
-            }
-        }
 
         public void UseCard(CardBase card)
         { 
@@ -84,11 +75,29 @@ namespace Prototype.Card
             RefreshUI();
         }
 
-        void DrawCard()
+        public void DrawCard(int count = 1)
         {
+            if(count == 1)
+                DrawCard();
+            else
+                StartCoroutine(DrawRoutine(count));
+        }
+
+        public void DrawCard()
+        {
+            if(_hand.Count >= maxHandCount)
+            {
+                Debug.LogWarning("핸드가 가득 차 더 이상 카드를 뽑을 수 없습니다.");
+                return;
+            }
+
             if(_deck.Count == 0)
             {
-                Shuffle();
+                if(!Shuffle())
+                {
+                    StopAllCoroutines();
+                    return;
+                }
             }
 
             // 카드 오브젝트 생성
@@ -106,8 +115,18 @@ namespace Prototype.Card
             RefreshUI();
         }
 
-        public void Shuffle()
+        IEnumerator DrawRoutine(int count = 1)
         {
+            for(int i = 0; i < count; i++)
+            {
+                DrawCard();
+                yield return new WaitForSeconds(0.05f);
+            }
+        }
+
+        public bool Shuffle()
+        {
+            int shuffleCount = 0;
             while(_used.Count > 0)
             {
                 int rand = Random.Range(0, _used.Count);
@@ -115,9 +134,18 @@ namespace Prototype.Card
 
                 _used.Remove(data);
                 _deck.Add(data);
+
+                shuffleCount++;
             }
 
-            Debug.Log("셔플 완료");
+            if(shuffleCount == 0)
+            {
+                Debug.LogWarning("셔플 실패 (덱 초기화 안 되어있음)");
+                return false;
+            }
+            
+            Debug.Log($"셔플 완료 ({shuffleCount}개)");
+            return true;
         }
 
         void RefreshUI()
