@@ -8,7 +8,7 @@ namespace Prototype.Card
     public class CardManager : SingletonMonoBehaviour<CardManager>
     {
         [Header("컴포넌트 설정")]
-        public CardBase cardPrefab;
+        //public CardBase cardPrefab;
         public Canvas cardCanvas;
 
         [Header("핸드 설정")]
@@ -100,12 +100,17 @@ namespace Prototype.Card
                 }
             }
 
-            // 카드 오브젝트 생성
-            CardBase card = Instantiate(cardPrefab, cardCanvas.transform);
-
             // 덱에서 첫번쨰 카드 꺼내오기
             CardDataSO data = _deck[0];
             _deck.Remove(data);
+
+            if (data.cardPrefab == null)
+            {
+                Debug.LogError("데이터에 프리팹이 연결 안됨");
+                return;
+            }
+
+            CardBase card = Instantiate(data.cardPrefab, cardCanvas.transform);
 
             // 카드 초기화 및 핸드로 이동
             card.Init(data);

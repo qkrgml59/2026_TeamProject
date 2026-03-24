@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67d96133d2562fa4b8fa652eca47f19e, type: 3}
+  m_Script: {fileID: 11500000, guid: 104faa83f387084458a287e62979d506, type: 3}
   m_Name: Ranged
-  m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.CardDataSO
+  m_EditorClassIdentifier: Assembly-CSharp::UnitCardDataSO
   cardId: Ranged
   icon: {fileID: 21300000, guid: 859b776709ff95d4cbd568709bee13ac, type: 3}
   cardName: "\uB808\uC628"
   description: 
-  unit: {fileID: 4267204715661349276, guid: d1f2a73cc00c23e419d247a260a60d72, type: 3}
-  item: {fileID: 0}
+  cardPrefab: {fileID: -4292617042704308234, guid: d3613220f4b7ecc4fa94b2b32fcdbe08, type: 3}
+  unitSO: {fileID: 4267204715661349276, guid: d1f2a73cc00c23e419d247a260a60d72, type: 3}

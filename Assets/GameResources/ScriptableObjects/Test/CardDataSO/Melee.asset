@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67d96133d2562fa4b8fa652eca47f19e, type: 3}
+  m_Script: {fileID: 11500000, guid: 104faa83f387084458a287e62979d506, type: 3}
   m_Name: Melee
-  m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.CardDataSO
+  m_EditorClassIdentifier: Assembly-CSharp::UnitCardDataSO
   cardId: Melee
   icon: {fileID: 21300000, guid: 0e2851211471e484b845c8734089acea, type: 3}
   cardName: "\uC0AC\uAC01\uB450"
   description: 
-  unit: {fileID: 4267204715661349276, guid: df448e8aee9232d45a0a222ad45b4256, type: 3}
-  item: {fileID: 0}
+  cardPrefab: {fileID: -4292617042704308234, guid: d3613220f4b7ecc4fa94b2b32fcdbe08, type: 3}
+  unitSO: {fileID: 4267204715661349276, guid: df448e8aee9232d45a0a222ad45b4256, type: 3}
