@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace Prototype.Card
 {
-    public class CardBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
+    public abstract class CardBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
     {
         public CardDataSO cardData;
         public Image icon;
@@ -16,15 +16,15 @@ namespace Prototype.Card
         public TextMeshProUGUI cardDescription;
         public RectTransform rectTransform;
 
-        private Vector2 _originAnchoredPos;
+        protected Vector2 _originAnchoredPos;
 
-        void Awake()
+        protected virtual void Awake()
         {
             if (rectTransform == null)
                 rectTransform = GetComponent<RectTransform>();
         }
 
-        public void Init(CardDataSO data)
+        public virtual void Init(CardDataSO data)
         {
             cardData = data;
             icon.sprite = data.icon;
@@ -77,16 +77,21 @@ namespace Prototype.Card
         {
             Debug.Log("드래그 종료");
 
-
             Ray ray = Camera.main.ScreenPointToRay(eventData.position);
+            bool isUsed = false;
 
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                HexTile tile = hit.transform.GetComponent<HexTile>();
+                isUsed = TryUseCard(hit);
 
+                // 변경 전 코드
+                /*
+                HexTile tile = hit.transform.GetComponent<HexTile>();
                 if (tile != null)
                 {
-                    // 일단 중복 설치 방지
+
+                      변경 전 코드
+                     일단 중복 설치 방지
                     if (tile.CanReserve(null))
                     {
                         UnitBase unit = Instantiate(cardData.unit, tile.transform.position, Quaternion.identity);
@@ -99,12 +104,25 @@ namespace Prototype.Card
                         CardManager.Instance.UseCard(this);
                         return;
                     }
-                }
+                }*/
             }
 
-            // 타일(또는 다른 상호작용 공간)이 아니라면 돌아가기
-            rectTransform.anchoredPosition = _originAnchoredPos;
+            if (isUsed)     //카드 사용 성공 시
+            {
+                CardManager.Instance.UseCard(this);
+            }
+            else
+            {
+                // 타일(또는 다른 상호작용 공간)이 아니라면 돌아가기
+                rectTransform.anchoredPosition = _originAnchoredPos;
+            }
         }
+
+        /// <summary>
+        /// 카드를 타일에 오ㄹ렸을 때의 동작
+        /// 타일에 올렸을 때 true 아닐 때 false
+        /// </summary>
+        protected abstract bool TryUseCard(RaycastHit hit);
 
         #endregion
     }

@@ -1,10 +1,8 @@
-using Item;
 using Prototype.Unit;
 using UnityEngine;
 
 namespace Prototype.Card
 {
-    [CreateAssetMenu(fileName = "CardDataSO", menuName = "CardDataSO/CardDataSO")]
     public class CardDataSO : ScriptableObject
     {
         public string cardId;
@@ -13,8 +11,6 @@ namespace Prototype.Card
         public string cardName;
         public string description;
 
-        // 프로토타입에서는 유닛 카드만 존재
-        public UnitBase unit;
-        public ItemSO item;
+        public CardBase cardPrefab;
     }
 }
