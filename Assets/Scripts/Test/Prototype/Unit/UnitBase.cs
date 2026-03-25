@@ -193,44 +193,51 @@ namespace Prototype.Unit
             unitEvents.OnNormalAttack?.Invoke(this);
         }
 
-        public virtual void ApplyDamage(float amount)
+        public virtual void ApplyDamage(DamageInfo info)
         {
-            // TODO: 전투 중일때만 체력이 감소하도록 수정
+            float damage = info.amount;
 
-            if (amount < 0) return;
+            if (damage <= 0) return;
+
+            if (BattleManager.Instance.currentBattleState != BattleState.Combat)
+                return;
 
             // 방어력, 피해 감소 등 계산
-            // 프로토타입에서는 생략
+            damage = DamageCalculator.CalculateFinalDamage(info, this);
 
             // 일단 바로 사망 처리
-            if (currentHp - amount < 0)
+            if (currentHp - damage < 0)
             {
                 ChangeUnitState(UnitStateType.Dead);
                 return;
             }
 
-            currentHp -= amount;
+            currentHp -= damage;
 
-            Debug.Log($"[{gameObject.name}] -{amount} 데미지", this);
+            if(info.isCritical) Debug.Log($"[{gameObject.name}] -{damage} 치명타!! (공격 유닛 : {info.source})", this);
+            else Debug.Log($"[{gameObject.name}] -{damage} 데미지 (공격 유닛 : {info.source})", this);
 
             unitEvents.OnHpChanged?.Invoke(currentHp, statSet.MaxHp.Value);
         }
 
-        public void ApplyHeal(float amount)
+        public void ApplyHeal(HealInfo info)
         {
-            // TODO: 전투 중일때만 체력이 증가하도록 수정
+            float healAmount = info.amount;
 
-            if (amount < 0) return;
+            if (healAmount <= 0) return;
+
+            if (BattleManager.Instance.currentBattleState != BattleState.Combat)
+                return;
 
             // 회복 증가 등 생략
 
             // 초과 회복 처리
-            if (currentHp + amount > statSet.MaxHp.Value)
-                amount = statSet.MaxHp.Value - currentHp;
+            if (currentHp + healAmount > statSet.MaxHp.Value)
+                healAmount = statSet.MaxHp.Value - currentHp;
 
-            currentHp += amount;
+            currentHp += healAmount;
 
-            Debug.Log($"[{gameObject.name}] +{amount} 회복", this);
+            Debug.Log($"[{gameObject.name}] +{healAmount} 회복 (회복 유닛 : {info.source})", this);
 
             unitEvents.OnHpChanged?.Invoke(currentHp, statSet.MaxHp.Value);
         }
@@ -258,7 +265,7 @@ namespace Prototype.Unit
 
         void OnBattleEnd()
         {
-
+            ChangeUnitState(UnitStateType.Idle);
         }
 
         public void RemoveEventListener()
