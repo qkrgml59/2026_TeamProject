@@ -413,9 +413,17 @@ namespace Prototype.Unit
             return this.team == team;
         }    
 
-        public void DestroyUnit()
+
+        /// <summary>
+        /// 유닛이 실제로 사망 했을 때 호출 (외부에서 직접 파괴)
+        /// </summary>
+        public void Die()
         {
-            ChangeUnitState(UnitStateType.Dead);
+            unitEvents.OnDestroyedUnit?.Invoke(this);     // 유닛 파괴 이벤트
+            EnterTile(null);      // 위치했던 타일 제거
+            RemoveEventListener();
+            UnitManager.Instance.UnregisterUnit(this);
+            Destroy(gameObject);
         }
 
         private void OnDrawGizmos()

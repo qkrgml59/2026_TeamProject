@@ -18,9 +18,7 @@ namespace Prototype.Skill
 
         private void Update()
         {
-            if(_caster == null || _targetUnit == null) return;
-
-            if(_targetUnit.CurFSM == UnitStateType.Dead)
+            if(_caster == null || _targetUnit == null || _targetUnit.CurFSM == UnitStateType.Dead)
             {
                 // 일단 파괴
                 Destroy(gameObject);

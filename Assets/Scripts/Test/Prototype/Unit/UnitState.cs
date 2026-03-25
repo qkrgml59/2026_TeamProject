@@ -223,12 +223,11 @@ namespace Prototype.Unit
 
         public void StateEnter()
         {
-            _unit.gameObject.SetActive(false);
-            _unit.ClaerPath();
-            _unit.EnterTile(null);      // 위치했던 타일 제거
-            _unit.unitEvents.OnDead?.Invoke(_unit);
-            _unit.RemoveEventListener();
-            UnitManager.Instance.UnregisterUnit(_unit);
+            _unit.ClaerPath();                          // 경로 제거
+            _unit.unitEvents.OnDead?.Invoke(_unit);     // 사망 이벤트
+
+            // TODO : 무적 & 부활 등 체크
+            _unit.Die();
         }
 
         public void StateUpdate()
@@ -243,7 +242,7 @@ namespace Prototype.Unit
 
         public void StateExit()
         {
-            _unit.gameObject.SetActive(true);
+            
         }
     }
 
