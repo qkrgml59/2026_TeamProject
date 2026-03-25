@@ -172,8 +172,8 @@ namespace Prototype.Unit
             if (path.Count <= curPathIndex) return false;
 
             // 도착 타일에 해당 유닛이 있는지 확인
-            if (path[^1].OccupantUnit != targetUnit)
-                return false;
+            //if (path[^1].OccupantUnit != targetUnit)
+                //return false;
 
             return GridManager.Instance.pathfinder.IsPathStillValid(path, curPathIndex, targetUnit.currentTile, statSet.AttackRange.Value);
         }
