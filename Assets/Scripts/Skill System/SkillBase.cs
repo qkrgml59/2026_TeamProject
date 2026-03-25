@@ -2,6 +2,7 @@ using Prototype.Unit;
 using System.Collections;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.UI;
 namespace Skill
 {
     /// <summary>
@@ -27,6 +28,8 @@ namespace Skill
         protected bool isUsing;
         protected UnitBase owner;
 
+        protected Coroutine skillRoutine;
+
 
         #endregion
 
@@ -44,12 +47,24 @@ namespace Skill
 
         #endregion
 
+
+        #region === 초기화 ===
+
+        public virtual void Init(UnitBase _owner)
+        {
+            owner = _owner;
+        }
+
+        #endregion
+
+
+
         #region === 스킬 흐름 ===
 
         ///<summary>
         ///스킬 사용 시작
         /// </summary>
-        
+
         public virtual void Use(UnitBase _owner)
         {
             if (isUsing) return;
@@ -62,23 +77,37 @@ namespace Skill
 
         public virtual void StopSkill()
         {
-            if (!isUsing) return;
+            if(!isUsing) return;
+
             isUsing = false;
 
-            OnEnd();
+            //코루틴 정리
+            if(skillRoutine !=null)
+            {
+                StopCoroutine(skillRoutine);
+                skillRoutine = null;
+            }
 
-            owner = null;
-            
-        }    
+            OnEnd();
+        }
 
         #endregion
+        #region === Update ===
 
-        void Update()
+        protected virtual void Update()
         {
             if (!isUsing) return;
+
             OnUsing();
         }
 
+        #endregion
+
+        #region === Coroutine Helper ===
+        protected void StartSkillCoroutine(IEnumerator routine)
+        {
+            skillRoutine = StartCoroutine(routine);
+        }
 
         #region ===  단계별 함수 ===
 
