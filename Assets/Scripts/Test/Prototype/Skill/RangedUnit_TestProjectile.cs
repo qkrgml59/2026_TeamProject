@@ -1,4 +1,5 @@
 using Prototype.Unit;
+using Stat;
 using UnityEngine;
 
 namespace Prototype.Skill
@@ -17,9 +18,7 @@ namespace Prototype.Skill
 
         private void Update()
         {
-            if(_caster == null || _targetUnit == null) return;
-
-            if(_targetUnit.CurFSM == UnitStateType.Dead)
+            if(_caster == null || _targetUnit == null || _targetUnit.CurFSM == UnitStateType.Dead)
             {
                 // 일단 파괴
                 Destroy(gameObject);
@@ -39,9 +38,33 @@ namespace Prototype.Skill
 
             if(Vector3.Distance(_targetUnit.transform.position, transform.position) < 0.1f)
             {
-                _targetUnit?.ApplyDamage(_caster.statSet.AttackDamage.Value);
-                Destroy(gameObject);
+                TakeDamage();
             }
+        }
+
+        void TakeDamage()
+        {
+            // 일반 공격은 공격력의 100% 데미지
+            float damage = _caster.statSet.AttackDamage.Value;
+
+            // 치명타 확인
+            bool isCrit = DamageCalculator.RollCritical(_caster.statSet.CritChance.Value);
+            if (isCrit)
+            {
+                // 치명타 발생 시
+                damage *= (_caster.statSet.CritDamage.Value * 0.01f);
+            }
+
+
+            // 피해 증가 배율 증가
+            damage *= (100 + _caster.statSet.DamageIncrease.Value) * 0.01f;
+
+            DamageInfo info = new DamageInfo(_caster, damage, DamageType.Physical, isCrit);
+
+            _targetUnit?.ApplyDamage(info);
+
+            // 공격 후 투사체 파괴
+            Destroy(gameObject);
         }
     }
 }

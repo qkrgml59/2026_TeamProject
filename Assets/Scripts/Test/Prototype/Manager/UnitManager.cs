@@ -47,24 +47,18 @@ namespace Prototype.Unit
             }
         }
 
-        public void ClaerUnit()
+        public void ClaerEnemy()
         {
-            foreach (UnitBase u in _allUnits.ToArray())
+            foreach (UnitBase u in _enemyUnits.ToArray())
             {
-                u.DestroyUnit();
-            }
+                u.Die();
 
-            _allUnits.Clear();
-            _allyUnits.Clear();
-            _enemyUnits.Clear();
-
-            foreach (UnitBase u in _allUnits)
-            {
-                Destroy(u.gameObject);
+                _allUnits.Remove(u);
+                _enemyUnits.Remove(u);
             }
         }
-
-        #region Get Mathod
+    
+        #region Get Method
         public List<UnitBase> GetAliveEnemies(TeamType team)
         {
             List<UnitBase> result = new();

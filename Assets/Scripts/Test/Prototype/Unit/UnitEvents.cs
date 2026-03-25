@@ -21,6 +21,9 @@ namespace Prototype.Unit
         [Header("사망")]
         public UnityEvent<UnitBase> OnDead;
 
+        [Header("오브젝트 파괴")]
+        public UnityEvent<UnitBase> OnDestroyedUnit;
+
         [Header("FSM 변경")]
         public UnityEvent<UnitBase, UnitStateType> OnUnitFSMChanged;
     }

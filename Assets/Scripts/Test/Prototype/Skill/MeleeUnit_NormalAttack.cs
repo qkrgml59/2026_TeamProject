@@ -1,5 +1,6 @@
 using UnityEngine;
 using Prototype.Unit;
+using Stat;
 namespace Prototype.Skill
 { 
     public class MeleeUnit_NormalAttack : SkillBase
@@ -13,7 +14,26 @@ namespace Prototype.Skill
             transform.rotation = Quaternion.LookRotation(dir);
 
             skillEffect.Play();
-            targetUnit?.ApplyDamage(caster.statSet.AttackDamage.Value);
+
+            // 일반 공격은 공격력의 100* 데미지
+            float damage = caster.statSet.AttackDamage.Value;           
+
+
+            // 치명타 확인
+            bool isCrit = DamageCalculator.RollCritical(caster.statSet.CritChance.Value);
+            if(isCrit)
+            {
+                // 치명타 발생 시
+                damage *= (caster.statSet.CritDamage.Value * 0.01f);
+            }
+
+
+            // 피해 증가 배율 증가
+            damage *= (100 + caster.statSet.DamageIncrease.Value) * 0.01f;
+
+            DamageInfo info = new DamageInfo(caster, damage, DamageType.Physical, isCrit);
+
+            targetUnit?.ApplyDamage(info);
         }
     }
 }

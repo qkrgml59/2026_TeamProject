@@ -2,15 +2,14 @@ using Prototype.Card;
 using UnityEngine;
 
 [System.Serializable]
-public class CardEntry : MonoBehaviour
+public class CardEntry
 {
-    public string cardId;
+    public string cardId => cardData ? cardData.cardId : null;
     public CardDataSO cardData;
     public int count;
 
     public CardEntry(CardDataSO cardData, int count = 1)
     {
-        cardId = cardData.cardId;
         this.cardData = cardData;
         this.count = count;
     }

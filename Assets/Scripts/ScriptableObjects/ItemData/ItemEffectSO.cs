@@ -1,5 +1,5 @@
 using UnityEngine;
-using Unit;
+using Prototype.Unit;
 
 namespace Item
 {

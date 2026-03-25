@@ -36,11 +36,24 @@ namespace Prototype.UI
                 view.Init(unit);
                 viewData.Add(unit, view);
             }
+
+            unit.unitEvents.OnDestroyedUnit.AddListener(RemoveHealthBar);
         }
 
         public void RemoveHealthBar(UnitBase unit)
         {
+            unit.unitEvents.OnDestroyedUnit.RemoveListener(RemoveHealthBar);
+            HealthBarView view = viewData[unit];
+            Destroy(view.gameObject);
+            viewData.Remove(unit);
+        }
 
+        private void OnDestroy() 
+        {
+            foreach(var unit in viewData.Keys)
+            {
+                unit.unitEvents.OnDestroyedUnit.RemoveListener(RemoveHealthBar);
+            }
         }
     }
 }

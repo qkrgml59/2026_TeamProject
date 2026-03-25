@@ -50,6 +50,15 @@ namespace Prototype.Unit
         // 컴포넌트
         Rigidbody _rigidbody;
 
+        // 초기화 정보
+        HexTile startTile;
+
+        public void PlaceUnit(HexTile tile)
+        {
+            startTile = tile;
+            transform.position = startTile.transform.position;
+            EnterTile(tile);
+        }
 
         #region FSM
         public void ChangeUnitState(UnitStateType targetState)
@@ -172,8 +181,8 @@ namespace Prototype.Unit
             if (path.Count <= curPathIndex) return false;
 
             // 도착 타일에 해당 유닛이 있는지 확인
-            if (path[^1].OccupantUnit != targetUnit)
-                return false;
+            //if (path[^1].OccupantUnit != targetUnit)
+                //return false;
 
             return GridManager.Instance.pathfinder.IsPathStillValid(path, curPathIndex, targetUnit.currentTile, statSet.AttackRange.Value);
         }
@@ -193,44 +202,51 @@ namespace Prototype.Unit
             unitEvents.OnNormalAttack?.Invoke(this);
         }
 
-        public virtual void ApplyDamage(float amount)
+        public virtual void ApplyDamage(DamageInfo info)
         {
-            // TODO: 전투 중일때만 체력이 감소하도록 수정
+            float damage = info.amount;
 
-            if (amount < 0) return;
+            if (damage <= 0) return;
+
+            if (BattleManager.Instance.currentBattleState != BattleState.Combat)
+                return;
 
             // 방어력, 피해 감소 등 계산
-            // 프로토타입에서는 생략
+            damage = DamageCalculator.CalculateFinalDamage(info, this);
 
             // 일단 바로 사망 처리
-            if (currentHp - amount < 0)
+            if (currentHp - damage < 0)
             {
                 ChangeUnitState(UnitStateType.Dead);
                 return;
             }
 
-            currentHp -= amount;
+            currentHp -= damage;
 
-            Debug.Log($"[{gameObject.name}] -{amount} 데미지", this);
+            if(info.isCritical) Debug.Log($"[{gameObject.name}] -{damage} 치명타!! (공격 유닛 : {info.source})", this);
+            else Debug.Log($"[{gameObject.name}] -{damage} 데미지 (공격 유닛 : {info.source})", this);
 
             unitEvents.OnHpChanged?.Invoke(currentHp, statSet.MaxHp.Value);
         }
 
-        public void ApplyHeal(float amount)
+        public void ApplyHeal(HealInfo info)
         {
-            // TODO: 전투 중일때만 체력이 증가하도록 수정
+            float healAmount = info.amount;
 
-            if (amount < 0) return;
+            if (healAmount <= 0) return;
+
+            if (BattleManager.Instance.currentBattleState != BattleState.Combat)
+                return;
 
             // 회복 증가 등 생략
 
             // 초과 회복 처리
-            if (currentHp + amount > statSet.MaxHp.Value)
-                amount = statSet.MaxHp.Value - currentHp;
+            if (currentHp + healAmount > statSet.MaxHp.Value)
+                healAmount = statSet.MaxHp.Value - currentHp;
 
-            currentHp += amount;
+            currentHp += healAmount;
 
-            Debug.Log($"[{gameObject.name}] +{amount} 회복", this);
+            Debug.Log($"[{gameObject.name}] +{healAmount} 회복 (회복 유닛 : {info.source})", this);
 
             unitEvents.OnHpChanged?.Invoke(currentHp, statSet.MaxHp.Value);
         }
@@ -240,8 +256,12 @@ namespace Prototype.Unit
         #region Event Listener
         void OnRoundStart()
         {
+            transform.position = startTile.transform.position;
+
             // 아이템 등의 효과 초기화(또는 재적용)
             currentHp = statSet.MaxHp.Value;
+            unitEvents.OnHpChanged?.Invoke(currentHp, statSet.MaxHp.Value);
+
             ChangeUnitState(UnitStateType.Idle);
         }
 
@@ -258,7 +278,7 @@ namespace Prototype.Unit
 
         void OnBattleEnd()
         {
-
+            ChangeUnitState(UnitStateType.Idle);
         }
 
         public void RemoveEventListener()
@@ -344,12 +364,13 @@ namespace Prototype.Unit
 
         private void OnTargetDead(UnitBase deadUnit)
         {
+            deadUnit.unitEvents.OnDead.RemoveListener(OnTargetDead);
+
             if (targetUnit != deadUnit)
                 return;
 
             targetUnit = null;
             ChangeUnitState(UnitStateType.Think);
-            deadUnit.unitEvents.OnDead.RemoveListener(OnTargetDead);
         }
 
         public UnitBase GetNearestEnemy()
@@ -392,9 +413,17 @@ namespace Prototype.Unit
             return this.team == team;
         }    
 
-        public void DestroyUnit()
+
+        /// <summary>
+        /// 유닛이 실제로 사망 했을 때 호출 (외부에서 직접 파괴)
+        /// </summary>
+        public void Die()
         {
-            ChangeUnitState(UnitStateType.Dead);
+            unitEvents.OnDestroyedUnit?.Invoke(this);     // 유닛 파괴 이벤트
+            EnterTile(null);      // 위치했던 타일 제거
+            RemoveEventListener();
+            UnitManager.Instance.UnregisterUnit(this);
+            Destroy(gameObject);
         }
 
         private void OnDrawGizmos()

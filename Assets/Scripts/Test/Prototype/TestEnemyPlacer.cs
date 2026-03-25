@@ -38,8 +38,7 @@ public class TestEnemyPlacer : MonoBehaviour
             {
                 UnitBase target = Instantiate(randRow < rowMin + 2? meleeUnit : rangedUnit, targetTile.transform.position, Quaternion.identity);
                 target.team = teamType;
-                targetTile.EnterTile(target);
-                target.EnterTile(targetTile);
+                target.PlaceUnit(targetTile);
                 UnitManager.Instance.RegisterUnit(target);
                 IndicatorManager.Instance.HPBarPresenter.RegisterHealthBar(target);
                 i++;

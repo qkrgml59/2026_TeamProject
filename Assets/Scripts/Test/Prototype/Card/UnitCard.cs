@@ -1,0 +1,50 @@
+using Prototype.Card;
+using Prototype.Grid;
+using Prototype.UI;
+using Prototype.Unit;
+using UnityEngine;
+
+namespace Prototype.Card
+{
+    public class UnitCard : CardBase
+    {
+        UnitCardDataSO unitData;
+        public override void Init(CardDataSO data)
+        {
+            base.Init(data);
+
+            unitData = data as UnitCardDataSO;
+            
+            if (unitData == null)
+            {
+                Debug.LogError($"{data.cardName}이 UnitCardDataSO 타입이 아님.");
+            }
+        }
+
+        protected override bool TryUseCard(RaycastHit hit)
+        {
+            if (unitData == null || unitData.unitSO == null) return false;
+
+            HexTile tile = hit.transform.GetComponent<HexTile>();
+
+            if (tile != null)
+            {
+                if (tile.CanReserve(null))
+                {
+                    UnitBase unit = Instantiate(unitData.unitSO, tile.transform.position, Quaternion.identity);
+                    unit.team = TeamType.Ally;
+
+                    unit.PlaceUnit(tile);
+
+                    UnitManager.Instance.RegisterUnit(unit);
+                    IndicatorManager.Instance.HPBarPresenter.RegisterHealthBar(unit);
+
+                    Debug.Log($"{unit.name} 배치 성공");
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+    }
+}

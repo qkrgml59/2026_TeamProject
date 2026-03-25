@@ -4,7 +4,7 @@ namespace Prototype.Unit
 {
     public interface IHealthReceiver
     {
-        void ApplyDamage(float amount);
-        void ApplyHeal(float amount);
+        void ApplyDamage(DamageInfo info);
+        void ApplyHeal(HealInfo info);
     }
 }

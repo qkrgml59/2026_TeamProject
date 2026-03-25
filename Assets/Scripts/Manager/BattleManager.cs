@@ -6,9 +6,11 @@ using Prototype.Unit;
 
 public enum BattleState
 {
+    Loading,            // 데이터 로딩, 시스템 준비
     Prepare,            // 준비중
     Combat,             // 전투중
-    RoundEnd            // 라운드 종료
+    RoundEnd,           // 라운드 종료
+    Reward,             // 보상 획득
 }
 
 public class BattleManager : SingletonMonoBehaviour<BattleManager>
@@ -90,7 +92,7 @@ public class BattleManager : SingletonMonoBehaviour<BattleManager>
         Debug.Log("[Battle Manager] 라운드 종료");
         OnRoundEnd?.Invoke();
 
-        UnitManager.Instance.ClaerUnit();
+        UnitManager.Instance.ClaerEnemy();
 
         if(delayRountine != null)
         {

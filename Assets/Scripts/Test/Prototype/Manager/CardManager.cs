@@ -5,65 +5,162 @@ using System.Collections;
 
 namespace Prototype.Card
 {
-    // 임시로 만든 매니저, 덱이랑 분리 필요.
     public class CardManager : SingletonMonoBehaviour<CardManager>
     {
-        public List<CardDataSO> data = new();
-        public CardBase cardPrefab;
-
-        public int maxCardCount = 5;
-
-        public List<CardBase> hands = new();
-
+        [Header("컴포넌트 설정")]
+        //public CardBase cardPrefab;
         public Canvas cardCanvas;
+
+        [Header("핸드 설정")]
+        public int defaultDrawCount = 2;
+        public int maxHandCount = 9;
+
+        [Header("현재 카드 구성")]
+        [SerializeField] private List<CardDataSO> _deck = new();
+        [SerializeField] private List<CardDataSO> _hand = new();
+        [SerializeField] private List<CardDataSO> _used = new();
+
+        [SerializeField] private List<CardBase> _handObjects = new();
+
+
 
         private void Start()
         {
+            InitializeDeck();
+
             BattleManager.Instance.OnRoundStart += OnRoundStart;
+        }
+
+        public void InitializeDeck()
+        {
+            // 초기화 시 사용된 카드에 카드를 넣어 셔플 시킨다.
+            foreach(CardEntry entry in DeckManager.Instance.ownedDeck.Values)
+            {
+                for (int i = 0; i < entry.count; i++)
+                {
+                    _used.Add(entry.cardData);
+                }
+            }
         }
 
         public void OnRoundStart()
         {
-            StopAllCoroutines();
-            StartCoroutine(DrawCards());
+            DrawCard(defaultDrawCount);
         }
 
-        IEnumerator DrawCards()
+
+        public void UseCard(CardBase card)
+        { 
+            if(!_handObjects.Contains(card))
+            {
+                Debug.LogError($"{card.cardData.name}가 실제 핸드에 없습니다.");
+                return;
+            }
+
+            if (!_hand.Contains(card.cardData))
+            {
+                Debug.LogError($"{card.cardData.name}가 핸드 데이터에 없습니다.");
+                return;
+            }
+
+            // 사용한 카드로 이동
+            _used.Add(card.cardData);
+
+            // 핸드에서 카드 제거
+            _handObjects.Remove(card);
+            _hand.Remove(card.cardData);
+            Destroy(card.gameObject);
+
+
+            RefreshUI();
+        }
+
+        public void DrawCard(int count = 1)
         {
-            while (hands.Count < 5)
+            if(count == 1)
+                DrawCard();
+            else
+                StartCoroutine(DrawRoutine(count));
+        }
+
+        public void DrawCard()
+        {
+            if(_hand.Count >= maxHandCount)
+            {
+                Debug.LogWarning("핸드가 가득 차 더 이상 카드를 뽑을 수 없습니다.");
+                return;
+            }
+
+            if(_deck.Count == 0)
+            {
+                if(!Shuffle())
+                {
+                    StopAllCoroutines();
+                    return;
+                }
+            }
+
+            // 덱에서 첫번쨰 카드 꺼내오기
+            CardDataSO data = _deck[0];
+            _deck.Remove(data);
+
+            if (data.cardPrefab == null)
+            {
+                Debug.LogError("데이터에 프리팹이 연결 안됨");
+                return;
+            }
+
+            CardBase card = Instantiate(data.cardPrefab, cardCanvas.transform);
+
+            // 카드 초기화 및 핸드로 이동
+            card.Init(data);
+            _hand.Add(data);
+            _handObjects.Add(card);
+
+            RefreshUI();
+        }
+
+        IEnumerator DrawRoutine(int count = 1)
+        {
+            for(int i = 0; i < count; i++)
             {
                 DrawCard();
                 yield return new WaitForSeconds(0.05f);
             }
         }
 
-        public void UseCard(CardBase card)
-        { 
-            if(hands.Contains(card))
+        public bool Shuffle()
+        {
+            int shuffleCount = 0;
+            while(_used.Count > 0)
             {
-                hands.Remove(card);
-                CardSorting();
+                int rand = Random.Range(0, _used.Count);
+                CardDataSO data = _used[rand];
+
+                _used.Remove(data);
+                _deck.Add(data);
+
+                shuffleCount++;
             }
-        }
 
-        void DrawCard()
-        {
-            CardBase card = Instantiate(cardPrefab, cardCanvas.transform);
-            int rand = Random.Range(0, data.Count);
-            card.Init(data[rand]);
-            hands.Add(card);
-
-            CardSorting();
-        }
-
-        void CardSorting()
-        {
-            float totalWidth = hands.Count * 170f;
-            for (int i = 0; i < hands.Count; i++)
+            if(shuffleCount == 0)
             {
-                if(hands[i] != null)
+                Debug.LogWarning("셔플 실패 (덱 초기화 안 되어있음)");
+                return false;
+            }
+            
+            Debug.Log($"셔플 완료 ({shuffleCount}개)");
+            return true;
+        }
+
+        void RefreshUI()
+        {
+            float totalWidth = _handObjects.Count * 170f;
+            for (int i = 0; i < _handObjects.Count; i++)
+            {
+                if(_handObjects[i] != null)
                 {
-                    hands[i].rectTransform.anchoredPosition = new Vector3(-totalWidth / 2 + i * 170f, 45f, 0);
+                    _handObjects[i].rectTransform.anchoredPosition = new Vector3(-totalWidth / 2 + i * 170f, 45f, 0);
                 }
             }
         }

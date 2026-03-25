@@ -7,12 +7,29 @@ namespace Prototype.Card
     public class DeckManager : SingletonMonoBehaviour<DeckManager>
     {
         [Header("덱 정보")]
-        [SerializeField]private Dictionary<string, CardEntry> ownedDeck = new ();
-        public IReadOnlyDictionary<string, CardEntry> OwnedDeck => ownedDeck;
+        [SerializeField]private List<CardEntry> _testEntries = new();       // 초기 덱 설정을 위한 테스트 목록
+        public Dictionary<string, CardEntry> ownedDeck { get; private set; } = new ();
 
         [Header("덱 설정")]
         public int maxDeckSize = 40;            // 덱 최대/최소 설정 (사용 하려나요)
         public int minDeckSize = 20;
+
+        private void Awake() 
+        {
+            InitDeck();
+        }
+
+        [ContextMenu("덱 초기화")]
+        public void InitDeck()
+        {
+            ownedDeck.Clear();
+            foreach (var entry in _testEntries)
+            {
+                ownedDeck[entry.cardId] = entry;
+            }
+
+            Debug.Log("[DeckManager] 덱 초기화 완료", this);
+        }
 
         /// <summary>
         ///  덱에 카드 추가를 시도합니다.
@@ -22,13 +39,13 @@ namespace Prototype.Card
             int totalCount = GetTotalCardCount();
             if (totalCount >= maxDeckSize)
             {
-                Debug.LogWarning("덱이 가득 차 카드를 추가 할 수 없습니다.");
+                Debug.LogWarning("[DeckManager] 덱이 가득 차 카드를 추가 할 수 없습니다.", this);
                 return false;
             }
 
             if (totalCount + count > maxDeckSize)
             {
-                Debug.LogWarning("덱에 공간이 부족해 카드를 추가할 수 없습니다.");
+                Debug.LogWarning("[DeckManager] 덱에 공간이 부족해 카드를 추가할 수 없습니다.", this);
                 return false;
             }
 
@@ -51,13 +68,13 @@ namespace Prototype.Card
             int totalCount = GetTotalCardCount();
             if (totalCount <= minDeckSize)
             {
-                Debug.LogWarning($"카드는 최소 {minDeckSize}장 있어야 합니다.");
+                Debug.LogWarning($"[DeckManager] 카드는 최소 {minDeckSize}장 있어야 합니다.", this);
                 return false;
             }
 
             if (totalCount - count < minDeckSize)
             {
-                Debug.LogWarning($"카드를 {totalCount - minDeckSize}장 까지만 버릴 수 있습니다.");
+                Debug.LogWarning($"[DeckManager] 카드를 {totalCount - minDeckSize}장 까지만 버릴 수 있습니다.", this);
                 return false;
             }
 
@@ -65,7 +82,7 @@ namespace Prototype.Card
             {
                 if(ownedDeck[targetCard.cardId].count < count)
                 {
-                    Debug.LogWarning("카드는 현재 보유중인 개수 보다 많이 버릴 수 없습니다.");
+                    Debug.LogWarning("[DeckManager] 카드는 현재 보유중인 개수 보다 많이 버릴 수 없습니다.", this);
                     return false;
                 }
 
@@ -78,7 +95,7 @@ namespace Prototype.Card
             }
             else
             {
-                Debug.LogWarning("현재 해당 카드를 보유하고 있지 않습니다.");
+                Debug.LogWarning("[DeckManager] 현재 해당 카드를 보유하고 있지 않습니다.", this);
                 return false;
             }
 
@@ -92,7 +109,7 @@ namespace Prototype.Card
         public int GetTotalCardCount()
         {
             int total = 0;
-            foreach (var entry in OwnedDeck.Values)
+            foreach (var entry in ownedDeck.Values)
                 total += entry.count;
 
             return total;
