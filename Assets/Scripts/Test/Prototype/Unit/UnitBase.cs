@@ -50,6 +50,15 @@ namespace Prototype.Unit
         // 컴포넌트
         Rigidbody _rigidbody;
 
+        // 초기화 정보
+        HexTile startTile;
+
+        public void PlaceUnit(HexTile tile)
+        {
+            startTile = tile;
+            transform.position = startTile.transform.position;
+            EnterTile(tile);
+        }
 
         #region FSM
         public void ChangeUnitState(UnitStateType targetState)
@@ -247,8 +256,12 @@ namespace Prototype.Unit
         #region Event Listener
         void OnRoundStart()
         {
+            transform.position = startTile.transform.position;
+
             // 아이템 등의 효과 초기화(또는 재적용)
             currentHp = statSet.MaxHp.Value;
+            unitEvents.OnHpChanged?.Invoke(currentHp, statSet.MaxHp.Value);
+
             ChangeUnitState(UnitStateType.Idle);
         }
 
@@ -351,12 +364,13 @@ namespace Prototype.Unit
 
         private void OnTargetDead(UnitBase deadUnit)
         {
+            deadUnit.unitEvents.OnDead.RemoveListener(OnTargetDead);
+
             if (targetUnit != deadUnit)
                 return;
 
             targetUnit = null;
             ChangeUnitState(UnitStateType.Think);
-            deadUnit.unitEvents.OnDead.RemoveListener(OnTargetDead);
         }
 
         public UnitBase GetNearestEnemy()

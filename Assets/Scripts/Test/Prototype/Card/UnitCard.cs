@@ -34,8 +34,7 @@ namespace Prototype.Card
                     UnitBase unit = Instantiate(unitData.unitSO, tile.transform.position, Quaternion.identity);
                     unit.team = TeamType.Ally;
 
-                    tile.EnterTile(unit);
-                    unit.EnterTile(tile);
+                    unit.PlaceUnit(tile);
 
                     UnitManager.Instance.RegisterUnit(unit);
                     IndicatorManager.Instance.HPBarPresenter.RegisterHealthBar(unit);
