@@ -109,6 +109,8 @@ namespace Skill
             skillRoutine = StartCoroutine(routine);
         }
 
+        #endregion
+
         #region ===  단계별 함수 ===
 
         protected abstract void OnStart();
