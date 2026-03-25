@@ -92,7 +92,7 @@ public class BattleManager : SingletonMonoBehaviour<BattleManager>
         Debug.Log("[Battle Manager] 라운드 종료");
         OnRoundEnd?.Invoke();
 
-        UnitManager.Instance.ClaerUnit();
+        UnitManager.Instance.ClaerEnemy();
 
         if(delayRountine != null)
         {
