@@ -18,6 +18,9 @@ namespace Prototype.Unit
     {
         [Header("유닛 정보")]
         public TeamType team = TeamType.Ally;
+        [SerializeField] private Sprite unitImage;
+        [SerializeField] private Renderer quadRenderer;
+        private MaterialPropertyBlock mpb;
 
         [Header("스텟 정보")]
         [SerializeField] private UnitStatSO unitStatData;
@@ -172,6 +175,13 @@ namespace Prototype.Unit
             }
         }
 
+        public void EnterTile(HexTile nextTile)
+        {
+            currentTile?.ExitTile(this);
+            nextTile?.EnterTile(this);
+            currentTile = nextTile;
+        }
+
         /// <summary>
         /// 현재 경로가 아직 유효한지 확인
         /// </summary>
@@ -249,6 +259,30 @@ namespace Prototype.Unit
             Debug.Log($"[{gameObject.name}] +{healAmount} 회복 (회복 유닛 : {info.source})", this);
 
             unitEvents.OnHpChanged?.Invoke(currentHp, statSet.MaxHp.Value);
+        }
+
+        /// <summary>
+        /// 유닛이 실제로 사망 했을 때 호출 (외부에서 직접 파괴)
+        /// </summary>
+        public void Die()
+        {
+            unitEvents.OnDestroyedUnit?.Invoke(this);     // 유닛 파괴 이벤트
+            EnterTile(null);      // 위치했던 타일 제거
+            RemoveEventListener();
+            UnitManager.Instance.UnregisterUnit(this);
+            Destroy(gameObject);
+        }
+
+        // 타겟 유닛 사망 시 이벤트를 통해 호출됨
+        private void OnTargetDead(UnitBase deadUnit)
+        {
+            deadUnit.unitEvents.OnDead.RemoveListener(OnTargetDead);
+
+            if (targetUnit != deadUnit)
+                return;
+
+            targetUnit = null;
+            ChangeUnitState(UnitStateType.Think);
         }
 
         #endregion
@@ -362,17 +396,6 @@ namespace Prototype.Unit
             Debug.Log($"[{name}] 공격 대상 변경 ({newTarget.transform.name})");
         }
 
-        private void OnTargetDead(UnitBase deadUnit)
-        {
-            deadUnit.unitEvents.OnDead.RemoveListener(OnTargetDead);
-
-            if (targetUnit != deadUnit)
-                return;
-
-            targetUnit = null;
-            ChangeUnitState(UnitStateType.Think);
-        }
-
         public UnitBase GetNearestEnemy()
         {
             var enemies = UnitManager.Instance.GetAliveEnemies(team);
@@ -394,16 +417,25 @@ namespace Prototype.Unit
             return nearest;
         }
 
-       
+
 
         #endregion
 
-        public void EnterTile(HexTile nextTile)
+        #region Visual Function
+        // 유닉 텍스쳐 적용
+        public void ApplyVisual()
         {
-            currentTile?.ExitTile(this);
-            nextTile?.EnterTile(this);
-            currentTile = nextTile;
+            if (quadRenderer == null || unitImage == null)
+                return;
+
+            if (mpb == null)
+                mpb = new MaterialPropertyBlock();
+
+            quadRenderer.GetPropertyBlock(mpb);
+            mpb.SetTexture("_BaseMap", unitImage.texture);              
+            quadRenderer.SetPropertyBlock(mpb);
         }
+        #endregion
 
         /// <summary>
         /// 자신과 타겟이 동일한 팀 인지 반환
@@ -413,18 +445,18 @@ namespace Prototype.Unit
             return this.team == team;
         }    
 
+        #region Utility
 
-        /// <summary>
-        /// 유닛이 실제로 사망 했을 때 호출 (외부에서 직접 파괴)
-        /// </summary>
-        public void Die()
+        #if UNITY_EDITOR
+        private void OnValidate()
         {
-            unitEvents.OnDestroyedUnit?.Invoke(this);     // 유닛 파괴 이벤트
-            EnterTile(null);      // 위치했던 타일 제거
-            RemoveEventListener();
-            UnitManager.Instance.UnregisterUnit(this);
-            Destroy(gameObject);
+            // TODO : 유닛 데이터 (스텟 데이터 X)에 있는 이미지나 애니메이터 사용하도록 변경
+            if (!Application.isPlaying)
+            {
+                ApplyVisual();
+            }
         }
+        #endif
 
         private void OnDrawGizmos()
         {
@@ -437,5 +469,7 @@ namespace Prototype.Unit
                 }
             }
         }
+
+        #endregion
     }
 }
