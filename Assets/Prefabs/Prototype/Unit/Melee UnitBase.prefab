@@ -148,6 +148,9 @@ MonoBehaviour:
     OnNormalAttack:
       m_PersistentCalls:
         m_Calls: []
+    OnNormalAttackHit:
+      m_PersistentCalls:
+        m_Calls: []
     OnHpChanged:
       m_PersistentCalls:
         m_Calls: []
@@ -250,6 +253,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5162211898845666926}
     m_Modifications:
+    - target: {fileID: 1771409265, guid: c27fac790990ed84f8ffc7736dd4b189, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 28196331278507735, guid: c27fac790990ed84f8ffc7736dd4b189, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894563636031570651, guid: c27fac790990ed84f8ffc7736dd4b189, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3894563636541966120, guid: c27fac790990ed84f8ffc7736dd4b189, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -309,6 +324,18 @@ PrefabInstance:
     - target: {fileID: 3894563636541966133, guid: c27fac790990ed84f8ffc7736dd4b189, type: 3}
       propertyPath: m_Name
       value: Slash_stone_once
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894563636541966135, guid: c27fac790990ed84f8ffc7736dd4b189, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894563637395727039, guid: c27fac790990ed84f8ffc7736dd4b189, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5586172108826832849, guid: c27fac790990ed84f8ffc7736dd4b189, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

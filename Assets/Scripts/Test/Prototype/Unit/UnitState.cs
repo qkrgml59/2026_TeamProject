@@ -78,6 +78,10 @@ namespace Prototype.Unit
 
         public void StateUpdate()
         {
+            // 마나 재생
+            _unit.RegenerateResource();
+
+
             // 대상이 없는 경우 가까운 적 탐색
             if (_unit.targetUnit == null)
             {
@@ -142,7 +146,10 @@ namespace Prototype.Unit
 
         public void StateUpdate()
         {
-            if(_unit.reservedTile == null)
+            // 마나 재생
+            _unit.RegenerateResource();
+
+            if (_unit.reservedTile == null)
             {
                 _unit.SetReservedTile();
                 return;
@@ -183,7 +190,10 @@ namespace Prototype.Unit
 
         public void StateUpdate()
         {
-            if(_unit.targetUnit == null ||
+            // 마나 재생
+            _unit.RegenerateResource();
+
+            if (_unit.targetUnit == null ||
                 HexMath.Distance(_unit.targetUnit.currentTile.offset, _unit.currentTile.offset) > _unit.statSet.AttackRange.Value)
             {
                 // 적이 없거나 멀어진 경우

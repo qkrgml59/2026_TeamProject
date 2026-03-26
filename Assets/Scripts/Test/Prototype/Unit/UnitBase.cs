@@ -56,6 +56,10 @@ namespace Prototype.Unit
         // 초기화 정보
         HexTile startTile;
 
+        // 자원 정보
+        private float attackResourceRegen = 5;      // 기본 공격 회복량 TODO : 캐릭터 정보로 넘기기
+        private float currentResource = 0;
+
         public void PlaceUnit(HexTile tile)
         {
             startTile = tile;
@@ -273,8 +277,44 @@ namespace Prototype.Unit
             Destroy(gameObject);
         }
 
-        // 타겟 유닛 사망 시 이벤트를 통해 호출됨
-        private void OnTargetDead(UnitBase deadUnit)
+        /// <summary>
+        /// 자신과 타겟이 동일한 팀 인지 반환
+        /// </summary>
+        public bool IsSameTeam(TeamType team)
+        {
+            return this.team == team;
+        }
+        #endregion
+
+        #region 자원 관리
+
+        // 초당 자원 회복
+        public virtual void RegenerateResource()
+        {
+            float amount = statSet.ManaRegen.Value * Time.deltaTime;
+            RestoreResource(amount);
+        }
+
+        public void RestoreResource(float amount)
+        {
+            if (amount <= 0) return;
+
+            currentResource += amount;
+            Debug.Log($"[{name}] 현재 자원 {currentResource}");
+        }
+
+        #endregion
+
+        #region CombatEvent Listner
+
+        // 기본 공격이 적중 시
+        protected virtual void OnNormalAttackHit(DamageInfo info, UnitBase hitUnit)
+        {
+            RestoreResource(attackResourceRegen);
+        }
+
+         // 타겟 유닛 사망 시 이벤트를 통해 호출됨
+        protected virtual void OnTargetDead(UnitBase deadUnit)
         {
             deadUnit.unitEvents.OnDead.RemoveListener(OnTargetDead);
 
@@ -287,7 +327,7 @@ namespace Prototype.Unit
 
         #endregion
 
-        #region Event Listener
+        #region GameEvent Listener
         void OnRoundStart()
         {
             transform.position = startTile.transform.position;
@@ -315,23 +355,14 @@ namespace Prototype.Unit
             ChangeUnitState(UnitStateType.Idle);
         }
 
-        public void RemoveEventListener()
-        {
-            BattleManager.Instance.OnRoundStart -= OnRoundStart;
-            BattleManager.Instance.OnRoundEnd -= OnRoundEnd;
-            BattleManager.Instance.OnBattleStart -= OnBattleStart;
-            BattleManager.Instance.OnBattleEnd -= OnBattleEnd;
-
-            if (targetUnit != null)
-                targetUnit.unitEvents.OnDead.RemoveListener(OnTargetDead);
-        }
-
         #endregion
 
-        #region Unity Method
+        #region Unity Method + 이벤트
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
+
+            ApplyVisual();
 
             FSMInit();
 
@@ -341,10 +372,7 @@ namespace Prototype.Unit
 
         private void Start()
         {
-            BattleManager.Instance.OnRoundStart += OnRoundStart;
-            BattleManager.Instance.OnRoundEnd += OnRoundEnd;
-            BattleManager.Instance.OnBattleStart += OnBattleStart;
-            BattleManager.Instance.OnBattleEnd += OnBattleEnd;
+            AddEventListener();
 
             // 아이템 등의 효과 초기화(또는 재적용)
             currentHp = statSet.MaxHp.Value;
@@ -376,6 +404,29 @@ namespace Prototype.Unit
         private void OnDestroy()
         {
             RemoveEventListener();
+        }
+
+        public void AddEventListener()
+        {
+            BattleManager.Instance.OnRoundStart += OnRoundStart;
+            BattleManager.Instance.OnRoundEnd += OnRoundEnd;
+            BattleManager.Instance.OnBattleStart += OnBattleStart;
+            BattleManager.Instance.OnBattleEnd += OnBattleEnd;
+
+            unitEvents.OnNormalAttackHit.AddListener(OnNormalAttackHit);
+        }
+
+        public void RemoveEventListener()
+        {
+            BattleManager.Instance.OnRoundStart -= OnRoundStart;
+            BattleManager.Instance.OnRoundEnd -= OnRoundEnd;
+            BattleManager.Instance.OnBattleStart -= OnBattleStart;
+            BattleManager.Instance.OnBattleEnd -= OnBattleEnd;
+
+            unitEvents.OnNormalAttackHit.RemoveListener(OnNormalAttackHit);
+
+            if (targetUnit != null)
+                targetUnit.unitEvents.OnDead.RemoveListener(OnTargetDead);
         }
         #endregion
 
@@ -437,15 +488,7 @@ namespace Prototype.Unit
         }
         #endregion
 
-        /// <summary>
-        /// 자신과 타겟이 동일한 팀 인지 반환
-        /// </summary>
-        public bool IsSameTeam(TeamType team)
-        {
-            return this.team == team;
-        }    
-
-        #region Utility
+        #region Debugging
 
         #if UNITY_EDITOR
         private void OnValidate()

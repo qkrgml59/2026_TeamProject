@@ -34,6 +34,7 @@ namespace Prototype.Skill
             DamageInfo info = new DamageInfo(caster, damage, DamageType.Physical, isCrit);
 
             targetUnit?.ApplyDamage(info);
+            caster.unitEvents.OnNormalAttackHit?.Invoke(info, targetUnit);
         }
     }
 }
