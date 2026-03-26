@@ -2,10 +2,10 @@ using Prototype.Grid;
 using Stat;
 using System.Collections.Generic;
 using UnityEngine;
-using Prototype.Skill;
+using Unit.Skill;
 
 
-namespace Prototype.Unit
+namespace Unit
 {
     public enum TeamType
     {

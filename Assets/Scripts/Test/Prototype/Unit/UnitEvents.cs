@@ -1,9 +1,9 @@
-using Prototype.Unit;
+using Unit;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Prototype.Unit
+namespace Unit
 {
 
     /// <summary>

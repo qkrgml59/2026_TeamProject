@@ -1,5 +1,5 @@
 using Prototype.Card;
-using Prototype.Unit;
+using Unit;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CardDataSO", menuName = "CardDataSO/UnitCardDataSO")]

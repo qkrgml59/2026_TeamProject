@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Prototype.Unit
+namespace Unit
 {
     public interface IHealthReceiver
     {

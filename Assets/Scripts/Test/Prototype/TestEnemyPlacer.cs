@@ -1,6 +1,6 @@
 using UnityEngine;
 using Prototype.Grid;
-using Prototype.Unit;
+using Unit;
 using Prototype.UI;
 
 public class TestEnemyPlacer : MonoBehaviour

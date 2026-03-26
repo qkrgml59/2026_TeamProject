@@ -1,6 +1,6 @@
 using Prototype.Grid;
 using Prototype.UI;
-using Prototype.Unit;
+using Unit;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;

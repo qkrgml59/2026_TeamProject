@@ -1,7 +1,7 @@
 using Prototype.Grid;
 using UnityEngine;
 
-namespace Prototype.Unit
+namespace Unit
 {
     public enum UnitStateType
     {

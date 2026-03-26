@@ -1,7 +1,7 @@
 using Prototype.Card;
 using Prototype.Grid;
 using Prototype.UI;
-using Prototype.Unit;
+using Unit;
 using UnityEngine;
 
 namespace Prototype.Card

@@ -2,7 +2,7 @@ using System;
 using Utilitys;
 using UnityEngine;
 using System.Collections;
-using Prototype.Unit;
+using Unit;
 
 public enum BattleState
 {

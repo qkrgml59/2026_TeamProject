@@ -1,9 +1,10 @@
-using Prototype.Unit;
+using Unit;
 using System.Collections;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
-namespace Skill
+
+namespace Unit.Skill
 {
     /// <summary>
     /// 모든 스킬의 부모 클래스

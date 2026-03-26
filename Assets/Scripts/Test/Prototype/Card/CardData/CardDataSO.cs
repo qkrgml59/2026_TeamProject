@@ -1,4 +1,4 @@
-using Prototype.Unit;
+using Unit;
 using UnityEngine;
 
 namespace Prototype.Card

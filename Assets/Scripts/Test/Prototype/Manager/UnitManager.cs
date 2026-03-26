@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Prototype.Grid;
 using Unity.VisualScripting;
 
-namespace Prototype.Unit
+namespace Unit
 {
     public class UnitManager : SingletonMonoBehaviour<UnitManager>
     {
