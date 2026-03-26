@@ -26,8 +26,6 @@ namespace Unit.Skill
         protected bool isUsing;
         protected UnitBase owner;
 
-        protected Coroutine skillRoutine;
-
 
         #endregion
 

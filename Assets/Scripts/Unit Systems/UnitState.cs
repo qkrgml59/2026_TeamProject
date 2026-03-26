@@ -60,7 +60,7 @@ namespace Unit
         {
             // 스킬 사용 가능 상태인 경우
             if (_unit.IsSkillReady()
-                && _unit.skill != null && _unit.skill.CanUse())
+                && _unit.skill.CanUse())
             {
                 // 스킬 상태로 전환
                 _unit.ChangeUnitState(UnitStateType.SKill);
@@ -94,7 +94,7 @@ namespace Unit
 
             // 스킬 사용 가능 상태인 경우
             if (_unit.IsSkillReady()
-                && _unit.skill != null && _unit.skill.CanUse())
+                && _unit.skill.CanUse())
             {
                 // 스킬 상태로 전환
                 _unit.ChangeUnitState(UnitStateType.SKill);
@@ -219,7 +219,8 @@ namespace Unit
 
         public void StateExit()
         {
-
+            if (_unit.normalAttack != null)
+                _unit.normalAttack.CancelSkill();
         }
     }
 
@@ -234,7 +235,7 @@ namespace Unit
 
         public void StateEnter()
         {
-            _unit.skill.Use();
+            _unit.UseSkill();
         }
 
         public void StateUpdate()
@@ -249,7 +250,8 @@ namespace Unit
 
         public void StateExit()
         {
-            
+            if (_unit.skill != null)
+                _unit.skill.CancelSkill();
         }
     }
 

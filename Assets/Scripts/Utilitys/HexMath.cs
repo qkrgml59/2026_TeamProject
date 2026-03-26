@@ -92,5 +92,49 @@ namespace Prototype.Grid
 
             return new Vector3(x, 0f, z);
         }
+
+        /// <summary>
+        /// 공격자 offset -> 타겟 offset 방향을
+        /// 가장 가까운 헥스 6방향 중 하나로 반환
+        /// </summary>
+        public static Vector3Int GetDirectionCube(Vector2Int fromOffset, Vector2Int toOffset)
+        {
+            Vector3Int fromCube = OffsetToCube(fromOffset);
+            Vector3Int toCube = OffsetToCube(toOffset);
+
+            Vector3Int delta = toCube - fromCube;
+
+            // 인접 타일이면 거의 그대로 방향 벡터가 나옴
+            foreach (var dir in CubeDirections)
+            {
+                if (delta == dir)
+                    return dir;
+            }
+
+            // 멀리 있는 경우 가장 가까운 방향 선택
+            Vector3Int bestDir = CubeDirections[0];
+            int bestDot = int.MinValue;
+
+            foreach (var dir in CubeDirections)
+            {
+                int dot = delta.x * dir.x + delta.y * dir.y + delta.z * dir.z;
+                if (dot > bestDot)
+                {
+                    bestDot = dot;
+                    bestDir = dir;
+                }
+            }
+
+            return bestDir;
+        }
+
+        /// <summary>
+        /// 공격자 cube -> 타겟 cube 방향을
+        /// 가장 가까운 헥스 6방향 중 하나로 반환
+        /// </summary>
+        public static Vector3Int GetDirectionCube(Vector3Int fromCube, Vector3Int toCube)
+        {
+            return GetDirectionCube(CubeToOffset(fromCube), CubeToOffset(toCube));
+        }
     }
 }

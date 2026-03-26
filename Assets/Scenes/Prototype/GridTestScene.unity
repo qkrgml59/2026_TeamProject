@@ -6742,7 +6742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TestUnitPlacer
   meleeUnit: {fileID: 4267204715661349276, guid: df448e8aee9232d45a0a222ad45b4256, type: 3}
   rangedUnit: {fileID: 4267204715661349276, guid: d1f2a73cc00c23e419d247a260a60d72, type: 3}
-  enemyCount: 3
+  enemyCount: 1
 --- !u!4 &1745574746
 Transform:
   m_ObjectHideFlags: 0
@@ -11982,7 +11982,7 @@ GameObject:
   - component: {fileID: 2966414489300917825}
   - component: {fileID: 2957001389194511117}
   - component: {fileID: 3007251638045804179}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}

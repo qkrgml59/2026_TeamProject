@@ -86,6 +86,10 @@ namespace Unit
                 currentFSM = newState;
                 currentFSM.StateEnter();
             }
+            else
+            {
+                Debug.LogWarning($"{targetState} 상태가 정의되어 있지 않습니다.");
+            }
         }
 
         void FSMInit()
@@ -96,6 +100,8 @@ namespace Unit
                 { UnitStateType.Think, new ThinkState(this)},
                 { UnitStateType.Move, new MoveState(this)},
                 { UnitStateType.Attack, new AttackState(this)},
+                { UnitStateType.SKill, new SkillState(this)},
+                { UnitStateType.Stun, new StunState(this)},
                 { UnitStateType.Dead, new DeadState(this)}
             };
         }
@@ -227,6 +233,18 @@ namespace Unit
             unitEvents.OnNormalAttack?.Invoke(this);
         }
 
+        public void UseSkill()
+        {
+            if(skill == null)
+            {
+                ChangeUnitState(UnitStateType.Think);
+                Debug.LogWarning($"[{name}] 유닛은 스킬이 없습니다.");
+                return;
+            }
+
+            skill.Use();
+        }
+
         public virtual void ApplyDamage(DamageInfo info)
         {
             float damage = info.amount;
@@ -319,8 +337,14 @@ namespace Unit
 
             currentResource += amount;
 
-            if(skill != null && currentResource > skill.Cost)
+            if (skill != null && currentResource >= skill.Cost)
+            {
                 currentResource = skill.Cost;
+
+                if (CurFSM != UnitStateType.Move || CurFSM != UnitStateType.Stun ||
+                    CurFSM != UnitStateType.Dead)
+                    ChangeUnitState(UnitStateType.SKill);
+            }
 
             Debug.Log($"[{name}] 현재 자원 {currentResource}");
         }
@@ -366,6 +390,7 @@ namespace Unit
             // 아이템 등의 효과 초기화(또는 재적용)
             currentHp = statSet.MaxHp.Value;
             unitEvents.OnHpChanged?.Invoke(currentHp, statSet.MaxHp.Value);
+            currentResource = 0;
 
             ChangeUnitState(UnitStateType.Idle);
         }
