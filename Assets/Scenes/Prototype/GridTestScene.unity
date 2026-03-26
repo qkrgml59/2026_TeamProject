@@ -4153,7 +4153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.CardManager
   useDontDestroyOnLoad: 0
-  cardPrefab: {fileID: 0}
   cardCanvas: {fileID: 974802596}
   defaultDrawCount: 3
   maxHandCount: 9

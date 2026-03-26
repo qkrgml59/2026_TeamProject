@@ -10,6 +10,8 @@ namespace Unit
         Think,      // 경로나 적 탐색
         Move,
         Attack,
+        SKill,
+        Stun,
         Dead
     }
 
@@ -56,12 +58,21 @@ namespace Unit
 
         public void StateEnter()
         {
+            // 스킬 사용 가능 상태인 경우
+            if (_unit.IsSkillReady()
+                && _unit.skill != null && _unit.skill.CanUse())
+            {
+                // 스킬 상태로 전환
+                _unit.ChangeUnitState(UnitStateType.SKill);
+                return;
+            }
+
             // Think 상태 시작 시 빠른 판단
             if (_unit.targetUnit == null) return;
 
             // 사거리 안에 적이 있다면
-            if(HexMath.Distance(_unit.currentTile.offset,
-                _unit.targetUnit.currentTile.offset) <= _unit.statSet.AttackRange.Value)
+            if(HexMath.Distance(_unit.offset,
+                _unit.targetUnit.offset) <= _unit.statSet.AttackRange.Value)
             {
                 // 공격 상태로 전환
                 _unit.ChangeUnitState(UnitStateType.Attack);
@@ -81,6 +92,14 @@ namespace Unit
             // 마나 재생
             _unit.RegenerateResource();
 
+            // 스킬 사용 가능 상태인 경우
+            if (_unit.IsSkillReady()
+                && _unit.skill != null && _unit.skill.CanUse())
+            {
+                // 스킬 상태로 전환
+                _unit.ChangeUnitState(UnitStateType.SKill);
+                return;
+            }
 
             // 대상이 없는 경우 가까운 적 탐색
             if (_unit.targetUnit == null)
@@ -93,8 +112,8 @@ namespace Unit
             }
 
             // 사거리 안에 적이 있다면
-            if (HexMath.Distance(_unit.currentTile.offset,
-                _unit.targetUnit.currentTile.offset) <= _unit.statSet.AttackRange.Value)
+            if (HexMath.Distance(_unit.offset,
+                _unit.targetUnit.offset) <= _unit.statSet.AttackRange.Value)
             {
                 // 공격 상태로 전환
                 _unit.ChangeUnitState(UnitStateType.Attack);
@@ -175,7 +194,6 @@ namespace Unit
     {
         private UnitBase _unit;
 
-        private float interval = 0;
 
         public AttackState(UnitBase unit)
         {
@@ -184,31 +202,75 @@ namespace Unit
 
         public void StateEnter()
         {
-            interval = 0;
             _unit.ClaerPath();
+            _unit.NormalAttack();
         }
 
         public void StateUpdate()
         {
             // 마나 재생
             _unit.RegenerateResource();
+        }
 
-            if (_unit.targetUnit == null ||
-                HexMath.Distance(_unit.targetUnit.currentTile.offset, _unit.currentTile.offset) > _unit.statSet.AttackRange.Value)
-            {
-                // 적이 없거나 멀어진 경우
-                _unit.ChangeUnitState(UnitStateType.Think);
-                return;
-            }
+        public void StateFixedUpdate()
+        {
 
-            interval += Time.deltaTime;
-            if(interval >= _unit.statSet.AttackSpeed.Value)
-            {
-                Debug.Log($"[{_unit.name}] 공격!");
-                interval = 0;
+        }
 
-                _unit.NormalAttack();
-            }
+        public void StateExit()
+        {
+
+        }
+    }
+
+    public class SkillState : IUnitState
+    {
+        private UnitBase _unit;
+
+        public SkillState(UnitBase unit)
+        {
+            _unit = unit;
+        }
+
+        public void StateEnter()
+        {
+            _unit.skill.Use();
+        }
+
+        public void StateUpdate()
+        {
+
+        }
+
+        public void StateFixedUpdate()
+        {
+
+        }
+
+        public void StateExit()
+        {
+            
+        }
+    }
+
+    public class StunState : IUnitState
+    {
+        private UnitBase _unit;
+
+        public StunState(UnitBase unit)
+        {
+            _unit = unit;
+        }
+
+        public void StateEnter()
+        {
+            
+        }
+
+        public void StateUpdate()
+        {
+            // 마나 재생
+            _unit.RegenerateResource();
         }
 
         public void StateFixedUpdate()

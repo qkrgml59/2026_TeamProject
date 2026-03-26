@@ -36,14 +36,18 @@ namespace Unit
 
         [Header("기본 공격")]
         public SkillBase normalAttack;
-        // 스킬 정보는 따로 저장
+
+        [Header("스킬 공격")]
+        public SkillBase skill;
 
         [Header("유닛 이벤트")]
         public UnitEvents unitEvents;
 
         // 타겟 정보
         public UnitBase targetUnit { get; private set; }
-        // 타일 정보
+
+        // 위치 정보
+        public Vector2Int offset => currentTile ? currentTile.offset : Vector2Int.zero;        // 현재 타일 기준 오프셋 보내기
         public HexTile currentTile { get; private set; }
         public HexTile reservedTile { get; private set; }
         // 길찾기 경로
@@ -58,7 +62,7 @@ namespace Unit
 
         // 자원 정보
         private float attackResourceRegen = 5;      // 기본 공격 회복량 TODO : 캐릭터 정보로 넘기기
-        private float currentResource = 0;
+        public float currentResource { get; private set; } = 0;
 
         public void PlaceUnit(HexTile tile)
         {
@@ -212,7 +216,14 @@ namespace Unit
 
         public void NormalAttack()
         {
-            normalAttack?.UseSkill(this, targetUnit);
+            if(normalAttack == null)
+            {
+                ChangeUnitState(UnitStateType.Think);
+                Debug.LogWarning($"[{name}] 유닛의 기본 공격을 설정하지 않았습니다.");
+                return;
+            }
+
+            normalAttack.Use();
             unitEvents.OnNormalAttack?.Invoke(this);
         }
 
@@ -237,8 +248,8 @@ namespace Unit
 
             currentHp -= damage;
 
-            if(info.isCritical) Debug.Log($"[{gameObject.name}] -{damage} 치명타!! (공격 유닛 : {info.source})", this);
-            else Debug.Log($"[{gameObject.name}] -{damage} 데미지 (공격 유닛 : {info.source})", this);
+            if(info.isCritical) Debug.Log($"[{gameObject.name}] -{damage} 치명타!! (공격 유닛 : {info.caster})", this);
+            else Debug.Log($"[{gameObject.name}] -{damage} 데미지 (공격 유닛 : {info.caster})", this);
 
             unitEvents.OnHpChanged?.Invoke(currentHp, statSet.MaxHp.Value);
         }
@@ -277,6 +288,13 @@ namespace Unit
             Destroy(gameObject);
         }
 
+        public bool IsSkillReady()
+        {
+            return skill != null
+                && currentResource >= skill.Cost;
+                // 침묵 상태 같은건 없는지
+        }
+
         /// <summary>
         /// 자신과 타겟이 동일한 팀 인지 반환
         /// </summary>
@@ -300,6 +318,19 @@ namespace Unit
             if (amount <= 0) return;
 
             currentResource += amount;
+
+            if(skill != null && currentResource > skill.Cost)
+                currentResource = skill.Cost;
+
+            Debug.Log($"[{name}] 현재 자원 {currentResource}");
+        }
+
+        public void UseResource(float amount)
+        {
+            if (amount <= 0) return;
+
+            // 0 이하로는 감소 하지 않도록
+            currentResource = Mathf.Max(currentResource - amount, 0);
             Debug.Log($"[{name}] 현재 자원 {currentResource}");
         }
 
@@ -377,6 +408,9 @@ namespace Unit
             // 아이템 등의 효과 초기화(또는 재적용)
             currentHp = statSet.MaxHp.Value;
             ChangeUnitState(UnitStateType.Idle);
+
+            normalAttack?.Init(this);
+            skill?.Init(this);
         }
 
         private void Update()
@@ -456,7 +490,7 @@ namespace Unit
 
             foreach (var enemy in enemies)
             {
-                int distance = HexMath.Distance(currentTile.offset, enemy.currentTile.offset);
+                int distance = HexMath.Distance(offset, enemy.offset);
 
                 if (distance < minDistance)
                 {

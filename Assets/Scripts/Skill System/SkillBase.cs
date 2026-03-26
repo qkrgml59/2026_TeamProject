@@ -1,8 +1,5 @@
-using Unit;
 using System.Collections;
-using System.Reflection;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Unit.Skill
 {
@@ -24,7 +21,7 @@ namespace Unit.Skill
         #endregion
     
 
-    #region === 상태 ====
+        #region === 상태 ====
 
         protected bool isUsing;
         protected UnitBase owner;
@@ -39,11 +36,17 @@ namespace Unit.Skill
         public string SkillName => skillName;
         public Sprite Icon => icon;
         public int Cost => cost;
-        public bool IsUsing => isUsing;
 
         public virtual string GetDescription()
         {
             return description;
+        }
+
+        public virtual bool CanUse()
+        {
+            if (isUsing) return false;
+
+            return true;
         }
 
         #endregion
@@ -58,56 +61,54 @@ namespace Unit.Skill
 
         #endregion
 
-
-
         #region === 스킬 흐름 ===
 
         ///<summary>
         ///스킬 사용 시작
         /// </summary>
 
-        public virtual void Use(UnitBase _owner)
+        public virtual void Use()
         {
             if (isUsing) return;
             isUsing = true;
 
-            owner = _owner;
+            if(owner == null)
+            {
+                Debug.LogWarning($"[{skillName}] 해당 스킬의 사용자가 설정되지 않았습니다.");
+                return;
+            }
+
+            // 코스트 만큼 마나 소모
+            owner.UseResource(cost);
 
             OnStart();
         }
 
-        public virtual void StopSkill()
+        /// <summary>
+        /// 외부에서 강제로 스킬을 종료 시킬 때
+        /// </summary>
+        public virtual void CancelSkill()
         {
-            if(!isUsing) return;
+            if (!isUsing)
+                return;
 
             isUsing = false;
-
-            //코루틴 정리
-            if(skillRoutine !=null)
-            {
-                StopCoroutine(skillRoutine);
-                skillRoutine = null;
-            }
-
-            OnEnd();
+            OnCancel();
         }
 
-        #endregion
-        #region === Update ===
-
-        protected virtual void Update()
+        /// <summary>
+        /// 스킬이 종료 되었을 때
+        /// </summary>
+        protected void FinishSkill()
         {
-            if (!isUsing) return;
+            if (!isUsing)
+                return;
 
-            OnUsing();
-        }
+            isUsing = false;
+            OnFinish();
 
-        #endregion
-
-        #region === Coroutine Helper ===
-        protected void StartSkillCoroutine(IEnumerator routine)
-        {
-            skillRoutine = StartCoroutine(routine);
+            // 유닛 상태 변경
+            owner.ChangeUnitState(UnitStateType.Think);
         }
 
         #endregion
@@ -115,10 +116,8 @@ namespace Unit.Skill
         #region ===  단계별 함수 ===
 
         protected abstract void OnStart();
-
-        protected abstract void OnUsing();
-
-        protected abstract void OnEnd();
+        protected abstract void OnCancel();
+        protected abstract void OnFinish();
  
 
         #endregion

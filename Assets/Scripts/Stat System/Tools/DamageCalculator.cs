@@ -29,7 +29,7 @@ namespace Stat
                     multiplier = 1f;
                     break;
                 default:
-                    Debug.LogWarning($"[{nameof(DamageCalculator)}] {info.source.name}의 공격의 종류가 지정 되지 않았습니다.", info.source);
+                    Debug.LogWarning($"[{nameof(DamageCalculator)}] {info.caster.name}의 공격의 종류가 지정 되지 않았습니다.", info.caster);
                     break;
             }
 
