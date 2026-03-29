@@ -1,0 +1,123 @@
+using Prototype.Grid;
+using Stat;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Unit.Skill
+{
+    /// <summary>
+    /// Nurse 순간이동 스킬
+    /// -가장 먼 적 뒤로 이동
+    /// 위치 없으면 시계방향 탐색
+    /// 이동 후 가장 가까운 적 기본공격
+    /// </summary>
+    public class Nurse_Skill : SkillBase
+    {
+   
+        [Header("딜레이 설정")]
+        [SerializeField] private float preDelayt = 0.05f;
+
+        private Coroutine skillRoutine;
+
+        protected override void OnStart()
+        {
+            skillRoutine = StartCoroutine(SkillCast());
+        }
+
+        private IEnumerator SkillCast()
+        {
+            yield return new WaitForSeconds(preDelayt);
+
+            //가장 먼 적 찾기
+            UnitBase farTarget = FindFarthestEnemy();
+
+            if (farTarget == null )
+            {
+                FinishSkill();
+                yield break;
+            }
+
+            //뒤 타일 혹은 시계방향 계산
+            Vector3Int dir = HexMath.GetDirectionCube(owner.offset, farTarget.offset);
+            Vector3Int cube = HexMath.OffsetToCube(farTarget.offset);
+
+            HexTile tile = GridManager.Instance.GetTile(cube + dir);
+
+            
+
+            if (tile == null || !tile.CanReserve(owner))
+            {
+                foreach (var d in HexMath.CubeDirections)
+                {
+                    tile = GridManager.Instance.GetTile(cube + d);
+                    if (tile != null && tile.CanReserve(owner))
+                        break;
+                }
+            }
+
+            if (tile == null || !tile.CanReserve(owner))
+            {
+                FinishSkill();
+                yield break;
+            }
+
+            // 3. 이동
+            owner.EnterTile(tile);
+            // TODO : UnitBase에 순간이동 기능 추가
+            owner.transform.position = tile.transform.position;
+
+            
+            //4. 타겟 설정
+            owner.SetTargetUnit(farTarget);
+
+            // 5. 종료
+            FinishSkill();
+
+        }
+
+        private UnitBase FindFarthestEnemy()
+        {
+            var enemies = UnitManager.Instance.GetAliveEnemies(owner.team);
+
+            UnitBase farthest = null;
+            int maxDist = int.MinValue;
+
+            foreach(var e in enemies)
+            {
+                if (e == null) continue;
+
+                int dist = HexMath.Distance(owner.offset, e.offset);
+
+                if (dist > maxDist)
+                {
+                    maxDist = dist;
+                    farthest = e;
+                }
+            }
+
+            return farthest;
+
+        }
+
+      
+
+        protected override void OnCancel()
+        {
+            if (skillRoutine != null)
+            {
+                StopCoroutine(skillRoutine);
+                skillRoutine = null;
+            }
+        }
+
+        protected override void OnFinish()
+        {
+            if (skillRoutine != null)
+            {
+                StopCoroutine(skillRoutine);
+                skillRoutine = null;
+            }
+        }
+    }
+}
