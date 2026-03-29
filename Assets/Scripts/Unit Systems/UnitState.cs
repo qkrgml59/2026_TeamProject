@@ -105,7 +105,7 @@ namespace Unit
             // 대상이 없는 경우 가까운 적 탐색
             if (_unit.targetUnit == null)
             {
-                var target = _unit.GetNearestEnemy();
+                var target = UnitManager.Instance.GetNearestEnemy(_unit);
                 if (target == null)
                     return;
 

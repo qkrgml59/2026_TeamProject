@@ -510,30 +510,6 @@ namespace Unit
 
             Debug.Log($"[{name}] 공격 대상 변경 ({newTarget.transform.name})");
         }
-
-        public UnitBase GetNearestEnemy()
-        {
-            var enemies = UnitManager.Instance.GetAliveEnemies(team);
-
-            UnitBase nearest = null;
-            int minDistance = int.MaxValue;
-
-            foreach (var enemy in enemies)
-            {
-                int distance = HexMath.Distance(offset, enemy.offset);
-
-                if (distance < minDistance)
-                {
-                    minDistance = distance;
-                    nearest = enemy;
-                }
-            }
-
-            return nearest;
-        }
-
-
-
         #endregion
 
         #region Visual Function

@@ -110,5 +110,63 @@ namespace Unit
         }
 
         #endregion
+
+        #region Searching Method
+
+        /// <summary>
+        /// 가장 가까운 적을 탐색하여 반환합니다.
+        /// </summary>
+        public UnitBase GetNearestEnemy(UnitBase owner)
+        {
+            var enemies = GetAliveEnemies(owner.team);
+
+            UnitBase nearest = null;
+            int minDistance = int.MaxValue;
+
+            foreach (var enemy in enemies)
+            {
+                int distance = HexMath.Distance(owner.offset, enemy.offset);
+
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    nearest = enemy;
+                }
+            }
+
+            return nearest;
+        }
+
+
+        /// <summary>
+        /// 지정한 거리 내에서 가장 먼 적을 탐색하여 반환합니다.
+        /// </summary>
+        public UnitBase FindFarthestEnemy(UnitBase owner, float range = float.PositiveInfinity)
+        {
+            var enemies = GetAliveEnemies(owner.team);
+
+            UnitBase farthest = null;
+            int maxDist = int.MinValue;
+
+            foreach (var e in enemies)
+            {
+                if (e == null) continue;
+
+                int dist = HexMath.Distance(owner.offset, e.offset);
+
+                if (range < dist) continue;     // 지정한 거리 보다 멀먼 무시
+
+                if (dist > maxDist)
+                {
+                    maxDist = dist;
+                    farthest = e;
+                }
+            }
+
+            return farthest;
+
+        }
+
+        #endregion
     }
 }

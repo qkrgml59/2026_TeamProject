@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 104faa83f387084458a287e62979d506, type: 3}
   m_Name: Nurse
   m_EditorClassIdentifier: Assembly-CSharp::UnitCardDataSO
-  cardId: Ranged
+  cardId: Nurse
   icon: {fileID: 21300000, guid: 859b776709ff95d4cbd568709bee13ac, type: 3}
-  cardName: "\uB808\uC628"
+  cardName: "\uB108\uC2A4"
   description: 
   cardPrefab: {fileID: -4292617042704308234, guid: d3613220f4b7ecc4fa94b2b32fcdbe08, type: 3}
-  unitSO: {fileID: 4267204715661349276, guid: d1f2a73cc00c23e419d247a260a60d72, type: 3}
+  unitSO: {fileID: 4267204715661349276, guid: ede88bcff16d6234a98668d5a4a49e68, type: 3}

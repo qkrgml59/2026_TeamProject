@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 654906664580892401}
   - component: {fileID: 5036063978754722192}
   m_Layer: 3
-  m_Name: Melee UnitBase2
+  m_Name: Test Nurse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

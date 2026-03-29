@@ -30,7 +30,7 @@ namespace Unit.Skill
             yield return new WaitForSeconds(preDelayt);
 
             //가장 먼 적 찾기
-            UnitBase farTarget = FindFarthestEnemy();
+            UnitBase farTarget = UnitManager.Instance.FindFarthestEnemy(owner);
 
             if (farTarget == null )
             {
@@ -75,32 +75,6 @@ namespace Unit.Skill
             FinishSkill();
 
         }
-
-        private UnitBase FindFarthestEnemy()
-        {
-            var enemies = UnitManager.Instance.GetAliveEnemies(owner.team);
-
-            UnitBase farthest = null;
-            int maxDist = int.MinValue;
-
-            foreach(var e in enemies)
-            {
-                if (e == null) continue;
-
-                int dist = HexMath.Distance(owner.offset, e.offset);
-
-                if (dist > maxDist)
-                {
-                    maxDist = dist;
-                    farthest = e;
-                }
-            }
-
-            return farthest;
-
-        }
-
-      
 
         protected override void OnCancel()
         {

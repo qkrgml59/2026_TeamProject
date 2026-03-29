@@ -5144,6 +5144,8 @@ MonoBehaviour:
     count: 8
   - cardData: {fileID: 11400000, guid: 429aac3c853d7ee458ada23a89b8adca, type: 2}
     count: 4
+  - cardData: {fileID: 11400000, guid: c18c949535ba55341a65a41c99021d39, type: 2}
+    count: 4
   maxDeckSize: 40
   minDeckSize: 20
 --- !u!4 &1358473884
@@ -6742,7 +6744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TestUnitPlacer
   meleeUnit: {fileID: 4267204715661349276, guid: df448e8aee9232d45a0a222ad45b4256, type: 3}
   rangedUnit: {fileID: 4267204715661349276, guid: d1f2a73cc00c23e419d247a260a60d72, type: 3}
-  enemyCount: 1
+  enemyCount: 3
 --- !u!4 &1745574746
 Transform:
   m_ObjectHideFlags: 0
