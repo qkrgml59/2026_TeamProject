@@ -154,7 +154,7 @@ namespace Unit
         public bool TrySetPath()
         {
             // 기존 경로 초기화
-            ClaerPath();
+            ClearPath();
 
             if (currentTile == null) return false;
             if (targetUnit == null) return false;
@@ -172,7 +172,7 @@ namespace Unit
             {
                 // 경로 문제가 있는 경우
                 // 경로 제거 후 상태 전환
-                ClaerPath();
+                ClearPath();
                 ChangeUnitState(UnitStateType.Think);
                 return;
             }
@@ -184,7 +184,7 @@ namespace Unit
             }
             else
             {
-                ClaerPath();
+                ClearPath();
                 ChangeUnitState(UnitStateType.Think);
             }
         }
@@ -211,7 +211,7 @@ namespace Unit
             return GridManager.Instance.pathfinder.IsPathStillValid(path, curPathIndex, targetUnit.currentTile, statSet.AttackRange.Value);
         }
 
-        public void ClaerPath()
+        public void ClearPath()
         {
             path.Clear();
             curPathIndex = 0;
@@ -501,7 +501,7 @@ namespace Unit
             newTarget.unitEvents.OnDead.AddListener(OnTargetDead);
 
             // 이동 경로 초기화
-            ClaerPath();
+            ClearPath();
 
             Debug.Log($"[{name}] 공격 대상 변경 ({newTarget.transform.name})");
         }

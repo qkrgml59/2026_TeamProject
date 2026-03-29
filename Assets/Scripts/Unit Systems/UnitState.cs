@@ -27,7 +27,7 @@ namespace Unit
         public void StateEnter()
         {
             _unit.gameObject.SetActive(true);
-            _unit.ClaerPath();
+            _unit.ClearPath();
         }
 
         public void StateUpdate()
@@ -202,7 +202,7 @@ namespace Unit
 
         public void StateEnter()
         {
-            _unit.ClaerPath();
+            _unit.ClearPath();
             _unit.NormalAttack();
         }
 
@@ -297,7 +297,7 @@ namespace Unit
 
         public void StateEnter()
         {
-            _unit.ClaerPath();                          // 경로 제거
+            _unit.ClearPath();                          // 경로 제거
             _unit.unitEvents.OnDead?.Invoke(_unit);     // 사망 이벤트
 
             // TODO : 무적 & 부활 등 체크
