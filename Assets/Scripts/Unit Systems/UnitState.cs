@@ -1,4 +1,5 @@
 using Prototype.Grid;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace Unit
@@ -194,6 +195,7 @@ namespace Unit
     {
         private UnitBase _unit;
 
+        private float nextAttackTime = 0;
 
         public AttackState(UnitBase unit)
         {
@@ -203,13 +205,42 @@ namespace Unit
         public void StateEnter()
         {
             _unit.ClearPath();
-            _unit.NormalAttack();
+            if (Time.time >= nextAttackTime)
+            {
+                nextAttackTime = Time.time + 1f / _unit.statSet.AttackSpeed.Value;
+                _unit.NormalAttack();
+            }
         }
 
         public void StateUpdate()
         {
             // 마나 재생
             _unit.RegenerateResource();
+
+            // 만약 Enter에서 일반 공격에 실패 했다면 Update에서 지속 체크
+
+            // 대상이 없는 경우 생각 상태로 전환
+            if (_unit.targetUnit == null)
+            {
+                _unit.ChangeUnitState(UnitStateType.Think);
+                return;
+            }
+
+            // 사거리 안에 적이 없다면
+            if (HexMath.Distance(_unit.offset,
+                _unit.targetUnit.offset) > _unit.statSet.AttackRange.Value)
+            {
+                // 생각 상태로 전환
+                _unit.ChangeUnitState(UnitStateType.Think);
+                return;
+            }
+
+            // 공격 속도 체크
+            if (Time.time >= nextAttackTime)
+            {
+                nextAttackTime = Time.time + 1f / _unit.statSet.AttackSpeed.Value;
+                _unit.NormalAttack();
+            }
         }
 
         public void StateFixedUpdate()

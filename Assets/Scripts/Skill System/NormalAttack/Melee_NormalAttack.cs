@@ -27,6 +27,11 @@ namespace Unit.Skill
             attackCycle = 1f / attackSpeed;
             SetEffectSpeed(attackSpeed);
 
+            if(attackRoutine != null)
+            {
+                StopCoroutine(attackRoutine);
+            }
+
             attackRoutine = StartCoroutine(AttackRoutine());
         }
 
@@ -48,6 +53,7 @@ namespace Unit.Skill
             yield return new WaitForSeconds(attackCycle * windupRatio);
 
             TakeDamage();
+            isUsing = false;        // 데미지가 들어가면 재사용 가능하도록
 
             // 후딜레이
             yield return new WaitForSeconds(attackCycle * (1 - windupRatio));
