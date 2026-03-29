@@ -64,8 +64,13 @@ namespace Unit
         private float attackResourceRegen = 5;      // 기본 공격 회복량 TODO : 캐릭터 정보로 넘기기
         public float currentResource { get; private set; } = 0;
 
+        /// <summary>
+        /// 유닛의 배치 (초기 위치 설정)
+        /// </summary>
+        /// <param name="tile"></param>
         public void PlaceUnit(HexTile tile)
         {
+            reservedTile = null;
             startTile = tile;
             transform.position = startTile.transform.position;
             EnterTile(tile);
@@ -385,7 +390,7 @@ namespace Unit
         #region GameEvent Listener
         void OnRoundStart()
         {
-            transform.position = startTile.transform.position;
+            PlaceUnit(startTile);
 
             // 아이템 등의 효과 초기화(또는 재적용)
             currentHp = statSet.MaxHp.Value;

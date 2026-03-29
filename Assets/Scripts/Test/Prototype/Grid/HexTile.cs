@@ -42,10 +42,10 @@ namespace Prototype.Grid
 
         public void ExitTile(UnitBase unit)
         {
-            if (OccupantUnit == unit)
+            if (OccupantUnit == unit || OccupantUnit == null)
                 OccupantUnit = null;
             else
-                Debug.LogError($"[{offset} 타일] 유닛 데이터 에러 (대상 유닛: {unit.name} | 실점유 유닛: {OccupantUnit.name})");
+                Debug.LogError($"[{offset} 타일] 유닛 데이터 에러 (대상 유닛: {unit.name} | 실점유 유닛: {OccupantUnit?.name})");
         }
 
         public void ResetTile()
@@ -53,6 +53,7 @@ namespace Prototype.Grid
             OccupantUnit = null;
             ReservedUnit = null;
         }
+
     }
 
 }
