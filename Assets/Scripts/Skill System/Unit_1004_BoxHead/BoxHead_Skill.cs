@@ -65,10 +65,10 @@ namespace Unit.Skill
                     || i >= skillEffects.Count || skillEffects[i] == null)
                     continue;
 
-                // 타겟 타일에 유닛이 있는지 확인
+                // 타겟 타일에 유닛이 있는지 확인 & 적군인지 확인
                 // TODO : 타일 기준으로 때릴지 확인
                 UnitBase targetUnit = targetTiles[i].OccupantUnit;
-                if (targetUnit != null)
+                if (targetUnit != null && !targetUnit.IsSameTeam(owner.team))
                 {
                     targetTiles[i].OccupantUnit.ApplyDamage(info);
                     // TODO : targetUnit.기절();
