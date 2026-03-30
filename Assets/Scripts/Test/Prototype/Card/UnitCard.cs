@@ -47,9 +47,5 @@ namespace Prototype.Card
             return false;
         }
 
-        protected override TileHighlightState GetHighlightStateForThisCard()
-        {
-            return TileHighlightState.AllySpawn;
-        }
     }
 }

@@ -66,11 +66,6 @@ namespace Prototype.Card
             //유닛이 없을 때
             return false;
         }
-
-        protected override TileHighlightState GetHighlightStateForThisCard()
-        {
-            return TileHighlightState.None;
-        }
     }
 }
 
