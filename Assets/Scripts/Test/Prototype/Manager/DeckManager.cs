@@ -12,7 +12,7 @@ namespace Prototype.Card
 
         [Header("덱 설정")]
         public int maxDeckSize = 40;            // 덱 최대/최소 설정 (사용 하려나요)
-        public int minDeckSize = 20;
+        public int minDeckSize = 10;
 
         private void Awake() 
         {
