@@ -2,8 +2,11 @@ using Prototype.Card;
 using Unit;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CardDataSO", menuName = "CardDataSO/UnitCardDataSO")]
-public class UnitCardDataSO : CardDataSO
+namespace Prototype.Card.Unit
 {
-    public UnitBase unitSO;
+    [CreateAssetMenu(fileName = "CardDataSO", menuName = "CardDataSO/UnitCardDataSO")]
+    public class UnitCardDataSO : CardDataSO
+    {
+        public UnitBase unitSO;
+    }
 }

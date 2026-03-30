@@ -1,4 +1,4 @@
-using Prototype.Card;
+using Prototype.Card.Unit;
 using Prototype.Grid;
 using Prototype.UI;
 using Unit;

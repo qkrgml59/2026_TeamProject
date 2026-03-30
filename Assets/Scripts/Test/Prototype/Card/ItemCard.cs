@@ -1,5 +1,5 @@
 using Item;
-using Prototype.Card;
+using Prototype.Card.Item;
 using Prototype.Grid;
 using Unit;
 using UnityEngine;
