@@ -19,6 +19,11 @@ namespace Unit.Skill
         {
             attackCycle = 1f / owner.statSet.AttackSpeed.Value;
 
+            if (attackRoutine != null)
+            {
+                StopCoroutine(attackRoutine);
+            }
+
             attackRoutine = StartCoroutine(AttackRoutine());
         }
         IEnumerator AttackRoutine()
