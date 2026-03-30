@@ -94,11 +94,15 @@ public class BattleManager : SingletonMonoBehaviour<BattleManager>
 
         UnitManager.Instance.ClaerEnemy();
 
-        if(delayRountine != null)
+        // 다음 라운드로 넘어가기
+        StageManager.Instance.SetNextRound();
+
+        // 라운드 넘기기
+        if (delayRountine != null)
         {
             StopCoroutine(delayRountine);
             delayRountine = null;
-        }    
+        }
 
         delayRountine = StartCoroutine(DelayRountine(nextRoundDuration, () => RoundStart()));
     }

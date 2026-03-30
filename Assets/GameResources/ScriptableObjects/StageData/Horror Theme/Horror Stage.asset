@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c5858147469eae4880bfedf545414ea, type: 3}
+  m_Name: Horror Stage
+  m_EditorClassIdentifier: Assembly-CSharp::StageData
+  themeType: 0
+  normalRound:
+  - {fileID: 11400000, guid: 95d4edba6f382084fb6212eadf8c14a8, type: 2}
+  - {fileID: 11400000, guid: ffc90cf4527716140ba9e679e4063332, type: 2}
+  - {fileID: 11400000, guid: 2f1beda43c874e94d86f1e7facfd7c00, type: 2}
+  eliteRound:
+  - {fileID: 11400000, guid: dd39738a73a05dc4ea508b181059acbe, type: 2}
+  bossRound:
+  - {fileID: 11400000, guid: 2c75c9b05af8dc34cb3bff213b675d3d, type: 2}
+  restRound: []
+  eventRound: []

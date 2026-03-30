@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753a9d47837c7a34a8e27f2898f362f8, type: 3}
+  m_Name: Stage_3001
+  m_EditorClassIdentifier: Assembly-CSharp::StageData
+  roundType: 2
+  units:
+  - offset: {x: 3, y: 4}
+    unit: {fileID: 4267204715661349276, guid: df448e8aee9232d45a0a222ad45b4256, type: 3}
+    star: 0
+    items: []
+  - offset: {x: 4, y: 4}
+    unit: {fileID: 4267204715661349276, guid: ede88bcff16d6234a98668d5a4a49e68, type: 3}
+    star: 0
+    items: []
+  - offset: {x: 5, y: 4}
+    unit: {fileID: 4267204715661349276, guid: df448e8aee9232d45a0a222ad45b4256, type: 3}
+    star: 0
+    items: []
+  rewardCount: 1

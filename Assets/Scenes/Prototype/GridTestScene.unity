@@ -6742,9 +6742,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6afca2545c15c4eac8f287b0f1d536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestUnitPlacer
-  meleeUnit: {fileID: 4267204715661349276, guid: df448e8aee9232d45a0a222ad45b4256, type: 3}
-  rangedUnit: {fileID: 4267204715661349276, guid: d1f2a73cc00c23e419d247a260a60d72, type: 3}
-  enemyCount: 3
 --- !u!4 &1745574746
 Transform:
   m_ObjectHideFlags: 0
@@ -7851,6 +7848,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageManager
   useDontDestroyOnLoad: 1
+  stageDatas:
+  - {fileID: 11400000, guid: 0acf045cb1b669f49968efd99e9b0cfc, type: 2}
+  totalStageCount: 1
+  stageCycle: 000000000000000001000000030000000000000000000000010000000300000000000000000000000200000003000000
+  stageThemes: 
+  currentStageIndex: 0
+  currentStage: []
+  currentRoundIndex: 0
+  currentRound: {fileID: 0}
 --- !u!4 &1981231475
 Transform:
   m_ObjectHideFlags: 0

@@ -61,7 +61,7 @@ namespace Unit
         HexTile startTile;
 
         // 자원 정보
-        private float attackResourceRegen = 5;      // 기본 공격 회복량 TODO : 캐릭터 정보로 넘기기
+        private float attackResourceRegen = 10;      // 기본 공격 회복량 TODO : 캐릭터 정보로 넘기기
         public float currentResource { get; private set; } = 0;
 
         /// <summary>
