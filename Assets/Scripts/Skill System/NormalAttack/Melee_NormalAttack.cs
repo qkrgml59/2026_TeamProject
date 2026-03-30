@@ -47,6 +47,11 @@ namespace Unit.Skill
 
         IEnumerator AttackRoutine()
         {
+            // 방향 설정
+            Vector3 dir = owner.transform.position - owner.targetUnit.transform.position;
+            dir.y = 0f;
+            transform.rotation = Quaternion.LookRotation(dir);
+
             skillEffect.Play();
 
             //선딜레이
@@ -63,12 +68,6 @@ namespace Unit.Skill
 
         void TakeDamage()
         {
-            // 방향 설정
-            Vector3 dir = owner.transform.position - owner.targetUnit.transform.position;
-            dir.y = 0f;
-            transform.rotation = Quaternion.LookRotation(dir);
-
-
             // 일반 공격은 공격력의 100* 데미지
             float damage = owner.statSet.AttackDamage.Value;
 
