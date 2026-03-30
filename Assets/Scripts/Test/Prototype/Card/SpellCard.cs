@@ -1,5 +1,6 @@
 using Prototype.Card;
 using Prototype.Card.Spell;
+using Prototype.Grid;
 using Spell;
 using UnityEngine;
 
@@ -33,6 +34,11 @@ namespace Prototype.Card
             }
 
             return false;
+        }
+
+        protected override TileHighlightState GetHighlightStateForThisCard()
+        {
+            return TileHighlightState.SpellTarget;
         }
     }
 }

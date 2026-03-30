@@ -18,6 +18,8 @@ namespace Prototype.Card
 
         protected Vector2 _originAnchoredPos;
 
+        protected HexTile currentTile = null;
+
         protected virtual void Awake()
         {
             if (rectTransform == null)
@@ -70,12 +72,16 @@ namespace Prototype.Card
         {
             Vector3 mousePos = eventData.position;
             rectTransform.position = mousePos;
+
+            UpdateHighlight(eventData.position);
         }
 
         // 드래그 종료
         public void OnEndDrag(PointerEventData eventData)
         {
             Debug.Log("드래그 종료");
+
+            ClearHoverHighlight();
 
             Ray ray = Camera.main.ScreenPointToRay(eventData.position);
             bool isUsed = false;
@@ -118,12 +124,47 @@ namespace Prototype.Card
             }
         }
 
+        void UpdateHighlight(Vector2 mousePos)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(mousePos);
+
+            if (Physics.Raycast(ray, out RaycastHit hit, 100f, 1 << LayerMask.NameToLayer("Tile")))
+            {
+                HexTile hoveredTile = hit.transform.GetComponent<HexTile>();
+
+                if (hoveredTile != null)
+                {
+                    if (currentTile != hoveredTile)
+                    {
+                        ClearHoverHighlight();
+                        hoveredTile.SetHighlight(GetHighlightStateForThisCard());
+                        currentTile = hoveredTile;
+                    }
+                }
+                else { ClearHoverHighlight(); }
+            }
+            else { ClearHoverHighlight(); }
+        }
+
+        private void ClearHoverHighlight()
+        {
+            if (currentTile != null)
+            {
+                currentTile.SetHighlight(TileHighlightState.None);
+                currentTile = null;
+            }
+        }
+
         /// <summary>
         /// 카드를 타일에 오ㄹ렸을 때의 동작
         /// 타일에 올렸을 때 true 아닐 때 false
         /// </summary>
         protected abstract bool TryUseCard(RaycastHit hit);
 
+        /// <summary>
+        /// 카드에 색 지정
+        /// </summary>
+        protected abstract TileHighlightState GetHighlightStateForThisCard();
         #endregion
     }
 }
