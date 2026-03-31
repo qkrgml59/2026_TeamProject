@@ -47,6 +47,9 @@ namespace Unit.Skill
         {
             _targetUnit?.ApplyDamage(_info);
 
+            // caster의 일반 공격 적중 이벤트 호출
+            _info.caster.unitEvents.OnNormalAttackHit?.Invoke(_info, _targetUnit);
+
             // 공격 후 투사체 파괴
             Destroy(gameObject);
         }
