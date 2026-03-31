@@ -86,6 +86,8 @@ namespace Unit.Skill
             unit.EnterTile(tile);
             unit.transform.position = tile.transform.position;
 
+            unit.ClearPath();
+
         }
 
         private void SetInvincible(bool value)
