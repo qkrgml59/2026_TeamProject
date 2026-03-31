@@ -124,6 +124,7 @@ Transform:
   m_Children:
   - {fileID: 2772847629326395518}
   - {fileID: 4789593475159420038}
+  - {fileID: 4489573652292164928}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4267204715661349276
@@ -144,7 +145,7 @@ MonoBehaviour:
   unitStatData: {fileID: 11400000, guid: 243520d531ee6df4c86512b9c2e60661, type: 2}
   currentUnitState: 0
   normalAttack: {fileID: 8403735177331832005}
-  skill: {fileID: 0}
+  skill: {fileID: 7001659352169571874}
   unitEvents:
     OnNormalAttack:
       m_PersistentCalls:
@@ -319,3 +320,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d94586b5289f4b4f8ed11752b7106b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unit.Skill.Ranged_NormalAttack
+--- !u!1001 &9005559700414691252
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6334951277875150035}
+    m_Modifications:
+    - target: {fileID: 2148437749727859094, guid: 9545b060d90f17445be9fd496eed4553, type: 3}
+      propertyPath: cost
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806475114861931252, guid: 9545b060d90f17445be9fd496eed4553, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5318928
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806475114861931252, guid: 9545b060d90f17445be9fd496eed4553, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.58089
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806475114861931252, guid: 9545b060d90f17445be9fd496eed4553, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.59757
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806475114861931252, guid: 9545b060d90f17445be9fd496eed4553, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806475114861931252, guid: 9545b060d90f17445be9fd496eed4553, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806475114861931252, guid: 9545b060d90f17445be9fd496eed4553, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806475114861931252, guid: 9545b060d90f17445be9fd496eed4553, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806475114861931252, guid: 9545b060d90f17445be9fd496eed4553, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806475114861931252, guid: 9545b060d90f17445be9fd496eed4553, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806475114861931252, guid: 9545b060d90f17445be9fd496eed4553, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5187358713731987700, guid: 9545b060d90f17445be9fd496eed4553, type: 3}
+      propertyPath: m_Name
+      value: LeonSkill
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9545b060d90f17445be9fd496eed4553, type: 3}
+--- !u!4 &4489573652292164928 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4806475114861931252, guid: 9545b060d90f17445be9fd496eed4553, type: 3}
+  m_PrefabInstance: {fileID: 9005559700414691252}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7001659352169571874 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2148437749727859094, guid: 9545b060d90f17445be9fd496eed4553, type: 3}
+  m_PrefabInstance: {fileID: 9005559700414691252}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc46e67f02236c46a7add1113b872a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unit.Skill.LeonSkill
