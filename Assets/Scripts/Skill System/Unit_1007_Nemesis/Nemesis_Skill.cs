@@ -1,5 +1,5 @@
 using Prototype.Grid;
-using Prototype.Skill;
+using Unit.Skill;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
