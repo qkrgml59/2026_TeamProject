@@ -1,0 +1,98 @@
+﻿[
+  {
+    "cardID": "Unit1",
+    "icon": "",
+    "getID": "1001",
+    "cardName": "너스",
+    "description": "해당 유닛 소환",
+    "cardPrefab": "Assets/Prefabs/UI/Unit_Card"
+  },
+  {
+    "cardID": "Unit2",
+    "icon": "",
+    "getID": "1002",
+    "cardName": "피그",
+    "description": "해당 유닛 소환",
+    "cardPrefab": "Assets/Prefabs/UI/Unit_Card"
+  },
+  {
+    "cardID": "Unit3",
+    "icon": "",
+    "getID": "1003",
+    "cardName": "레온",
+    "description": "해당 유닛 소환",
+    "cardPrefab": "Assets/Prefabs/UI/Unit_Card"
+  },
+  {
+    "cardID": "Unit4",
+    "icon": "",
+    "getID": "1004",
+    "cardName": "역병의사",
+    "description": "해당 유닛 소환",
+    "cardPrefab": "Assets/Prefabs/UI/Unit_Card"
+  },
+  {
+    "cardID": "Unit5",
+    "icon": "",
+    "getID": "1005",
+    "cardName": "고스트페이스",
+    "description": "해당 유닛 소환",
+    "cardPrefab": "Assets/Prefabs/UI/Unit_Card"
+  },
+  {
+    "cardID": "Unit6",
+    "icon": "",
+    "getID": "1006",
+    "cardName": "릭커",
+    "description": "해당 유닛 소환",
+    "cardPrefab": "Assets/Prefabs/UI/Unit_Card"
+  },
+  {
+    "cardID": "Unit7",
+    "icon": "",
+    "getID": "1007",
+    "cardName": "네메시스",
+    "description": "해당 유닛 소환",
+    "cardPrefab": "Assets/Prefabs/UI/Unit_Card"
+  },
+  {
+    "cardID": "Unit8",
+    "icon": "",
+    "getID": "1008",
+    "cardName": "사각두",
+    "description": "해당 유닛 소환",
+    "cardPrefab": "Assets/Prefabs/UI/Unit_Card"
+  },
+  {
+    "cardID": "Unit9",
+    "icon": "",
+    "getID": "1009",
+    "cardName": "데모고르곤",
+    "description": "해당 유닛 소환",
+    "cardPrefab": "Assets/Prefabs/UI/Unit_Card"
+  },
+  {
+    "cardID": "Spell1",
+    "icon": "",
+    "getID": "",
+    "cardName": "",
+    "description": "",
+    "cardPrefab": "Assets/Prefabs/UI/Spell_Card"
+  },
+  {
+    "cardID": "Spell2",
+    "icon": "",
+    "getID": "",
+    "cardName": "",
+    "description": "",
+    "cardPrefab": ""
+  },
+  {
+    "cardID": "Spell3",
+    "icon": "",
+    "getID": "",
+    "cardName": "",
+    "description": "",
+    "cardPrefab": ""
+  }
+]

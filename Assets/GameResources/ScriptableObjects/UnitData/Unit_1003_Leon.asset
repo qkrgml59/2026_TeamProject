@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c00e679a6977c14bac762d745adb850, type: 3}
+  m_Name: Unit_1003_Leon
+  m_EditorClassIdentifier: Assembly-CSharp::UnitStatSO
+  ID: 1003
+  Name_KR: "\uB808\uC628"
+  Name_EN: Leon
+  Race: 0
+  Cost: 1
+  Race_Synergy_A: 0
+  Race_Synergy_B: 0
+  Synergy_A: 0
+  Synergy_B: 0
+  Synergy_C: 0
+  statsByStart:
+  - MaxHp: 0
+    AttackDamage: 0
+  - MaxHp: 0
+    AttackDamage: 0
+  - MaxHp: 0
+    AttackDamage: 0
+  Defense: 0
+  MagicResistance: 0
+  AbilityPower: 0
+  AttackSpeed: 0
+  Attack_Rage: 0
+  Move_Speed: 0
+  MaxManaPoint: 0
+  StartManaPoint: 0
+  ManaRegeneration: 0
+  NormalAttack_Type: Range
+  NormalAttack_Prefab: {fileID: 5028482550986139543, guid: b70609d6669271b4f91d2ea8587da058, type: 3}
+  Skill_ID: 5003
+  Skill_Prefab: {fileID: 5187358713731987700, guid: 9545b060d90f17445be9fd496eed4553, type: 3}

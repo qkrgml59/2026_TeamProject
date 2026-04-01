@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Unit.UnitBase
   team: 0
-  unitImage: {fileID: 21300000, guid: 0e2851211471e484b845c8734089acea, type: 3}
+  unitImage: {fileID: 21300000, guid: 2773a3afd607b4a4cb1d188b0deb1f0d, type: 3}
   quadRenderer: {fileID: 2819206406241727412}
   unitStatData: {fileID: 11400000, guid: 6bcbb268cc4304247a7345451fa11309, type: 2}
   currentUnitState: 0

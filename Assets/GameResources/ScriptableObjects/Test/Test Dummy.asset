@@ -12,25 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c00e679a6977c14bac762d745adb850, type: 3}
   m_Name: Test Dummy
   m_EditorClassIdentifier: Assembly-CSharp::UnitStatSO
+  ID: 
+  Name_KR: 
+  Name_EN: 
+  Race: 0
+  Cost: 0
+  Race_Synergy_A: 0
+  Race_Synergy_B: 0
+  Synergy_A: 0
+  Synergy_B: 0
+  Synergy_C: 0
   statsByStart:
   - MaxHp: 1000
     AttackDamage: 0
-    AbilityPower: 0
-    AttackSpeed: 0.7
-    Defense: 30
-    MagicResistance: 30
   - MaxHp: 1700
     AttackDamage: 0
-    AbilityPower: 0
-    AttackSpeed: 0.7
-    Defense: 40
-    MagicResistance: 40
   - MaxHp: 2300
     AttackDamage: 0
-    AbilityPower: 0
-    AttackSpeed: 0.7
-    Defense: 50
-    MagicResistance: 50
+  Defense: 50
+  MagicResistance: 50
+  AbilityPower: 0
+  AttackSpeed: 0.7
   Attack_Rage: 0
   Move_Speed: 0
-  unitType: "\uC804\uC0AC/\uC554\uC0B4\uC790 \uAC19\uC740 \uBD84\uB958 \uC608\uC815"
+  MaxManaPoint: 0
+  StartManaPoint: 0
+  ManaRegeneration: 0
+  NormalAttack_Type: 
+  NormalAttack_Prefab: {fileID: 0}
+  Skill_ID: 0
+  Skill_Prefab: {fileID: 0}

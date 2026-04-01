@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Nemesis
   m_EditorClassIdentifier: Assembly-CSharp::UnitCardDataSO
   cardId: Nemesis
-  icon: {fileID: 21300000, guid: 859b776709ff95d4cbd568709bee13ac, type: 3}
+  icon: {fileID: 21300000, guid: ac510ca458ed57b46974dd949d3cf35f, type: 3}
   cardName: "\uB124\uBA54\uC2DC\uC2A4"
   description: 
   cardPrefab: {fileID: -4292617042704308234, guid: d3613220f4b7ecc4fa94b2b32fcdbe08, type: 3}
+  unitStatSO: {fileID: 0}
   unitSO: {fileID: 9160401389433439977, guid: e03159c46eb85cc4a87133ca4809a9a6, type: 3}

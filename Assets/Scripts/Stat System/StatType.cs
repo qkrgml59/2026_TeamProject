@@ -17,4 +17,6 @@ public enum StatType
     Omnivamp,               // 생명력 흡수
     AttackRange,           // 사거리
     MoveSpeed,             // 이동 속도
+    MaxMana,               // 최대 마나
+    StartMana              // 초기 마나
 }

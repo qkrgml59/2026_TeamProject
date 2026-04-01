@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 104faa83f387084458a287e62979d506, type: 3}
+  m_Name: Card_Unit3_Leon
+  m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.Unit.UnitCardDataSO
+  cardId: Unit3
+  icon: {fileID: 0}
+  cardName: "\uB808\uC628"
+  description: "\uD574\uB2F9 \uC720\uB2DB \uC18C\uD658"
+  cardPrefab: {fileID: -4292617042704308234, guid: 337aaef10b8b5f941b7bd05811aed61e, type: 3}
+  unitStatSO: {fileID: 11400000, guid: ebe19e57126304d42b5e0ad74e9dfa9e, type: 2}
+  unitSO: {fileID: 0}

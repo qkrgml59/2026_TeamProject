@@ -13,15 +13,20 @@ namespace Stat
             stats = new Dictionary<StatType, Stat>();
 
             // 기초 스텟 선언
+            //성급에 따라 변하는 스텟 선언
             stats.Add(StatType.HealthPoint, new Stat());
             stats.Add(StatType.AttackDamage, new Stat());
-            stats.Add(StatType.AbilityPower, new Stat());
-            stats.Add(StatType.AttackSpeed, new Stat());
-            stats.Add(StatType.Defense, new Stat());
-            stats.Add(StatType.MagicResistance, new Stat());
+
+            //성급 무관 고정 스텟 선언
+            stats.Add(StatType.AbilityPower, new Stat(unitStatSO.AbilityPower));
+            stats.Add(StatType.AttackSpeed, new Stat(unitStatSO.AttackSpeed));
+            stats.Add(StatType.Defense, new Stat(unitStatSO.Defense));
+            stats.Add(StatType.MagicResistance, new Stat(unitStatSO.MagicResistance));
 
             // 자원 스텟 선언
-            stats.Add(StatType.ManaRegeneration, new Stat());
+            stats.Add(StatType.ManaRegeneration, new Stat(unitStatSO.ManaRegeneration));
+            stats.Add(StatType.MaxMana, new Stat(unitStatSO.MaxManaPoint));
+            stats.Add(StatType.StartMana, new Stat(unitStatSO.StartManaPoint));
 
             // 특수 스텟 선언(고정값)
             stats.Add(StatType.CriticalChance, new Stat(25));
@@ -54,10 +59,6 @@ namespace Stat
             // 성급에 따른 스텍 적용
             stats[StatType.HealthPoint].SetBaseValue(data.MaxHp);
             stats[StatType.AttackDamage].SetBaseValue(data.AttackDamage);
-            stats[StatType.AbilityPower].SetBaseValue(data.AbilityPower);
-            stats[StatType.AttackSpeed].SetBaseValue(data.AttackSpeed);
-            stats[StatType.Defense].SetBaseValue(data.Defense);
-            stats[StatType.MagicResistance].SetBaseValue(data.MagicResistance);
         }
 
         #region Quick Method
@@ -88,6 +89,8 @@ namespace Stat
         public Stat Omnivamp => Get(StatType.Omnivamp);                   // 생명력 흡수
         public Stat AttackRange => Get(StatType.AttackRange);             // 공격 사거리
         public Stat MoveSpeed => Get(StatType.MoveSpeed);                 // 이동 속도
+        public Stat MaxMana => Get(StatType.MaxMana);                     // 최대 마나
+        public Stat StartMana => Get(StatType.StartMana);                 // 초기 마나
 
         #endregion
     }
