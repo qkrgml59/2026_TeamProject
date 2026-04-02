@@ -15,6 +15,7 @@ namespace Unit.Skill
         {
             _info = info;
             _targetUnit = targetUnit;
+            targetLastPos = targetUnit.transform.position;
         }
 
         private void Update()
@@ -26,6 +27,7 @@ namespace Unit.Skill
                 return;
             }
 
+            targetLastPos = _targetUnit.transform.position;
             Movement(_targetUnit.transform.position);
         }
 
