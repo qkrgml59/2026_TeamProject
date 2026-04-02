@@ -1,3 +1,4 @@
+using Unit.Skill;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "new UnitStat", menuName = "UnitStatSO/UnitStatSO")]
@@ -37,10 +38,13 @@ public class UnitStatSO : ScriptableObject
 
     [Header("행동 데이터")]
     [Header("일반공격 ID")] public string NormalAttack_Type;
-    [Header("일반공격 프리팹")] public GameObject NormalAttack_Prefab;
+    [Header("일반공격 프리팹")] public SkillBase NormalAttack_Prefab;
     [Header("스킬 ID")] public int Skill_ID;
-    [Header("스킬 프리팹")] public GameObject Skill_Prefab;
+    [Header("스킬 프리팹")] public SkillBase Skill_Prefab;
 
+    // TODO : 임시 이미지, 추후 삭제
+    [Header("(임시) 유닛 이미지")]
+    public Texture2D unitSprite;
 }
 
 [System.Serializable]

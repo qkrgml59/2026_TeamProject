@@ -8,6 +8,7 @@ using Prototype.Card;
 using Prototype.Card.Unit;
 using Prototype.Card.Spell;
 using Unit;
+using Unit.Skill;
 
 public class JsonToCardConverter : EditorWindow
 {
@@ -229,36 +230,38 @@ public class JsonToCardConverter : EditorWindow
         if (!Directory.Exists(path)) Directory.CreateDirectory(path);
     }
 
-    private GameObject CheckAndCreateSkillPrefab(string enName)
+    private SkillBase CheckAndCreateSkillPrefab(string enName)
     {
         string folder = $"Assets/Prefabs/Skill/{enName}Skills";
         EnsureFolderExists(folder);
 
         string prefabPath = $"{folder}/{enName}Skill.prefab";
-        GameObject prefabObj = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
+        SkillBase prefabObj = AssetDatabase.LoadAssetAtPath<SkillBase>(prefabPath);
 
         if (prefabObj == null)
         {
-            GameObject dummyGo = new GameObject($"{enName}Skill");
-            prefabObj = PrefabUtility.SaveAsPrefabAsset(dummyGo, prefabPath);
-            DestroyImmediate(dummyGo);
+            Debug.LogError($"enName의 스킬 프리팹을 찾을 수 없습니다. (경로 : {prefabPath})");
+            //GameObject dummyGo = new GameObject($"{enName}Skill");
+            //prefabObj = PrefabUtility.SaveAsPrefabAsset(dummyGo, prefabPath);
+            //DestroyImmediate(dummyGo);
         }
         return prefabObj;
     }
 
-    private GameObject CheckAndCreateNormalAttackPrefab(string type)
+    private SkillBase CheckAndCreateNormalAttackPrefab(string type)
     {
         string folder = "Assets/Prefabs/Skill/NormalAttack";
         EnsureFolderExists(folder);
 
         string prefabPath = $"{folder}/{type}_NormalAttack.prefab";
-        GameObject prefabObj = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
+        SkillBase prefabObj = AssetDatabase.LoadAssetAtPath<SkillBase>(prefabPath);
 
         if (prefabObj == null)
         {
-            GameObject dummyGo = new GameObject($"{type}_NormalAttack");
-            prefabObj = PrefabUtility.SaveAsPrefabAsset(dummyGo, prefabPath);
-            DestroyImmediate(dummyGo);
+            Debug.LogError($"enName의 기본 공격 프리팹을 찾을 수 없습니다. (경로 : {prefabPath})");
+            //GameObject dummyGo = new GameObject($"{type}_NormalAttack");
+            //prefabObj = PrefabUtility.SaveAsPrefabAsset(dummyGo, prefabPath);
+            //DestroyImmediate(dummyGo);
         }
         return prefabObj;
     }
