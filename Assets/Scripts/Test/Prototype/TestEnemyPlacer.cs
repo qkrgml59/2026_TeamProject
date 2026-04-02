@@ -10,14 +10,19 @@ public class TestEnemyPlacer : MonoBehaviour
 
     void Start()
     {
-        BattleManager.Instance.OnUnitInit += Place;
+        if (BattleManager.Instance != null)
+            BattleManager.Instance.OnRoundStart += Place;
+    }
+
+    private void OnDestroy()
+    {
+        if (BattleManager.Instance != null)
+            BattleManager.Instance.OnRoundStart -= Place;
     }
 
     [ContextMenu("유닛 배치")]
-    public void Place()
+    public void Place(RoundData round)
     {
-        RoundData round = StageManager.Instance.CurrentRound;
-
         if(round == null || unitPrefab == null) return;
 
 

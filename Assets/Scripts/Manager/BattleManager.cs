@@ -3,6 +3,8 @@ using Utilitys;
 using UnityEngine;
 using System.Collections;
 using Unit;
+using Test.UI;
+using Prototype.Card;
 
 public enum BattleState
 {
@@ -104,6 +106,16 @@ public class BattleManager : SingletonMonoBehaviour<BattleManager>
 
         UnitManager.Instance.ClaerEnemy();
 
+
+        // 보상 지급
+        CardDataSO data_1 = StageManager.Instance.GetRandomCardData(CardType.Unit);
+        CardDataSO data_2 = StageManager.Instance.GetRandomCardData(CardType.Unit);
+        CardDataSO data_3 = StageManager.Instance.GetRandomCardData(CardType.Spell);
+        TestRewardManager.Instance.Show(data_1, data_2, data_3);
+    }
+
+    public void NextRound()
+    {
         // 다음 라운드로 넘어가기
         StageManager.Instance.SetNextRound();
 

@@ -32,12 +32,14 @@ namespace Prototype.Grid
             if(pathfinder == null)
             pathfinder = GetComponent<HexGridPathfinder>();
 
-            BattleManager.Instance.OnRoundEnd += GridReset;
+            if (BattleManager.Instance != null)
+                BattleManager.Instance.OnRoundEnd += GridReset;
         }
 
         private void OnDestroy()
         {
-            BattleManager.Instance.OnRoundEnd -= GridReset;
+            if(BattleManager.Instance != null)
+                BattleManager.Instance.OnRoundEnd -= GridReset;
         }
 
         /// <summary>
