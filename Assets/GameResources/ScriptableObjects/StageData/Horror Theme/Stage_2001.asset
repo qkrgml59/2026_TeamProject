@@ -15,15 +15,15 @@ MonoBehaviour:
   roundType: 1
   units:
   - offset: {x: 3, y: 4}
-    unit: {fileID: 4267204715661349276, guid: df448e8aee9232d45a0a222ad45b4256, type: 3}
+    unitData: {fileID: 11400000, guid: 15d2092d5924523499de2b49f63d3c1a, type: 2}
     star: 0
     items: []
   - offset: {x: 4, y: 4}
-    unit: {fileID: 4267204715661349276, guid: df448e8aee9232d45a0a222ad45b4256, type: 3}
+    unitData: {fileID: 11400000, guid: 15d2092d5924523499de2b49f63d3c1a, type: 2}
     star: 0
     items: []
   - offset: {x: 3, y: 7}
-    unit: {fileID: 4267204715661349276, guid: d1f2a73cc00c23e419d247a260a60d72, type: 3}
+    unitData: {fileID: 11400000, guid: ebe19e57126304d42b5e0ad74e9dfa9e, type: 2}
     star: 0
     items: []
   rewardCount: 1

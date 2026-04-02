@@ -4154,11 +4154,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.CardManager
   useDontDestroyOnLoad: 0
   cardCanvas: {fileID: 974802596}
-  defaultDrawCount: 3
-  maxHandCount: 9
+  defaultDrawCount: 4
+  maxHandCount: 6
   _deck: []
-  _hand: []
-  _used: []
+  _handCards: []
+  _usedCards: []
   _handObjects: []
 --- !u!1 &1027294168
 GameObject:
@@ -5140,12 +5140,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.DeckManager
   useDontDestroyOnLoad: 1
   _testEntries:
-  - cardData: {fileID: 11400000, guid: deb5b9f8afdd0b146bf0ab3d0870d300, type: 2}
-    count: 8
-  - cardData: {fileID: 11400000, guid: 429aac3c853d7ee458ada23a89b8adca, type: 2}
-    count: 4
-  - cardData: {fileID: 11400000, guid: c18c949535ba55341a65a41c99021d39, type: 2}
-    count: 4
+  - cardData: {fileID: 11400000, guid: 9c931e314ca8c874baf68847b1dba5f9, type: 2}
+    count: 2
+  - cardData: {fileID: 11400000, guid: 1f357a8b9935c8243a497f6ab10231c2, type: 2}
+    count: 2
+  - cardData: {fileID: 11400000, guid: 8efe29378d458824c91dd2b01fd8f43e, type: 2}
+    count: 2
   - cardData: {fileID: 11400000, guid: 1fbf8b4393407334b851fb970642545d, type: 2}
     count: 2
   - cardData: {fileID: 11400000, guid: fcb0a3e9573c1ea418f9e8f8836cc769, type: 2}
@@ -6746,6 +6746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6afca2545c15c4eac8f287b0f1d536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestUnitPlacer
+  unitPrefab: {fileID: 5114845127532008112, guid: e8470f5bc8489db4cbaaf7c98d2143ae, type: 3}
 --- !u!4 &1745574746
 Transform:
   m_ObjectHideFlags: 0
@@ -7855,11 +7856,10 @@ MonoBehaviour:
   stageDatas:
   - {fileID: 11400000, guid: 0acf045cb1b669f49968efd99e9b0cfc, type: 2}
   totalStageCount: 1
-  stageCycle: 000000000000000001000000030000000000000000000000010000000300000000000000000000000200000003000000
-  stageThemes: 
-  currentStageIndex: 0
-  currentStage: []
-  currentRoundIndex: 0
+  stageCycle: 000000000000000000000000010000000000000000000000000000000100000000000000000000000000000002000000
+  gameThemes: 
+  CurStageIndex: 0
+  CurRoundIndex: 0
   currentRound: {fileID: 0}
 --- !u!4 &1981231475
 Transform:
@@ -11906,6 +11906,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2031349014735122445, guid: 8d5d4012c9d5b2641bd185884bb39371, type: 3}
+      propertyPath: combatDuration
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 8729445611025970546, guid: 8d5d4012c9d5b2641bd185884bb39371, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.10674

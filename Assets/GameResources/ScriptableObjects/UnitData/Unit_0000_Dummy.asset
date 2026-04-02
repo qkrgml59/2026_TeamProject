@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c00e679a6977c14bac762d745adb850, type: 3}
-  m_Name: Unit_1008_BoxHead
+  m_Name: Unit_0000_Dummy
   m_EditorClassIdentifier: Assembly-CSharp::UnitStatSO
-  ID: 1008
-  Name_KR: "\uC0AC\uAC01\uB450"
-  Name_EN: BoxHead
+  ID: 0000
+  Name_KR: "\uB354\uBBF8"
+  Name_EN: Dummy
   Race: 0
-  Cost: 3
+  Cost: 1
   Race_Synergy_A: 0
   Race_Synergy_B: 0
   Synergy_A: 0
@@ -33,13 +33,13 @@ MonoBehaviour:
   MagicResistance: 30
   AbilityPower: 0
   AttackSpeed: 0.7
-  Attack_Rage: 1
-  Move_Speed: 5
+  Attack_Rage: 0
+  Move_Speed: 0
   MaxManaPoint: 0
   StartManaPoint: 0
   ManaRegeneration: 0
   NormalAttack_Type: Melee
   NormalAttack_Prefab: {fileID: 6588351147661766957, guid: 47644915a41e2dc42bd088897de24741, type: 3}
-  Skill_ID: 5008
-  Skill_Prefab: {fileID: 5140898523265365592, guid: 88c62d0c30bcb9246bef7faa1c319585, type: 3}
-  unitSprite: {fileID: 2800000, guid: 5b3eac881fd3ba54ebcb62e148578118, type: 3}
+  Skill_ID: 5001
+  Skill_Prefab: {fileID: 1581263606922973982, guid: 7a5bcd5b231ee8646b4e85d14d75dfba, type: 3}
+  unitSprite: {fileID: 2800000, guid: 2773a3afd607b4a4cb1d188b0deb1f0d, type: 3}

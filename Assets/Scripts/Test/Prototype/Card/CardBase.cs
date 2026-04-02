@@ -111,7 +111,7 @@ namespace Prototype.Card
 
             if (isUsed)     //카드 사용 성공 시
             {
-                CardManager.Instance.UseCard(this);
+                BattleCardManager.Instance.UseCard(this);
             }
             else
             {

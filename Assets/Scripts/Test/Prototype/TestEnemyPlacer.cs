@@ -5,11 +5,12 @@ using Prototype.UI;
 
 public class TestEnemyPlacer : MonoBehaviour
 {
+    public UnitBase unitPrefab;
     private const TeamType teamType = TeamType.Enemy;
 
     void Start()
     {
-        BattleManager.Instance.OnRoundStart += Place;
+        BattleManager.Instance.OnUnitInit += Place;
     }
 
     [ContextMenu("유닛 배치")]
@@ -17,7 +18,7 @@ public class TestEnemyPlacer : MonoBehaviour
     {
         RoundData round = StageManager.Instance.CurrentRound;
 
-        if(round == null) return;
+        if(round == null || unitPrefab == null) return;
 
 
         // 라운드 데이터를 따라 적 배치
@@ -27,8 +28,8 @@ public class TestEnemyPlacer : MonoBehaviour
 
             if (targetTile != null && targetTile.CanReserve(null))
             {
-                UnitBase target = Instantiate(u.unit, targetTile.transform.position, Quaternion.identity);
-                target.team = teamType;
+                UnitBase target = Instantiate(unitPrefab, targetTile.transform.position, Quaternion.identity);
+                target.Init(u.unitData, teamType);
                 target.PlaceUnit(targetTile);
                 UnitManager.Instance.RegisterUnit(target);
                 IndicatorManager.Instance.HPBarPresenter.RegisterHealthBar(target);

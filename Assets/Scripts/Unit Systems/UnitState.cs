@@ -80,8 +80,8 @@ namespace Unit
                 return;
             }
 
-
-            if (_unit.IsPathStillValid())
+            // TODO : 이동 불가 상태를 따로 제작
+            if (_unit.IsPathStillValid() && _unit.statSet.MoveSpeed.Value > 0)
             {
                 _unit.ChangeUnitState(UnitStateType.Move);
                 return;

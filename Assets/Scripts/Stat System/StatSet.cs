@@ -5,12 +5,12 @@ namespace Stat
 {
     public class StatSet
     {
-        Dictionary<StatType, Stat> stats;
+        Dictionary<StatType, Stat> stats = new Dictionary<StatType, Stat>();
 
         //생성자 초기화
         public StatSet(UnitStatSO unitStatSO)
         {
-            stats = new Dictionary<StatType, Stat>();
+            stats.Clear();
 
             // 기초 스텟 선언
             //성급에 따라 변하는 스텟 선언

@@ -23,22 +23,23 @@ MonoBehaviour:
   Synergy_B: 0
   Synergy_C: 0
   statsByStart:
+  - MaxHp: 1000
+    AttackDamage: 30
   - MaxHp: 0
     AttackDamage: 0
   - MaxHp: 0
     AttackDamage: 0
-  - MaxHp: 0
-    AttackDamage: 0
-  Defense: 0
-  MagicResistance: 0
+  Defense: 30
+  MagicResistance: 30
   AbilityPower: 0
-  AttackSpeed: 0
-  Attack_Rage: 0
-  Move_Speed: 0
+  AttackSpeed: 0.7
+  Attack_Rage: 1
+  Move_Speed: 5
   MaxManaPoint: 0
   StartManaPoint: 0
   ManaRegeneration: 0
   NormalAttack_Type: Melee
-  NormalAttack_Prefab: {fileID: 9200173523908722822, guid: 47644915a41e2dc42bd088897de24741, type: 3}
+  NormalAttack_Prefab: {fileID: 6588351147661766957, guid: 47644915a41e2dc42bd088897de24741, type: 3}
   Skill_ID: 5009
   Skill_Prefab: {fileID: 4252046930313683649, guid: b0359655da7d00549a2be9c0028dbf24, type: 3}
+  unitSprite: {fileID: 2800000, guid: ac510ca458ed57b46974dd949d3cf35f, type: 3}

@@ -39,12 +39,19 @@ namespace Utilitys
                         DontDestroyOnLoad(gameObject);
                     else
                         Debug.LogWarning($"{typeof(T).Name}는 부모가 있어 DontDestroyOnLoad가 적용되지 않습니다.");
+
+                OnSingletonAwake();
             }
             else if (_instance != this)
             {
                 Destroy(gameObject);
             }
         }
+
+        /// <summary>
+        /// SingletoneMonoBehaivour에서 인스턴스 설정이 완료된 경우에만 호출되는 Awake
+        /// </summary>
+        protected virtual void OnSingletonAwake() { }
 
         private void OnDestroy()
         {

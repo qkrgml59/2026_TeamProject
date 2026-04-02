@@ -18,4 +18,3 @@ MonoBehaviour:
   description: "\uD574\uB2F9 \uC720\uB2DB \uC18C\uD658"
   cardPrefab: {fileID: -4292617042704308234, guid: 337aaef10b8b5f941b7bd05811aed61e, type: 3}
   unitStatSO: {fileID: 11400000, guid: bfd51a4b8e551db49938b38220aecfb5, type: 2}
-  unitSO: {fileID: 0}

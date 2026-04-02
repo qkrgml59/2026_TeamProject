@@ -1,6 +1,7 @@
 using UnityEngine;
 using Utilitys;
 using System.Collections.Generic;
+using System;
 
 namespace Prototype.Card
 {
@@ -13,6 +14,10 @@ namespace Prototype.Card
         [Header("덱 설정")]
         public int maxDeckSize = 40;            // 덱 최대/최소 설정 (사용 하려나요)
         public int minDeckSize = 10;
+
+        // 이벤트
+        public event Action<CardDataSO, int> OnCardAdded;
+        public event Action<CardDataSO, int> OnCardRemoved;
 
         private void Awake() 
         {
@@ -34,7 +39,7 @@ namespace Prototype.Card
         /// <summary>
         ///  덱에 카드 추가를 시도합니다.
         /// </summary>
-        public bool TryAddCard(CardDataSO newCard, int count = 1)
+        public bool TryAddCardToDeck(CardDataSO newCard, int count = 1)
         {
             int totalCount = GetTotalCardCount();
             if (totalCount >= maxDeckSize)
@@ -59,11 +64,16 @@ namespace Prototype.Card
                 ownedDeck[newCard.cardId] = new CardEntry(newCard, count);
             }
 
-            // TODO: CardManager 쪽에도 카드 추가
+            // 카드 추가 이벤트
+            OnCardAdded?.Invoke(newCard, count);
+
             return true;
         }
 
-        public bool TryRemoveCard(CardDataSO targetCard, int count)
+        /// <summary>
+        /// 덱의 카드 제거를 시도합니다.
+        /// </summary>
+        public bool TryRemoveCardFromDeck(CardDataSO targetCard, int count)
         {
             int totalCount = GetTotalCardCount();
             if (totalCount <= minDeckSize)
@@ -99,7 +109,9 @@ namespace Prototype.Card
                 return false;
             }
 
-            // TODO: CardManager 쪽에서도 카드 제거
+            // 카드 제거 이벤트 호출
+
+
             return true;
         }
 

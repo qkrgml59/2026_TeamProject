@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Card_Unit8_BoxHead
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.Unit.UnitCardDataSO
   cardId: Unit8
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 5b3eac881fd3ba54ebcb62e148578118, type: 3}
   cardName: "\uC0AC\uAC01\uB450"
   description: "\uD574\uB2F9 \uC720\uB2DB \uC18C\uD658"
   cardPrefab: {fileID: -4292617042704308234, guid: 337aaef10b8b5f941b7bd05811aed61e, type: 3}
   unitStatSO: {fileID: 11400000, guid: 95147c063bb4fb6449ef48189c9fb8c5, type: 2}
-  unitSO: {fileID: 0}

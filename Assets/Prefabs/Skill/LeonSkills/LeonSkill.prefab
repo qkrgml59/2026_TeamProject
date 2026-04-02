@@ -47,5 +47,5 @@ MonoBehaviour:
   skillName: 
   icon: {fileID: 0}
   description: 
-  cost: 10
+  cost: 30
   preDelay: 0.05

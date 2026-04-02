@@ -15,7 +15,7 @@ namespace Spell.Effects
 
             if (tile != null)
             {
-                CardManager.Instance.DrawCard();
+                BattleCardManager.Instance.DrawCard();
 
                 Debug.Log($"카드를 {drawCount}장 뽑습니다.");
 

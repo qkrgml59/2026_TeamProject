@@ -17,8 +17,8 @@ namespace Unit
     public class UnitBase : MonoBehaviour, IHealthReceiver
     {
         [Header("유닛 정보")]
-        public TeamType team = TeamType.Ally;
-        [SerializeField] private Sprite unitImage;
+        public TeamType team { get; private set; } = TeamType.Ally;
+        [SerializeField] private Texture2D dummyImage;
         [SerializeField] private Renderer quadRenderer;
         private MaterialPropertyBlock mpb;
 
@@ -397,6 +397,10 @@ namespace Unit
             unitEvents.OnHpChanged?.Invoke(currentHp, statSet.MaxHp.Value);
             currentResource = 0;
 
+            // 스킬 초기화
+            normalAttack?.Init(this);
+            skill?.Init(this);
+
             ChangeUnitState(UnitStateType.Idle);
         }
 
@@ -422,25 +426,44 @@ namespace Unit
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
-
-            ApplyVisual();
-
             FSMInit();
+        }
 
-            if(unitStatData != null)
-                statSet = new StatSet(unitStatData);
+        public void Init(UnitStatSO data, TeamType team)
+        {
+            this.team = team;
+
+            if (data == null)
+                Debug.LogWarning($"{nameof(UnitStatSO)}를 지정하지 않은 유닛이 있습니다.", this);
+            else
+                unitStatData = data;
+
+            statSet = new StatSet(unitStatData);
+
+            // 아이템 등의 효과 초기화(또는 재적용)
+            currentHp = statSet.MaxHp.Value;
+
+            // TODO : 자식 위치에 생성 -> 추적으로 변경
+            // 기본 공격 & 스킬 생성
+            if (unitStatData.NormalAttack_Prefab != null)
+                normalAttack = Instantiate(unitStatData.NormalAttack_Prefab, transform.position, Quaternion.identity, transform);
+            if (unitStatData.Skill_Prefab != null)
+                skill = Instantiate(unitStatData.Skill_Prefab, transform.position, Quaternion.identity, transform);
+
+            normalAttack?.Init(this);
+            skill?.Init(this);
+
+            // 이미지 적용
+            ApplyVisual(unitStatData.unitSprite);
+
+            // 이름 변경
+            transform.name = unitStatData.Name_EN;
         }
 
         private void Start()
         {
             AddEventListener();
-
-            // 아이템 등의 효과 초기화(또는 재적용)
-            currentHp = statSet.MaxHp.Value;
             ChangeUnitState(UnitStateType.Idle);
-
-            normalAttack?.Init(this);
-            skill?.Init(this);
         }
 
         private void Update()
@@ -472,7 +495,7 @@ namespace Unit
 
         public void AddEventListener()
         {
-            BattleManager.Instance.OnRoundStart += OnRoundStart;
+            BattleManager.Instance.OnUnitInit += OnRoundStart;
             BattleManager.Instance.OnRoundEnd += OnRoundEnd;
             BattleManager.Instance.OnBattleStart += OnBattleStart;
             BattleManager.Instance.OnBattleEnd += OnBattleEnd;
@@ -482,10 +505,13 @@ namespace Unit
 
         public void RemoveEventListener()
         {
-            BattleManager.Instance.OnRoundStart -= OnRoundStart;
-            BattleManager.Instance.OnRoundEnd -= OnRoundEnd;
-            BattleManager.Instance.OnBattleStart -= OnBattleStart;
-            BattleManager.Instance.OnBattleEnd -= OnBattleEnd;
+            if (BattleManager.Instance != null)
+            {
+                BattleManager.Instance.OnUnitInit -= OnRoundStart;
+                BattleManager.Instance.OnRoundEnd -= OnRoundEnd;
+                BattleManager.Instance.OnBattleStart -= OnBattleStart;
+                BattleManager.Instance.OnBattleEnd -= OnBattleEnd;
+            }
 
             unitEvents.OnNormalAttackHit.RemoveListener(OnNormalAttackHit);
 
@@ -513,17 +539,21 @@ namespace Unit
         #endregion
 
         #region Visual Function
-        // 유닉 텍스쳐 적용
-        public void ApplyVisual()
+        // 유닛 텍스쳐 적용
+        public void ApplyVisual(Texture2D texture)
         {
-            if (quadRenderer == null || unitImage == null)
+            if (quadRenderer == null || dummyImage == null)
                 return;
+
+            // 텍스쳐가 없다면 더미 이미지로 띄워줌
+            if(texture == null)
+                texture = dummyImage;
 
             if (mpb == null)
                 mpb = new MaterialPropertyBlock();
 
             quadRenderer.GetPropertyBlock(mpb);
-            mpb.SetTexture("_BaseMap", unitImage.texture);              
+            mpb.SetTexture("_BaseMap", texture);              
             quadRenderer.SetPropertyBlock(mpb);
         }
         #endregion
@@ -534,9 +564,9 @@ namespace Unit
         private void OnValidate()
         {
             // TODO : 유닛 데이터 (스텟 데이터 X)에 있는 이미지나 애니메이터 사용하도록 변경
-            if (!Application.isPlaying)
+            if (!Application.isPlaying && dummyImage != null)
             {
-                ApplyVisual();
+                ApplyVisual(dummyImage);
             }
         }
         #endif
