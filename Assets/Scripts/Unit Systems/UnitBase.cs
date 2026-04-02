@@ -3,6 +3,7 @@ using Stat;
 using System.Collections.Generic;
 using UnityEngine;
 using Unit.Skill;
+using Item;
 
 
 namespace Unit
@@ -26,6 +27,9 @@ namespace Unit
         [SerializeField] private UnitStatSO unitStatData;
         public StatSet statSet { get; private set; }
         public float currentHp { get; private set; } = 0;
+
+        [Header("아이템 정보")]
+        public List<ItemBase> EquippedItems { get; private set; } = new List<ItemBase>();           // 장착 중인 아이템 리스트
 
         [Header("FSM 정보")]
         [SerializeField] private UnitStateType currentUnitState = UnitStateType.Null;
