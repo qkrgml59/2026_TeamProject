@@ -369,6 +369,36 @@ namespace Unit
 
         #endregion
 
+        #region 스탯 관리
+        /// <summary>
+        /// 유닛의 스탯을 증가 시킬 때 사용.
+        /// </summary>
+        /// <param name="type"> 변경할 스탯 타입 </param>
+        /// <param name="source"> 스텟을 부여하는 주체(아이템, 시너지 등)</param>
+        /// <param name="modifier"> 증가량 </param>
+        public void AddStatModifier(StatType type, object source, StatModifier modifier)
+        {
+            Stat.Stat stat = statSet.Get(type);
+
+            if (stat != null)
+            {
+                stat.AddModifier(source, modifier);
+
+            }
+        }
+
+        public void RemoveStatModifier(StatType type, object source)
+        {
+            Stat.Stat stat = statSet.Get(type);
+
+            if (stat != null)
+            {
+                stat.RemoveModifier(source);
+            }
+        }
+
+        #endregion
+
         #region CombatEvent Listner
 
         // 기본 공격이 적중 시
