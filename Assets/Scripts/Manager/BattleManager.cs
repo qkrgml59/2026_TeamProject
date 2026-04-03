@@ -119,14 +119,15 @@ public class BattleManager : SingletonMonoBehaviour<BattleManager>
         // 다음 라운드로 넘어가기
         StageManager.Instance.SetNextRound();
 
+        // TODO : StageManager 쪽에서 진행 하는것으로 수정
         // 라운드 넘기기
-        if (delayRountine != null)
-        {
-            StopCoroutine(delayRountine);
-            delayRountine = null;
-        }
+        //if (delayRountine != null)
+        //{
+        //    StopCoroutine(delayRountine);
+        //    delayRountine = null;
+        //}
 
-        delayRountine = StartCoroutine(DelayRountine(nextRoundDuration, () => RoundStart()));
+        //delayRountine = StartCoroutine(DelayRountine(nextRoundDuration, () => RoundStart()));
     }
 
     private IEnumerator DelayRountine(float delay, Action Callback)

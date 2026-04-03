@@ -37,7 +37,7 @@ namespace Prototype.Card
 
             if (BattleManager.Instance != null)
             {
-                BattleManager.Instance.OnUnitInit += OnRoundStart;
+                BattleManager.Instance.OnRoundStart += OnRoundStart;
             }
 
             if (DeckManager.Instance != null)
@@ -51,7 +51,7 @@ namespace Prototype.Card
         {
             if (BattleManager.Instance != null)
             {
-                BattleManager.Instance.OnUnitInit -= OnRoundStart;
+                BattleManager.Instance.OnRoundStart -= OnRoundStart;
             }
 
             if (DeckManager.Instance != null)
@@ -73,7 +73,7 @@ namespace Prototype.Card
             }
         }
 
-        public void OnRoundStart()
+        public void OnRoundStart(RoundData round)
         {
             DrawCard(defaultDrawCount);
         }
