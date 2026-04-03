@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace Prototype.Card
 {
@@ -16,6 +17,7 @@ namespace Prototype.Card
         public TextMeshProUGUI cardDescription;
         public RectTransform rectTransform;
 
+        public LayerMask tileLayer;
         protected Vector2 _originAnchoredPos;
 
         protected HexTile currentTile = null;
@@ -82,7 +84,7 @@ namespace Prototype.Card
             Ray ray = Camera.main.ScreenPointToRay(eventData.position);
             bool isUsed = false;
 
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            if (Physics.Raycast(ray, out RaycastHit hit, float.PositiveInfinity, tileLayer))
             {
                 isUsed = TryUseCard(hit);
 

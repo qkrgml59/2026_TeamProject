@@ -233,6 +233,9 @@ MonoBehaviour:
   cardName: {fileID: 6326267407703299677}
   cardDescription: {fileID: 5594204965708107154}
   rectTransform: {fileID: 8918917741672259734}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 64
   unitPrefab: {fileID: 5114845127532008112, guid: e8470f5bc8489db4cbaaf7c98d2143ae, type: 3}
 --- !u!1 &5544834025960562588
 GameObject:

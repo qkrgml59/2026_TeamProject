@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f22d2981ceeca1c4b95e0e2e87aa37ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Grid.GridManager
-  useDontDestroyOnLoad: 1
+  useDontDestroyOnLoad: 0
   DebugMode: 1
   column: 7
   row: 8

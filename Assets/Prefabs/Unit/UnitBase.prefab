@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5114845127532008112}
   - component: {fileID: 8560661502270852019}
   - component: {fileID: 4031510370576540238}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: UnitBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5cd84fd8cb920146ae9ae1999248c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Unit.UnitBase
-  team: 0
   dummyImage: {fileID: 2800000, guid: f9a8fe2fb415cbc4b8187bb032bea7fe, type: 3}
   quadRenderer: {fileID: 3894473089638176603}
   unitStatData: {fileID: 11400000, guid: 1b52238f01bc50d4ab0d71803e72f197, type: 2}
@@ -132,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6247918155050274367}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +165,7 @@ GameObject:
   - component: {fileID: 943575377161157348}
   - component: {fileID: 899621579826844513}
   - component: {fileID: 3894473089638176603}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
