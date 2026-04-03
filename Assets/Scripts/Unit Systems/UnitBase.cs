@@ -117,15 +117,15 @@ namespace Unit
         #endregion
 
         #region Physics
-        public void MoveToTile(HexTile targetTile)
+        public void MoveToTile(HexTile targetTile, float speed)
         {
             Vector3 dir = targetTile.transform.position - transform.position;
-            MoveInDirection(dir);
+            MoveInDirection(dir, speed);
         }
 
-        public void MoveInDirection(Vector3 dir)
+        public void MoveInDirection(Vector3 dir, float speed)
         {
-            _rigidbody.linearVelocity = dir.normalized * statSet.MoveSpeed.Value;
+            _rigidbody.linearVelocity = dir.normalized * speed;
         }
 
         public void RigidInit()
@@ -143,7 +143,7 @@ namespace Unit
 
         public void UpdatePathMovement()
         {
-            MoveToTile(reservedTile);
+            MoveToTile(reservedTile, statSet.MoveSpeed.Value);
 
             // 목표 타일에 가까워졌다면
             if(Vector3.Distance(transform.position, reservedTile.transform.position) < 0.1f)

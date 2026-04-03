@@ -12,11 +12,17 @@ namespace Prototype.Grid
         public UnitBase OccupantUnit { get; private set; }
         public UnitBase ReservedUnit { get; private set; }
 
+        /// <summary>
+        /// 진입 가능한지 여부
+        /// </summary>
         public bool CanReserve(UnitBase unit)
         {
             return OccupantUnit == null && ReservedUnit == null;
         }
 
+        /// <summary>
+        /// 진입 시도
+        /// </summary>
         public bool TryReserve(UnitBase unit)
         {
             if (!CanReserve(unit))

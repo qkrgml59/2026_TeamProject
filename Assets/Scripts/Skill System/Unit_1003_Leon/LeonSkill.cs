@@ -12,12 +12,18 @@ namespace Unit.Skill
     /// </summary>
     public class LeonSkill : SkillBase
     {
+        [Header("돌진 범위")]
+        [SerializeField] private int dashDistance = 2;
+
         [Header("딜레이")]
         [SerializeField] private float preDelay = 0.05f;
+        [SerializeField] private float dashDuration = 0.5f;
+        private bool dashStart = false;
 
         private Coroutine skillRoutine;
         protected override void OnStart()
         {
+            dashStart = false;
             skillRoutine = StartCoroutine(SkillCast());
         }
 
@@ -36,12 +42,40 @@ namespace Unit.Skill
             }
 
             //2. 이동
-            TeleportTo(owner, moveTile);
+            dashStart = true;
+            yield return Dash(moveTile);
+            
 
             FinishSkill();
+        }
 
+        /// <summary>
+        /// 대쉬 연출
+        /// </summary>
+        private IEnumerator Dash(HexTile tile)
+        {
+            if (tile == null)
+                yield break;
+                
+            if(!tile.TryReserve(owner))
+                yield break;
 
+            Vector3 startPos = owner.transform.position;
+            Vector3 targetPos = tile.transform.position;
+            float elapsed = 0f;
 
+            while (elapsed < dashDuration)
+            {
+                elapsed += Time.deltaTime;
+                float t = Mathf.Clamp01(elapsed / dashDuration);
+
+                owner.transform.position = Vector3.Lerp(startPos, targetPos, t);
+                yield return null;
+            }
+
+            owner.transform.position = targetPos;
+            owner.EnterTile(tile);
+            owner.ClearPath();
         }
 
         ///<summary>
@@ -49,7 +83,16 @@ namespace Unit.Skill
         /// </summary>
         private HexTile FindFarthestTileInRange()
         {
-            int maxRange = Mathf.RoundToInt(owner.statSet.AttackRange.Value);
+            if (owner.targetUnit == null)
+            {
+                var target = UnitManager.Instance.GetNearestEnemy(owner);
+                if (target == null)
+                    return null;
+
+                owner.SetTargetUnit(target);
+            }
+
+            int range = Mathf.RoundToInt(owner.statSet.AttackRange.Value);
             Vector3Int start = HexMath.OffsetToCube(owner.offset);
 
             HexTile bestTile = null;
@@ -57,38 +100,27 @@ namespace Unit.Skill
 
             foreach (var dir in HexMath.CubeDirections)
             {
-                for (int i = 1; i <= maxRange; i++)
+                // 6방향으로 대쉬 거리 만큼 타일 탐색
+                for (int i = 1; i <= dashDistance; i++)
                 {
                     HexTile tile = GridManager.Instance.GetTile(start + dir * i);
-                    if (tile == null || !tile.CanReserve(owner))
-                    {
-                        break;
-                    }
 
-                    if (i > maxDist)
+                    if (tile == null || !tile.CanReserve(owner)) break;     // 지나갈 수 없는 방향은 무시
+
+                    int dist = HexMath.Distance(tile.offset, owner.targetUnit.offset);
+                    if (dist > range) continue;  // 도착 위치에서 타겟을 못 때리면 넘어가기
+                        
+
+                    if (dist > maxDist)
                     {
-                        maxDist = i;
+                        maxDist = dist;
                         bestTile = tile;
                     }
                 }
-
-                
-
             }
             return bestTile;
         }
 
-        private void TeleportTo(UnitBase unit, HexTile tile)
-        {
-            if (unit == null || tile == null)
-                return;
-
-            unit.EnterTile(tile);
-            unit.transform.position = tile.transform.position;
-
-            unit.ClearPath();
-
-        }
 
         private void SetInvincible(bool value)
         {
@@ -101,6 +133,8 @@ namespace Unit.Skill
 
         protected override void OnCancel()
         {
+            if(dashStart) return;       // 이미 대쉬가 시작 되었으면 계속 진행
+
             if(skillRoutine != null)
             {
                 StopCoroutine(skillRoutine);

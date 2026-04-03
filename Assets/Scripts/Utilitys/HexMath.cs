@@ -24,9 +24,9 @@ namespace Prototype.Grid
         public static readonly Vector3Int[] CubeDirections =
         {
             new Vector3Int(1, -1, 0),   // Right
+            new Vector3Int(-1, 1, 0),   // Left
             new Vector3Int(1, 0, -1),   // TopRight
             new Vector3Int(0, 1, -1),   // TopLeft
-            new Vector3Int(-1, 1, 0),   // Left
             new Vector3Int(-1, 0, 1),   // BottomLeft
             new Vector3Int(0, -1, 1)    // BottomRight
         };

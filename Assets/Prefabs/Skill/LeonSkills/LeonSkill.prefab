@@ -48,4 +48,6 @@ MonoBehaviour:
   icon: {fileID: 0}
   description: 
   cost: 30
+  dashDistance: 2
   preDelay: 0.05
+  dashDuration: 0.3
