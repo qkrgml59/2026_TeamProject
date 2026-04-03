@@ -33,13 +33,18 @@ namespace Unit.Skill
 
         private void Movement(Vector3 targetPos)
         {
-            Vector3 dir = (targetPos - transform.position).normalized;
+            Vector3 currentPos = transform.position;
+            Vector3 nextPos = Vector3.MoveTowards(currentPos, targetPos, moveSpeed * Time.deltaTime);
 
-            transform.position += dir * moveSpeed * Time.deltaTime;
+            Vector3 dir = (targetPos - currentPos);
+            if (dir.sqrMagnitude > 0.0001f)
+            {
+                transform.rotation = Quaternion.LookRotation(dir.normalized);
+            }
 
-            transform.rotation = Quaternion.LookRotation(dir);
+            transform.position = nextPos;
 
-            if (Vector3.Distance(targetPos, transform.position) < 0.1f)
+            if ((targetPos - transform.position).sqrMagnitude < 0.01f)
             {
                 TakeDamage();
             }

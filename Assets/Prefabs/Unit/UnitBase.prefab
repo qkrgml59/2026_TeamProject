@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Unit.UnitBase
   dummyImage: {fileID: 2800000, guid: f9a8fe2fb415cbc4b8187bb032bea7fe, type: 3}
   quadRenderer: {fileID: 3894473089638176603}
-  unitStatData: {fileID: 11400000, guid: 1b52238f01bc50d4ab0d71803e72f197, type: 2}
+  unitStatData: {fileID: 11400000, guid: ed4ac514ad97cde42ae91795be402ac8, type: 2}
   currentUnitState: 0
   normalAttack: {fileID: 0}
   skill: {fileID: 0}
