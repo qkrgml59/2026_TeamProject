@@ -56,7 +56,12 @@ namespace Unit.Skill
                 }
             }
 
-            if (tile == null || !tile.CanReserve(owner))
+            if (tile == null)
+            {
+                FinishSkill();
+                yield break;
+            }
+            if (!tile.TryReserve(owner))
             {
                 FinishSkill();
                 yield break;
