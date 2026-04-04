@@ -14,9 +14,6 @@ namespace Unit.Skill
         [SerializeField] private float Value_A = 5f;   // 지속시간
         [SerializeField] private float Value_B = 0.2f; // 20% 감소
 
-        [Header("보호막")]
-        [SerializeField] private float shieldAmount = 100f;
-
         private Coroutine skillRoutine;
 
         protected override void OnStart()

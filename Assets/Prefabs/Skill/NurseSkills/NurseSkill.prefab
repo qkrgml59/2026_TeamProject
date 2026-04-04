@@ -49,3 +49,5 @@ MonoBehaviour:
   description: 
   cost: 20
   preDelayt: 0.05
+  startVFX: {fileID: 8937386559117865193, guid: 07799b25da23d9c4d97a417f6f0d0f31, type: 3}
+  arriveVFX: {fileID: 8937386559117865193, guid: 07799b25da23d9c4d97a417f6f0d0f31, type: 3}

@@ -18,6 +18,12 @@ namespace Unit.Skill
         [Header("딜레이 설정")]
         [SerializeField] private float preDelayt = 0.05f;
 
+        [Header("이펙트")]
+        [SerializeField] private ParticleSystem startVFX;
+        [SerializeField] private ParticleSystem arriveVFX;
+
+        private List<ParticleSystem> spawnedVFX = new();
+
         private Coroutine skillRoutine;
 
         protected override void OnStart()
@@ -44,8 +50,6 @@ namespace Unit.Skill
 
             HexTile tile = GridManager.Instance.GetTile(cube + dir);
 
-            
-
             if (tile == null || !tile.CanReserve(owner))
             {
                 foreach (var d in HexMath.CubeDirections)
@@ -67,18 +71,44 @@ namespace Unit.Skill
                 yield break;
             }
 
+            //출발 이펙트
+            Renderer unitRenderer = owner.GetComponentInChildren<Renderer>();
+            if (unitRenderer != null)
+                unitRenderer.enabled = false;
+
+            PlayVFX(startVFX, owner.transform.position);
+
+            yield return new WaitForSeconds(0.1f);
+
             // 3. 이동
             owner.EnterTile(tile);
             // TODO : UnitBase에 순간이동 기능 추가
             owner.transform.position = tile.transform.position;
+           
+            //이동 경로 끊기
+            owner.ClearPath();
 
-            
+            //도착 이펙트
+            if (unitRenderer != null)
+                unitRenderer.enabled = true;
+
+            Vector3 vfxPos = owner.transform.position + Vector3.up * 0.5f;
+            PlayVFX(arriveVFX, vfxPos);
+            yield return new WaitForSeconds(0.15f);
             //4. 타겟 설정
             owner.SetTargetUnit(farTarget);
 
             // 5. 종료
             FinishSkill();
 
+        }
+        private void PlayVFX(ParticleSystem prefab, Vector3 pos)
+        {
+            if (prefab == null) return;
+
+            ParticleSystem fx = Instantiate(prefab, pos, Quaternion.identity);
+            fx.Play();
+            spawnedVFX.Add(fx);
         }
 
         protected override void OnCancel()
@@ -97,6 +127,13 @@ namespace Unit.Skill
                 StopCoroutine(skillRoutine);
                 skillRoutine = null;
             }
+
+            // 이펙트 정리
+            foreach (var fx in spawnedVFX)
+                if (fx != null)
+                    Destroy(fx.gameObject);
+
+            spawnedVFX.Clear();
         }
     }
 }
