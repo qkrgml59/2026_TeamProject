@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1152161794710308492}
+  - component: {fileID: -2255259751111062586}
   m_Layer: 0
   m_Name: GhostFaceSkill
   m_TagString: Untagged
@@ -31,3 +32,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-2255259751111062586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928237063894024104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f5a4a8fc5b9ad4daa6ea0b0acef31d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unit.Skill.GhostFace_Skill
+  skillName: 
+  icon: {fileID: 0}
+  description: 
+  cost: 40
+  skillDamage: 100
+  Value_A: 0.8
+  dashSpeed: 5
+  preDelay: 0.05
+  hitDelay: 0.1
+  startVFX: {fileID: 7042460137364554027, guid: ecabc7a4007a8ad43be3e17217dd9057, type: 3}
+  hitVFX: {fileID: 7042460137364554027, guid: ecabc7a4007a8ad43be3e17217dd9057, type: 3}
