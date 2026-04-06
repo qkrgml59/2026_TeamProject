@@ -24,7 +24,7 @@ namespace Prototype.Card
 
         protected override bool TryUseCard(RaycastHit hit)
         {
-            if (item == null || item.itemSO == null) return false;
+            if (item == null || item.itemSO == null || item.itemSO.itemPrefab == null) return false;
 
             // Ray 맞은곳에서 HexTile컴포넌트 찾기
             HexTile tile = hit.transform.GetComponent<HexTile>();
@@ -41,25 +41,25 @@ namespace Prototype.Card
 
             if (targetUnit != null)
             {
-                if (targetUnit.team != TeamType.Ally)               // 아군일 때만 아이템을 줄 수 있게 예외처리
+                if (targetUnit.team != TeamType.Ally) return false;               // 아군일 때만 아이템을 줄 수 있게 예외처리
+
+                if (targetUnit.EquippedItems.Count >= 3)                          // 장착 아이템이 3개 이상일 때 예외처리
                 {
+                    Debug.LogError("아이템은 3개까지만 장착할 수 있습니다.");
+                    return false;
+                }
+                
+                ItemBase itemInstance = Instantiate(item.itemSO.itemPrefab, targetUnit.transform.position, Quaternion.identity);
+                itemInstance.itemData = item.itemSO;
+
+                bool isEquipped = itemInstance.TryEquip(targetUnit);
+
+                if (!isEquipped)        // 장착 실패시 생성했던 오브젝트 파괴.
+                {
+                    Destroy(itemInstance.gameObject);
                     return false;
                 }
 
-                ItemSO itemData = item.itemSO;
-
-                if (itemData.effect != null)
-                {
-                    ItemEffectBase effectInstance = itemData.effect.GetItemEffect(targetUnit);
-                    bool isEquipped = effectInstance.TryEquip();
-
-                    if (!isEquipped)            //장착 실패 시
-                    {
-                        return false;
-                    }
-                }
-
-                Debug.Log($"{targetUnit.name}에게 {itemData.itemName}장착 성공");
                 return true;
             }
 

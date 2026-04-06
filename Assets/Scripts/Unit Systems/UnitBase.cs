@@ -25,7 +25,7 @@ namespace Unit
         [SerializeField] private UnitDataSO unitDataSO;
         private UnitStatSO unitStatData;
 
-        public StatSet statSet { get; private set; }
+        public StatSet statSet { get; private set; }            //스텟 수정할 때
         public float currentHp { get; private set; } = 0;
 
         [Header("아이템 정보")]

@@ -8,66 +8,7 @@ namespace Item
     {
         
         [Header("Item Data")] public ItemSO itemData;
-
-        public float dragHeight = 1.0f;             // groundPlane에서 높여놓을 높이;
-
-        private Vector3 originPos;                  // 아이템 사용 실패(유닛이 아닌 이상한 곳에서 놓았을 때)시 돌아갈 위치
-        private Plane groundPlane;                  // 드래그 할 때 사용할 플레인
-
-
-        #region 마우스 드래그 앤 드롭
-
-        private void OnMouseDown()
-        {
-            originPos = transform.position;
-            groundPlane = new Plane(Vector3.up, new Vector3(0, dragHeight, 0));
-        }
-
-        private void OnMouseDrag()
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (groundPlane.Raycast(ray, out float enter))
-            {
-                Vector3 hitPoint = ray.GetPoint(enter);
-                transform.position = hitPoint;
-            }
-        }
-
-        private void OnMouseUp()
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
-                // RayCast 맞은게 유닛인지 검사
-                UnitBase target = hit.collider.GetComponent<UnitBase>();
-
-                if (target == null)     // 만약 타겟 유닛이 아닌 타일에 놓았을 때
-                {
-                    HexTile tile = hit.collider.GetComponent<HexTile>();
-
-                    if (tile != null)
-                    {
-                        target = tile.OccupantUnit;
-                    }
-                }
-
-                if (target != null && TryEquip(target))
-                {
-                    return;
-                }
-            }
-
-            ReturnOriginalPos();    // 장착 실패 시 원래(드래그 전) 자리로.
-        }
-
-        void ReturnOriginalPos()
-        {
-            transform.position = originPos;
-        }
-
-        #endregion
+    
 
         #region 장착 해제 관련
 
@@ -88,11 +29,14 @@ namespace Item
             }
 
             // 아이템 장착 처리.
-            unit.EquippedItems.Add(this);
-            ApplyItemEffect(unit);
+            unit.EquippedItems.Add(this);       // 유닛 아이템 장착 리스트에 추가
 
-            gameObject.SetActive(false);
-            // TODO : UI.
+            transform.SetParent(unit.transform);        // 아이템을 유닛의 자식으로 지정
+
+            //TODO : 시각적 위치 조정
+            // 예시 : transform.localPosition = new Vector3(0, 1.5f, 0);
+
+            ApplyItemEffect(unit);              // 아이템 효과 스탯 or 특수 효과(조합 아이템) 적용
 
             Debug.Log($"[{unit.name}]에게 [{itemData.itemName}] 장착.");
             return true;
@@ -102,14 +46,13 @@ namespace Item
         {
             if (unit.EquippedItems.Contains(this))
             {
-                unit.EquippedItems.Remove(this);
-                RemoveItemEffect(unit);
+                RemoveItemEffect(unit);     // 아이템 효과 해제
+                unit.EquippedItems.Remove(this);        // 유닛 아이템 장착 리스트 제거
 
-                // 다시 필드에 보이게 처리
-                gameObject.SetActive(true);
-                transform.SetParent(null);
 
-                // TODO: 대기석이나 아이템 존으로 위치 이동
+                transform.SetParent(null);      // 유닛 자식 해제
+
+                // TODO: 카드로 이동
             }
         }
 
