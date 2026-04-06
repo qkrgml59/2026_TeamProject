@@ -22,9 +22,9 @@ namespace Unit
         [SerializeField] private Texture2D dummyImage;
         [SerializeField] private Renderer quadRenderer;
         private MaterialPropertyBlock mpb;
+        [SerializeField] private UnitDataSO unitDataSO;
+        private UnitStatSO unitStatData;
 
-        [Header("스텟 정보")]
-        [SerializeField] private UnitStatSO unitStatData;
         public StatSet statSet { get; private set; }
         public float currentHp { get; private set; } = 0;
 
@@ -463,14 +463,19 @@ namespace Unit
             FSMInit();
         }
 
-        public void Init(UnitStatSO data, TeamType team)
+        public void Init(UnitDataSO data, TeamType team)
         {
             this.team = team;
 
             if (data == null)
-                Debug.LogWarning($"{nameof(UnitStatSO)}를 지정하지 않은 유닛이 있습니다.", this);
+                Debug.LogWarning("유닛 정보를 지정하지 않은 유닛이 있습니다.", this);
             else
-                unitStatData = data;
+                unitDataSO = data;
+
+            if(unitDataSO.statData == null)
+                Debug.LogWarning("스텟 정보를 지정하지 않은 유닛이 있습니다.", this);
+            else
+                unitStatData = unitDataSO.statData;
 
             statSet = new StatSet(unitStatData);
 
@@ -479,19 +484,19 @@ namespace Unit
 
             // TODO : 자식 위치에 생성 -> 추적으로 변경
             // 기본 공격 & 스킬 생성
-            if (unitStatData.NormalAttack_Prefab != null)
-                normalAttack = Instantiate(unitStatData.NormalAttack_Prefab, transform.position, Quaternion.identity, transform);
-            if (unitStatData.Skill_Prefab != null)
-                skill = Instantiate(unitStatData.Skill_Prefab, transform.position, Quaternion.identity, transform);
+            if (unitDataSO.NormalAttack_Prefab != null)
+                normalAttack = Instantiate(unitDataSO.NormalAttack_Prefab, transform.position, Quaternion.identity, transform);
+            if (unitDataSO.Skill_Prefab != null)
+                skill = Instantiate(unitDataSO.Skill_Prefab, transform.position, Quaternion.identity, transform);
 
             normalAttack?.Init(this);
             skill?.Init(this);
 
             // 이미지 적용
-            ApplyVisual(unitStatData.unitSprite);
+            ApplyVisual(unitDataSO.unitSprite);
 
             // 이름 변경
-            transform.name = unitStatData.Name_EN;
+            transform.name = unitDataSO.Name_EN;
         }
 
         private void Start()

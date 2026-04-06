@@ -24,7 +24,7 @@ namespace Prototype.Card
 
         protected override bool TryUseCard(RaycastHit hit)
         {
-            if (unitData == null || unitData.unitStatSO == null) return false;
+            if (unitData == null || unitData.unitDataSO == null) return false;
 
             HexTile tile = hit.transform.GetComponent<HexTile>();
 
@@ -33,7 +33,7 @@ namespace Prototype.Card
                 if (tile.CanReserve(null))
                 {
                     UnitBase unit = Instantiate(unitPrefab, tile.transform.position, Quaternion.identity);
-                    unit.Init(unitData.unitStatSO, TeamType.Ally);
+                    unit.Init(unitData.unitDataSO, TeamType.Ally);
                     unit.PlaceUnit(tile);
 
                     UnitManager.Instance.RegisterUnit(unit);

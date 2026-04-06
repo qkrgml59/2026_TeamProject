@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c00e679a6977c14bac762d745adb850, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f114a61e51b31546865e311d902fd9e, type: 3}
   m_Name: Unit_1003_Leon
-  m_EditorClassIdentifier: Assembly-CSharp::UnitStatSO
+  m_EditorClassIdentifier: Assembly-CSharp::Unit.UnitDataSO
   ID: 1003
   Name_KR: "\uB808\uC628"
   Name_EN: Leon
@@ -22,22 +22,7 @@ MonoBehaviour:
   Synergy_A: 0
   Synergy_B: 0
   Synergy_C: 0
-  statsByStart:
-  - MaxHp: 1000
-    AttackDamage: 30
-  - MaxHp: 0
-    AttackDamage: 0
-  - MaxHp: 0
-    AttackDamage: 0
-  Defense: 30
-  MagicResistance: 30
-  AbilityPower: 0
-  AttackSpeed: 0.7
-  Attack_Rage: 4
-  Move_Speed: 5
-  MaxManaPoint: 0
-  StartManaPoint: 0
-  ManaRegeneration: 0
+  statData: {fileID: 11400000, guid: 93e2b5a58361fc04a9f67b8238d67843, type: 2}
   NormalAttack_Type: Range
   NormalAttack_Prefab: {fileID: 9024254350473936624, guid: 1f3644b94c84d5944acbbd4e45a98904, type: 3}
   Skill_ID: 5003

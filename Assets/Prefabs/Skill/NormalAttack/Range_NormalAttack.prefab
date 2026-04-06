@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5028482550986139543
+--- !u!1 &371246299064471707
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,7 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9191343727174816693}
+  - component: {fileID: 3451909199747637835}
+  - component: {fileID: 9024254350473936624}
   m_Layer: 0
   m_Name: Range_NormalAttack
   m_TagString: Untagged
@@ -16,18 +17,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9191343727174816693
+--- !u!4 &3451909199747637835
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5028482550986139543}
+  m_GameObject: {fileID: 371246299064471707}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.23661, y: 0, z: 1.34894}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9024254350473936624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371246299064471707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d94586b5289f4b4f8ed11752b7106b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unit.Skill.Ranged_NormalAttack
+  skillName: "\uC6D0\uAC70\uB9AC \uAE30\uBCF8 \uACF5\uACA9"
+  icon: {fileID: 0}
+  description: "\uC6D0\uAC70\uB9AC \uC720\uB2DB\uC758 \uAE30\uBCF8 \uACF5\uACA9\uC785\uB2C8\uB2E4."
+  cost: 0
+  projectilePrefab: {fileID: 7808637103501512475, guid: 64a0a44de14f22c41ac0e510d50f0410, type: 3}
+  windupRatio: 0.3

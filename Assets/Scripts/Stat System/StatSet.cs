@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unit;
 using UnityEngine;
 
 namespace Stat
@@ -25,8 +26,6 @@ namespace Stat
 
             // 자원 스텟 선언
             stats.Add(StatType.ManaRegeneration, new Stat(unitStatSO.ManaRegeneration));
-            stats.Add(StatType.MaxMana, new Stat(unitStatSO.MaxManaPoint));
-            stats.Add(StatType.StartMana, new Stat(unitStatSO.StartManaPoint));
 
             // 특수 스텟 선언(고정값)
             stats.Add(StatType.CriticalChance, new Stat(25));

@@ -9,37 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c00e679a6977c14bac762d745adb850, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f114a61e51b31546865e311d902fd9e, type: 3}
   m_Name: Unit_1009_Demogorgon
-  m_EditorClassIdentifier: Assembly-CSharp::UnitStatSO
-  ID: 1009
-  Name_KR: "\uB370\uBAA8\uACE0\uB974\uACE4"
-  Name_EN: Demogorgon
+  m_EditorClassIdentifier: Assembly-CSharp::Unit.UnitDataSO
+  ID: 
+  Name_KR: 
+  Name_EN: 
   Race: 0
-  Cost: 3
+  Cost: 0
   Race_Synergy_A: 0
   Race_Synergy_B: 0
   Synergy_A: 0
   Synergy_B: 0
   Synergy_C: 0
-  statsByStart:
-  - MaxHp: 1000
-    AttackDamage: 30
-  - MaxHp: 0
-    AttackDamage: 0
-  - MaxHp: 0
-    AttackDamage: 0
-  Defense: 30
-  MagicResistance: 30
-  AbilityPower: 0
-  AttackSpeed: 0.7
-  Attack_Rage: 1
-  Move_Speed: 5
-  MaxManaPoint: 0
-  StartManaPoint: 0
-  ManaRegeneration: 0
-  NormalAttack_Type: Melee
-  NormalAttack_Prefab: {fileID: 6588351147661766957, guid: 47644915a41e2dc42bd088897de24741, type: 3}
-  Skill_ID: 5009
-  Skill_Prefab: {fileID: 4252046930313683649, guid: b0359655da7d00549a2be9c0028dbf24, type: 3}
+  statData: {fileID: 11400000, guid: 8444443d74a06fd49bc0231c2371ac37, type: 2}
+  NormalAttack_Type: 
+  NormalAttack_Prefab: {fileID: 0}
+  Skill_ID: 0
+  Skill_Prefab: {fileID: 0}
   unitSprite: {fileID: 2800000, guid: ac510ca458ed57b46974dd949d3cf35f, type: 3}

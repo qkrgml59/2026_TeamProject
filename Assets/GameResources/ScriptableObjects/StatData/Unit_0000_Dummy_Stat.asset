@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c00e679a6977c14bac762d745adb850, type: 3}
-  m_Name: Unit_0000_Dummy
+  m_Name: Unit_0000_Dummy_Stat
   m_EditorClassIdentifier: Assembly-CSharp::UnitStatSO
   ID: 0000
   Name_KR: "\uB354\uBBF8"

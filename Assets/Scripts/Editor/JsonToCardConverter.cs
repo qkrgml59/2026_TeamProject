@@ -22,6 +22,7 @@ public class JsonToCardConverter : EditorWindow
 
     // 데이터 저장 경로
     private readonly string unitDataPath = "Assets/GameResources/ScriptableObjects/UnitData";
+    private readonly string statDataPath = "Assets/GameResources/ScriptableObjects/StatData";
     private readonly string cardDataPath = "Assets/GameResources/ScriptableObjects/CardData";
 
     [MenuItem("Tools/1. JSON to Data Converter")]
@@ -73,7 +74,7 @@ public class JsonToCardConverter : EditorWindow
         EnsureFolderExists(unitDataPath);
         EnsureFolderExists(cardDataPath);
 
-        Dictionary<string, UnitStatSO> createdUnitsDict = new Dictionary<string, UnitStatSO>();
+        Dictionary<string, UnitDataSO> createdUnitsDict = new Dictionary<string, UnitDataSO>();
 
         // 1. UnitData 변환 (체크된 경우에만 실행)
         if (convertUnit && !string.IsNullOrEmpty(unitJsonPath))
@@ -83,57 +84,81 @@ public class JsonToCardConverter : EditorWindow
 
             foreach (var dto in unitDTOs)
             {
+                // 유닛 정보
                 string assetName = $"Unit_{dto.ID}_{dto.Name_EN}.asset";
                 string fullPath = $"{unitDataPath}/{assetName}";
 
-                UnitStatSO so = AssetDatabase.LoadAssetAtPath<UnitStatSO>(fullPath);
+                UnitDataSO unitData = AssetDatabase.LoadAssetAtPath<UnitDataSO>(fullPath);
 
-                if (so != null)
+                if (unitData != null)
                 {
                     Debug.Log($"[데이터 갱신] {fullPath} 데이터를 덮어씌웁니다.");
                 }
                 else
                 {
-                    so = ScriptableObject.CreateInstance<UnitStatSO>();
-                    AssetDatabase.CreateAsset(so, fullPath);
+                    unitData = ScriptableObject.CreateInstance<UnitDataSO>();
+                    AssetDatabase.CreateAsset(unitData, fullPath);
                 }
 
-                so.ID = dto.ID;
-                so.Name_KR = dto.Name_KR;
-                so.Name_EN = dto.Name_EN;
-                System.Enum.TryParse(dto.Race, out so.Race);
-                so.Cost = dto.Cost;
-                so.Defense = dto.Defense;
-                so.MagicResistance = dto.MagicResistance;
-                so.AbilityPower = dto.AbilityPower;
-                so.AttackSpeed = dto.AttackSpeed;
-                so.Attack_Rage = dto.Attack_Rage;
-                so.Move_Speed = dto.Move_Speed;
-                so.MaxManaPoint = dto.MaxManaPoint;
-                so.StartManaPoint = dto.StartManaPoint;
-                so.ManaRegeneration = dto.ManaRegeneration;
-                so.NormalAttack_Type = dto.NormalAttack_Type;
-                so.Skill_ID = dto.Skill_ID;
+                // 스텟 정보
+                assetName = $"Unit_{dto.ID}_{dto.Name_EN}_Stat.asset";
+                fullPath = $"{statDataPath}/{assetName}";
 
-                so.statsByStart = new StatByStar[3];
-                so.statsByStart[0] = new StatByStar { MaxHp = dto.MaxHp_1, AttackDamage = dto.AttackDamage_1 };
-                so.statsByStart[1] = new StatByStar { MaxHp = dto.MaxHp_2, AttackDamage = dto.AttackDamage_2 };
-                so.statsByStart[2] = new StatByStar { MaxHp = dto.MaxHp_3, AttackDamage = dto.AttackDamage_3 };
+                UnitStatSO statData = AssetDatabase.LoadAssetAtPath<UnitStatSO>(fullPath);
 
-                so.Skill_Prefab = CheckAndCreateSkillPrefab(dto.Name_EN);
-                so.NormalAttack_Prefab = CheckAndCreateNormalAttackPrefab(dto.NormalAttack_Type);
+                if (statData != null)
+                {
+                    Debug.Log($"[데이터 갱신] {fullPath} 스텟 데이터를 덮어씌웁니다.");
+                }
+                else
+                {
+                    statData = ScriptableObject.CreateInstance<UnitStatSO>();
+                    AssetDatabase.CreateAsset(statData, fullPath);
+                }
 
-                EditorUtility.SetDirty(so);
-                createdUnitsDict[dto.ID] = so; // 캐싱
+                // 스텟 정보 먼저 처리
+                #region Stat Data Init
+                statData.Defense = dto.Defense;
+                statData.MagicResistance = dto.MagicResistance;
+                statData.AbilityPower = dto.AbilityPower;
+                statData.AttackSpeed = dto.AttackSpeed;
+                statData.Attack_Rage = dto.Attack_Rage;
+                statData.Move_Speed = dto.Move_Speed;
+                //statData.MaxManaPoint = dto.MaxManaPoint;             자원은 스킬 정보로 이전
+                //statData.StartManaPoint = dto.StartManaPoint;
+                statData.ManaRegeneration = dto.ManaRegeneration;
+
+                statData.statsByStart = new StatByStar[3];
+                statData.statsByStart[0] = new StatByStar { MaxHp = dto.MaxHp_1, AttackDamage = dto.AttackDamage_1 };
+                statData.statsByStart[1] = new StatByStar { MaxHp = dto.MaxHp_2, AttackDamage = dto.AttackDamage_2 };
+                statData.statsByStart[2] = new StatByStar { MaxHp = dto.MaxHp_3, AttackDamage = dto.AttackDamage_3 };
+                #endregion
+
+                unitData.ID = dto.ID;
+                unitData.Name_KR = dto.Name_KR;
+                unitData.Name_EN = dto.Name_EN;
+                System.Enum.TryParse(dto.Race, out unitData.Race);
+                unitData.Cost = dto.Cost;
+
+                unitData.statData = statData;
+
+                unitData.NormalAttack_Type = dto.NormalAttack_Type;
+                unitData.Skill_ID = dto.Skill_ID;
+
+                unitData.Skill_Prefab = CheckAndCreateSkillPrefab(dto.Name_EN);
+                unitData.NormalAttack_Prefab = CheckAndCreateNormalAttackPrefab(dto.NormalAttack_Type);
+
+                EditorUtility.SetDirty(statData);
+                createdUnitsDict[dto.ID] = unitData; // 캐싱
             }
         }
         else if (convertCard)
         {
-            string[] guids = AssetDatabase.FindAssets("t:UnitStatSO", new[] { unitDataPath });
+            string[] guids = AssetDatabase.FindAssets("t:UnitDataSO", new[] { unitDataPath });
             foreach (string guid in guids)
             {
                 string path = AssetDatabase.GUIDToAssetPath(guid);
-                UnitStatSO existingSO = AssetDatabase.LoadAssetAtPath<UnitStatSO>(path);
+                UnitDataSO existingSO = AssetDatabase.LoadAssetAtPath<UnitDataSO>(path);
                 if (existingSO != null && !string.IsNullOrEmpty(existingSO.ID))
                 {
                     createdUnitsDict[existingSO.ID] = existingSO;
@@ -150,7 +175,7 @@ public class JsonToCardConverter : EditorWindow
             foreach (var dto in cardDTOs)
             {
                 string enName = "Unknown";
-                UnitStatSO linkedUnit = null;
+                UnitDataSO linkedUnit = null;
 
                 if (!string.IsNullOrEmpty(dto.getID) && createdUnitsDict.TryGetValue(dto.getID, out linkedUnit))
                 {
@@ -173,7 +198,7 @@ public class JsonToCardConverter : EditorWindow
                 if (dto.cardID.StartsWith("Unit"))
                 {
                     UnitCardDataSO unitCard = ScriptableObject.CreateInstance<UnitCardDataSO>();
-                    if (linkedUnit != null) unitCard.unitStatSO = linkedUnit;
+                    if (linkedUnit != null) unitCard.unitDataSO = linkedUnit;
                     newCardSO = unitCard;
                 }
                 else if (dto.cardID.StartsWith("Spell"))

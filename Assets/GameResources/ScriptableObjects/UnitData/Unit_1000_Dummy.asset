@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f114a61e51b31546865e311d902fd9e, type: 3}
-  m_Name: Unit_1006_Licker
+  m_Name: Unit_1000_Dummy
   m_EditorClassIdentifier: Assembly-CSharp::Unit.UnitDataSO
-  ID: 
-  Name_KR: 
-  Name_EN: 
+  ID: 1000
+  Name_KR: "\uB354\uBBF8"
+  Name_EN: Dummy
   Race: 0
-  Cost: 0
+  Cost: 1
   Race_Synergy_A: 0
   Race_Synergy_B: 0
   Synergy_A: 0
   Synergy_B: 0
   Synergy_C: 0
-  statData: {fileID: 0}
+  statData: {fileID: 11400000, guid: ed4ac514ad97cde42ae91795be402ac8, type: 2}
   NormalAttack_Type: 
   NormalAttack_Prefab: {fileID: 0}
   Skill_ID: 0
   Skill_Prefab: {fileID: 0}
-  unitSprite: {fileID: 0}
+  unitSprite: {fileID: 2800000, guid: f9a8fe2fb415cbc4b8187bb032bea7fe, type: 3}
