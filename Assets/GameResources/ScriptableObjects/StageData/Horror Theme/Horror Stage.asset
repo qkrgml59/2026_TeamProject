@@ -30,7 +30,7 @@ MonoBehaviour:
     count: 3
   - cardData: {fileID: 11400000, guid: 1f357a8b9935c8243a497f6ab10231c2, type: 2}
     count: 3
-  - cardData: {fileID: 11400000, guid: 1f357a8b9935c8243a497f6ab10231c2, type: 2}
+  - cardData: {fileID: 11400000, guid: f09f175962cc47747be4a25be97bec3f, type: 2}
     count: 3
   itemCards: []
   spellCards:

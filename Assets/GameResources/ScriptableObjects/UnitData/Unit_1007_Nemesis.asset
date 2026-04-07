@@ -22,7 +22,7 @@ MonoBehaviour:
   Synergy_A: 0
   Synergy_B: 0
   Synergy_C: 0
-  statData: {fileID: 0}
+  statData: {fileID: 11400000, guid: 3b8e7f725ec88e046b637533beaac270, type: 2}
   NormalAttack_Type: 
   NormalAttack_Prefab: {fileID: 0}
   Skill_ID: 0
