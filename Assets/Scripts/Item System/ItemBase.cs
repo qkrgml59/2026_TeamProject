@@ -14,19 +14,7 @@ namespace Item
 
         public bool TryEquip(UnitBase unit)
         {
-            if (unit.team != TeamType.Ally)     // 아군일 때만 장착 가능.
-            {
-                Debug.LogWarning("아군에게만 아이템을 장착할 수 있습니다.");
-                return false;
-            }
-
             // TODO : 장착 된 아이템 체크 후 조합 가능한지 체크
-
-            if (unit.EquippedItems.Count >= 3)          // 장착 중인 아이템 개수가 3개 보다 클 때
-            {
-                Debug.LogWarning("아이템은 3개까지만 장착 가능합니다.");
-                 return false;
-            }
 
             // 아이템 장착 처리.
             unit.EquippedItems.Add(this);       // 유닛 아이템 장착 리스트에 추가

@@ -41,13 +41,7 @@ namespace Prototype.Card
 
             if (targetUnit != null)
             {
-                if (targetUnit.team != TeamType.Ally) return false;               // 아군일 때만 아이템을 줄 수 있게 예외처리
-
-                if (targetUnit.EquippedItems.Count >= 3)                          // 장착 아이템이 3개 이상일 때 예외처리
-                {
-                    Debug.LogError("아이템은 3개까지만 장착할 수 있습니다.");
-                    return false;
-                }
+                if (!targetUnit.CanEquipItem(TeamType.Ally)) return false;      // 장착이 불가능한 경우        
                 
                 ItemBase itemInstance = Instantiate(item.itemSO.itemPrefab, targetUnit.transform.position, Quaternion.identity);
                 itemInstance.itemData = item.itemSO;

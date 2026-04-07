@@ -399,6 +399,14 @@ namespace Unit
 
         #endregion
 
+        #region 아이템 관리
+        public bool CanEquipItem(TeamType team)
+        {
+            return EquippedItems.Count < 3              // 아이템 개수가 3개 미만일 때
+                && IsSameTeam(team);                    // 같은 팀 일때
+        }
+        #endregion
+
         #region CombatEvent Listner
 
         // 기본 공격이 적중 시
