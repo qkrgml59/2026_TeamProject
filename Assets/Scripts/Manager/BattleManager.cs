@@ -1,10 +1,11 @@
-using System;
-using Utilitys;
-using UnityEngine;
-using System.Collections;
-using Unit;
-using Test.UI;
 using Prototype.Card;
+using System;
+using System.Collections;
+using Test.UI;
+using UI;
+using Unit;
+using UnityEngine;
+using Utilitys;
 
 public enum BattleState
 {
@@ -42,6 +43,8 @@ public class BattleManager : SingletonMonoBehaviour<BattleManager>
 
     private void Start()
     {
+        BindRewardUI();
+
         if (delayRountine != null)
         {
             StopCoroutine(delayRountine);
@@ -111,7 +114,7 @@ public class BattleManager : SingletonMonoBehaviour<BattleManager>
         CardDataSO data_1 = StageManager.Instance.GetRandomCardData(CardType.Unit);
         CardDataSO data_2 = StageManager.Instance.GetRandomCardData(CardType.Unit);
         CardDataSO data_3 = StageManager.Instance.GetRandomCardData(CardType.Spell);
-        TestRewardManager.Instance.Show(data_1, data_2, data_3);
+        RewardManager.Instance.Show(data_1, data_2, data_3);
     }
 
     public void NextRound()
@@ -128,6 +131,32 @@ public class BattleManager : SingletonMonoBehaviour<BattleManager>
         //}
 
         //delayRountine = StartCoroutine(DelayRountine(nextRoundDuration, () => RoundStart()));
+    }
+
+    private void BindRewardUI()
+    {
+        var reward = RewardManager.Instance;
+
+        reward.OnSelectReward -= HandleRewardSelect;
+        reward.OnSkip -= HandleRewardSkip;
+
+        reward.OnSelectReward += HandleRewardSelect;
+        reward.OnSkip += HandleRewardSkip;
+    }
+
+    private void HandleRewardSelect(CardDataSO card)
+    {
+        DeckManager.Instance.TryAddCardToDeck(card);
+
+        // TODO: 카드 풀 시스템 생기면 추가
+        // CardPoolManager.Instance?.RemoveCard(card);
+
+        NextRound();
+    }
+
+    private void HandleRewardSkip()
+    {
+        NextRound();
     }
 
     private IEnumerator DelayRountine(float delay, Action Callback)
