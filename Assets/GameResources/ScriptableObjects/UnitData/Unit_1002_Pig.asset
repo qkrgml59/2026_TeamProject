@@ -27,4 +27,4 @@ MonoBehaviour:
   NormalAttack_Prefab: {fileID: 6588351147661766957, guid: 47644915a41e2dc42bd088897de24741, type: 3}
   Skill_ID: 5002
   Skill_Prefab: {fileID: 0}
-  unitSprite: {fileID: 2800000, guid: dba45c078fd1f8e44bcd2bea996f9a16, type: 3}
+  unitSprite: {fileID: 21300000, guid: dba45c078fd1f8e44bcd2bea996f9a16, type: 3}

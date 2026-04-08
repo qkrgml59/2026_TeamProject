@@ -1,5 +1,6 @@
 using Prototype.Grid;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using Utilitys;
@@ -111,6 +112,20 @@ namespace GameEditor.UnitPlacer
                 }
         }
 
+        public void SetUnits(List<StageUnitData> units)
+        {
+            GridReset();
+
+            foreach (var data in units)
+            {
+                HexTile tile = GetTile(data.offset - new Vector2Int(0, 4));         // 실제 적 위치와 row 값이 4 차이 나는걸 보정
+                if (tile == null) continue;
+                
+                tile.SetUnitData(data);
+            }
+
+            Debug.Log("배치 정보 로드 완료");
+        }
 
         public bool IsInBounds(Vector2Int offset)
         {

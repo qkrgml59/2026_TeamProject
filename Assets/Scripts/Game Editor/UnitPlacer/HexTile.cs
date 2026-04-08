@@ -20,7 +20,7 @@ namespace GameEditor.UnitPlacer
         public Vector2Int offset;
 
         [Header("데이터")]
-        public StageUnitData unitData;
+        public StageUnitData occupantUnit;
 
         private void Awake()
         {
@@ -29,8 +29,8 @@ namespace GameEditor.UnitPlacer
 
         public void SetUnit(UnitDataSO unit)
         {
-            if (unitData.unitData != null || unit == null) return;
-            unitData.unitData = unit;
+            if (occupantUnit.unitData != null || unit == null) return;
+            occupantUnit.unitData = unit;
 
             unitName.text = unit.Name_KR;
             unitName.enabled = true;
@@ -43,30 +43,28 @@ namespace GameEditor.UnitPlacer
 
         public void RemoveUnit()
         {
-            if (unitData.unitData == null) return;
+            if (occupantUnit.unitData == null) return;
             ResetTile();
         }
 
         public void SetItem(ItemSO item)
         {
-            if(unitData.items.Count >= 3) return;
+            if(occupantUnit.items.Count >= 3) return;
 
-            unitData.items.Add(item);
+            occupantUnit.items.Add(item);
             SetItemImage();
         }
 
         public void SetUnitData(StageUnitData data) 
         {
-            unitData = data;
-            unitData.offset = offset;
-            SetUnit(unitData.unitData);
+            SetUnit(data.unitData);
             SetItemImage();
-            SetStarImage(unitData.star);
+            SetStarImage(occupantUnit.star);
         }
 
         public void ResetTile()
         {
-            unitData.Clear();
+            occupantUnit.Clear();
             SetStarImage(-1);
             SetItemImage();
 
@@ -86,10 +84,10 @@ namespace GameEditor.UnitPlacer
         {
             for(int i = 0; i < itemIcons.Count; i++)
             {
-                if(i < unitData.items.Count)
+                if(i < occupantUnit.items.Count)
                 {
                     itemIcons[i].gameObject.SetActive(true);
-                    itemIcons[i].sprite = unitData.items[i].icon;
+                    itemIcons[i].sprite = occupantUnit.items[i].icon;
                 }
                 else
                 {
