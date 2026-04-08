@@ -20,6 +20,10 @@ namespace GameEditor.UnitPlacer
         [Header("타일 피벗 설정")]
         public Transform tilePivot;
 
+        void Start()
+        {
+            GridInit();
+        }
 
         /// <summary>
         /// 그리드 초기화

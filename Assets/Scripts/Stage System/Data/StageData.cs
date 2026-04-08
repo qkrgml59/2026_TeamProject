@@ -21,9 +21,9 @@ public class StageData : ScriptableObject
 
 
     [Header("라운드 정보")]
-    [SerializeField] private List<RoundData> normalRound = new();
-    [SerializeField] private List<RoundData> eliteRound = new();
-    [SerializeField] private List<RoundData> bossRound = new();
+    public List<RoundData> normalRound = new();
+    public List<RoundData> eliteRound = new();
+    public List<RoundData> bossRound = new();
 
 
 
