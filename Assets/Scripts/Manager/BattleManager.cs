@@ -104,11 +104,10 @@ public class BattleManager : SingletonMonoBehaviour<BattleManager>
     [ContextMenu("라운드 종료")]
     public void RoundEnd()
     {
-        Debug.Log("[Battle Manager] 라운드 종료");
-        OnRoundEnd?.Invoke();
-
         UnitManager.Instance.ClaerEnemy();
 
+        Debug.Log("[Battle Manager] 라운드 종료");
+        OnRoundEnd?.Invoke();
 
         // 보상 지급
         CardDataSO data_1 = StageManager.Instance.GetRandomCardData(CardType.Unit);

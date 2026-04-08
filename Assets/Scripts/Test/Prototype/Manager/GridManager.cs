@@ -77,7 +77,7 @@ namespace Prototype.Grid
                     tile.transform.SetParent(transform);
                     tile.transform.position = transform.position + HexMath.GetWorldPosition(col, row, tileSize);
 
-                    tile.offset = new Vector2Int(col, row);
+                    tile.SetOffset(new Vector2Int(col, row));
                     map[col, row] = tile;
                 }
 

@@ -149,7 +149,7 @@ namespace Unit.Skill
                         continue;
 
                     //타겟과 너무 멀어지지 않게 제한
-                    int dist = HexMath.Distance(tile.offset, target.offset);
+                    int dist = HexMath.Distance(tile.Offset, target.offset);
 
                     if (dist > owner.statSet.AttackRange.Value + 1)
                         continue;

@@ -54,7 +54,7 @@ namespace Prototype.Grid.Pathfind
                     return TryGetBuildPath(start, goal, result);
                 }
 
-                if(HexMath.Distance(current.offset, goal.offset) <= attackRange)
+                if(HexMath.Distance(current.Offset, goal.Offset) <= attackRange)
                 {
                     // 공격 가능 범위에 들어오면 공격
                     return TryGetBuildPath(start, current, result);
@@ -63,7 +63,7 @@ namespace Prototype.Grid.Pathfind
                 closed.Add(current);
 
                 // Offset -> Cube 좌표 변환
-                Vector3Int cubeCoord = HexMath.OffsetToCube(current.offset);
+                Vector3Int cubeCoord = HexMath.OffsetToCube(current.Offset);
 
                 foreach (Vector3Int neighborDir in HexMath.CubeDirections)
                 {
@@ -122,13 +122,13 @@ namespace Prototype.Grid.Pathfind
 
         int GetMoveCost(HexTile current, HexTile next)
         {
-            if (current.offset.y == next.offset.y) return horizontalCost;
+            if (current.Offset.y == next.Offset.y) return horizontalCost;
             else return verticalCost;
         }
 
         int GetHeuristic(HexTile currentTile, HexTile goal)
         {
-            return HexMath.Distance(currentTile.offset, goal.offset);
+            return HexMath.Distance(currentTile.Offset, goal.Offset);
         }
 
         /// <summary>
@@ -146,12 +146,12 @@ namespace Prototype.Grid.Pathfind
                     return false;
 
                 // 이동 중 대상 타일이 사거리 안에 있어도 유효한 경로
-                if (HexMath.Distance(path[i].offset, targetTile.offset) <= attackRange)
+                if (HexMath.Distance(path[i].Offset, targetTile.Offset) <= attackRange)
                     return true;
             }
 
             // 도착지에서 사거리 안에 적이 없는 경우
-            if (HexMath.Distance(path[^1].offset, targetTile.offset) > attackRange)
+            if (HexMath.Distance(path[^1].Offset, targetTile.Offset) > attackRange)
                 return false;
 
             return true;

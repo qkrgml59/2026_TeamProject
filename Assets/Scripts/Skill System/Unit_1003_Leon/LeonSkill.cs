@@ -107,7 +107,7 @@ namespace Unit.Skill
 
                     if (tile == null || !tile.CanReserve(owner)) break;     // 지나갈 수 없는 방향은 무시
 
-                    int dist = HexMath.Distance(tile.offset, owner.targetUnit.offset);
+                    int dist = HexMath.Distance(tile.Offset, owner.targetUnit.offset);
                     if (dist > range) continue;  // 도착 위치에서 타겟을 못 때리면 넘어가기
                         
 

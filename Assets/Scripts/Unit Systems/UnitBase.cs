@@ -51,7 +51,7 @@ namespace Unit
         public UnitBase targetUnit { get; private set; }
 
         // 위치 정보
-        public Vector2Int offset => currentTile ? currentTile.offset : Vector2Int.zero;        // 현재 타일 기준 오프셋 보내기
+        public Vector2Int offset => currentTile ? currentTile.Offset : Vector2Int.zero;        // 현재 타일 기준 오프셋 보내기
         public HexTile currentTile { get; private set; }
         public HexTile reservedTile { get; private set; }
         // 길찾기 경로
@@ -501,7 +501,7 @@ namespace Unit
             skill?.Init(this);
 
             // 이미지 적용
-            ApplyVisual(unitDataSO.unitSprite);
+            ApplyVisual(unitDataSO.unitSprite.texture);
 
             // 이름 변경
             transform.name = unitDataSO.Name_EN;

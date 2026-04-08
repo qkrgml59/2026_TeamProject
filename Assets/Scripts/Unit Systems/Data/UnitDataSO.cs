@@ -30,6 +30,6 @@ namespace Unit
 
         // TODO : 임시 이미지, 추후 삭제
         [Header("(임시) 유닛 이미지")]
-        public Texture2D unitSprite;
+        public Sprite unitSprite;
     }
 }
