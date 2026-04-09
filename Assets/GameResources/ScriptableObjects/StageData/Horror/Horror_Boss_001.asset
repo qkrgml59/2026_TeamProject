@@ -14,16 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StageData
   roundType: 2
   units:
+  - offset: {x: 0, y: 4}
+    unitData: {fileID: 11400000, guid: 9be5ffb73e74c904f80d949bd91137ce, type: 2}
+    star: 0
+    items: []
+  - offset: {x: 2, y: 4}
+    unitData: {fileID: 11400000, guid: a1ae2dfee25f09a4e8040fb59dfb93f9, type: 2}
+    star: 0
+    items: []
   - offset: {x: 3, y: 4}
-    unitData: {fileID: 11400000, guid: bb38bd748662cfd41883122497b8520f, type: 2}
+    unitData: {fileID: 11400000, guid: c8155bbbae31c454a870fd60d04c3223, type: 2}
     star: 0
     items: []
   - offset: {x: 4, y: 4}
     unitData: {fileID: 11400000, guid: a1ae2dfee25f09a4e8040fb59dfb93f9, type: 2}
     star: 0
     items: []
-  - offset: {x: 5, y: 4}
-    unitData: {fileID: 11400000, guid: bb38bd748662cfd41883122497b8520f, type: 2}
+  - offset: {x: 6, y: 4}
+    unitData: {fileID: 11400000, guid: 9be5ffb73e74c904f80d949bd91137ce, type: 2}
     star: 0
     items: []
   rewardCount: 1

@@ -13,5 +13,13 @@ MonoBehaviour:
   m_Name: Horror_Normal_004
   m_EditorClassIdentifier: Assembly-CSharp::RoundData
   roundType: 0
-  units: []
+  units:
+  - offset: {x: 1, y: 4}
+    unitData: {fileID: 11400000, guid: bb38bd748662cfd41883122497b8520f, type: 2}
+    star: 0
+    items: []
+  - offset: {x: 5, y: 4}
+    unitData: {fileID: 11400000, guid: bb38bd748662cfd41883122497b8520f, type: 2}
+    star: 0
+    items: []
   rewardCount: 1
