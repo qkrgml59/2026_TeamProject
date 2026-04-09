@@ -194,6 +194,8 @@ namespace GameEditor.UnitPlacer
         // 현재 데이터 복제
         public void Copy()
         {
+            Save();
+
             if (curStage == null || curRound == null) return;
 #if UNITY_EDITOR
             // 데이터 복제
@@ -205,7 +207,7 @@ namespace GameEditor.UnitPlacer
             // 현재 라운드 리스트 마지막에 추가 후 드롭다운 설정
             roundList.Add(newData);
             SetRoundDropdown();
-            OnRoundChanged(roundList.Count);
+            roundDropdown.value = roundList.Count;
         }
 
         // 라운드 데이터 복사
@@ -341,7 +343,7 @@ namespace GameEditor.UnitPlacer
         // 타입 드롭다운 초기화
         void RoundTypeDropdownClear()
         {
-            roundList = null;
+            roundList = new();
 
             roundTypeDropdown.ClearOptions();
             roundTypeDropdown.interactable = false;
