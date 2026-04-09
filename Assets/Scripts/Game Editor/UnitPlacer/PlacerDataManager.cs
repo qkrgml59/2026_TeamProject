@@ -165,6 +165,11 @@ namespace GameEditor.UnitPlacer
 
             // 현재 라운드 리스트 마지막에 추가 후 드롭다운 설정
             roundList.Add(newData);
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(curStage);       // 리스트에 반영
+#endif
+
+
             SetRoundDropdown();
             roundDropdown.value = roundList.Count;
         }
@@ -206,6 +211,10 @@ namespace GameEditor.UnitPlacer
 
             // 현재 라운드 리스트 마지막에 추가 후 드롭다운 설정
             roundList.Add(newData);
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(curStage);       // 리스트에 반영
+#endif
+
             SetRoundDropdown();
             roundDropdown.value = roundList.Count;
         }
