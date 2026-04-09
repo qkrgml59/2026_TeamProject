@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c5858147469eae4880bfedf545414ea, type: 3}
   m_Name: Horror Stage
   m_EditorClassIdentifier: Assembly-CSharp::StageData
-  themeType: 0
+  themeType: 2
   unitCards:
   - cardData: {fileID: 11400000, guid: 8efe29378d458824c91dd2b01fd8f43e, type: 2}
     count: 3
