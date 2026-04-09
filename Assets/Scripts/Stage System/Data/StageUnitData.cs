@@ -11,21 +11,19 @@ public class StageUnitData
     [Header("성급 (0 = 1성)")] public int star = 0;
     [Header("아이템 정보(아직 사용 안함)")] public List<ItemSO> items = new();
 
-    public void Clear()
+    public void Clear(Vector2Int offset)
     {
-        offset = Vector2Int.zero;
+        this.offset = offset + new Vector2Int(0, 4);            // 실제 위치와 차이 보정
         unitData = null;
         star = -1;
         items.Clear();
     }
 
-    public StageUnitData Clone()
+    public StageUnitData(StageUnitData other)
     {
-        StageUnitData copy = new StageUnitData();
-        copy.offset = offset;
-        copy.unitData = unitData;
-        copy.star = star;
-        copy.items = items;
-        return copy;
+        offset = other.offset;
+        unitData = other.unitData;
+        star = other.star;
+        items = new List<ItemSO>(other.items);
     }
 }

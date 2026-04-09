@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using TMPro;
 using Unit;
 using Item;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine.UI;
 using UnityEditor;
 
@@ -22,6 +21,7 @@ namespace GameEditor.UnitPlacer
         // 현재 스테이지/라운드 정보
         private List<StageData> stageDatas = new();
         private StageData curStage;
+        private RoundType roundType = RoundType.Normal;
         private List<RoundData> roundList = new();
         private RoundData curRound;
 
@@ -29,9 +29,6 @@ namespace GameEditor.UnitPlacer
         public TMP_Dropdown stageDropdown;
         public TMP_Dropdown roundTypeDropdown;
         public TMP_Dropdown roundDropdown;
-
-        [Header("버튼")]
-        public Button saveButton;
 
         [Header("유닛 데이터 경로")]
         public string unitDataPath = "Assets/GameResources/ScriptableObjects/UnitData";
@@ -45,11 +42,25 @@ namespace GameEditor.UnitPlacer
 
         private List<ItemSO> itemSO = new();
 
+
+        [Header("저장용 컴포넌트")]
+        public TMP_InputField nameField;
+        public Button saveButton;
+        public Button newDataButton;
+        public Button copyButton;
+        public Button deleteButton;
+
         private void Start()
         {
-            stageDropdown.onValueChanged.AddListener(OnStageChanged);
-            roundTypeDropdown.onValueChanged.AddListener(OnTypeChanged);
-            roundDropdown.onValueChanged.AddListener(OnRoundhanged);
+            if(stageDropdown != null) stageDropdown.onValueChanged.AddListener(OnStageChanged);
+            if (roundTypeDropdown != null) roundTypeDropdown.onValueChanged.AddListener(OnTypeChanged);
+            if (roundDropdown != null) roundDropdown.onValueChanged.AddListener(OnRoundChanged);
+
+            // 버튼 설정
+            if (saveButton != null) saveButton.onClick.AddListener(Save);
+            if (newDataButton != null) newDataButton.onClick.AddListener(NewData);
+            if (copyButton != null) copyButton.onClick.AddListener(Copy);
+            if (deleteButton != null) deleteButton.onClick.AddListener(Delete);
 
             StageRefresh();
             InitUnitButton();
@@ -58,21 +69,157 @@ namespace GameEditor.UnitPlacer
 
         private void OnDestroy()
         {
-            stageDropdown.onValueChanged.RemoveListener(OnStageChanged);
-            roundTypeDropdown.onValueChanged.RemoveListener(OnTypeChanged);
-            roundDropdown.onValueChanged.RemoveListener(OnRoundhanged);
+            if (stageDropdown != null) stageDropdown.onValueChanged.RemoveListener(OnStageChanged);
+            if (roundTypeDropdown != null) roundTypeDropdown.onValueChanged.RemoveListener(OnTypeChanged);
+            if (roundDropdown != null) roundDropdown.onValueChanged.RemoveListener(OnRoundChanged);
+
+            // 버튼 설정
+            if (saveButton != null) saveButton.onClick.RemoveListener(Save);
+            if (newDataButton != null) newDataButton.onClick.RemoveListener(NewData);
+            if (copyButton != null) copyButton.onClick.RemoveListener(Copy);
+            if (deleteButton != null) deleteButton.onClick.RemoveListener(Delete);
         }
 
-        public void SaveRoundData()
+        public void Save()
         {
             if (curRound == null) return;
 
             var unitList = GridManager.Instance.GetUnitSaveData();
             curRound.units = unitList;
 
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
+            if (nameField != null & nameField.text != curRound.name)
+                Rename(curRound, nameField.text);
+
             EditorUtility.SetDirty(curRound);
-            #endif
+#endif
+
+            int index = roundList.IndexOf(curRound);
+
+            SetRoundDropdown();
+            roundDropdown.value = index + 1;
+        }
+
+        void Rename(RoundData data, string newName)
+        {
+            string path = AssetDatabase.GetAssetPath(data);
+
+            AssetDatabase.RenameAsset(path, newName);
+            AssetDatabase.SaveAssets();
+        }
+        public void Delete()
+        {
+            if (curStage == null || curRound == null) return;
+
+#if UNITY_EDITOR
+            string path = AssetDatabase.GetAssetPath(curRound);
+
+            roundList.Remove(curRound);
+
+            AssetDatabase.DeleteAsset(path);
+
+            EditorUtility.SetDirty(curStage);
+            AssetDatabase.SaveAssets();
+#endif
+
+            RoundDropdownClear();
+            SetRoundDropdown();
+        }
+
+        public void NewData()
+        {
+            if (curStage == null) return;
+#if UNITY_EDITOR
+            RoundData newData = CreateStageSO(curStage.themeType);
+#endif
+            if (newData == null) return;
+            if (nameField == null) return;
+
+            roundList.Add(newData);
+
+            SetRoundDropdown();
+            roundDropdown.value = roundList.Count;          // 마지막으로 추가된 요소
+        }
+
+        public void Copy()
+        {
+            if (curStage == null || curRound == null) return;
+#if UNITY_EDITOR
+            RoundData newData = CopyStageSO(curRound);
+#endif
+            if (newData == null) return;
+            if (nameField == null) return;
+
+            roundList.Add(newData);
+
+            SetRoundDropdown();
+            OnRoundChanged(roundList.Count);
+        }
+
+        RoundData CreateStageSO(ThemeType theme)
+        {
+            string folderPath = GetThemeFolderPath(theme);
+
+            RoundData newSO = ScriptableObject.CreateInstance<RoundData>();
+
+            // 기본 데이터 설정
+            newSO.roundType = roundType;
+            newSO.rewardCount = roundType == RoundType.Normal ? 1 : 2;
+
+            string dataName = GetNewDataName();
+
+            string path = AssetDatabase.GenerateUniqueAssetPath($"{folderPath}/{dataName}.asset");
+
+            AssetDatabase.CreateAsset(newSO, path);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+
+            return newSO;
+        }
+
+        string GetNewDataName()
+        {
+            string dataName;
+            if (curStage != null)
+                dataName = $"{curStage.themeType}_";
+            else
+                dataName = "Stage_";
+
+            dataName += $"{roundType}_";
+
+            dataName += (roundList.Count + 1).ToString("D3");
+
+            return dataName;
+        }
+
+        RoundData CopyStageSO(RoundData original)
+        {
+            string folderPath = GetThemeFolderPath(curStage.themeType);
+
+            string originalPath = AssetDatabase.GetAssetPath(original);
+
+            string newPath = AssetDatabase.GenerateUniqueAssetPath(
+                $"{folderPath}/{original.name}_clone.asset"
+            );
+
+            AssetDatabase.CopyAsset(originalPath, newPath);
+
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+
+            return AssetDatabase.LoadAssetAtPath<RoundData>(newPath);
+        }
+
+        string GetThemeFolderPath(ThemeType theme)
+        {
+            string themePath = $"{stageDataPath}/{theme}";
+
+            if (!AssetDatabase.IsValidFolder(themePath))
+            {
+                AssetDatabase.CreateFolder(stageDataPath, theme.ToString());
+            }
+
+            return themePath;
         }
 
         public void StageRefresh()
@@ -137,8 +284,7 @@ namespace GameEditor.UnitPlacer
             stageDropdown.ClearOptions();
             stageDropdown.interactable = false;
 
-            stageDropdown.SetValueWithoutNotify(-1);
-            stageDropdown.captionText.text = "스테이지";
+            OnStageChanged(0);
         }
 
         void SetStageDropdown()
@@ -163,7 +309,8 @@ namespace GameEditor.UnitPlacer
             RoundTypeDropdownClear();
             RoundDropdownClear();
 
-            if(index - 1 < 0 || index - 1 > stageDatas.Count)
+            index -= 1;
+            if(index < 0 || index >= stageDatas.Count)
             {
                 curStage = null;
                 stageDropdown.SetValueWithoutNotify(-1);
@@ -172,7 +319,7 @@ namespace GameEditor.UnitPlacer
                 return;
             }
 
-            curStage = stageDatas[index - 1];
+            curStage = stageDatas[index];
 
             if(curStage != null)
             {
@@ -191,8 +338,7 @@ namespace GameEditor.UnitPlacer
             roundTypeDropdown.ClearOptions();
             roundTypeDropdown.interactable = false;
 
-            roundTypeDropdown.SetValueWithoutNotify(-1);
-            roundTypeDropdown.captionText.text = "라운드 종류";
+            OnTypeChanged(0);
         }
 
         void SetTypeDropdown()
@@ -217,27 +363,35 @@ namespace GameEditor.UnitPlacer
         void OnTypeChanged(int index)
         {
             RoundDropdownClear();
-
+        
             if (curStage == null) return;
 
-            if (index - 1 < 0 || index > 3)
+            index -= 1;
+            if (index < 0 || index > 2)
             {
                 roundList.Clear();
                 roundTypeDropdown.SetValueWithoutNotify(-1);
                 roundTypeDropdown.captionText.text = "라운드 종류";
+
+                if (newDataButton != null)
+                    newDataButton.interactable = false;
+
                 return;
             }
 
-            switch(index - 1)
+            switch(index)
             {
                 case 0:
                     roundList = curStage.normalRound;
+                    roundType = RoundType.Normal;
                     break;
                 case 1:
                     roundList = curStage.eliteRound;
+                    roundType = RoundType.Elite;
                     break;
                 case 2:
                     roundList = curStage.bossRound;
+                    roundType = RoundType.Boss;
                     break;
             }
 
@@ -245,6 +399,9 @@ namespace GameEditor.UnitPlacer
             {
                 SetRoundDropdown();
             }
+
+            if (newDataButton != null)
+                newDataButton.interactable = true;
         }
         #endregion
 
@@ -258,8 +415,7 @@ namespace GameEditor.UnitPlacer
             roundDropdown.ClearOptions();
             roundDropdown.interactable = false;
 
-            roundDropdown.SetValueWithoutNotify(-1);
-            roundDropdown.captionText.text = "라운드";
+            OnRoundChanged(0);
         }
 
         void SetRoundDropdown()
@@ -279,20 +435,42 @@ namespace GameEditor.UnitPlacer
                 roundDropdown.interactable = true;
         }
 
-        void OnRoundhanged(int index)
+        void OnRoundChanged(int index)
         {
-            if (index - 1 < 0 || index - 1 > roundList.Count)
+            index -= 1;
+            if (index < 0 || index >= roundList.Count)
             {
                 curRound = null;
                 roundDropdown.SetValueWithoutNotify(-1);
                 roundDropdown.captionText.text = "라운드";
+
+                GridManager.Instance.GridReset();
+
+                if (saveButton != null) saveButton.interactable = false;
+                if (deleteButton != null) deleteButton.interactable = false;
+                if (copyButton != null) copyButton.interactable = false;
+
+                if (nameField != null)
+                    nameField.text = "";
+
                 return;
             }
 
-            curRound = roundList[index - 1];
+            curRound = roundList[index];
 
-            if(curRound != null)
+            if (curRound != null)
+            {
                 GridManager.Instance.SetUnits(curRound.units);
+
+                if (nameField != null)
+                    nameField.text = curRound.name;
+            }
+
+            if (saveButton != null) saveButton.interactable = curRound != null;
+            if (deleteButton != null) deleteButton.interactable = curRound != null;
+            if (copyButton != null) copyButton.interactable = curRound != null;
+
+            
         }
         #endregion
 

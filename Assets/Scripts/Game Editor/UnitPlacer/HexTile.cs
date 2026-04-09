@@ -78,7 +78,7 @@ namespace GameEditor.UnitPlacer
 
         public void ResetTile()
         {
-            occupantUnit.Clear();
+            occupantUnit.Clear(offset);
             SetStarImage();
             SetItemImage();
 
@@ -127,12 +127,12 @@ namespace GameEditor.UnitPlacer
             if(tile.IsEmpty)        // 목표 타일이 비어있는 경우
             {
                 // 데이터 넣고, 현재 타일 비우기
-                tile.SetUnitData(occupantUnit.Clone());
+                tile.SetUnitData(new StageUnitData(occupantUnit));
                 ResetTile();
             }
             else
             {
-                StageUnitData temp = tile.occupantUnit.Clone();
+                StageUnitData temp = new StageUnitData(tile.occupantUnit);
                 tile.SetUnitData(occupantUnit);
                 SetUnitData(temp);
             }

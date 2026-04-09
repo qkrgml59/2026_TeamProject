@@ -125,7 +125,7 @@ namespace GameEditor.UnitPlacer
                 HexTile tile = GetTile(data.offset - new Vector2Int(0, 4));         // 실제 적 위치와 row 값이 4 차이 나는걸 보정
                 if (tile == null) continue;
                 
-                tile.SetUnitData(data);
+                tile.SetUnitData(new StageUnitData(data));
             }
 
             Debug.Log("배치 정보 로드 완료");
@@ -163,8 +163,10 @@ namespace GameEditor.UnitPlacer
                     if (map[col, row] == null) continue;
                     if (map[col, row].IsEmpty) continue;
 
-                    save.Add(map[col, row].occupantUnit);
+                    save.Add(new StageUnitData(map[col, row].occupantUnit));
                 }
+
+            Debug.Log($"저장 데이터 개수 {save.Count}개");
 
             return save;
         }
