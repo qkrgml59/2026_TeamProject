@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 3818896294061086865}
   - component: {fileID: 9216243601731330737}
   - component: {fileID: 1411359750628245316}
-  - component: {fileID: 6931917058311362379}
+  - component: {fileID: 5573130966974395959}
   m_Layer: 5
   m_Name: Unit Button
   m_TagString: Untagged
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6931917058311362379
+--- !u!114 &5573130966974395959
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,17 +161,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 4801262787374364041}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71f4b090ef609e24ab93a649009d8ae7, type: 3}
+  m_Script: {fileID: 11500000, guid: b3eaafa5ad9566641bdaed0b3db84abd, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.UnitPlacerButton
-  canvas: {fileID: 0}
-  icon: {fileID: 4400454704065490464}
-  buttonName: {fileID: 8683527727099369193}
+  m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.UnitButton
   childRect: {fileID: 6211570545991000002}
   tileLayer:
     serializedVersion: 2
     m_Bits: 64
+  icon: {fileID: 4400454704065490464}
+  buttonName: {fileID: 8683527727099369193}
   data: {fileID: 0}
+  defaultIcon: {fileID: 21300000, guid: f9a8fe2fb415cbc4b8187bb032bea7fe, type: 3}
+  defaultName: "\uBE48 \uB370\uC774\uD130"
 --- !u!1 &6047171908243721001
 GameObject:
   m_ObjectHideFlags: 0

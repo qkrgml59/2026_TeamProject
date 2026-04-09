@@ -28,13 +28,15 @@ namespace GameEditor.UnitPlacer
             GridInit();
         }
 
+        #region 그리드 자체 기능
+
         /// <summary>
         /// 그리드 초기화
         /// </summary>
         [ContextMenu("그리드 재생성")]
         public void GridInit()
         {
-            GridDestroy();
+            GridDestroy();  // 기존 그리드 제거
             GenerateGrid();
             Debug.Log("그리드 초기화 완료");
         }
@@ -65,9 +67,8 @@ namespace GameEditor.UnitPlacer
                     tile.transform.localPosition = new Vector2(pos.x, pos.z);
                     tile.transform.localScale = Vector3.one;
 
-                    tile.Init(canvas);
+                    tile.Init(new Vector2Int(col, row), canvas);      // offset 설정, 드래그를 위한 캔버스 설정
 
-                    tile.offset = new Vector2Int(col, row);
                     map[col, row] = tile;
                 }
 
@@ -116,21 +117,6 @@ namespace GameEditor.UnitPlacer
                 }
         }
 
-        public void SetUnits(List<StageUnitData> units)
-        {
-            GridReset();
-
-            foreach (var data in units)
-            {
-                HexTile tile = GetTile(data.offset - new Vector2Int(0, 4));         // 실제 적 위치와 row 값이 4 차이 나는걸 보정
-                if (tile == null) continue;
-                
-                tile.SetUnitData(new StageUnitData(data));
-            }
-
-            Debug.Log("배치 정보 로드 완료");
-        }
-
         public bool IsInBounds(Vector2Int offset)
         {
             return offset.x >= 0 &&
@@ -147,15 +133,35 @@ namespace GameEditor.UnitPlacer
             return map[offset.x, offset.y];
         }
 
-        public HexTile GetTile(Vector3Int cube)
+        #endregion
+
+
+        /// <summary>
+        /// 유닛 배치 정보를 토대로 유닛 배치
+        /// </summary>
+        /// <param name="units"></param>
+        public void SetUnits(List<UnitPlacement> units)
         {
-            return GetTile(HexMath.CubeToOffset(cube));
+            // 그리드 초기화
+            GridReset();
+
+            foreach (var data in units)
+            {
+                HexTile tile = GetTile(data.offset - new Vector2Int(0, 4));         // 실제 적 위치와 row 값이 4 차이 나는걸 보정
+                if (tile == null) continue;
+
+                tile.SetUnitData(new UnitPlacement(data));
+            }
+
+            Debug.Log("배치 정보 로드 완료");
         }
 
-
-        public List<StageUnitData> GetUnitSaveData()
+        /// <summary>
+        /// 현재 유닛의 배치 정보 리스트를 반환
+        /// </summary>
+        public List<UnitPlacement> GetUnitPlacementList()
         {
-            List < StageUnitData > save = new List<StageUnitData >();
+            List < UnitPlacement > save = new List<UnitPlacement >();
 
             for (int col = 0; col < map.GetLength(0); col++)
                 for (int row = 0; row < map.GetLength(1); row++)
@@ -163,11 +169,10 @@ namespace GameEditor.UnitPlacer
                     if (map[col, row] == null) continue;
                     if (map[col, row].IsEmpty) continue;
 
-                    save.Add(new StageUnitData(map[col, row].occupantUnit));
+                    save.Add(new UnitPlacement(map[col, row].occupantUnitData));
                 }
 
-            Debug.Log($"저장 데이터 개수 {save.Count}개");
-
+            Debug.Log($"배치 유닛 개수 {save.Count}개");
             return save;
         }
     }

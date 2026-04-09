@@ -5,9 +5,10 @@ using UnityEngine.EventSystems;
 
 namespace GameEditor.UnitPlacer
 {
-    public abstract class PlacerButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
+    public abstract class DragButtonBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
     {
-        public Canvas canvas;
+        Canvas canvas;
+        [Header("실제로 움직일 오브젝트")]
         public RectTransform childRect;
 
         public LayerMask tileLayer;
@@ -22,13 +23,13 @@ namespace GameEditor.UnitPlacer
         // 마우스가 카드 위에 올라옴
         public void OnPointerEnter(PointerEventData eventData)
         {
-            Debug.Log("마우스 올라옴");
+            // Debug.Log("마우스 올라옴");
         }
 
         // 마우스가 카드를 벗어남
         public void OnPointerExit(PointerEventData eventData)
         {
-            Debug.Log("마우스 내려감");
+            // Debug.Log("마우스 내려감");
         }
 
         #endregion
@@ -36,7 +37,7 @@ namespace GameEditor.UnitPlacer
         // 마우스 클릭
         public virtual void OnPointerClick(PointerEventData eventData)
         {
-            Debug.Log("클릭!");
+            // Debug.Log("클릭!");
         }
 
         #region Drag Event
@@ -44,7 +45,7 @@ namespace GameEditor.UnitPlacer
         // 드래그 시작
         public virtual void OnBeginDrag(PointerEventData eventData)
         {
-            Debug.Log("드래그 시작");
+            //Debug.Log("드래그 시작");
             childRect.SetAsLastSibling();
             _originAnchoredPos = childRect.anchoredPosition;
             childRect.SetParent(canvas.transform);
@@ -60,7 +61,7 @@ namespace GameEditor.UnitPlacer
         // 드래그 종료
         public virtual void OnEndDrag(PointerEventData eventData)
         {
-            Debug.Log("드래그 종료");
+            //Debug.Log("드래그 종료");
 
             CheckTileUnderMouse();
 

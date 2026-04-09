@@ -34,11 +34,11 @@ namespace GameEditor.UnitPlacer
         public string unitDataPath = "Assets/GameResources/ScriptableObjects/UnitData";
 
         [Header("유닛 버튼 UI 컴포넌트")]
-        public UnitPlacerButton unitButtonPrefab;
+        public UnitButton unitButtonPrefab;
         public RectTransform scrollVeiw;
 
         public List<UnitDataSO> unitDatas = new();
-        private List<UnitPlacerButton> unitPlacerButtons = new();
+        private List<UnitButton> unitPlacerButtons = new();
 
         private List<ItemSO> itemSO = new();
 
@@ -107,7 +107,7 @@ namespace GameEditor.UnitPlacer
             if (curRound == null) return;
 
             // 유닛 배치 목록 불러오기
-            var unitList = GridManager.Instance.GetUnitSaveData();
+            var unitList = GridManager.Instance.GetUnitPlacementList();
             curRound.units = unitList;
 
             // 저장 및 이름 변경 진행
@@ -239,7 +239,7 @@ namespace GameEditor.UnitPlacer
 
             for (int i = 0; i < unitDatas.Count; i++)
             {
-                UnitPlacerButton button = Instantiate(unitButtonPrefab, scrollVeiw);
+                UnitButton button = Instantiate(unitButtonPrefab, scrollVeiw);
                 button.Init(canvas, unitDatas[i]);
                 unitPlacerButtons.Add(button);
 
