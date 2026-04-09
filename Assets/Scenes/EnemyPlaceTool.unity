@@ -1838,6 +1838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.GridManager
   useDontDestroyOnLoad: 0
+  canvas: {fileID: 1698998243}
   column: 7
   row: 4
   hexTilePrefab: {fileID: 2789319633405563579, guid: e3b4b6975de68274188dad60bb0caa9d, type: 3}
@@ -2700,6 +2701,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 1298674818}
   unitImage: {fileID: 1708124744}
   stars:
@@ -3095,6 +3101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 120946602}
   unitImage: {fileID: 238360285}
   stars:
@@ -3753,6 +3764,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 195494173}
   unitImage: {fileID: 1641485924}
   stars:
@@ -4658,6 +4674,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 1366196951}
   unitImage: {fileID: 522008536}
   stars:
@@ -6706,6 +6727,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 373679452}
   unitImage: {fileID: 835123337}
   stars:
@@ -11278,6 +11304,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 1703589667}
   unitImage: {fileID: 326163794}
   stars:
@@ -12711,6 +12742,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 124222259}
   unitImage: {fileID: 187804414}
   stars:
@@ -16147,6 +16183,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 313477089}
   unitImage: {fileID: 675616863}
   stars:
@@ -18029,6 +18070,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 969897607}
   unitImage: {fileID: 1375707754}
   stars:
@@ -18550,6 +18596,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 1079569939}
   unitImage: {fileID: 402118393}
   stars:
@@ -18796,6 +18847,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 1030178992}
   unitImage: {fileID: 1231113809}
   stars:
@@ -19598,6 +19654,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 686159597}
   unitImage: {fileID: 1907606607}
   stars:
@@ -19856,6 +19917,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 1482030625}
   unitImage: {fileID: 1971945626}
   stars:
@@ -20114,6 +20180,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 2080693958}
   unitImage: {fileID: 1798412395}
   stars:
@@ -20360,6 +20431,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 284481995}
   unitImage: {fileID: 422218444}
   stars:
@@ -20531,6 +20607,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 587393767}
   unitImage: {fileID: 547382074}
   stars:
@@ -20714,6 +20795,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 1739329922}
   unitImage: {fileID: 393715587}
   stars:
@@ -21699,6 +21785,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 1467671936}
   unitImage: {fileID: 73333554}
   stars:
@@ -23140,6 +23231,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 2114051500}
   unitImage: {fileID: 1876876253}
   stars:
@@ -23488,6 +23584,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 653802489}
   unitImage: {fileID: 1383248802}
   stars:
@@ -23884,6 +23985,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 245215804}
   unitImage: {fileID: 1534344442}
   stars:
@@ -24135,6 +24241,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 936143149}
   unitImage: {fileID: 715299106}
   stars:
@@ -25009,6 +25120,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 662073298}
   unitImage: {fileID: 536501610}
   stars:
@@ -25529,6 +25645,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 1331360768}
   unitImage: {fileID: 423637998}
   stars:
@@ -26798,6 +26919,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 2038967898}
   unitImage: {fileID: 1007692312}
   stars:
@@ -28145,6 +28271,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 1717694568}
   unitImage: {fileID: 362894539}
   stars:
@@ -29091,6 +29222,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 1559589650}
   unitImage: {fileID: 1549489343}
   stars:
@@ -29349,6 +29485,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ff0926f23d3c4f99c253b11623635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEditor.UnitPlacer.HexTile
+  canvas: {fileID: 0}
+  childRect: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
   unitName: {fileID: 2126547188}
   unitImage: {fileID: 985678271}
   stars:

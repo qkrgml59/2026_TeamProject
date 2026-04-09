@@ -15,7 +15,17 @@ public class StageUnitData
     {
         offset = Vector2Int.zero;
         unitData = null;
-        star = 0;
+        star = -1;
         items.Clear();
+    }
+
+    public StageUnitData Clone()
+    {
+        StageUnitData copy = new StageUnitData();
+        copy.offset = offset;
+        copy.unitData = unitData;
+        copy.star = star;
+        copy.items = items;
+        return copy;
     }
 }

@@ -1,17 +1,13 @@
 using Prototype.Card;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 namespace GameEditor.UnitPlacer
 {
     public abstract class PlacerButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
     {
         public Canvas canvas;
-        public Image icon;
-        public TextMeshProUGUI buttonName;
         public RectTransform childRect;
 
         public LayerMask tileLayer;
@@ -38,7 +34,7 @@ namespace GameEditor.UnitPlacer
         #endregion
 
         // 마우스 클릭
-        public void OnPointerClick(PointerEventData eventData)
+        public virtual void OnPointerClick(PointerEventData eventData)
         {
             Debug.Log("클릭!");
         }
@@ -46,7 +42,7 @@ namespace GameEditor.UnitPlacer
         #region Drag Event
 
         // 드래그 시작
-        public void OnBeginDrag(PointerEventData eventData)
+        public virtual void OnBeginDrag(PointerEventData eventData)
         {
             Debug.Log("드래그 시작");
             childRect.SetAsLastSibling();
@@ -55,14 +51,14 @@ namespace GameEditor.UnitPlacer
         }
 
         // 드래그 중
-        public void OnDrag(PointerEventData eventData)
+        public virtual void OnDrag(PointerEventData eventData)
         {
             Vector3 mousePos = eventData.position;
             childRect.position = mousePos;
         }
 
         // 드래그 종료
-        public void OnEndDrag(PointerEventData eventData)
+        public virtual void OnEndDrag(PointerEventData eventData)
         {
             Debug.Log("드래그 종료");
 

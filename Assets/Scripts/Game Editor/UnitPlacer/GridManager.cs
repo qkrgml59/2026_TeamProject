@@ -10,6 +10,8 @@ namespace GameEditor.UnitPlacer
 {
     public class GridManager : SingletonMonoBehaviour<GridManager>
     {
+        public Canvas canvas;
+
         [Header("그리드 설정")]
         [SerializeField] private int column = 7;
         [SerializeField] private int row = 8;
@@ -62,6 +64,8 @@ namespace GameEditor.UnitPlacer
                     Vector3 pos = HexMath.GetWorldPosition(col, row, 200) * 0.6f;
                     tile.transform.localPosition = new Vector2(pos.x, pos.z);
                     tile.transform.localScale = Vector3.one;
+
+                    tile.Init(canvas);
 
                     tile.offset = new Vector2Int(col, row);
                     map[col, row] = tile;

@@ -4,11 +4,12 @@ using TMPro;
 using Unit;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace GameEditor.UnitPlacer
 {
-    public class HexTile : MonoBehaviour
+    public class HexTile : PlacerButton
     {
         [Header("컴포넌트 설정")]
         public TextMeshProUGUI unitName;
@@ -22,29 +23,38 @@ namespace GameEditor.UnitPlacer
         [Header("데이터")]
         public StageUnitData occupantUnit;
 
+        public bool IsEmpty => occupantUnit.unitData == null;
+
         private void Awake()
         {
             ResetTile();
         }
 
-        public void SetUnit(UnitDataSO unit)
+        public void SetNewUnit(UnitDataSO unit)
         {
-            if (occupantUnit.unitData != null || unit == null) return;
+            if (!IsEmpty || unit == null) return;
+            ResetTile();
             occupantUnit.unitData = unit;
+            occupantUnit.star = 0;
 
-            unitName.text = unit.Name_KR;
-            unitName.enabled = true;
-
-            unitImage.sprite = unit.unitSprite;
-            unitImage.enabled = true;
-
-            SetStarImage(0);
+            SetUnitView();
+            SetItemImage();
+            SetStarImage();
         }
 
-        public void RemoveUnit()
+        void SetUnitView()
         {
-            if (occupantUnit.unitData == null) return;
-            ResetTile();
+            if(IsEmpty)
+            {
+                ResetTile();
+                return;
+            }
+
+            unitName.text = occupantUnit.unitData.Name_KR;
+            unitName.enabled = true;
+
+            unitImage.sprite = occupantUnit.unitData.unitSprite;
+            unitImage.enabled = true;
         }
 
         public void SetItem(ItemSO item)
@@ -55,28 +65,32 @@ namespace GameEditor.UnitPlacer
             SetItemImage();
         }
 
+        /// <summary>
+        /// 유닛 데이터 통째로 변경
+        /// </summary>
         public void SetUnitData(StageUnitData data) 
         {
-            SetUnit(data.unitData);
+            occupantUnit = data;
+            SetUnitView();
             SetItemImage();
-            SetStarImage(occupantUnit.star);
+            SetStarImage();
         }
 
         public void ResetTile()
         {
             occupantUnit.Clear();
-            SetStarImage(-1);
+            SetStarImage();
             SetItemImage();
 
             unitName.enabled = false;
             unitImage.enabled = false;
         }
         
-        void SetStarImage(int star)
+        void SetStarImage()
         {
             for(int i = 0; i < stars.Count; i++)
             {
-                stars[i].gameObject.SetActive(i <= star);
+                stars[i].gameObject.SetActive(i <= occupantUnit.star);
             }
         }
 
@@ -95,5 +109,51 @@ namespace GameEditor.UnitPlacer
                 }
             }
         }
+
+
+        // 마우스 이벤트
+
+        public override void OnPointerClick(PointerEventData eventData)
+        {
+            // 우클릭이면 유닛 제거
+            if (eventData.button == PointerEventData.InputButton.Right)
+                ResetTile();
+        }
+
+        protected override void Use(HexTile tile)
+        {
+            if (IsEmpty) return;
+
+            if(tile.IsEmpty)        // 목표 타일이 비어있는 경우
+            {
+                // 데이터 넣고, 현재 타일 비우기
+                tile.SetUnitData(occupantUnit.Clone());
+                ResetTile();
+            }
+            else
+            {
+                StageUnitData temp = tile.occupantUnit.Clone();
+                tile.SetUnitData(occupantUnit);
+                SetUnitData(temp);
+            }
+        }
+
+        public override void OnBeginDrag(PointerEventData eventData)
+        {
+            if (IsEmpty) return;
+            base.OnBeginDrag(eventData);
+        }
+
+        public override void OnDrag(PointerEventData eventData)
+        {
+            if (IsEmpty) return;
+            base.OnDrag(eventData);
+        }
+
+        public override void OnEndDrag(PointerEventData eventData)
+        {
+            if(IsEmpty) return;
+            base.OnEndDrag(eventData);
+        }   
     }
 }
