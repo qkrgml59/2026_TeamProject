@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: 1000
   Name_KR: "\uB354\uBBF8"
   Name_EN: Dummy
-  Race: 1
+  Race: 0
   Cost: 1
   Race_Synergy_A: 0
   Race_Synergy_B: 0

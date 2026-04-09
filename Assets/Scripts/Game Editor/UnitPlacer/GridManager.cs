@@ -151,22 +151,5 @@ namespace GameEditor.UnitPlacer
         {
             return GetTile(HexMath.CubeToOffset(cube));
         }
-
-
-        public List<StageUnitData> GetUnitSaveData()
-        {
-            List < StageUnitData > save = new List<StageUnitData >();
-
-            for (int col = 0; col < map.GetLength(0); col++)
-                for (int row = 0; row < map.GetLength(1); row++)
-                {
-                    if (map[col, row] == null) continue;
-                    if (map[col, row].IsEmpty) continue;
-
-                    save.Add(map[col, row].occupantUnit);
-                }
-
-            return save;
-        }
     }
 }
