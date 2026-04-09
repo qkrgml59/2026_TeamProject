@@ -6,6 +6,9 @@ using System.Collections.Generic;
 using TMPro;
 using Unit;
 using Item;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
+using UnityEngine.UI;
+using UnityEditor;
 
 namespace GameEditor.UnitPlacer
 {
@@ -26,6 +29,9 @@ namespace GameEditor.UnitPlacer
         public TMP_Dropdown stageDropdown;
         public TMP_Dropdown roundTypeDropdown;
         public TMP_Dropdown roundDropdown;
+
+        [Header("버튼")]
+        public Button saveButton;
 
         [Header("유닛 데이터 경로")]
         public string unitDataPath = "Assets/GameResources/ScriptableObjects/UnitData";
@@ -57,6 +63,18 @@ namespace GameEditor.UnitPlacer
             roundDropdown.onValueChanged.RemoveListener(OnRoundhanged);
         }
 
+        public void SaveRoundData()
+        {
+            if (curRound == null) return;
+
+            var unitList = GridManager.Instance.GetUnitSaveData();
+            curRound.units = unitList;
+
+            #if UNITY_EDITOR
+            EditorUtility.SetDirty(curRound);
+            #endif
+        }
+
         public void StageRefresh()
         {
             #if UNITY_EDITOR
@@ -84,6 +102,29 @@ namespace GameEditor.UnitPlacer
                 UnitPlacerButton button = Instantiate(unitButtonPrefab, scrollVeiw);
                 button.Init(canvas, unitDatas[i]);
                 unitPlacerButtons.Add(button);
+
+                button.gameObject.SetActive(false);
+            }
+        }
+
+        void SetActiveAllUnitButton(bool isActive)
+        {
+            foreach (var button in unitPlacerButtons)
+            {
+                button.gameObject.SetActive(isActive);
+            }
+        }
+
+        /// <summary>
+        /// 동일 테마의 유닛 버튼만 활성화
+        /// </summary>
+        void ActiveSameThemeUnit()
+        {
+            ThemeType theme = curStage.themeType;
+
+            foreach(var button in unitPlacerButtons)
+            {
+                button.gameObject.SetActive(button.data.Race == theme || button.data.Race == ThemeType.Default);
             }
         }
 
@@ -124,8 +165,10 @@ namespace GameEditor.UnitPlacer
 
             if(index - 1 < 0 || index - 1 > stageDatas.Count)
             {
+                curStage = null;
                 stageDropdown.SetValueWithoutNotify(-1);
                 stageDropdown.captionText.text = "스테이지";
+                SetActiveAllUnitButton(false);
                 return;
             }
 
@@ -134,6 +177,7 @@ namespace GameEditor.UnitPlacer
             if(curStage != null)
             {
                 SetTypeDropdown();
+                ActiveSameThemeUnit();
             }
         }
         #endregion
@@ -178,6 +222,7 @@ namespace GameEditor.UnitPlacer
 
             if (index - 1 < 0 || index > 3)
             {
+                roundList.Clear();
                 roundTypeDropdown.SetValueWithoutNotify(-1);
                 roundTypeDropdown.captionText.text = "라운드 종류";
                 return;
@@ -238,6 +283,7 @@ namespace GameEditor.UnitPlacer
         {
             if (index - 1 < 0 || index - 1 > roundList.Count)
             {
+                curRound = null;
                 roundDropdown.SetValueWithoutNotify(-1);
                 roundDropdown.captionText.text = "라운드";
                 return;
