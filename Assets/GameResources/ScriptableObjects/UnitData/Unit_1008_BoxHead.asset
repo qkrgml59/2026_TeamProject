@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: 1008
   Name_KR: "\uC0AC\uAC01\uB450"
   Name_EN: BoxHead
-  Race: 0
+  Race: 2
   Cost: 3
   Race_Synergy_A: 0
   Race_Synergy_B: 0

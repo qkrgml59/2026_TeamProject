@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 661428122245810497}
   - component: {fileID: 1932176831177641253}
   - component: {fileID: 2789319633405563579}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,7 +391,7 @@ MonoBehaviour:
   - {fileID: 1450101874132394708}
   - {fileID: 59659814024357249}
   offset: {x: 0, y: 0}
-  unitData:
+  occupantUnit:
     offset: {x: 0, y: 0}
     unitData: {fileID: 0}
     star: 0

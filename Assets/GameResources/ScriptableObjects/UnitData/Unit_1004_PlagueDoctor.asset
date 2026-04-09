@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: 
   Name_KR: 
   Name_EN: 
-  Race: 0
+  Race: 2
   Cost: 0
   Race_Synergy_A: 0
   Race_Synergy_B: 0
@@ -27,4 +27,4 @@ MonoBehaviour:
   NormalAttack_Prefab: {fileID: 0}
   Skill_ID: 0
   Skill_Prefab: {fileID: 0}
-  unitSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: f9a8fe2fb415cbc4b8187bb032bea7fe, type: 3}

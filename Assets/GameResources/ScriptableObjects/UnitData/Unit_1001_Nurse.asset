@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: 1001
   Name_KR: "\uB108\uC2A4"
   Name_EN: Nurse
-  Race: 0
+  Race: 2
   Cost: 1
   Race_Synergy_A: 0
   Race_Synergy_B: 0
