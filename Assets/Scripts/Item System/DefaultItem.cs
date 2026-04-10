@@ -16,12 +16,7 @@ namespace Item
                 // modifier 유닛에 적용
                 foreach (StatModifier modifier in itemData.modifiers)
                 {
-                    Stat.Stat targetStat = unit.statSet.Get(modifier.statType);
-
-                    if (targetStat != null)
-                    {
-                        targetStat.AddModifier(this, modifier);         // this = 적용하려는 아이템
-                    }
+                    unit.AddStatModifier(modifier.statType, this, modifier);                // this = 스탯 변경의 출처
                 }
             }
 
@@ -34,15 +29,9 @@ namespace Item
 
             if (itemData.modifiers != null)
             {
-                foreach (StatModifier mod in itemData.modifiers)
+                foreach (StatModifier modifier in itemData.modifiers)
                 {
-                    Stat.Stat targetStat = unit.statSet.Get(mod.statType);
-
-                    if (targetStat != null)
-                    {
-                        // 출처(this)를 기준으로 찾아 지웁니다.
-                        targetStat.RemoveModifier(this);
-                    }
+                    unit.RemoveStatModifier(this);
                 }
             }
             // TODO 특수효과(조합아이템) 해제

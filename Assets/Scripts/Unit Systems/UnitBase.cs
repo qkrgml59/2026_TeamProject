@@ -383,17 +383,14 @@ namespace Unit
             if (stat != null)
             {
                 stat.AddModifier(source, modifier);
-
             }
         }
 
-        public void RemoveStatModifier(StatType type, object source)
+        public void RemoveStatModifier(object source)
         {
-            Stat.Stat stat = statSet.Get(type);
-
-            if (stat != null)
+            foreach (StatType type in System.Enum.GetValues(typeof(StatType)))
             {
-                stat.RemoveModifier(source);
+                statSet.Get(type)?.RemoveModifier(source);
             }
         }
 
