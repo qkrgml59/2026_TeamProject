@@ -4,7 +4,7 @@ using Stat;
 
 namespace Item
 {
-    [CreateAssetMenu(fileName = "DefaultItem", menuName = "ItemSO/Default")]
+    [CreateAssetMenu(fileName = "NewItem", menuName = "ItemSO/Default")]
     public class ItemSO : ScriptableObject
     {
         [Header("아이템 아이콘")] public Sprite icon;
@@ -14,28 +14,6 @@ namespace Item
         [Header("아이템 프리팹")] public ItemBase itemPrefab;
 
         [Header("추가 스텟")] public List<StatModifier> modifiers = new List<StatModifier>();
-        [Header("아이템 부가 효과")] public ItemEffectSO effect;
-
-
-        /// <summary>
-        /// 아이템의 추가 스텟에 대한 문자열을 반환합니다.
-        /// </summary>
-        /// <returns>추가 스텟 문자열</returns>
-        public string GetModifiersString()
-        {
-            return null;        // 아이콘 같은걸 포함해서 반환 예정
-        }
-
-        /// <summary>
-        /// 아이템 부과 효과의 설명을 반환합니다.
-        /// </summary>
-        /// <returns>부과 효과 설명 문자열</returns>
-        public string GetEffectDescription()
-        {
-            if (effect == null)
-                return null;
-
-            return effect.GetDescription();
-        }
+        [Header("특수 효과 모듈")] public List<ItemEffectSO> effectModules = new List<ItemEffectSO>();       // 모듈로 사용하는 이유 : 다른 아이템의 이펙트효과에서 재활용할 수 있음.
     }
 }

@@ -5,16 +5,10 @@ namespace Item
 {
     public abstract class ItemEffectSO : ScriptableObject
     {
-        /// <summary>
-        /// 아이템 효과의 런타임용 인스턴스 생성 및 반환
-        /// </summary>
-        /// <returns>실제 아이템 효과 인스턴스</returns>
-        public abstract ItemEffectBase GetItemEffect(UnitBase unit);
+        // 아이템이 유닛에게 장착될 때 한 번 호출
+        public abstract void OnEquip(UnitBase unit);
 
-        /// <summary>
-        /// 아이템 효과의 설명 문자열을 반환
-        /// </summary>
-        /// <returns>효과 설명 String</returns>
-        public abstract string GetDescription();
+        // 아이템이 유닛에게서 해제될 때 호출
+        public abstract void OnUnequip(UnitBase unit);
     }
 }

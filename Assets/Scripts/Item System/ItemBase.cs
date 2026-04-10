@@ -1,20 +1,22 @@
 using Prototype.Grid;
+using Stat;
+using System.Collections.Generic;
 using Unit;
 using UnityEngine;
 
 namespace Item
 {
-    public abstract class ItemBase : MonoBehaviour
+    public class ItemBase : MonoBehaviour
     {
         
         [Header("Item Data")] public ItemSO itemData;
-    
+
+        private List<ItemEffectSO> _activeEffects = new List<ItemEffectSO>();
 
         #region 장착 해제 관련
 
         public bool TryEquip(UnitBase unit)
         {
-            // TODO : 장착 된 아이템 체크 후 조합 가능한지 체크
 
             // 아이템 장착 처리.
             unit.EquippedItems.Add(this);       // 유닛 아이템 장착 리스트에 추가
@@ -44,8 +46,51 @@ namespace Item
             }
         }
 
-        protected abstract void ApplyItemEffect(UnitBase unit);                 // 아이템 장착 효과 (장착 시)
-        protected abstract void RemoveItemEffect(UnitBase unit);                // 아이템 해제 효과 (해제 시)
+        protected virtual void ApplyItemEffect(UnitBase unit)                 // 아이템 장착 효과 (장착 시)
+        {
+            if (itemData == null) return;
+
+            // 스탯 적용
+            if (itemData.modifiers != null)
+            {
+                foreach (StatModifier modifier in itemData.modifiers)
+                {
+                    unit.AddStatModifier(modifier.statType, this, modifier);
+                }
+            }
+
+            // 특수 효과 모듈 장착
+            if (itemData.effectModules != null)
+            {
+                foreach (ItemEffectSO effectData in itemData.effectModules)
+                {
+                    if (effectData == null)
+                    {
+                        Debug.LogWarning($"[{itemData.itemName}]의 특수효과 모듈에 빈칸이 있습니다!");
+                        continue;
+                    }
+
+                    ItemEffectSO effectInstance = Instantiate(effectData);
+                    effectInstance.OnEquip(unit);
+                    _activeEffects.Add(effectInstance); 
+                }
+            }
+        }
+
+        protected virtual void RemoveItemEffect(UnitBase unit)                // 아이템 해제 효과 (해제 시)
+        {
+            if (itemData == null) return;
+
+            unit.RemoveStatModifier(this);
+
+            // 장착했던 특수 효과 모듈들 해제 
+            foreach (ItemEffectSO effectInstance in _activeEffects)
+            {
+                effectInstance.OnUnequip(unit);
+                Destroy(effectInstance);
+            }
+            _activeEffects.Clear();
+        }
 
         #endregion
     }
