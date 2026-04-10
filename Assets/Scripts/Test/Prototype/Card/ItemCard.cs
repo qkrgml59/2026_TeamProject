@@ -28,21 +28,40 @@ namespace Prototype.Card
 
             // Ray 맞은곳에서 HexTile컴포넌트 찾기
             HexTile tile = hit.transform.GetComponent<HexTile>();
-            UnitBase targetUnit = null;             
-
-            if (tile != null && tile.OccupantUnit != null)
-            {
-                targetUnit = tile.OccupantUnit;             // 타겟 유닛을 타일 속 유닛으로 지정
-            }
-            else                    // 타일이 아닌 유닛을 Ray로 클릭 했을 시 예외처리
-            {
-                targetUnit = hit.transform.GetComponent<UnitBase>();
-            }
+            UnitBase targetUnit = tile != null && tile.OccupantUnit != null ? tile.OccupantUnit : hit.transform.GetComponent<UnitBase>();             
 
             if (targetUnit != null)
             {
-                if (!targetUnit.CanEquipItem(TeamType.Ally)) return false;      // 장착이 불가능한 경우        
-                
+                if (targetUnit.team != TeamType.Ally) return false;
+
+                foreach (ItemBase equippedItem in targetUnit.EquippedItems)
+                {
+                    ItemCardDataSO resultRecipe = ItemManager.Instance.GetRecipeResult(item.itemSO, equippedItem.itemData);             // ItemManager에서 조합법 확인
+
+                    if (resultRecipe != null && resultRecipe.itemSO != null)
+                    {
+                        // 장착중인 DefaultItem해제 및 제거
+                        equippedItem.UnequipFrom(targetUnit);
+                        Destroy(equippedItem.gameObject);
+
+                        // 조합 아이템 생성
+                        ItemBase combinedInstance = Instantiate(resultRecipe.itemSO.itemPrefab, targetUnit.transform.position, Quaternion.identity);
+                        combinedInstance.itemData = resultRecipe.itemSO;
+
+                        // 조합 아이템 장착
+                        combinedInstance.TryEquip(targetUnit);
+
+                        Debug.Log($"아이템 조합 성공! {equippedItem.itemData.itemName} + {item.itemSO.itemName} => {resultRecipe.itemSO.itemName}");
+                        return true;
+                    }
+                }
+
+                if (!targetUnit.CanEquipItem(TeamType.Ally))
+                {
+                    Debug.LogWarning("장착 한도 3개를 초과했습니다.");
+                    return false;
+                }
+
                 ItemBase itemInstance = Instantiate(item.itemSO.itemPrefab, targetUnit.transform.position, Quaternion.identity);
                 itemInstance.itemData = item.itemSO;
 
