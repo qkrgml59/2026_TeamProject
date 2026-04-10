@@ -15,27 +15,27 @@ namespace Stat
 
             // 기초 스텟 선언
             //성급에 따라 변하는 스텟 선언
-            stats.Add(StatType.HealthPoint, new Stat());
-            stats.Add(StatType.AttackDamage, new Stat());
+            stats.Add(StatType.HealthPoint, new Stat(StatType.HealthPoint));
+            stats.Add(StatType.AttackDamage, new Stat(StatType.AttackDamage));
 
             //성급 무관 고정 스텟 선언
-            stats.Add(StatType.AbilityPower, new Stat(unitStatSO.AbilityPower));
-            stats.Add(StatType.AttackSpeed, new Stat(unitStatSO.AttackSpeed));
-            stats.Add(StatType.Defense, new Stat(unitStatSO.Defense));
-            stats.Add(StatType.MagicResistance, new Stat(unitStatSO.MagicResistance));
+            stats.Add(StatType.AbilityPower, new Stat(StatType.AbilityPower, unitStatSO.AbilityPower));
+            stats.Add(StatType.AttackSpeed, new Stat(StatType.AttackSpeed, unitStatSO.AttackSpeed));
+            stats.Add(StatType.Defense, new Stat(StatType.Defense, unitStatSO.Defense));
+            stats.Add(StatType.MagicResistance, new Stat(StatType.MagicResistance, unitStatSO.MagicResistance));
 
             // 자원 스텟 선언
-            stats.Add(StatType.ManaRegeneration, new Stat(unitStatSO.ManaRegeneration));
+            stats.Add(StatType.ManaRegeneration, new Stat(StatType.ManaRegeneration, unitStatSO.ManaRegeneration));
 
             // 특수 스텟 선언(고정값)
-            stats.Add(StatType.CriticalChance, new Stat(25));
-            stats.Add(StatType.CriticalDamage, new Stat(140));
-            stats.Add(StatType.DamageIncrease, new Stat(0));
-            stats.Add(StatType.DamageReduction, new Stat(0));
-            stats.Add(StatType.Omnivamp, new Stat(0));
+            stats.Add(StatType.CriticalChance, new Stat(StatType.CriticalChance, 25));
+            stats.Add(StatType.CriticalDamage, new Stat(StatType.CriticalDamage, 140));
+            stats.Add(StatType.DamageIncrease, new Stat(StatType.DamageIncrease, 0));
+            stats.Add(StatType.DamageReduction, new Stat(StatType.DamageReduction, 0));
+            stats.Add(StatType.Omnivamp, new Stat(StatType.Omnivamp, 0));
 
-            stats.Add(StatType.AttackRange, new Stat(unitStatSO.Attack_Rage));     // 사거리 초기값
-            stats.Add(StatType.MoveSpeed, new Stat(unitStatSO.Move_Speed));        // 이동속도 초기값
+            stats.Add(StatType.AttackRange, new Stat(StatType.AttackRange, unitStatSO.Attack_Rage));     // 사거리 초기값
+            stats.Add(StatType.MoveSpeed, new Stat(StatType.MoveSpeed, unitStatSO.Move_Speed));        // 이동속도 초기값
 
             // 1성으로 초기화
             SetStatByStar(unitStatSO, 0);
