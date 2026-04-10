@@ -46,7 +46,6 @@ namespace Item
             {
                 _hasTriggered = true;
 
-                // 추후 실드 생성 로직으로 교체될 부분
                 float healAmount = maxHp * healPercent;
                 HealInfo healInfo = new HealInfo(_equippedUnit, healAmount);
                 _equippedUnit.ApplyHeal(healInfo);

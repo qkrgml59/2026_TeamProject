@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31d702e8bd259124a9b66c098b340c21, type: 3}
-  m_Name: Item_LongSword
+  m_Name: Item_Cloak
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.Item.ItemCardDataSO
   cardId: Item1
-  icon: {fileID: 21300000, guid: 6d883a2fc76fd4137ad47f5150294d01, type: 3}
-  cardName: "\uB871\uC18C\uB4DC"
-  description: "AD 10% \uC99D\uAC00"
+  icon: {fileID: -7320800790988269609, guid: 30f45f9a124dd104caedd36e5a3f8a75, type: 3}
+  cardName: "\uB9DD\uD1A0"
+  description: "\uB9C8\uBC95 \uC800\uD56D\uB825 20\uC99D\uAC00"
   cardPrefab: {fileID: -4416521778009406744, guid: e139526d4a0bdee42a88d673ec9240a1, type: 3}
-  itemSO: {fileID: 11400000, guid: 1133197a214243e488e8e0e6b28e5de6, type: 2}
+  itemSO: {fileID: 11400000, guid: 9b445e3d1e80c564c9f7b3ddd42e440d, type: 2}
