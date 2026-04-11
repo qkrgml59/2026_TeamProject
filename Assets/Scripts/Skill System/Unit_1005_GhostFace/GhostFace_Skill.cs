@@ -194,6 +194,18 @@ namespace Unit.Skill
             spawnedVFX.Add(fx);
         }
 
+        //이펙트 정리
+        private void CleanupVFX()
+        {
+            foreach (var fx in spawnedVFX)
+            {
+                if (fx != null)
+                    Destroy(fx.gameObject);
+            }
+
+            spawnedVFX.Clear();
+        }
+
         protected override void OnCancel()
         {
             if (skillRoutine != null)
@@ -201,6 +213,10 @@ namespace Unit.Skill
                 StopCoroutine(skillRoutine);
                 skillRoutine = null;
             }
+
+            CleanupVFX();
+
+            SetStealthVisual(false);
         }
 
         protected override void OnFinish()
@@ -216,7 +232,10 @@ namespace Unit.Skill
                     Object.Destroy(fx.gameObject);
 
             spawnedVFX.Clear();
+
+            CleanupVFX();
         }
+
     }
 }
 
