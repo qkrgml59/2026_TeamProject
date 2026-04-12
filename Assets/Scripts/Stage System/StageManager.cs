@@ -46,6 +46,11 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
      private List<CardDataSO> itemCards = new();
      private List<CardDataSO> spellCards = new();
 
+    public List<CardDataSO> UnitPool => unitCards;
+    public List<CardDataSO> SpellPool => spellCards;
+    public List<CardDataSO> ItemPool => itemCards;
+
+
     protected override void OnSingletonAwake()
     {
         // 스테이지 정보 캐싱
@@ -165,6 +170,7 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
             default:
             return null;
         }
+
     }
 
     public CardDataSO GetRandomCardFormPool (List<CardDataSO> pool)
@@ -173,6 +179,14 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
         CardDataSO cardData = pool[rand];
         pool.RemoveAt(rand);
         return cardData == null ? null : cardData;
+    }
+
+    //카드풀로 다시 반환
+    public void ReturnCardToPool(CardDataSO card, List<CardDataSO> pool)
+    {
+        if (card == null) return;
+
+        pool.Add(card);
     }
     #endregion
 }

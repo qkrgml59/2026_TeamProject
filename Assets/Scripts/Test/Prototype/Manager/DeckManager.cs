@@ -56,8 +56,11 @@ namespace Prototype.Card
 
             if (ownedDeck.ContainsKey(newCard.cardId))
             {
+                CardEntry entry = ownedDeck[newCard.cardId];
+                entry.count += count;
+                ownedDeck[newCard.cardId] = entry;
                 // 이미 덱에 존재 하는 카드면 개수 추가
-                ownedDeck[newCard.cardId].count += count;       // TODO: 카드 개수 직접 변경하지 않도록 수정 필요.
+                //ownedDeck[newCard.cardId].count += count;       // TODO: 카드 개수 직접 변경하지 않도록 수정 필요.
             }
             else
             {

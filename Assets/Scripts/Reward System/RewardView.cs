@@ -13,6 +13,12 @@ namespace UI
 
         public void Show(CardDataSO data)
         {
+            if (data == null)
+            {
+                Debug.LogWarning("RewardView: data가 null임");
+                return;
+            }
+
             nameTmp.text = data.cardName;
             descriptionTmp.text = data.description;
             image.sprite = data.icon;

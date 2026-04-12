@@ -109,11 +109,6 @@ public class BattleManager : SingletonMonoBehaviour<BattleManager>
         Debug.Log("[Battle Manager] 라운드 종료");
         OnRoundEnd?.Invoke();
 
-        // 보상 지급
-        CardDataSO data_1 = StageManager.Instance.GetRandomCardData(CardType.Unit);
-        CardDataSO data_2 = StageManager.Instance.GetRandomCardData(CardType.Unit);
-        CardDataSO data_3 = StageManager.Instance.GetRandomCardData(CardType.Spell);
-        RewardManager.Instance.Show(data_1, data_2, data_3);
     }
 
     public void NextRound()
@@ -146,7 +141,21 @@ public class BattleManager : SingletonMonoBehaviour<BattleManager>
     private void HandleRewardSelect(CardDataSO card)
     {
         DeckManager.Instance.TryAddCardToDeck(card);
+        if (card == null)
+        {
+            Debug.LogError("Reward에서 null 카드 들어옴");
+            return;
+        }
 
+        if (string.IsNullOrEmpty(card.cardId))
+        {
+            Debug.LogError("cardId 비어있는 카드 들어옴");
+            return;
+        }
+
+        DeckManager.Instance.TryAddCardToDeck(card);
+
+        NextRound();
         // TODO: 카드 풀 시스템 생기면 추가
         // CardPoolManager.Instance?.RemoveCard(card);
 
