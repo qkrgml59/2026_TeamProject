@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Unit_1002_Pig_Stat
   m_EditorClassIdentifier: Assembly-CSharp::Unit.UnitStatSO
   statsByStart:
-  - MaxHp: 1000
-    AttackDamage: 30
-  - MaxHp: 1500
+  - MaxHp: 600
     AttackDamage: 45
-  - MaxHp: 2000
-    AttackDamage: 64
+  - MaxHp: 1080
+    AttackDamage: 81
+  - MaxHp: 3000
+    AttackDamage: 160
   Defense: 30
   MagicResistance: 30
   AbilityPower: 0
-  AttackSpeed: 0.7
+  AttackSpeed: 0.6
   Attack_Rage: 1
-  Move_Speed: 5
+  Move_Speed: 3
   ManaRegeneration: 0

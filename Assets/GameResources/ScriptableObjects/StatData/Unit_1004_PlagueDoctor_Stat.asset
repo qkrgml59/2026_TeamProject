@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Unit_1004_PlagueDoctor_Stat
   m_EditorClassIdentifier: Assembly-CSharp::Unit.UnitStatSO
   statsByStart:
-  - MaxHp: 1000
-    AttackDamage: 30
-  - MaxHp: 1500
-    AttackDamage: 45
-  - MaxHp: 2000
-    AttackDamage: 64
-  Defense: 30
-  MagicResistance: 30
+  - MaxHp: 700
+    AttackDamage: 40
+  - MaxHp: 1260
+    AttackDamage: 72
+  - MaxHp: 3500
+    AttackDamage: 140
+  Defense: 40
+  MagicResistance: 40
   AbilityPower: 0
   AttackSpeed: 0.7
-  Attack_Rage: 1
-  Move_Speed: 5
+  Attack_Rage: 3
+  Move_Speed: 3
   ManaRegeneration: 0

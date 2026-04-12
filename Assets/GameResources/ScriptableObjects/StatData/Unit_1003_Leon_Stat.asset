@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Unit_1003_Leon_Stat
   m_EditorClassIdentifier: Assembly-CSharp::Unit.UnitStatSO
   statsByStart:
-  - MaxHp: 1000
-    AttackDamage: 30
-  - MaxHp: 1500
-    AttackDamage: 45
-  - MaxHp: 2000
-    AttackDamage: 64
+  - MaxHp: 500
+    AttackDamage: 60
+  - MaxHp: 900
+    AttackDamage: 108
+  - MaxHp: 2500
+    AttackDamage: 200
   Defense: 30
   MagicResistance: 30
   AbilityPower: 0
   AttackSpeed: 0.7
   Attack_Rage: 4
-  Move_Speed: 5
+  Move_Speed: 3
   ManaRegeneration: 0

@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Unit_1007_Nemesis_Stat
   m_EditorClassIdentifier: Assembly-CSharp::Unit.UnitStatSO
   statsByStart:
-  - MaxHp: 1000
-    AttackDamage: 30
-  - MaxHp: 1500
-    AttackDamage: 45
-  - MaxHp: 2000
-    AttackDamage: 64
-  Defense: 30
-  MagicResistance: 30
+  - MaxHp: 800
+    AttackDamage: 50
+  - MaxHp: 1440
+    AttackDamage: 90
+  - MaxHp: 4500
+    AttackDamage: 180
+  Defense: 40
+  MagicResistance: 40
   AbilityPower: 0
-  AttackSpeed: 0.7
+  AttackSpeed: 0.6
   Attack_Rage: 1
-  Move_Speed: 5
+  Move_Speed: 2
   ManaRegeneration: 0

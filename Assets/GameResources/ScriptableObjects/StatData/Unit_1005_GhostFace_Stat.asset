@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Unit_1005_GhostFace_Stat
   m_EditorClassIdentifier: Assembly-CSharp::Unit.UnitStatSO
   statsByStart:
-  - MaxHp: 1000
-    AttackDamage: 30
-  - MaxHp: 1500
-    AttackDamage: 45
-  - MaxHp: 2000
-    AttackDamage: 64
-  Defense: 30
-  MagicResistance: 30
+  - MaxHp: 600
+    AttackDamage: 65
+  - MaxHp: 1080
+    AttackDamage: 117
+  - MaxHp: 3000
+    AttackDamage: 220
+  Defense: 25
+  MagicResistance: 25
   AbilityPower: 0
-  AttackSpeed: 0.7
+  AttackSpeed: 0.8
   Attack_Rage: 1
-  Move_Speed: 5
+  Move_Speed: 4
   ManaRegeneration: 0

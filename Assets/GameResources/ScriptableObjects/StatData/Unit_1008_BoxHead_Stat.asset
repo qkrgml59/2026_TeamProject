@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Unit_1008_BoxHead_Stat
   m_EditorClassIdentifier: Assembly-CSharp::Unit.UnitStatSO
   statsByStart:
-  - MaxHp: 1000
-    AttackDamage: 30
-  - MaxHp: 1500
-    AttackDamage: 45
-  - MaxHp: 2000
-    AttackDamage: 64
-  Defense: 30
-  MagicResistance: 30
+  - MaxHp: 900
+    AttackDamage: 70
+  - MaxHp: 1620
+    AttackDamage: 126
+  - MaxHp: 5000
+    AttackDamage: 250
+  Defense: 35
+  MagicResistance: 35
   AbilityPower: 0
-  AttackSpeed: 0.7
+  AttackSpeed: 0.6
   Attack_Rage: 1
-  Move_Speed: 5
+  Move_Speed: 2
   ManaRegeneration: 0

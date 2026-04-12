@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Unit_1006_Licker_Stat
   m_EditorClassIdentifier: Assembly-CSharp::Unit.UnitStatSO
   statsByStart:
-  - MaxHp: 1000
-    AttackDamage: 30
-  - MaxHp: 1500
-    AttackDamage: 45
-  - MaxHp: 2000
-    AttackDamage: 64
+  - MaxHp: 650
+    AttackDamage: 60
+  - MaxHp: 1170
+    AttackDamage: 108
+  - MaxHp: 3200
+    AttackDamage: 200
   Defense: 30
   MagicResistance: 30
   AbilityPower: 0
   AttackSpeed: 0.7
   Attack_Rage: 1
-  Move_Speed: 5
+  Move_Speed: 4
   ManaRegeneration: 0

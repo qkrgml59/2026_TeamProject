@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Unit_1001_Nurse_Stat
   m_EditorClassIdentifier: Assembly-CSharp::Unit.UnitStatSO
   statsByStart:
-  - MaxHp: 1000
-    AttackDamage: 30
-  - MaxHp: 1500
-    AttackDamage: 45
-  - MaxHp: 2000
-    AttackDamage: 64
-  Defense: 30
-  MagicResistance: 30
+  - MaxHp: 500
+    AttackDamage: 55
+  - MaxHp: 900
+    AttackDamage: 99
+  - MaxHp: 2500
+    AttackDamage: 180
+  Defense: 25
+  MagicResistance: 25
   AbilityPower: 0
-  AttackSpeed: 0.7
+  AttackSpeed: 0.8
   Attack_Rage: 1
-  Move_Speed: 5
+  Move_Speed: 4
   ManaRegeneration: 0
