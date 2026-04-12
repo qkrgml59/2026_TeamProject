@@ -58,6 +58,8 @@ namespace Unit
         public readonly List<HexTile> path = new List<HexTile>();
         public int curPathIndex { get; private set; } = 0;
 
+        private float tileSpace = 1;
+
         // 컴포넌트
         Rigidbody _rigidbody;
 
@@ -124,8 +126,9 @@ namespace Unit
         }
 
         public void MoveInDirection(Vector3 dir, float speed)
-        {
-            _rigidbody.linearVelocity = dir.normalized * speed;
+        {   
+            // 모든 이동은 타일 크기 기준으로 이동 (속도 1 = 1 Tile/s)
+            _rigidbody.linearVelocity = dir.normalized * speed * tileSpace;
         }
 
         public void RigidInit()
@@ -506,6 +509,7 @@ namespace Unit
 
         private void Start()
         {
+            if(GridManager.Instance != null) tileSpace = GridManager.Instance.TileSpacing;   // 타일 간격은 처음에 저장
             AddEventListener();
             ChangeUnitState(UnitStateType.Idle);
         }

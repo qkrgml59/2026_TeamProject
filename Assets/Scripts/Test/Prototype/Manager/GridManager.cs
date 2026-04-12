@@ -21,6 +21,10 @@ namespace Prototype.Grid
         [Header("타일 설정")]
         public HexTile hexTilePrefab;
         [SerializeField] private float tileSize = 2f;
+        /// <summary>
+        /// 타일간의 거리를 반환합니다.
+        /// </summary>
+        public float TileSpacing => tileSize > 0 ? tileSize * Mathf.Sqrt(3f) : 1f;
 
         [Header("패스파인더")]
         public HexGridPathfinder pathfinder;
