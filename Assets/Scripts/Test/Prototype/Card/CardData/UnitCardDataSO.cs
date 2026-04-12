@@ -8,5 +8,6 @@ namespace Prototype.Card.Unit
     public class UnitCardDataSO : CardDataSO
     {
         public UnitDataSO unitDataSO;
+        public override CardType CardType => CardType.Unit;
     }
 }

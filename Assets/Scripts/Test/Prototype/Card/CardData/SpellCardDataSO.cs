@@ -7,5 +7,6 @@ namespace Prototype.Card.Spell
     public class SpellCardDataSO : CardDataSO
     {
         public SpellSO spellSO;
+        public override CardType CardType => CardType.Spell;
     }
 }

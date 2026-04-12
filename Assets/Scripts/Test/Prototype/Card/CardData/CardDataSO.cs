@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Prototype.Card
 {
-    public class CardDataSO : ScriptableObject
+    public abstract class CardDataSO : ScriptableObject
     {
         public string cardId;
 
@@ -12,5 +12,10 @@ namespace Prototype.Card
         public string description;
 
         public CardBase cardPrefab;
+
+        /// <summary>
+        /// 카드의 종류 (유닛, 스펠, 아이템) 반환
+        /// </summary>
+        public abstract CardType CardType { get; }
     }
 }

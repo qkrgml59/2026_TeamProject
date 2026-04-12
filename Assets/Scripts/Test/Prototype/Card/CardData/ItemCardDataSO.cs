@@ -7,6 +7,8 @@ namespace Prototype.Card.Item
     public class ItemCardDataSO : CardDataSO
     {
         public ItemSO itemSO;
+
+        public override CardType CardType => CardType.Item;
     }
 }
 
