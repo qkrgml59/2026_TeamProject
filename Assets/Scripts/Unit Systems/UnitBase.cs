@@ -121,14 +121,11 @@ namespace Unit
         #region Physics
         public void MoveToTile(HexTile targetTile, float speed)
         {
-            Vector3 dir = targetTile.transform.position - transform.position;
-            MoveInDirection(dir, speed);
-        }
+            transform.position = Vector3.MoveTowards
+                (transform.position,
+                targetTile.transform.position,
+                speed * tileSpace * Time.deltaTime);                    // 타일 크기를 기준으로 움직이도록 수정
 
-        public void MoveInDirection(Vector3 dir, float speed)
-        {   
-            // 모든 이동은 타일 크기 기준으로 이동 (속도 1 = 1 Tile/s)
-            _rigidbody.linearVelocity = dir.normalized * speed * tileSpace;
         }
 
         public void RigidInit()
