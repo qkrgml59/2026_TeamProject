@@ -66,7 +66,6 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
         SetGameThemes(totalStageCount);
 
         InitCardPool();
-
         // 첫 라운드 세팅
         currentRound = stages[CurStageTheme].GetRandomRound(stageCycle[CurRoundIndex]);
     }
@@ -93,6 +92,8 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
 
         Debug.Log($"{count}개의 테마 설정 완료");
     }
+
+
 
     /// <summary>
     /// 다음 라운드로 변경
@@ -175,6 +176,12 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
 
     public CardDataSO GetRandomCardFormPool (List<CardDataSO> pool)
     {
+        if (pool == null || pool.Count == 0)
+        {
+            Debug.LogError("카드 풀이 비어있음!");
+            return null;
+        }
+
         int rand = UnityEngine.Random.Range(0, pool.Count);
         CardDataSO cardData = pool[rand];
         pool.RemoveAt(rand);

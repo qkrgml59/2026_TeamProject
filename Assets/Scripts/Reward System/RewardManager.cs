@@ -9,68 +9,96 @@ namespace UI
 {
     public class RewardManager : SingletonMonoBehaviour<RewardManager>
     {
-        public Canvas canvas;
-        public RewardView[] views = new RewardView[3];
+        [Header("UI")]
+        public Canvas canvas;              //보상 UI 전체 캔버스
+        public RewardView[] views;          //보상 슬롯 3개
 
+        //현재 표시 중인 보상 데이터
         private CardDataSO[] items = new CardDataSO[3];
 
+        // 각 카드가 어떤 풀에서 왔는지 저장
         private List<CardDataSO>[] originPools = new List<CardDataSO>[3];
 
         public Action<CardDataSO> OnSelectReward;
         public Action OnSkip;
 
-        public void Show(
-            CardDataSO item_1, List<CardDataSO> pool_1,
-            CardDataSO item_2, List<CardDataSO> pool_2,
-            CardDataSO item_3, List<CardDataSO> pool_3)
+        //전투 종료 후 진입
+        public void StartRewardPhase()
         {
-            if (item_1 != null) views[0].Show(item_1);
-            if (item_2 != null) views[1].Show(item_2);
-            if (item_3 != null) views[2].Show(item_3);
+            GenerateRewards();
+            ShowRewardSelectionUI();
+        }
 
-            originPools[0] = pool_1;
-            originPools[1] = pool_2;
-            originPools[2] = pool_3;
+        //보상 3개 생성
+        private void GenerateRewards()
+        {
+            items[0] = StageManager.Instance.GetRandomCardData(CardType.Unit);
+            //items[1] = StageManager.Instance.GetRandomCardData(CardType.Item);
+            items[1] = StageManager.Instance.GetRandomCardData(CardType.Unit);
+            items[2] = StageManager.Instance.GetRandomCardData(CardType.Spell);
 
+            //어떤 풀에서 나왔는지
+            originPools[0] = StageManager.Instance.UnitPool;
+            // originPools[1] = StageManager.Instance.ItemPool;
+            originPools[1] = StageManager.Instance.UnitPool;
+            originPools[2] = StageManager.Instance.SpellPool;
+        }
+
+        //보상 UI 표시
+        private void ShowRewardSelectionUI()
+        {
+            for (int i = 0; i< views.Length; i++)
+            {
+                views[i].Bind(items[i], i, OnRewardSelected);
+            }
 
             canvas.enabled = true;
         }
 
-        public void Select(int index)
+        //보상 선택
+        public void OnRewardSelected(int index)
         {
-            if (index < 0 || index >= items.Length)
-                return;
+            CardDataSO selected = items[index];
 
-            if (items[index] == null)
-                return;
+            // 선택 안 된 카드들은 다시 복구
+            for (int i = 0; i< items.Length; i++)
+            {
+                if (i == index) continue;
 
+                if (items[i] != null)
+                    StageManager.Instance.ReturnCardToPool(items[i], originPools[i]);
+            }
+
+            Clear();
             canvas.enabled = false;
 
-            OnSelectReward?.Invoke(items[index]);
+            //외부 전달
+            OnSelectReward?.Invoke(selected);
+
         }
 
         public void Skip()
         {
-            for ( int i = 0; i< items.Length; i ++)
+            for (int i = 0; i< items.Length; i++)
             {
-                StageManager.Instance.ReturnCardToPool(items[i], originPools[i]);
+                if (items[i] != null)
+                    StageManager.Instance.ReturnCardToPool(items[i], originPools[i]);
             }
 
-            ClearUI();
+            Clear();
+            canvas.enabled = false;
 
             OnSkip?.Invoke();
-            canvas.enabled = false;
         }
 
-        private void ClearUI()
+        private void Clear()
         {
-            for (int i = 0; i < items.Length; i++)
+            for (int i = 0; i< items.Length; i++)
             {
                 items[i] = null;
                 originPools[i] = null;
             }
         }
-
     }
 }
 
