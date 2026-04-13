@@ -38,6 +38,8 @@ namespace Prototype.Card
 
                     UnitManager.Instance.RegisterUnit(unit);
                     IndicatorManager.Instance.HPBarPresenter.RegisterHealthBar(unit);
+                    IndicatorManager.Instance.UnitItemPresenter.RegisterItemSlot(unit);
+
 
                     Debug.Log($"{unit.name} 배치 성공");
                     return true;
