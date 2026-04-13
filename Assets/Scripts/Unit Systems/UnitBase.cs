@@ -416,6 +416,26 @@ namespace Unit
             return EquippedItems.Count < 3              // 아이템 개수가 3개 미만일 때
                 && IsSameTeam(team);                    // 같은 팀 일때
         }
+
+        public bool TryEquippedItem(ItemBase item)
+        {
+            if (!CanEquipItem(this.team)) return false;
+
+            EquippedItems.Add(item);
+
+            unitEvents.OnItemChanged?.Invoke(EquippedItems);
+            return true;
+        }
+
+        public void UnequipItem(ItemBase item)
+        {
+            if (EquippedItems.Contains(item))
+            {
+                EquippedItems.Remove(item);
+
+                unitEvents.OnItemChanged?.Invoke(EquippedItems);
+            }
+        }
         #endregion
 
         #region CombatEvent Listner

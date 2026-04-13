@@ -1,5 +1,7 @@
-using Unit;
+using Item;
 using System;
+using System.Collections.Generic;
+using Unit;
 using UnityEngine;
 using UnityEngine.Events;
 using Stat;
@@ -37,6 +39,12 @@ namespace Unit
 
         [Header("체력 관련 이벤트")]
         public UnityEvent<HealthInfo> OnHpChanged;
+
+        [Header("아이템 이벤트")]
+        /// <summary>
+        /// 아이템 리스트에 변경이 있을 시
+        /// </summary>
+        public UnityEvent<List<ItemBase>> OnItemChanged;
 
         [Header("사망")]
         public UnityEvent<UnitBase> OnDead;

@@ -6,43 +6,41 @@ using UnityEngine;
 
 namespace Item
 {
-    public class ItemBase : MonoBehaviour
+    public class ItemBase
     {
         
         [Header("Item Data")] public ItemSO itemData;
 
         private List<ItemEffectSO> _activeEffects = new List<ItemEffectSO>();
 
+        public ItemBase(ItemSO data)
+        {
+            this.itemData = data;
+        }
+
         #region 장착 해제 관련
 
         public bool TryEquip(UnitBase unit)
         {
-
             // 아이템 장착 처리.
-            unit.EquippedItems.Add(this);       // 유닛 아이템 장착 리스트에 추가
-
-            transform.SetParent(unit.transform);        // 아이템을 유닛의 자식으로 지정
-
-            //TODO : 시각적 위치 조정
-            // 예시 : transform.localPosition = new Vector3(0, 1.5f, 0);
-
-            ApplyItemEffect(unit);              // 아이템 효과 스탯 or 특수 효과(조합 아이템) 적용
-
-            Debug.Log($"[{unit.name}]에게 [{itemData.itemName}] 장착.");
-            return true;
+            if (unit.TryEquippedItem(this))
+            {
+                ApplyItemEffect(unit);
+                Debug.Log($"[{unit.name}]에게 [{itemData.itemName}] 장착.");
+                return true;
+            }
+            return false;
         }
 
-        public void UnequipFrom(UnitBase unit)
+        public void UnequipItem(UnitBase unit)
         {
             if (unit.EquippedItems.Contains(this))
             {
-                RemoveItemEffect(unit);     // 아이템 효과 해제
-                unit.EquippedItems.Remove(this);        // 유닛 아이템 장착 리스트 제거
+                RemoveItemEffect(unit);
 
+                unit.UnequipItem(this);
 
-                transform.SetParent(null);      // 유닛 자식 해제
-
-                // TODO: 카드로 이동
+                // TODO: 카드로 이동하거나 바닥에 떨어뜨리는 처리
             }
         }
 
@@ -70,7 +68,7 @@ namespace Item
                         continue;
                     }
 
-                    ItemEffectSO effectInstance = Instantiate(effectData);
+                    ItemEffectSO effectInstance = Object.Instantiate(effectData);
                     effectInstance.OnEquip(unit);
                     _activeEffects.Add(effectInstance); 
                 }
@@ -87,7 +85,7 @@ namespace Item
             foreach (ItemEffectSO effectInstance in _activeEffects)
             {
                 effectInstance.OnUnequip(unit);
-                Destroy(effectInstance);
+                Object.Destroy(effectInstance);
             }
             _activeEffects.Clear();
         }
