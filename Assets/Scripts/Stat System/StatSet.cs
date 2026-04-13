@@ -9,7 +9,7 @@ namespace Stat
         Dictionary<StatType, Stat> stats = new Dictionary<StatType, Stat>();
 
         //생성자 초기화
-        public StatSet(UnitStatSO unitStatSO)
+        public StatSet(UnitStatSO unitStatSO, int star = 0)
         {
             stats.Clear();
 
@@ -38,7 +38,7 @@ namespace Stat
             stats.Add(StatType.MoveSpeed, new Stat(StatType.MoveSpeed, unitStatSO.Move_Speed));        // 이동속도 초기값
 
             // 1성으로 초기화
-            SetStatByStar(unitStatSO, 0);
+            SetStatByStar(unitStatSO, star);
         }
 
         /// <summary>

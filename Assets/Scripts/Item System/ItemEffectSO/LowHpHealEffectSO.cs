@@ -1,3 +1,4 @@
+using Stat;
 using Unit;
 using UnityEngine;
 
@@ -35,18 +36,18 @@ namespace Item
 
         private void ResetEffect() => _hasTriggered = false;
 
-        private void CheckEffect(float currentHp, float maxHp)
+        private void CheckEffect(HealthInfo info)
         {
             if (BattleManager.Instance.currentBattleState != BattleState.Combat) return;
             if (_hasTriggered) return;
             if (_equippedUnit == null || _equippedUnit.CurFSM == UnitStateType.Dead) return;
 
             // 설정한 퍼센트 이하로 체력이 떨어졌는지 검사
-            if (currentHp / maxHp <= triggerHpPercent)
+            if (info.HpRatio <= triggerHpPercent)
             {
                 _hasTriggered = true;
 
-                float healAmount = maxHp * healPercent;
+                float healAmount = info.maxHp * healPercent;
                 HealInfo healInfo = new HealInfo(_equippedUnit, healAmount);
                 _equippedUnit.ApplyHeal(healInfo);
 
