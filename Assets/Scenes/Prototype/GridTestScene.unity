@@ -299,6 +299,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 45055354}
   m_Mesh: {fileID: 4300000, guid: 35e4a822e646585439111bd02e9ada88, type: 3}
+--- !u!4 &64764586 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7503444222228262918, guid: 88a7f372a36ff834a97f087994341496, type: 3}
+  m_PrefabInstance: {fileID: 7326227421644289117}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &73718600
 GameObject:
   m_ObjectHideFlags: 0
@@ -7293,21 +7298,21 @@ MonoBehaviour:
   useDontDestroyOnLoad: 1
   _testEntries:
   - cardData: {fileID: 11400000, guid: 9c931e314ca8c874baf68847b1dba5f9, type: 2}
-    count: 2
+    count: 0
   - cardData: {fileID: 11400000, guid: 1f357a8b9935c8243a497f6ab10231c2, type: 2}
-    count: 2
+    count: 0
   - cardData: {fileID: 11400000, guid: 1fbf8b4393407334b851fb970642545d, type: 2}
-    count: 2
+    count: 0
   - cardData: {fileID: 11400000, guid: fcb0a3e9573c1ea418f9e8f8836cc769, type: 2}
-    count: 2
+    count: 0
   - cardData: {fileID: 11400000, guid: 8efe29378d458824c91dd2b01fd8f43e, type: 2}
-    count: 2
+    count: 0
   - cardData: {fileID: 11400000, guid: 60def9694fbfe26448355d446bcedd1c, type: 2}
     count: 2
   - cardData: {fileID: 11400000, guid: be64589b5c8ea934cb64fdb1c1ffd184, type: 2}
-    count: 2
+    count: 4
   - cardData: {fileID: 11400000, guid: baa29506d9f92f24ea891a363058d1b6, type: 2}
-    count: 2
+    count: 4
   maxDeckSize: 40
   minDeckSize: 10
 --- !u!4 &1358473884
@@ -12034,6 +12039,122 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2054046123}
   m_Mesh: {fileID: 4300000, guid: c1b0483bd002b0141884dbd156cfe8f8, type: 3}
+--- !u!1 &2070395836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2070395837}
+  - component: {fileID: 2070395841}
+  - component: {fileID: 2070395840}
+  - component: {fileID: 2070395839}
+  - component: {fileID: 2070395838}
+  m_Layer: 5
+  m_Name: ItemSlot Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2070395837
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070395836}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 64764586}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &2070395838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070395836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46480ccbe14ba794bad27834c94a6241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.UnitItemPresenter
+  ItemSlotViewPrefab: {fileID: 2849976868564103121, guid: 1be50baa07b00cc43a32a2ccb0c66044, type: 3}
+  ItemSlotCanvas: {fileID: 2070395841}
+--- !u!114 &2070395839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070395836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &2070395840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070395836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &2070395841
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070395836}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 4
+  m_TargetDisplay: 0
 --- !u!1 &2081600655
 GameObject:
   m_ObjectHideFlags: 0
@@ -20168,6 +20289,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6390466501492028592, guid: 88a7f372a36ff834a97f087994341496, type: 3}
+      propertyPath: UnitItemPresenter
+      value: 
+      objectReference: {fileID: 2070395838}
     - target: {fileID: 7503444222228262918, guid: 88a7f372a36ff834a97f087994341496, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -20214,7 +20339,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7503444222228262918, guid: 88a7f372a36ff834a97f087994341496, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 2070395837}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88a7f372a36ff834a97f087994341496, type: 3}
 --- !u!23 &7328951990003407937
