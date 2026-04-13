@@ -2,6 +2,7 @@ using Unit;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using Stat;
 
 namespace Unit
 {
@@ -12,15 +13,30 @@ namespace Unit
     [Serializable]
     public class UnitEvents
     {
-        [Header("기본 공격 이벤트")]
-        public UnityEvent<UnitBase> OnNormalAttack;                     // 기본 공격 시작
+        //[Header("기본 공격 이벤트")]
+        //public UnityEvent<UnitBase> OnNormalAttack;                     // 기본 공격 시작
+
+
         /// <summary>
         /// 기본 공격 적중 시 (데미지 정보, 적중 유닛)
         /// </summary>
+        [Header("기본 공격 적중")]
         public UnityEvent<DamageInfo, UnitBase> OnNormalAttackHit;
 
+        /// <summary>
+        /// 피격자 기준 피격 당함 이벤트
+        /// </summary>
+        [Header("공격 피격 이벤트")]
+        public UnityEvent<HitInfo> OnHit;
+
+        /// <summary>
+        /// 공격자 기준 공격 성공 이벤트
+        /// </summary>
+        [Header("공격 성공 이벤트")]
+        public UnityEvent<HitInfo> OnDealtHit;
+
         [Header("체력 관련 이벤트")]
-        public UnityEvent<float, float> OnHpChanged;        // TODO: 이벤트 데이터 구조체 추가
+        public UnityEvent<HealthInfo> OnHpChanged;
 
         [Header("사망")]
         public UnityEvent<UnitBase> OnDead;

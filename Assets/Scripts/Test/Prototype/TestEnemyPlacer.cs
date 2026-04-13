@@ -37,7 +37,7 @@ public class TestEnemyPlacer : MonoBehaviour
                 target.Init(u.unitData, teamType);
                 target.PlaceUnit(targetTile);
                 UnitManager.Instance.RegisterUnit(target);
-                IndicatorManager.Instance.HPBarPresenter.RegisterHealthBar(target);
+                UnitUIManager.Instance.Create(target);
 
                 // TODO : 아이템이 있다면 장착
             }

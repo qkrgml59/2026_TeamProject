@@ -30,7 +30,7 @@ namespace Prototype.UI
             UpdateHp(maxHp, maxHp);
 
             // 이벤트 등록
-            _Unit.unitEvents.OnHpChanged.AddListener(UpdateHp);
+            //_Unit.unitEvents.OnHpChanged.AddListener(UpdateHp);
         }
 
         private void Update()
@@ -66,7 +66,7 @@ namespace Prototype.UI
 
         private void OnDisable()
         {
-            _Unit.unitEvents.OnHpChanged.RemoveListener(UpdateHp);
+            //_Unit.unitEvents.OnHpChanged.RemoveListener(UpdateHp);
         }
     }
 }

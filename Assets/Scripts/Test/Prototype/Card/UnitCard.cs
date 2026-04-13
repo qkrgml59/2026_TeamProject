@@ -37,7 +37,7 @@ namespace Prototype.Card
                     unit.PlaceUnit(tile);
 
                     UnitManager.Instance.RegisterUnit(unit);
-                    IndicatorManager.Instance.HPBarPresenter.RegisterHealthBar(unit);
+                    UnitUIManager.Instance.Create(unit);
 
                     Debug.Log($"{unit.name} 배치 성공");
                     return true;

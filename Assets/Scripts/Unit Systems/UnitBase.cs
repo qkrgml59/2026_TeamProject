@@ -25,8 +25,11 @@ namespace Unit
         [SerializeField] private UnitDataSO unitDataSO;
         private UnitStatSO unitStatData;
 
-        public StatSet statSet { get; private set; }            //스텟 수정할 때
+        // 스텟 정보
+        public StatSet statSet { get; private set; }
+        public int star { get; private set; }
         public float currentHp { get; private set; } = 0;
+        public float shield { get; private set; } = 0;
 
         [Header("아이템 정보")]
         public List<ItemBase> EquippedItems { get; private set; } = new List<ItemBase>();           // 장착 중인 아이템 리스트
@@ -239,7 +242,7 @@ namespace Unit
             }
 
             normalAttack.Use();
-            unitEvents.OnNormalAttack?.Invoke(this);
+            //unitEvents.OnNormalAttack?.Invoke(this);
         }
 
         public void UseSkill()
@@ -259,9 +262,9 @@ namespace Unit
             float damage = info.amount;
 
             if (damage <= 0) return;
+            if (CurFSM == UnitStateType.Idle || CurFSM == UnitStateType.Dead) return;           // 대기상태 또는 사망상태면 데미지 받지 않음
+            if (BattleManager.Instance.currentBattleState != BattleState.Combat) return;
 
-            if (BattleManager.Instance.currentBattleState != BattleState.Combat)
-                return;
 
             // 방어력, 피해 감소 등 계산
             damage = DamageCalculator.CalculateFinalDamage(info, this);
@@ -275,10 +278,14 @@ namespace Unit
 
             currentHp -= damage;
 
-            if(info.isCritical) Debug.Log($"[{gameObject.name}] -{damage} 치명타!! (공격 유닛 : {info.caster})", this);
-            else Debug.Log($"[{gameObject.name}] -{damage} 데미지 (공격 유닛 : {info.caster})", this);
+            // 적중 이벤트
+            HitInfo hitInfo = new HitInfo(damage, info.amount, HitType.Damage, info.caster, this, info.isCritical);
+            unitEvents.OnHit?.Invoke(hitInfo);                          // 피격자의 피격 완료 이벤트 호출
+            info.caster?.unitEvents.OnDealtHit?.Invoke(hitInfo);        // 공격자의 적용 완료 이벤트 호출
 
-            unitEvents.OnHpChanged?.Invoke(currentHp, statSet.MaxHp.Value);
+            // 체력 변화 이벤트
+            HealthInfo healthInfo = new HealthInfo(currentHp, statSet.MaxHp.Value, shield);
+            unitEvents.OnHpChanged?.Invoke(healthInfo);
         }
 
         public void ApplyHeal(HealInfo info)
@@ -286,9 +293,8 @@ namespace Unit
             float healAmount = info.amount;
 
             if (healAmount <= 0) return;
-
-            if (BattleManager.Instance.currentBattleState != BattleState.Combat)
-                return;
+            if (CurFSM == UnitStateType.Idle || CurFSM == UnitStateType.Dead) return;           // 대기상태 또는 사망상태면 회복 받지 않음
+            if (BattleManager.Instance.currentBattleState != BattleState.Combat) return;
 
             // 회복 증가 등 생략
 
@@ -300,7 +306,15 @@ namespace Unit
 
             Debug.Log($"[{gameObject.name}] +{healAmount} 회복 (회복 유닛 : {info.source})", this);
 
-            unitEvents.OnHpChanged?.Invoke(currentHp, statSet.MaxHp.Value);
+            // TODO : 회복 관련 데이터 수정 필요
+            // 적중 이벤트
+            //HitInfo hitInfo = new HitInfo(damage, info.amount, HitType.Heal, info.caster, this, info.isCritical);
+            //unitEvents.OnHit?.Invoke(hitInfo);                          // 피격자의 피격 완료 이벤트 호출
+            //info.caster?.unitEvents.OnDealtHit?.Invoke(hitInfo);        // 공격자의 적용 완료 이벤트 호출
+
+            // 체력 변화 이벤트
+            HealthInfo healthInfo = new HealthInfo(currentHp, statSet.MaxHp.Value, shield);
+            unitEvents.OnHpChanged?.Invoke(healthInfo);
         }
 
         /// <summary>
@@ -412,7 +426,28 @@ namespace Unit
             RestoreResource(attackResourceRegen);
         }
 
-         // 타겟 유닛 사망 시 이벤트를 통해 호출됨
+        // 시전자의 공격/회복 등이 적용 될 때
+        public void OnDealtHit(HitInfo info)
+        {
+            // 내가 가한 결과만 처리
+            if (info.caster != this) return;
+
+            switch (info.hitType)
+            {
+                case HitType.Damage:
+                    // TODO: 메서드 분리 필요
+                    float omnivamp = statSet.Omnivamp.Value;
+                    if (omnivamp > 0)
+                        ApplyHeal(new HealInfo(this, info.amount * omnivamp));      // 생명력 흡수
+                    break;
+
+                case HitType.Heal:
+                    // 회복의 성공한 경우 인디케이터 등에 추가...
+                    break;
+            }
+        }
+
+        // 타겟 유닛 사망 시 이벤트를 통해 호출됨
         protected virtual void OnTargetDead(UnitBase deadUnit)
         {
             deadUnit.unitEvents.OnDead.RemoveListener(OnTargetDead);
@@ -433,7 +468,9 @@ namespace Unit
 
             // 아이템 등의 효과 초기화(또는 재적용)
             currentHp = statSet.MaxHp.Value;
-            unitEvents.OnHpChanged?.Invoke(currentHp, statSet.MaxHp.Value);
+            shield = 0;
+            HealthInfo healthInfo = new HealthInfo(currentHp, currentHp, shield);
+            unitEvents.OnHpChanged?.Invoke(healthInfo);
             currentResource = 0;
 
             // 스킬 초기화
@@ -468,9 +505,10 @@ namespace Unit
             FSMInit();
         }
 
-        public void Init(UnitDataSO data, TeamType team)
+        public void Init(UnitDataSO data, TeamType team, int star = 0)
         {
             this.team = team;
+            this.star = star;
 
             if (data == null)
                 Debug.LogWarning("유닛 정보를 지정하지 않은 유닛이 있습니다.", this);
@@ -482,7 +520,7 @@ namespace Unit
             else
                 unitStatData = unitDataSO.statData;
 
-            statSet = new StatSet(unitStatData);
+            statSet = new StatSet(unitStatData, star);
 
             // 아이템 등의 효과 초기화(또는 재적용)
             currentHp = statSet.MaxHp.Value;
@@ -546,6 +584,7 @@ namespace Unit
             BattleManager.Instance.OnBattleEnd += OnBattleEnd;
 
             unitEvents.OnNormalAttackHit.AddListener(OnNormalAttackHit);
+            unitEvents.OnDealtHit.AddListener(OnDealtHit);
         }
 
         public void RemoveEventListener()
@@ -559,6 +598,7 @@ namespace Unit
             }
 
             unitEvents.OnNormalAttackHit.RemoveListener(OnNormalAttackHit);
+            unitEvents.OnDealtHit.RemoveListener(OnDealtHit);
 
             if (targetUnit != null)
                 targetUnit.unitEvents.OnDead.RemoveListener(OnTargetDead);
