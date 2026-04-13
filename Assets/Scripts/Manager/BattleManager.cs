@@ -98,7 +98,14 @@ public class BattleManager : SingletonMonoBehaviour<BattleManager>
             delayRountine = null;
         }
 
-        delayRountine = StartCoroutine(DelayRountine(roundEndDuration, () => RoundEnd()));
+        delayRountine = StartCoroutine(
+        DelayRountine(roundEndDuration, () =>
+        {
+            RewardManager.Instance.StartRewardPhase();
+
+            RoundEnd();
+        })
+    );
     }
 
     [ContextMenu("라운드 종료")]
@@ -140,7 +147,6 @@ public class BattleManager : SingletonMonoBehaviour<BattleManager>
 
     private void HandleRewardSelect(CardDataSO card)
     {
-        DeckManager.Instance.TryAddCardToDeck(card);
         if (card == null)
         {
             Debug.LogError("Reward에서 null 카드 들어옴");
@@ -158,8 +164,6 @@ public class BattleManager : SingletonMonoBehaviour<BattleManager>
         NextRound();
         // TODO: 카드 풀 시스템 생기면 추가
         // CardPoolManager.Instance?.RemoveCard(card);
-
-        NextRound();
     }
 
     private void HandleRewardSkip()
