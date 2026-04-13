@@ -1,5 +1,5 @@
 using Prototype.Skill;
-using Stat;
+using StatSystem;
 using System.Collections;
 using UnityEngine;
 

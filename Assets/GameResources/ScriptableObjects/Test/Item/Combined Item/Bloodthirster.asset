@@ -17,7 +17,6 @@ MonoBehaviour:
   itemDescription: "\uC804\uD22C \uB2F9 \uD55C \uBC88 \uCCB4\uB825\uC774 40% \uC774\uD558\uAC00
     \uB418\uC5C8\uC744 \uB54C 25%\uC758 \uC2E4\uB4DC\uB97C \uD68D\uB4DD \uD6C4 5\uCD08\uAC04
     \uC720\uC9C0"
-  itemPrefab: {fileID: 521645222006639495, guid: 7779b40cfc5509c4c82c3121de2496b5, type: 3}
   modifiers:
   - statType: 1
     modifierType: 1
@@ -29,7 +28,7 @@ MonoBehaviour:
     modifierType: 0
     value: 20
   - statType: 11
-    modifierType: 1
+    modifierType: 0
     value: 20
   effectModules:
   - {fileID: 11400000, guid: bc800fc8fb6b8624bb527187fdab5d1b, type: 2}

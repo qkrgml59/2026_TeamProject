@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Stat;
+using StatSystem;
 
 namespace Item
 {

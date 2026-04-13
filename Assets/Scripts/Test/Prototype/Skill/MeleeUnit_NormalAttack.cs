@@ -1,6 +1,6 @@
 using UnityEngine;
 using Unit;
-using Stat;
+using StatSystem;
 namespace Prototype.Skill
 { 
     public class MeleeUnit_NormalAttack : SkillBase

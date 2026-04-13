@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Stat
+namespace StatSystem
 {
 
     /// <summary>

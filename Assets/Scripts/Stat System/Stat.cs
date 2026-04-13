@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System;
 
-namespace Stat
+namespace StatSystem
 {
     /// <summary>
     /// 스텟 하나의 수치 단위

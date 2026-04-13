@@ -1,5 +1,5 @@
 using Unit;
-using Stat;
+using StatSystem;
 using UnityEngine;
 
 namespace Prototype.Skill

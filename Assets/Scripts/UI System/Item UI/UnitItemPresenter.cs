@@ -16,7 +16,7 @@ namespace Game.UI
         {
             if (viewData.ContainsKey(unit))
             {
-                viewData[unit].Init(unit);
+                //viewData[unit].Init(unit);
             }
             else
             {
@@ -33,7 +33,7 @@ namespace Game.UI
                 }
 
                 UnitItemView view = Instantiate(ItemSlotViewPrefab, ItemSlotCanvas.transform);
-                view.Init(unit);
+                //view.Init(unit);
                 viewData.Add(unit, view);
             }
 

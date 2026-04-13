@@ -1,3 +1,5 @@
+using Item;
+using System.Collections.Generic;
 using Unit;
 using UnityEngine;
 
@@ -10,6 +12,7 @@ namespace Game.UI
     {
         [Header("참조용 View")]
         public UnitHpView hpView;
+        public UnitItemView itemView;
 
         // 유닛 추적용
         RectTransform rectTransform;
@@ -43,6 +46,16 @@ namespace Game.UI
             worldPos += Vector3.up * 4f;
             Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);
             rectTransform.position = screenPos;
+        }
+
+        public void OnItemChanged(List<ItemBase> items)
+        {
+            if (itemView == null) return;
+
+            if(items.Count == 0) itemView.gameObject.SetActive(false);
+
+            itemView.gameObject.SetActive(true);
+            itemView.UpdateItems(items);
         }
     }
 }

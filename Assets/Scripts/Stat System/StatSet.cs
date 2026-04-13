@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Unit;
 using UnityEngine;
 
-namespace Stat
+namespace StatSystem
 {
     public class StatSet
     {

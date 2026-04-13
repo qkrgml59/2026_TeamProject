@@ -8,34 +8,15 @@ namespace Game.UI
     public class UnitItemView : MonoBehaviour
     {
         public ItemSlotView[] slots;
-        public RectTransform rectTransform;
 
-        [Header("위치 설정")]
-        public float yOffset = 3.5f;
-
-        UnitBase _Unit;
-
-        public void Init(UnitBase unit)
+        public void Init()
         {
-            _Unit = unit;
+            for (int i = 0; i < slots.Length; i++)
+            {
+                slots[i].Hide();
+            }
 
-            UpdatePosition();
-            UpdateItems(_Unit.EquippedItems);
-            _Unit.unitEvents.OnItemChanged.AddListener(UpdateItems);
-        }
-
-        private void Update()
-        {
-            if (_Unit != null && _Unit.CurFSM != UnitStateType.Dead)
-                UpdatePosition();
-        }
-
-        public void UpdatePosition()
-        {
-            Vector3 worldPos = _Unit.transform.position;
-            worldPos += Vector3.up * yOffset;
-            Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);
-            rectTransform.position = screenPos;
+            gameObject.SetActive(false);
         }
 
         public void UpdateItems(List<ItemBase> items)
@@ -54,12 +35,6 @@ namespace Game.UI
                 else
                     slots[i].Hide();
             }
-        }
-
-        private void OnDisable()
-        {
-            if (_Unit != null && _Unit.unitEvents != null)
-                _Unit.unitEvents.OnItemChanged.RemoveListener(UpdateItems);
         }
     }
 }

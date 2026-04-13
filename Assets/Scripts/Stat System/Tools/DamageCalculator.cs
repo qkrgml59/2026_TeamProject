@@ -1,7 +1,7 @@
 using Unit;
 using UnityEngine;
 
-namespace Stat
+namespace StatSystem
 {
 
     public static class DamageCalculator

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unit.Skill;
 using UnityEngine;
 using UnityEngine.UI;
-using Stat;
+using StatSystem;
 
 namespace Unit.Skill
 {

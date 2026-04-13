@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unit;
 using UnityEngine;
 using UnityEngine.Events;
-using Stat;
+using StatSystem;
 
 namespace Unit
 {

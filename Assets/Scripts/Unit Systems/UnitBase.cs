@@ -1,5 +1,5 @@
 using Prototype.Grid;
-using Stat;
+using StatSystem;
 using System.Collections.Generic;
 using UnityEngine;
 using Unit.Skill;
@@ -392,10 +392,10 @@ namespace Unit
         /// <param name="modifier"> 증가량 </param>
         public void AddStatModifier(StatType type, object source, StatModifier modifier)
         {
-            Stat.Stat stat = statSet.Get(type);
-
+            Stat stat = statSet.Get(type);
             if (stat != null)
             {
+                Debug.Log($"{type} 스텟 추가 ({modifier.value})");
                 stat.AddModifier(source, modifier);
             }
         }
@@ -421,6 +421,7 @@ namespace Unit
         {
             if (!CanEquipItem(this.team)) return false;
 
+            item.ApplyItem(this);       // 아이템 효과 적용
             EquippedItems.Add(item);
 
             unitEvents.OnItemChanged?.Invoke(EquippedItems);
@@ -431,8 +432,8 @@ namespace Unit
         {
             if (EquippedItems.Contains(item))
             {
+                item.RemoveItem(this);
                 EquippedItems.Remove(item);
-
                 unitEvents.OnItemChanged?.Invoke(EquippedItems);
             }
         }
@@ -458,7 +459,9 @@ namespace Unit
                     // TODO: 메서드 분리 필요
                     float omnivamp = statSet.Omnivamp.Value;
                     if (omnivamp > 0)
-                        ApplyHeal(new HealInfo(this, info.amount * omnivamp));      // 생명력 흡수
+                    {
+                        ApplyHeal(new HealInfo(this, info.amount * omnivamp * 0.01f));      // 생명력 흡수
+                    }
                     break;
 
                 case HitType.Heal:

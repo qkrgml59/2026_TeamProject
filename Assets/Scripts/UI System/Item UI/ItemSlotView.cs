@@ -9,17 +9,19 @@ namespace Game.UI
 
         public void Show(Sprite iconSprite)
         {
+            gameObject.SetActive(true);
             if (iconSprite != null)
             {
                 iconImage.sprite = iconSprite;
-                iconImage.enabled = true;
+                //iconImage.enabled = true;
             }
         }
 
         public void Hide()
         {
+            gameObject.SetActive(false);
             iconImage.sprite = null;
-            iconImage.enabled = false;
+            //iconImage.enabled = false;
         }
     }
 }

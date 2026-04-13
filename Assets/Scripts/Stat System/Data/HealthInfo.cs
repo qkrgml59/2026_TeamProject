@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Stat
+namespace StatSystem
 {
     /// <summary>
     /// 유닛의 체력 관련 정보를 전달하는 구조체

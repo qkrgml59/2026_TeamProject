@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using Stat;
+using StatSystem;
 
 namespace Unit.Skill
 {
