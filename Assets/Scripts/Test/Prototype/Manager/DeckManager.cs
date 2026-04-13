@@ -19,8 +19,9 @@ namespace Prototype.Card
         public event Action<CardDataSO, int> OnCardAdded;
         public event Action<CardDataSO, int> OnCardRemoved;
 
-        private void Awake() 
+        protected new void Awake() 
         {
+            base.Awake();
             InitDeck();
         }
 
