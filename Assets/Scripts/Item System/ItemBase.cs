@@ -20,26 +20,17 @@ namespace Item
 
         #region 장착 해제 관련
 
-        public bool TryEquip(UnitBase unit)
+        public void ApplyItem(UnitBase unit)
         {
-            // 아이템 장착 처리.
-            if (unit.TryEquippedItem(this))
-            {
-                ApplyItemEffect(unit);
-                Debug.Log($"[{unit.name}]에게 [{itemData.itemName}] 장착.");
-                return true;
-            }
-            return false;
+            ApplyItemEffect(unit);
+            Debug.Log($"[{unit.name}]에게 [{itemData.itemName}] 장착.");
         }
 
-        public void UnequipItem(UnitBase unit)
+        public void RemoveItem(UnitBase unit)
         {
             if (unit.EquippedItems.Contains(this))
             {
                 RemoveItemEffect(unit);
-
-                unit.UnequipItem(this);
-
                 // TODO: 카드로 이동하거나 바닥에 떨어뜨리는 처리
             }
         }
