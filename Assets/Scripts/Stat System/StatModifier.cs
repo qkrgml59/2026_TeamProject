@@ -7,7 +7,7 @@ namespace StatSystem
     /// 추가 스텟을 관리하는 클래스
     /// </summary>
     [System.Serializable]
-    public class StatModifier
+    public struct StatModifier
     {
         [Header("대상 스텟")] public StatType statType;                                          // 스텟 종류
         [Header("연산 방식 ( 고정 수치 증가 or % 증가 )")] public ModifierType modifierType;      // 강화 타입
