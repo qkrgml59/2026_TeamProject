@@ -49,7 +49,7 @@ namespace Prototype.Card
                     return false;
                 }
 
-                if(tile.TeamType != GetTargetTile())
+                if(tile.TeamType != GetTargetTile() && GetTargetTile() != TeamType.Both)
                 {
                     Debug.Log("사용 가능한 타일이 아닙니다.");
                     return false;

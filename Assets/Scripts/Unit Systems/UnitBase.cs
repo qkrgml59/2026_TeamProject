@@ -560,7 +560,8 @@ namespace Unit
             skill?.Init(this);
 
             // 이미지 적용
-            ApplyVisual(unitDataSO.unitSprite.texture);
+            if(unitDataSO.unitSprite != null)
+                ApplyVisual(unitDataSO.unitSprite.texture);
 
             // 이름 변경
             transform.name = unitDataSO.Name_EN;

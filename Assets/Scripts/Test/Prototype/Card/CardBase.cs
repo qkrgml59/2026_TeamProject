@@ -74,7 +74,7 @@ namespace Prototype.Card
             _originAnchoredPos = rectTransform.anchoredPosition;
 
             // 프리뷰 활성화
-            GridManager.Instance.OnBeginDrag(GetTargetTile());
+            GridManager.Instance.OnBeginDrag?.Invoke(GetTargetTile());
         }
 
         // 드래그 중
@@ -130,7 +130,7 @@ namespace Prototype.Card
             }
 
             // 프리뷰 비활성화
-            GridManager.Instance.OnEndDrag();
+            GridManager.Instance.OnEndDrag?.Invoke();
         }
 
         /// <summary>
