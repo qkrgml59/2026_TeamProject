@@ -16,5 +16,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 2773a3afd607b4a4cb1d188b0deb1f0d, type: 3}
   cardName: "\uB108\uC2A4"
   description: "\uD574\uB2F9 \uC720\uB2DB \uC18C\uD658"
+  cardCost: 1
   cardPrefab: {fileID: -4292617042704308234, guid: 337aaef10b8b5f941b7bd05811aed61e, type: 3}
   unitDataSO: {fileID: 11400000, guid: bb38bd748662cfd41883122497b8520f, type: 2}
