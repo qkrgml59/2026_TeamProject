@@ -11,6 +11,11 @@ namespace Prototype.Card
     {
         ItemCardDataSO item;
 
+        public override TeamType GetTargetTile()
+        {
+            return TeamType.Ally;       // 아이템 카드는 기본적으로 아군 타일에만
+        }
+
         public override void Init(CardDataSO data)
         {
             base.Init(data);

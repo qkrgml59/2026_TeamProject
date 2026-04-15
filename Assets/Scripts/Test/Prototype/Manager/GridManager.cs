@@ -1,6 +1,8 @@
 using UnityEngine;
 using Utilitys;
 using Prototype.Grid.Pathfind;
+using Unit;
+using System;
 
 namespace Prototype.Grid
 {
@@ -28,6 +30,9 @@ namespace Prototype.Grid
 
         [Header("패스파인더")]
         public HexGridPathfinder pathfinder;
+
+        public Action<TeamType> OnBeginDrag;
+        public Action OnEndDrag;
 
         void Start()
         {
@@ -73,17 +78,23 @@ namespace Prototype.Grid
 
             map = new HexTile[column, row];
 
-            for (int col = 0; col < map.GetLength(0); col++)
-                for (int row = 0; row < map.GetLength(1); row++)
+            for (int row = 0; row < map.GetLength(1); row++)
+            {
+                // 전체 row의 중간에서 아래쪽은 아군
+                TeamType team = (row < this.row / 2) ?
+                    TeamType.Ally : TeamType.Enemy;
+
+                for (int col = 0; col < map.GetLength(0); col++)
                 {
                     HexTile tile = Instantiate(hexTilePrefab);
                     tile.name = $"HexTile [{col}, {row}]";
                     tile.transform.SetParent(transform);
                     tile.transform.position = transform.position + HexMath.GetWorldPosition(col, row, tileSize);
 
-                    tile.SetOffset(new Vector2Int(col, row));
+                    tile.Init(new Vector2Int(col, row), team);
                     map[col, row] = tile;
                 }
+            }
 
             Debug.Log($"{column} x {row} 사이즈의 그리드 생성");
         }

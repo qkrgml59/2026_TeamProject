@@ -10,6 +10,12 @@ namespace Prototype.Card
     {
         public UnitBase unitPrefab;
         UnitCardDataSO unitData;
+
+        public override TeamType GetTargetTile()
+        {
+            return TeamType.Ally;           // 유닛 카드는 아군 타일에만 배치 가능
+        }
+
         public override void Init(CardDataSO data)
         {
             base.Init(data);
@@ -30,7 +36,7 @@ namespace Prototype.Card
 
             if (tile != null)
             {
-                if (tile.CanReserve(null))
+                if (tile.CanReserve(null) && tile.TeamType == TeamType.Ally)        // 배치 가능하고, 아군칸 일때만 배치
                 {
                     UnitBase unit = Instantiate(unitPrefab, tile.transform.position, Quaternion.identity);
                     unit.Init(unitData.unitDataSO, TeamType.Ally);

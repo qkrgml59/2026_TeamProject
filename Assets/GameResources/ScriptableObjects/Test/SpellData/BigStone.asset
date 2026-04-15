@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Spell.SpellSO
   icon: {fileID: -8664114341009592047, guid: e31da1f5fcdb11b41acf654c31b588f3, type: 3}
   spellName: "\uC9F1\uB3CC"
+  tileArea: 3
   description: "10\uB9CC\uD07C\uC758 \uACE0\uC815\uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
   effect: {fileID: 11400000, guid: 0ca5e8abcc94db54c8300d4ea65bc0f2, type: 2}

@@ -1,3 +1,4 @@
+using Prototype.Grid;
 using UnityEngine;
 
 namespace Spell
@@ -9,7 +10,7 @@ namespace Spell
         /// RaycastHit 그리드 타일 검사후 실행
         /// </summary>
         /// <returns> 스펠 발동 성공 시 bool값으로 체크 후 반환.</returns>
-        public abstract bool TryExecute(RaycastHit hit);
+        public abstract bool TryExecute(HexTile tile);
 
         public abstract string GetDescription();
 

@@ -12,9 +12,21 @@ namespace Prototype.Grid
         public UnitBase OccupantUnit { get; private set; }
         public UnitBase ReservedUnit { get; private set; }
 
-        public void SetOffset(Vector2Int offset)
+        public TeamType TeamType { get; private set; }
+
+        // 타일 프리뷰 랜더러
+        Renderer hexRenderer;
+
+        private void Awake()
         {
-            this.Offset = offset; 
+            hexRenderer = GetComponentInChildren<Renderer>();
+            if(hexRenderer != null ) hexRenderer.enabled = false;
+        }
+
+        public void Init(Vector2Int offset, TeamType team)
+        {
+            this.Offset = offset;
+            TeamType = team;
         }
 
         /// <summary>
@@ -65,6 +77,41 @@ namespace Prototype.Grid
             ReservedUnit = null;
         }
 
+        private void OnEnable()
+        {
+            if(GridManager.Instance != null)
+            {
+                GridManager.Instance.OnBeginDrag += OnBeginDrag;
+                GridManager.Instance.OnEndDrag += OnEndDrag;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (GridManager.Instance != null)
+            {
+                GridManager.Instance.OnBeginDrag -= OnBeginDrag;
+                GridManager.Instance.OnEndDrag -= OnEndDrag;
+            }
+        }
+
+        void OnBeginDrag(TeamType team)
+        {
+            if (team == TeamType.Both || team == TeamType)          // 둘다 가능하거나 타일에 해당하는 영역이라면
+                ActiveRender(true);                                 // 프리뷰 활성화
+            else
+                ActiveRender(false);
+        }
+
+        void OnEndDrag()
+        {
+            ActiveRender(false);
+        }
+
+        void ActiveRender(bool active)
+        {
+            if(hexRenderer != null) hexRenderer.enabled = active;
+        }
     }
 
 }

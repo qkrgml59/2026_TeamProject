@@ -12,7 +12,8 @@ namespace Unit
     {
         Null,
         Ally,
-        Enemy
+        Enemy,
+        Both
     }
 
     public class UnitBase : MonoBehaviour, IHealthReceiver

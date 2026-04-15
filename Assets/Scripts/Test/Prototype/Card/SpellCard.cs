@@ -2,6 +2,7 @@ using Prototype.Card;
 using Prototype.Card.Spell;
 using Prototype.Grid;
 using Spell;
+using Unit;
 using UnityEngine;
 
 namespace Prototype.Card
@@ -9,6 +10,17 @@ namespace Prototype.Card
     public class SpellCard : CardBase
     {
         SpellCardDataSO spell;
+
+        public override TeamType GetTargetTile()
+        {
+            // 스펠은 스펠에 따라 사용 타일이 다름
+            if(spell != null && spell.spellSO != null)
+            {
+                return spell.spellSO.tileArea;
+            }
+
+            return TeamType.Null;
+        }
 
         public override void Init(CardDataSO data)
         {
@@ -31,13 +43,20 @@ namespace Prototype.Card
             {
                 HexTile tile = hit.transform.GetComponent<HexTile>();
 
-                if (tile != null)
+                if (tile == null)
                 {
-                    bool isSuccess = spellData.effect.TryExecute(tile);
-                    return isSuccess;
+                    Debug.Log("타일 위에 사용하십시오");
+                    return false;
                 }
 
-                Debug.Log("타일 위에 사용하십시오");
+                if(tile.TeamType != GetTargetTile())
+                {
+                    Debug.Log("사용 가능한 타일이 아닙니다.");
+                    return false;
+                }
+
+                bool isSuccess = spellData.effect.TryExecute(tile);
+                return isSuccess;
             }
 
             return false;

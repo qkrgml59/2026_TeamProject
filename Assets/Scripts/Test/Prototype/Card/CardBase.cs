@@ -35,6 +35,12 @@ namespace Prototype.Card
             cardDescription.text = data.description;
         }
 
+        #region Preview Setting
+
+        public abstract TeamType GetTargetTile();
+
+        #endregion
+
         #region Hover Event
         // 마우스가 카드 위에 올라옴
         public void OnPointerEnter(PointerEventData eventData)
@@ -66,6 +72,9 @@ namespace Prototype.Card
             Debug.Log("드래그 시작");
             rectTransform.SetAsLastSibling();
             _originAnchoredPos = rectTransform.anchoredPosition;
+
+            // 프리뷰 활성화
+            GridManager.Instance.OnBeginDrag(GetTargetTile());
         }
 
         // 드래그 중
@@ -119,6 +128,9 @@ namespace Prototype.Card
                 // 타일(또는 다른 상호작용 공간)이 아니라면 돌아가기
                 rectTransform.anchoredPosition = _originAnchoredPos;
             }
+
+            // 프리뷰 비활성화
+            GridManager.Instance.OnEndDrag();
         }
 
         /// <summary>
