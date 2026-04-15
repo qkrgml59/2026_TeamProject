@@ -12,7 +12,7 @@ namespace Spell.Effects
         //이펙트
         //public GameObject projectilePrefab;       이펙티 추가할 때.
 
-        public override bool TryExecute(RaycastHit hit)
+        public override bool TryExecute(HexTile tile)
         {
             // 전투 중이 아닐 때의 예외 처리
             if (BattleManager.Instance.currentBattleState != BattleState.Combat)
@@ -21,43 +21,36 @@ namespace Spell.Effects
                 return false;
             }
 
-            HexTile tile = hit.transform.GetComponent<HexTile>();
-
-            if (tile != null)
+            //타일 위에 유닛이 있을 때
+            if (tile.OccupantUnit != null)
             {
-                //타일 위에 유닛이 있을 때
-                if (tile.OccupantUnit != null)
+                // 아군에게 사용 시 예외 처리
+                if (tile.OccupantUnit.team == Unit.TeamType.Ally)
                 {
-                    // 아군에게 사용 시 예외 처리
-                    if (tile.OccupantUnit.team == Unit.TeamType.Ally)
-                    {
-                        Debug.LogWarning("아군 유닛에게는 공격 마법을 사용할 수 없습니다!");
-                        return false;
-                    }
-
-                    DamageInfo info = new DamageInfo(
-                        caster : null,
-                        amount : damage,
-                        damageType : damageType,
-                        isCritical : false
-                    );
-
-                    tile.OccupantUnit.ApplyDamage(info);
-
-                    Debug.Log($"카드 사용 {tile.OccupantUnit.name}에게 {damage}의 피해를 입힘.");
-
-                    /*      //이펙트 추가 시.
-                    if (projectilePrefab != null)
-                    {
-                        Instantiate(projectilePrefab, tile.transform.position, Quaternion.identity);
-                    }   */
-
-                    return true;
+                    Debug.LogWarning("아군 유닛에게는 공격 마법을 사용할 수 없습니다!");
+                    return false;
                 }
-                return false;
+
+                DamageInfo info = new DamageInfo(
+                    caster : null,
+                    amount : damage,
+                    damageType : damageType,
+                    isCritical : false
+                );
+
+                tile.OccupantUnit.ApplyDamage(info);
+
+                Debug.Log($"카드 사용 {tile.OccupantUnit.name}에게 {damage}의 피해를 입힘.");
+
+                /*      //이펙트 추가 시.
+                if (projectilePrefab != null)
+                {
+                    Instantiate(projectilePrefab, tile.transform.position, Quaternion.identity);
+                }   */
+
+                return true;
             }
 
-            Debug.LogWarning("타일을 지정하세요.");
             return false;
         }
 

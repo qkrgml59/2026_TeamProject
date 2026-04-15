@@ -29,8 +29,15 @@ namespace Prototype.Card
 
             if (spellData.effect != null)
             {
-                bool isSuccess = spellData.effect.TryExecute(hit);
-                return isSuccess;
+                HexTile tile = hit.transform.GetComponent<HexTile>();
+
+                if (tile != null)
+                {
+                    bool isSuccess = spellData.effect.TryExecute(tile);
+                    return isSuccess;
+                }
+
+                Debug.Log("타일 위에 사용하십시오");
             }
 
             return false;
