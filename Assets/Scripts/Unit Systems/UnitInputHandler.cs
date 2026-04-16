@@ -3,8 +3,10 @@ using UnityEngine.EventSystems;
 using Prototype.Grid;
 using Unit;
 using System.Collections.Generic;
+using Game.UI;
 
-namespace Unit{
+namespace Unit
+{
 
     public class UnitDragHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
     {
@@ -29,10 +31,17 @@ namespace Unit{
         public virtual void OnPointerClick(PointerEventData eventData)
         {
             // Debug.Log("클릭!");
+            if (_unit == null) return;
+
+
+            if(DetailPanelController.Instance != null)
+            {
+                DetailPanelController.Instance.ShowUnitDetail(_unit);
+            }
         }
 
         #region Pointer Event
-           public void OnPointerEnter(PointerEventData eventData)
+        public void OnPointerEnter(PointerEventData eventData)
         {
             // Debug.Log("마우스 올라옴");
         }
@@ -105,9 +114,9 @@ namespace Unit{
                         _unit.EnterTile(tile);
                         _unit.transform.position = tile.transform.position;
                     }
-                    else
+                    else if(tile.OccupantUnit != _unit)
                     {
-                        // 타겟 타일에 유닛이 있는 경우
+                        // 타겟 타일에 유닛이 있는 경우 (자기 자신이 아니면)
                         originTile.ExitTile(_unit);
 
                         // 타겟 유닛 먼저 이동

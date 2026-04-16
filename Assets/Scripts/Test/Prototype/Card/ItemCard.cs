@@ -1,9 +1,11 @@
+using Game.UI;
 using Item;
 using Prototype.Card.Item;
 using Prototype.Grid;
 using Prototype.UI;
 using Unit;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Prototype.Card
 {
@@ -70,6 +72,14 @@ namespace Prototype.Card
 
             //유닛이 없을 때
             return false;
+        }
+
+
+        // 마우스 클릭
+        public override void OnPointerClick(PointerEventData eventData)
+        {
+            if (DetailPanelController.Instance != null && item != null && item.itemSO != null)
+                DetailPanelController.Instance.ShowItemDetail(item.itemSO);
         }
     }
 }

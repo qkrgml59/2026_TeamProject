@@ -59,7 +59,7 @@ namespace Prototype.Card
         #endregion
 
         // 마우스 클릭
-        public void OnPointerClick(PointerEventData eventData)
+        public virtual void OnPointerClick(PointerEventData eventData)
         {
             Debug.Log("클릭!");
         }

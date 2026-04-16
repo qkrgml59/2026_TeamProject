@@ -1,8 +1,10 @@
+using Game.UI;
 using Prototype.Card.Unit;
 using Prototype.Grid;
 using Prototype.UI;
 using Unit;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Prototype.Card
 {
@@ -47,7 +49,7 @@ namespace Prototype.Card
                     UnitManager.Instance.RegisterUnit(unit);
                     UnitUIManager.Instance.Create(unit);
 
-                    unit.RefreshAllUnitInfo();
+                    unit.RecalculateUnitStats();
 
                     Debug.Log($"{unit.name} 배치 성공");
                     return true;
@@ -57,5 +59,12 @@ namespace Prototype.Card
             return false;
         }
 
+
+        // 마우스 클릭
+        public override void OnPointerClick(PointerEventData eventData)
+        {
+            if (DetailPanelController.Instance != null && unitData != null)
+                DetailPanelController.Instance.ShowUnitCardDetail(unitData);
+        }
     }
 }

@@ -26,7 +26,7 @@ namespace Game.UI
 
             if(_view.itemView != null)
             {
-                _view.itemView.Init();
+                _view.itemView.Clear();
                 unit.unitEvents.OnItemChanged.AddListener(_view.OnItemChanged);
             }
 

@@ -1,4 +1,5 @@
 using StatSystem;
+using TMPro;
 using Unit;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ namespace Game.UI
     {
         [Header("현재 자원 표시")]
         public Image curResource;
+        public TextMeshProUGUI curResorceText;
 
         [Header("자원 색상")]
         public Color manaColor;     // 마나 색상
@@ -39,17 +41,29 @@ namespace Game.UI
 
         public void OnResourceChanged(ResourceInfo info)
         {
-            if (curResource == null) return;
-
-            if(info.resourceType != preType)
+            if (curResorceText != null)
             {
-                // 기존과 타입이 다른 경우 색상 변경
-                preType = info.resourceType;
-                SetResourceColor(info.resourceType);
+                curResorceText.text = $"{info.currrentResource.ToString("F0")}/{info.maxResource.ToString("F0")}";
             }
 
-            float ratio = info.ResourceRatio;
-            curResource.fillAmount = ratio;
+            if (curResource != null)
+            {
+                if (info.resourceType != preType)
+                {
+                    // 기존과 타입이 다른 경우 색상 변경
+                    preType = info.resourceType;
+                    SetResourceColor(info.resourceType);
+                }
+
+                float ratio = info.ResourceRatio;
+                curResource.fillAmount = ratio;
+            }
+        }
+
+        public void Clear()
+        {
+            if (curResorceText != null) curResorceText.text = "/";
+            if (curResource != null) curResource.fillAmount = 0;
         }
     }
 }

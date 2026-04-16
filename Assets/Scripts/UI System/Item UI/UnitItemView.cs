@@ -9,14 +9,12 @@ namespace Game.UI
     {
         public ItemSlotView[] slots;
 
-        public void Init()
+        public void Clear()
         {
             for (int i = 0; i < slots.Length; i++)
             {
                 slots[i].Hide();
             }
-
-            gameObject.SetActive(false);
         }
 
         public void UpdateItems(List<ItemBase> items)

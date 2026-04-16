@@ -1,9 +1,12 @@
+using Game.UI;
 using Prototype.Card;
 using Prototype.Card.Spell;
 using Prototype.Grid;
 using Spell;
 using Unit;
 using UnityEngine;
+using static UnityEditor.Progress;
+using UnityEngine.EventSystems;
 
 namespace Prototype.Card
 {
@@ -63,6 +66,14 @@ namespace Prototype.Card
             }
 
             return false;
+        }
+
+
+        // 마우스 클릭
+        public override void OnPointerClick(PointerEventData eventData)
+        {
+            if (DetailPanelController.Instance != null && spell != null && spell.spellSO != null)
+                DetailPanelController.Instance.ShowSpellDetail(spell.spellSO);
         }
     }
 }

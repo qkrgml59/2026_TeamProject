@@ -26,6 +26,7 @@ namespace Unit
         [SerializeField] private Renderer quadRenderer;
         private MaterialPropertyBlock mpb;
         [SerializeField] private UnitDataSO unitDataSO;
+        public UnitDataSO UnitData => unitDataSO;
         private UnitStatSO unitStatData;
 
         // 스텟 정보
@@ -290,8 +291,7 @@ namespace Unit
             info.caster?.unitEvents.OnDealtHit?.Invoke(hitInfo);        // 공격자의 적용 완료 이벤트 호출
 
             // 체력 변화 이벤트
-            HealthInfo healthInfo = new HealthInfo(currentHp, statSet.MaxHp.Value, shield);
-            unitEvents.OnHpChanged?.Invoke(healthInfo);
+            unitEvents.OnHpChanged?.Invoke(GetHealthInfo());
         }
 
         public void ApplyHeal(HealInfo info)
@@ -319,8 +319,7 @@ namespace Unit
             //info.caster?.unitEvents.OnDealtHit?.Invoke(hitInfo);        // 공격자의 적용 완료 이벤트 호출
 
             // 체력 변화 이벤트
-            HealthInfo healthInfo = new HealthInfo(currentHp, statSet.MaxHp.Value, shield);
-            unitEvents.OnHpChanged?.Invoke(healthInfo);
+            unitEvents.OnHpChanged?.Invoke(GetHealthInfo());
         }
 
         /// <summary>
@@ -370,8 +369,7 @@ namespace Unit
             currentResource = Mathf.Clamp(currentResource, 0, skill ? skill.Cost : 0);
 
             // 마나 변경 정보 넘기기
-            ResourceInfo info = new ResourceInfo(resourceType, currentResource, skill ? skill.Cost : 0);
-            unitEvents.OnResourceChanged?.Invoke(info);
+            unitEvents.OnResourceChanged?.Invoke(GetResourceInfo());
             Debug.Log($"[{name}] 현재 자원 {currentResource}");
 
             if (currentResource >= skill.Cost)
@@ -392,8 +390,7 @@ namespace Unit
             currentResource = Mathf.Max(currentResource - amount, 0);
 
             // 마나 변경 정보 넘기기
-            ResourceInfo info = new ResourceInfo(resourceType, currentResource, skill ? skill.Cost : 0);
-            unitEvents.OnResourceChanged?.Invoke(info);
+            unitEvents.OnResourceChanged?.Invoke(GetResourceInfo());
             Debug.Log($"[{name}] 현재 자원 {currentResource}");
         }
 
@@ -457,6 +454,20 @@ namespace Unit
 
         #region CombatEvent Listner
 
+        /// <summary>
+        /// 유닛 상태 전체를 다시 구성
+        /// </summary>
+        public void RecalculateUnitStats()
+        {
+            currentHp = statSet.MaxHp.Value;
+            shield = 0;
+
+            currentResource = 0;
+
+            // UI 리프래쉬
+            RefreshAllUnitInfo();
+        }
+
         // 기본 공격이 적중 시
         protected virtual void OnNormalAttackHit(DamageInfo info, UnitBase hitUnit)
         {
@@ -506,9 +517,7 @@ namespace Unit
             PlaceUnit(startTile);
 
             // 아이템 등의 효과 초기화(또는 재적용)
-
-            // 유닛 정보 관련 UI 초기화 이벤트
-            RefreshAllUnitInfo();
+            RecalculateUnitStats();
 
             // 스킬 초기화
             normalAttack?.Init(this);
@@ -681,26 +690,42 @@ namespace Unit
         }
         #endregion
 
+        #region Event Info Fuction
+
         /// <summary>
-        /// 유닛 정보 관련 이벤트를 전부 호출하여 초기화 합니다. 
+        /// 체력 정보를 반환합니다.
         /// </summary>
+        public HealthInfo GetHealthInfo()
+        {
+            return new HealthInfo(currentHp, statSet.MaxHp.Value, shield);
+        }
+
+        /// <summary>
+        /// 자원 정보를 반환합니다.
+        /// </summary>
+        public ResourceInfo GetResourceInfo()
+        {
+            return new ResourceInfo(resourceType, currentResource, skill ? skill.Cost : 0);
+        }
+
+        /// <summary>
+        /// 초기화 관련 유닛 이벤트를 모두 호출합니다.
+        /// </summary>
+
         public void RefreshAllUnitInfo()
         {
             // 체력 UI 초기화
-            currentHp = statSet.MaxHp.Value;
-            shield = 0;
-            HealthInfo healthInfo = new HealthInfo(currentHp, currentHp, shield);
-            unitEvents.OnHpChanged?.Invoke(healthInfo);
+            unitEvents.OnHpChanged?.Invoke(GetHealthInfo());
 
             // 마나 UI 초기화
-            currentResource = 0;
-            ResourceInfo info = new ResourceInfo(resourceType, currentResource, skill ? skill.Cost : 0);
-            unitEvents.OnResourceChanged?.Invoke(info);
-            Debug.Log($"[{name}] 현재 자원 {currentResource}");
+            unitEvents.OnResourceChanged?.Invoke(GetResourceInfo());
 
             // 아이템 UI 초기화
             unitEvents.OnItemChanged?.Invoke(EquippedItems);
         }
+
+        #endregion
+
         #region Debugging
 
 #if UNITY_EDITOR
