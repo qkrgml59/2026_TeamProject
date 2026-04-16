@@ -71,8 +71,11 @@ namespace Unit
         HexTile startTile;
 
         // 자원 정보
+        public ResourceType resourceType { get; private set; } = ResourceType.Mana;     // 유닛이 사용하는 자원 타입
+
         private float attackResourceRegen = 10;      // 기본 공격 회복량 TODO : 캐릭터 정보로 넘기기
         public float currentResource { get; private set; } = 0;
+        // TODO : 최대 마나는 스킬 적용 시 저장? 근데 마나 강탈 당하면???
 
         /// <summary>
         /// 유닛의 배치 (초기 위치 설정)
@@ -361,7 +364,15 @@ namespace Unit
 
             currentResource += amount;
 
-            if (skill != null && currentResource >= skill.Cost)
+            // 스킬 최대치를 넘기지 않도록
+            currentResource = Mathf.Clamp(currentResource, 0, skill ? skill.Cost : 0);
+
+            // 마나 변경 정보 넘기기
+            ResourceInfo info = new ResourceInfo(resourceType, currentResource, skill ? skill.Cost : 0);
+            unitEvents.OnResourceChanged?.Invoke(info);
+            Debug.Log($"[{name}] 현재 자원 {currentResource}");
+
+            if (currentResource >= skill.Cost)
             {
                 currentResource = skill.Cost;
 
@@ -369,8 +380,6 @@ namespace Unit
                     CurFSM != UnitStateType.Dead)
                     ChangeUnitState(UnitStateType.SKill);
             }
-
-            Debug.Log($"[{name}] 현재 자원 {currentResource}");
         }
 
         public void UseResource(float amount)
@@ -379,6 +388,10 @@ namespace Unit
 
             // 0 이하로는 감소 하지 않도록
             currentResource = Mathf.Max(currentResource - amount, 0);
+
+            // 마나 변경 정보 넘기기
+            ResourceInfo info = new ResourceInfo(resourceType, currentResource, skill ? skill.Cost : 0);
+            unitEvents.OnResourceChanged?.Invoke(info);
             Debug.Log($"[{name}] 현재 자원 {currentResource}");
         }
 
@@ -491,11 +504,9 @@ namespace Unit
             PlaceUnit(startTile);
 
             // 아이템 등의 효과 초기화(또는 재적용)
-            currentHp = statSet.MaxHp.Value;
-            shield = 0;
-            HealthInfo healthInfo = new HealthInfo(currentHp, currentHp, shield);
-            unitEvents.OnHpChanged?.Invoke(healthInfo);
-            currentResource = 0;
+
+            // 유닛 정보 관련 UI 초기화 이벤트
+            RefreshAllUnitInfo();
 
             // 스킬 초기화
             normalAttack?.Init(this);
@@ -668,9 +679,29 @@ namespace Unit
         }
         #endregion
 
+        /// <summary>
+        /// 유닛 정보 관련 이벤트를 전부 호출하여 초기화 합니다. 
+        /// </summary>
+        public void RefreshAllUnitInfo()
+        {
+            // 체력 UI 초기화
+            currentHp = statSet.MaxHp.Value;
+            shield = 0;
+            HealthInfo healthInfo = new HealthInfo(currentHp, currentHp, shield);
+            unitEvents.OnHpChanged?.Invoke(healthInfo);
+
+            // 마나 UI 초기화
+            currentResource = 0;
+            ResourceInfo info = new ResourceInfo(resourceType, currentResource, skill ? skill.Cost : 0);
+            unitEvents.OnResourceChanged?.Invoke(info);
+            Debug.Log($"[{name}] 현재 자원 {currentResource}");
+
+            // 아이템 UI 초기화
+            unitEvents.OnItemChanged?.Invoke(EquippedItems);
+        }
         #region Debugging
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         private void OnValidate()
         {
             // TODO : 유닛 데이터 (스텟 데이터 X)에 있는 이미지나 애니메이터 사용하도록 변경

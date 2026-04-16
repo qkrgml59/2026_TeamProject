@@ -38,6 +38,7 @@ public class TestEnemyPlacer : MonoBehaviour
                 target.PlaceUnit(targetTile);
                 UnitManager.Instance.RegisterUnit(target);
                 UnitUIManager.Instance.Create(target);
+                target.RefreshAllUnitInfo();
 
                 // TODO : 아이템이 있다면 장착
             }

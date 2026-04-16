@@ -40,6 +40,9 @@ namespace Unit
         [Header("체력 관련 이벤트")]
         public UnityEvent<HealthInfo> OnHpChanged;
 
+        [Header("자원 변경 이벤트")]
+        public UnityEvent<ResourceInfo> OnResourceChanged;
+
         [Header("아이템 이벤트")]
         /// <summary>
         /// 아이템 리스트에 변경이 있을 시

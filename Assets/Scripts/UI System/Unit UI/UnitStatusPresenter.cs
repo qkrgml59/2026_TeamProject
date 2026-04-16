@@ -30,17 +30,24 @@ namespace Game.UI
                 unit.unitEvents.OnItemChanged.AddListener(_view.OnItemChanged);
             }
 
-            // 아이템 초기화
+            if(_view.resourceView != null)
+            {
+                unit.unitEvents.OnResourceChanged.AddListener(_view.resourceView.OnResourceChanged);
+            }
         }
 
         public void Dispose()
         {
             // 체력 이벤트 제거
-            _unit.unitEvents.OnHpChanged.RemoveListener(_view.hpView.OnHpChanged);
-            
-            // 아이템 이벤트 제거
-            _unit.unitEvents.OnItemChanged.RemoveListener(_view.OnItemChanged);
+            if (_view.hpView != null)
+                _unit.unitEvents.OnHpChanged.RemoveListener(_view.hpView.OnHpChanged);
 
+            // 아이템 이벤트 제거
+            if (_view.itemView != null)
+                _unit.unitEvents.OnItemChanged.RemoveListener(_view.OnItemChanged);
+
+            if (_view.resourceView != null)
+                _unit.unitEvents.OnResourceChanged.RemoveListener(_view.resourceView.OnResourceChanged);
 
             GameObject.Destroy(_view.gameObject);
         }

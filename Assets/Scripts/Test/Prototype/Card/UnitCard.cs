@@ -45,6 +45,8 @@ namespace Prototype.Card
                     UnitManager.Instance.RegisterUnit(unit);
                     UnitUIManager.Instance.Create(unit);
 
+                    unit.RefreshAllUnitInfo();
+
                     Debug.Log($"{unit.name} 배치 성공");
                     return true;
                 }

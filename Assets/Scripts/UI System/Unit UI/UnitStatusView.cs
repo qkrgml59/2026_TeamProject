@@ -13,6 +13,7 @@ namespace Game.UI
         [Header("참조용 View")]
         public UnitHpView hpView;
         public UnitItemView itemView;
+        public UnitResourceView resourceView;
 
         // 유닛 추적용
         RectTransform rectTransform;
