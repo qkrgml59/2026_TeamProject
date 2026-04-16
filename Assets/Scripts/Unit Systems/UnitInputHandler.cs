@@ -59,7 +59,9 @@ namespace Unit
         // 드래그 시작
         public virtual void OnBeginDrag(PointerEventData eventData)
         {
-            if(_unit == null || !canDrag) return;
+            if (eventData.button != PointerEventData.InputButton.Left) return;      // 좌클릭만 드래그 가능
+
+            if (_unit == null || !canDrag) return;
 
             Debug.Log("드래그 시작");
 
@@ -74,7 +76,9 @@ namespace Unit
         // 드래그 중
         public virtual void OnDrag(PointerEventData eventData)
         {
-            if(_unit == null || !canDrag
+            if (eventData.button != PointerEventData.InputButton.Left) return;      // 좌클릭만 드래그 가능
+
+            if (_unit == null || !canDrag
                 || originTile == null) return;
 
              Ray ray = Camera.main.ScreenPointToRay(eventData.position);
@@ -91,7 +95,9 @@ namespace Unit
         // 드래그 종료
         public virtual void OnEndDrag(PointerEventData eventData)
         {
-            if(_unit == null || !canDrag
+            if (eventData.button != PointerEventData.InputButton.Left) return;      // 좌클릭만 드래그 가능
+
+            if (_unit == null || !canDrag
                 || originTile == null) return;
 
             if(!TryMoveToTile(eventData))        // 이동에 실패한 경우 돌아가기

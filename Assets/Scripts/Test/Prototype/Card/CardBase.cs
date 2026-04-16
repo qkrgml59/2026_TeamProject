@@ -69,6 +69,8 @@ namespace Prototype.Card
         // 드래그 시작
         public void OnBeginDrag(PointerEventData eventData)
         {
+            if (eventData.button != PointerEventData.InputButton.Left) return;      // 좌클릭만 드래그 가능
+
             Debug.Log("드래그 시작");
             rectTransform.SetAsLastSibling();
             _originAnchoredPos = rectTransform.anchoredPosition;
@@ -80,6 +82,8 @@ namespace Prototype.Card
         // 드래그 중
         public void OnDrag(PointerEventData eventData)
         {
+            if (eventData.button != PointerEventData.InputButton.Left) return;      // 좌클릭만 드래그 가능
+
             Vector3 mousePos = eventData.position;
             rectTransform.position = mousePos;
         }
@@ -87,6 +91,8 @@ namespace Prototype.Card
         // 드래그 종료
         public void OnEndDrag(PointerEventData eventData)
         {
+            if (eventData.button != PointerEventData.InputButton.Left) return;      // 좌클릭만 드래그 가능
+
             Debug.Log("드래그 종료");
 
             Ray ray = Camera.main.ScreenPointToRay(eventData.position);
