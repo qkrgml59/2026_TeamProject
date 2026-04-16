@@ -46,7 +46,10 @@ namespace StatSystem
         /// </summary>
         public static float CalculateDefenseMultiplier(float defense)
         {
-            return 100f / (defense + 100f);
+            if (defense >= 0)
+                return 1 / (1 + defense * 0.01f);
+            else
+                return 2 - (1 / (1 - defense * 0.01f));         // 방어력이 음수 일 때는 다른 공식 사용
         }
 
         /// <summary>
