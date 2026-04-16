@@ -39,6 +39,8 @@ namespace Prototype.Card
                 if (tile.CanReserve(null) && tile.TeamType == TeamType.Ally)        // 배치 가능하고, 아군칸 일때만 배치
                 {
                     UnitBase unit = Instantiate(unitPrefab, tile.transform.position, Quaternion.identity);
+
+                    unit.originCardData = this.cardData;
                     unit.Init(unitData.unitDataSO, TeamType.Ally);
                     unit.PlaceUnit(tile);
 

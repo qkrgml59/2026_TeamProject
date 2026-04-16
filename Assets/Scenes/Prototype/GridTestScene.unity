@@ -7639,6 +7639,8 @@ MonoBehaviour:
   - cardData: {fileID: 11400000, guid: baa29506d9f92f24ea891a363058d1b6, type: 2}
     count: 2
   - cardData: {fileID: 11400000, guid: d36275b21d2977b4d8725c097bde5b78, type: 2}
+    count: 2
+  - cardData: {fileID: 11400000, guid: 303cc4b8d221a9243b624c1702d37db6, type: 2}
     count: 10
   maxDeckSize: 40
   minDeckSize: 10

@@ -43,16 +43,19 @@ namespace Prototype.Card
             {
                 HexTile tile = hit.transform.GetComponent<HexTile>();
 
-                if (tile == null)
+                if (tile == null && GetTargetTile() != TeamType.Null)
                 {
                     Debug.Log("타일 위에 사용하십시오");
                     return false;
                 }
 
-                if(tile.TeamType != GetTargetTile() && GetTargetTile() != TeamType.Both)
+                if (tile != null && GetTargetTile() != TeamType.Both && GetTargetTile() != TeamType.Null)
                 {
-                    Debug.Log("사용 가능한 타일이 아닙니다.");
-                    return false;
+                    if (tile.TeamType != GetTargetTile())
+                    {
+                        Debug.Log("사용 가능한 타일이 아닙니다.");
+                        return false;
+                    }
                 }
 
                 bool isSuccess = spellData.effect.TryExecute(tile);

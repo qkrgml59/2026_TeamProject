@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab0c62b2d32278d4ebe648ff0e63d3b9, type: 3}
-  m_Name: DrawCard
+  m_Name: 3503_BigStone
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.Spell.SpellCardDataSO
-  cardId: 3001
-  icon: {fileID: 21300000, guid: 58ce5409aec0a5b46944c19c9231ff5c, type: 3}
-  cardName: "\uB85C\uC5F4"
+  cardId: 3503
+  icon: {fileID: -8664114341009592047, guid: e31da1f5fcdb11b41acf654c31b588f3, type: 3}
+  cardName: "\uC9F1\uB3CC"
   description: 
+  cardCost: 1
   cardPrefab: {fileID: 5637523428877745675, guid: 93c96b38db3636441bd3ae7529c94caa, type: 3}
-  spellSO: {fileID: 11400000, guid: 8ed958c7143773441bb1352567ae16e4, type: 2}
+  spellSO: {fileID: 11400000, guid: ba1948b1b0fa1e14fabe647670025f72, type: 2}

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab0c62b2d32278d4ebe648ff0e63d3b9, type: 3}
-  m_Name: 3501_Sacrifice
+  m_Name: 3504_RunAway
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.Spell.SpellCardDataSO
-  cardId: 3501
-  icon: {fileID: 21300000, guid: 8819779313d130443b4d0aa9117cf3c6, type: 3}
-  cardName: "\uC81C\uBB3C \uC758\uC2DD"
+  cardId: 3504
+  icon: {fileID: 21300000, guid: 0977ca87c3c7cb34ea1dc3d9908af876, type: 3}
+  cardName: "\uB3C4\uB9DD\uAC00\uAE30"
   description: 
-  cardCost: 0
+  cardCost: 1
   cardPrefab: {fileID: 5637523428877745675, guid: 93c96b38db3636441bd3ae7529c94caa, type: 3}
-  spellSO: {fileID: 11400000, guid: c73d19a07bbc79b499e8f937fd1ab077, type: 2}
+  spellSO: {fileID: 11400000, guid: 81f27e63f621c6e45a60dc1cbb5c299e, type: 2}

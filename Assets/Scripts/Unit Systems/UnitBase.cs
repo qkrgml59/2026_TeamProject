@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unit.Skill;
 using Item;
+using Prototype.Card;
 
 
 namespace Unit
@@ -20,6 +21,7 @@ namespace Unit
     {
         [Header("유닛 정보")]
         public TeamType team { get; private set; } = TeamType.Ally;
+        public CardDataSO originCardData { get; set; }              // 도망가기에 사용할 유닛 카드데이터 원본 변수
         [SerializeField] private Texture2D dummyImage;
         [SerializeField] private Renderer quadRenderer;
         private MaterialPropertyBlock mpb;
