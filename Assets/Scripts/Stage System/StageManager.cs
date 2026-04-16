@@ -189,11 +189,25 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
     }
 
     //카드풀로 다시 반환
-    public void ReturnCardToPool(CardDataSO card, List<CardDataSO> pool)
+    public void ReturnCardToPool(CardDataSO card)
     {
         if (card == null) return;
 
-        pool.Add(card);
+        switch (card.CardType)
+        {
+            case CardType.Unit:
+                unitCards.Add(card);
+                break;
+            case CardType.Item:
+                itemCards.Add(card);
+                break;
+            case CardType.Spell:
+                spellCards.Add(card);
+                break;
+            default:
+                Debug.LogWarning("알 수 없는 카드 타입");
+                break;
+        }
     }
     #endregion
 }
