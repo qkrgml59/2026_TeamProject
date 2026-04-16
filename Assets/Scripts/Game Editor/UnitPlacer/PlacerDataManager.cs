@@ -13,6 +13,7 @@ namespace GameEditor.UnitPlacer
 {
     public class PlacerDataManager : MonoBehaviour
     {
+#if UNITY_EDITOR
         public Canvas canvas;
 
         [Header("스테이지 데이터 경로")]
@@ -85,9 +86,7 @@ namespace GameEditor.UnitPlacer
         /// </summary>
         public void LoadStageData()
         {
-#if UNITY_EDITOR
             stageDatas = AssetUtility.LoadAll<StageData>(stageDataPath);
-#endif
 
             StageDropdownClear();
             RoundTypeDropdownClear();
@@ -111,12 +110,10 @@ namespace GameEditor.UnitPlacer
             curRound.units = unitList;
 
             // 저장 및 이름 변경 진행
-#if UNITY_EDITOR
             if (nameField != null & nameField.text != curRound.name)
                 Rename(curRound, nameField.text);
 
             EditorUtility.SetDirty(curRound);
-#endif
 
             // 드롭다운 리프래쉬 및 value 변경
             int index = roundList.IndexOf(curRound);
@@ -138,7 +135,6 @@ namespace GameEditor.UnitPlacer
         {
             if (curStage == null || curRound == null) return;
 
-#if UNITY_EDITOR
             string path = AssetDatabase.GetAssetPath(curRound);
             // 리스트에서 먼저 삭제
             roundList.Remove(curRound);
@@ -147,7 +143,6 @@ namespace GameEditor.UnitPlacer
             AssetDatabase.DeleteAsset(path);
             EditorUtility.SetDirty(curStage);       // 리스트에 반영
             AssetDatabase.SaveAssets();
-#endif
 
             RoundDropdownClear();
             SetRoundDropdown();
@@ -157,17 +152,14 @@ namespace GameEditor.UnitPlacer
         public void NewData()
         {
             if (curStage == null) return;
-#if UNITY_EDITOR
             RoundData newData = CreateStageSO(curStage.themeType);
-#endif
+
             if (newData == null) return;
             if (nameField == null) return;
 
             // 현재 라운드 리스트 마지막에 추가 후 드롭다운 설정
             roundList.Add(newData);
-#if UNITY_EDITOR
             EditorUtility.SetDirty(curStage);       // 리스트에 반영
-#endif
 
 
             SetRoundDropdown();
@@ -178,7 +170,6 @@ namespace GameEditor.UnitPlacer
         RoundData CreateStageSO(ThemeType theme)
         {
             string folderPath = GetThemeFolderPath(theme);
-
             RoundData newSO = ScriptableObject.CreateInstance<RoundData>();
 
             // 기본 데이터 설정
@@ -192,7 +183,6 @@ namespace GameEditor.UnitPlacer
             AssetDatabase.CreateAsset(newSO, path);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
-
             return newSO;
         }
 
@@ -202,18 +192,14 @@ namespace GameEditor.UnitPlacer
             Save();
 
             if (curStage == null || curRound == null) return;
-#if UNITY_EDITOR
             // 데이터 복제
             RoundData newData = CopyStageSO(curRound);
-#endif
             if (newData == null) return;
             if (nameField == null) return;
 
             // 현재 라운드 리스트 마지막에 추가 후 드롭다운 설정
             roundList.Add(newData);
-#if UNITY_EDITOR
             EditorUtility.SetDirty(curStage);       // 리스트에 반영
-#endif
 
             SetRoundDropdown();
             roundDropdown.value = roundList.Count;
@@ -244,9 +230,7 @@ namespace GameEditor.UnitPlacer
         // 모든 유닛 버튼 생성
         void InitUnitButton()
         {
-            #if UNITY_EDITOR
             unitDatas = AssetUtility.LoadAll<UnitDataSO>(unitDataPath);
-            #endif
 
             for (int i = 0; i < unitDatas.Count; i++)
             {
@@ -512,7 +496,6 @@ namespace GameEditor.UnitPlacer
         string GetThemeFolderPath(ThemeType theme)
         {
             string themePath = $"{stageDataPath}/{theme}";
-
             if (!AssetDatabase.IsValidFolder(themePath))
             {
                 AssetDatabase.CreateFolder(stageDataPath, theme.ToString());
@@ -536,5 +519,6 @@ namespace GameEditor.UnitPlacer
 
             return dataName;
         }
+#endif
     }
 }

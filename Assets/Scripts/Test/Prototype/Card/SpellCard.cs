@@ -5,7 +5,6 @@ using Prototype.Grid;
 using Spell;
 using Unit;
 using UnityEngine;
-using static UnityEditor.Progress;
 using UnityEngine.EventSystems;
 
 namespace Prototype.Card
