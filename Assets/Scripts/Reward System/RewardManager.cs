@@ -13,6 +13,8 @@ namespace UI
         public Canvas canvas;              //보상 UI 전체 캔버스
         public RewardView[] views;          //보상 슬롯 3개
 
+        private bool isSelecting = false;
+
         private List<CardDataSO> items = new List<CardDataSO>();
 
         public Action<CardDataSO> OnSelectReward;
@@ -40,7 +42,7 @@ namespace UI
         {
             for (int i = 0; i < views.Length; i++)
             {
-                if(i<items.Count && items[i] !=null)
+                if (i < items.Count && items[i] != null)
                 {
                     views[i].gameObject.SetActive(true);
                     views[i].Bind(items[i], i, OnRewardSelected);
@@ -57,6 +59,15 @@ namespace UI
         //보상 선택
         public void OnRewardSelected(int index)
         {
+            if (isSelecting) return;
+            isSelecting = true;
+
+            if (index < 0 || index >= items.Count)
+            {
+                Debug.LogError($"잘못된 index 접근: {index}");
+                return;
+            }
+
             CardDataSO selected = items[index];
 
             //선택 안 된 카드들 복구
