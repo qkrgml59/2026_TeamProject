@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64efc55f9445e934fa867f01ed594132, type: 3}
-  m_Name: BigStone
-  m_EditorClassIdentifier: Assembly-CSharp::Spell.Effects.TileAttackSpell
-  damage: 10
-  damageType: 3
+  m_Script: {fileID: 11500000, guid: 94f152179bb956641bd6ef67617ba6b4, type: 3}
+  m_Name: 3501_Sacrifice
+  m_EditorClassIdentifier: Assembly-CSharp::Spell.Sacrifice
+  discardCardAmount: 1
+  recoverCostAmount: 2

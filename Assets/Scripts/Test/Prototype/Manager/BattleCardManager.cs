@@ -22,6 +22,8 @@ namespace Prototype.Card
         public int defaultDrawCount = 2;
         public int maxHandCount = 9;
 
+        public CardBase currentCastingCard { get; set; }            // 카드 무작위 버리기 할 때 본인이 버려지는걸 방지하기 위한 캐스팅 중인 카드 참조 변수 선언.
+
         [Header("현재 카드 구성")]
         [SerializeField] private List<CardDataSO> _deck = new();
         [SerializeField] private List<CardDataSO> _handCards = new();
@@ -216,6 +218,41 @@ namespace Prototype.Card
             _handObjects.Remove(card);
             _handCards.Remove(card.cardData);
             Destroy(card.gameObject);
+        }
+
+        /// <summary>
+        /// 손패에서 무작위로 amount개수의 카드를 버린다. (현재 캐스팅 중인 카드 제외)
+        /// </summary>
+        public bool DiscardRandomCard(int amount)
+        {
+            List<CardBase> validCards = new List<CardBase>();
+            foreach (var card in _handObjects)
+            {
+                if (card != currentCastingCard)
+                {
+                    validCards.Add(card);
+                }
+            }
+
+            if (validCards.Count < amount)
+            {
+                return false;
+            }
+
+            for (int i = 0; i < amount; i++)
+            {
+                // 무작위로 1장 선택
+                int randIndex = Random.Range(0, validCards.Count);
+                CardBase cardToDiscard = validCards[randIndex];
+
+                _usedCards.Add(cardToDiscard.cardData);
+                RemoveHand(cardToDiscard);
+
+                validCards.RemoveAt(randIndex);
+            }
+
+            RefreshUI();
+            return true;
         }
 
         IEnumerator DrawRoutine(int count = 1)

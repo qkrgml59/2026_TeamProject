@@ -92,6 +92,8 @@ namespace Prototype.Card
             Ray ray = Camera.main.ScreenPointToRay(eventData.position);
             bool isUsed = false;
 
+            BattleCardManager.Instance.currentCastingCard = this;           // isUsed 판단 전 캐스팅 중인 카드로 등록
+
             if (Physics.Raycast(ray, out RaycastHit hit, float.PositiveInfinity, tileLayer))
             {
                 if (CostManager.Instance.CheckCost(cardData.cardCost))
@@ -127,6 +129,8 @@ namespace Prototype.Card
                     }
                 }*/
             }
+
+            BattleCardManager.Instance.currentCastingCard = null;
 
             if (isUsed)     //카드 사용 성공 시
             {

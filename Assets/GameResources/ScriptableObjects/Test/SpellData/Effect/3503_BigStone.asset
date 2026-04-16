@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6c6b0830a2ab0949b1a47deccd79ec2, type: 3}
-  m_Name: DrawCard
-  m_EditorClassIdentifier: Assembly-CSharp::Spell.Effects.DrawCardSpell
-  drawCount: 1
+  m_Script: {fileID: 11500000, guid: 64efc55f9445e934fa867f01ed594132, type: 3}
+  m_Name: 3503_BigStone
+  m_EditorClassIdentifier: Assembly-CSharp::Spell.Effects.TileAttackSpell
+  damage: 10
+  damageType: 3

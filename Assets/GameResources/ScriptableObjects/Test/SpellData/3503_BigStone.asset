@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a06f9ba36c309448b6175e8f96870a1, type: 3}
-  m_Name: BigStone
+  m_Name: 3503_BigStone
   m_EditorClassIdentifier: Assembly-CSharp::Spell.SpellSO
   icon: {fileID: -8664114341009592047, guid: e31da1f5fcdb11b41acf654c31b588f3, type: 3}
   spellName: "\uC9F1\uB3CC"
