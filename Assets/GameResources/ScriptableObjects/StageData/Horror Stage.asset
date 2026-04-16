@@ -38,10 +38,14 @@ MonoBehaviour:
   - cardData: {fileID: 11400000, guid: baa29506d9f92f24ea891a363058d1b6, type: 2}
     count: 3
   spellCards:
-  - cardData: {fileID: 11400000, guid: 1fbf8b4393407334b851fb970642545d, type: 2}
-    count: 6
+  - cardData: {fileID: 11400000, guid: d36275b21d2977b4d8725c097bde5b78, type: 2}
+    count: 3
   - cardData: {fileID: 11400000, guid: fcb0a3e9573c1ea418f9e8f8836cc769, type: 2}
-    count: 6
+    count: 3
+  - cardData: {fileID: 11400000, guid: 1fbf8b4393407334b851fb970642545d, type: 2}
+    count: 3
+  - cardData: {fileID: 11400000, guid: 303cc4b8d221a9243b624c1702d37db6, type: 2}
+    count: 3
   normalRound:
   - {fileID: 11400000, guid: 95d4edba6f382084fb6212eadf8c14a8, type: 2}
   - {fileID: 11400000, guid: ffc90cf4527716140ba9e679e4063332, type: 2}
