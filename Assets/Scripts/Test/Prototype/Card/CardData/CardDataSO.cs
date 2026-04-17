@@ -11,7 +11,7 @@ namespace Prototype.Card
         public string cardName;
         public string description;
 
-        public int cardCost;
+        public int cost;
 
         public CardBase cardPrefab;
 

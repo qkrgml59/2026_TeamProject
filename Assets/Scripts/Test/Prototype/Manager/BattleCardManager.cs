@@ -31,7 +31,9 @@ namespace Prototype.Card
 
         [SerializeField] private List<CardBase> _handObjects = new();
 
-
+        
+        public List<CardDataSO> GetDeckCards() => _deck;                    // DeckPopupController에서 덱 정보를 가져오기 위해서
+        public List<CardDataSO> GetUsedCards() => _usedCards;               // DeckPopupController에서 덱 정보를 가져오기 위해서
 
         private void Start()
         {

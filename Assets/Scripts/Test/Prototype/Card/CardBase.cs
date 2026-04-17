@@ -102,7 +102,7 @@ namespace Prototype.Card
 
             if (Physics.Raycast(ray, out RaycastHit hit, float.PositiveInfinity, tileLayer))
             {
-                if (CostManager.Instance.CheckCost(cardData.cardCost))
+                if (CostManager.Instance.CheckCost(cardData.cost))
                 {
                     Debug.Log($"카드 소환 성공! 남은 코스트 : {CostManager.Instance.currentCost} / {CostManager.Instance.maxCost}");
                     isUsed = TryUseCard(hit);
@@ -140,7 +140,7 @@ namespace Prototype.Card
 
             if (isUsed)     //카드 사용 성공 시
             {
-                CostManager.Instance.ConsumeCost(cardData.cardCost);
+                CostManager.Instance.ConsumeCost(cardData.cost);
                 BattleCardManager.Instance.UseCard(this);
             }
             else
