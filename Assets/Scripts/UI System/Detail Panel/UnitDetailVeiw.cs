@@ -41,7 +41,7 @@ namespace Game.UI
 
         private UnitBase _unit;
 
-        private void Start()
+        private void Awake()
         {
             // 수동으로 캐싱
             if (ADView != null) views[StatType.AttackDamage] = ADView;

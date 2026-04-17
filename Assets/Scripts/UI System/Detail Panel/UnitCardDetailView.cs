@@ -39,7 +39,7 @@ public class UnitCardDetailView : MonoBehaviour
     UnitDataSO _unitData;
     StatSet _statSet;
 
-    private void Start()
+    private void Awake()
     {
         // 수동으로 캐싱
         if (ADView != null) views[StatType.AttackDamage] = ADView;
