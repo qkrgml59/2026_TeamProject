@@ -81,7 +81,7 @@ namespace Unit.Skill
             yield return new WaitForSeconds(0.1f);
 
             // 3. 이동
-            owner.EnterTile(tile);
+            owner.SetTile(tile);
             // TODO : UnitBase에 순간이동 기능 추가
             owner.transform.position = tile.transform.position;
            

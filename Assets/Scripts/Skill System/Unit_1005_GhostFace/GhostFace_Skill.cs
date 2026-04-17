@@ -122,7 +122,7 @@ namespace Unit.Skill
             }
 
             owner.transform.position = end;
-            owner.EnterTile(tile);
+            owner.SetTile(tile);
         }
 
         private HexTile FindDashTile(UnitBase target)

@@ -89,7 +89,7 @@ namespace Unit
             reservedTile = null;
             startTile = tile;
             transform.position = startTile.transform.position;
-            EnterTile(tile);
+            SetTile(tile);
         }
 
         #region FSM
@@ -160,7 +160,7 @@ namespace Unit
             {
                 curPathIndex++;
 
-                EnterTile(reservedTile);
+                SetTile(reservedTile);
                 reservedTile = null;
 
                 ChangeUnitState(UnitStateType.Think);
@@ -208,7 +208,7 @@ namespace Unit
             }
         }
 
-        public void EnterTile(HexTile nextTile)
+        public void SetTile(HexTile nextTile)
         {
             currentTile?.ExitTile(this);
             nextTile?.EnterTile(this);
@@ -328,7 +328,7 @@ namespace Unit
         public void Die()
         {
             unitEvents.OnDestroyedUnit?.Invoke(this);     // 유닛 파괴 이벤트
-            EnterTile(null);      // 위치했던 타일 제거
+            SetTile(null);      // 위치했던 타일 제거
             RemoveEventListener();
             UnitManager.Instance.UnregisterUnit(this);
             Destroy(gameObject);

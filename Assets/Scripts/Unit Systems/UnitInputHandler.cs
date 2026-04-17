@@ -117,7 +117,7 @@ namespace Unit
 
                     if(tile.OccupantUnit == null)
                     {
-                        _unit.EnterTile(tile);
+                        _unit.SetTile(tile);
                         _unit.transform.position = tile.transform.position;
                     }
                     else if(tile.OccupantUnit != _unit)
@@ -127,10 +127,10 @@ namespace Unit
 
                         // 타겟 유닛 먼저 이동
                         UnitBase targetUnit = tile.OccupantUnit;
-                        targetUnit.EnterTile(originTile);
+                        targetUnit.SetTile(originTile);
                         targetUnit.transform.position = originTile.transform.position;
 
-                        _unit.EnterTile(tile);
+                        _unit.SetTile(tile);
                         _unit.transform.position = tile.transform.position;
                     }
 

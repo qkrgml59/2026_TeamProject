@@ -80,7 +80,7 @@ namespace Unit.Skill
             }
 
             //4.대상 끌어오기
-            farTarget.EnterTile(tile);    //타일 갱신
+            farTarget.SetTile(tile);    //타일 갱신
             farTarget.transform.position = tile.transform.position;      //위치 이동
 
             yield return new WaitForSeconds(hitDelay);

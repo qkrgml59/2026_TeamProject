@@ -74,7 +74,7 @@ namespace Unit.Skill
             }
 
             owner.transform.position = targetPos;
-            owner.EnterTile(tile);
+            owner.SetTile(tile);
             owner.ClearPath();
         }
 
