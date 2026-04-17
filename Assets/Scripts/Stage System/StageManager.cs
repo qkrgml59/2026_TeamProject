@@ -209,5 +209,22 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
                 break;
         }
     }
+
+    //팩 미리보기 용 카드
+    public List<CardDataSO> GetPackPreviewCards(int count)
+    {
+        List<CardDataSO> result = new List<CardDataSO>();
+
+        for (int i= 0; i< count; i++)
+        {
+            var card = GetRandomCardData(CardType.Unit);
+
+            if (card != null)
+                result.Add(card);
+        }
+
+        return result;
+    }
+
     #endregion
 }
