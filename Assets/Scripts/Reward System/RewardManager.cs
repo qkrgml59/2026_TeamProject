@@ -23,6 +23,8 @@ namespace UI
         //전투 종료 후 진입
         public void StartRewardPhase()
         {
+            isSelecting = false;
+
             GenerateRewards();
             ShowRewardSelectionUI();
         }
