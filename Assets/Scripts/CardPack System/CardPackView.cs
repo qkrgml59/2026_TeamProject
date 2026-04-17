@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using Unity.VisualScripting.ReorderableList;
 
 public class CardPackView : MonoBehaviour, IPointerClickHandler
 {
