@@ -252,15 +252,21 @@ namespace Unit
             //unitEvents.OnNormalAttack?.Invoke(this);
         }
 
+        public bool CanUseSkill()
+        {
+            if(skill == null) return false;
+            if(currentResource < skill.Cost) return false;
+            if (CurFSM != UnitStateType.Think && CurFSM != UnitStateType.Attack
+                && CurFSM != UnitStateType.Attack) return false;                        // 탐색, 공격, 스킬 상태에서만 사용 가능
+
+            // 상태이상 등 확인
+            
+            return skill.CanUse();
+        }
+
         public void UseSkill()
         {
-            if(skill == null)
-            {
-                ChangeUnitState(UnitStateType.Think);
-                Debug.LogWarning($"[{name}] 유닛은 스킬이 없습니다.");
-                return;
-            }
-
+            // 스킬 사용 이벤트 등 추가
             skill.Use();
         }
 
@@ -334,13 +340,6 @@ namespace Unit
             Destroy(gameObject);
         }
 
-        public bool IsSkillReady()
-        {
-            return skill != null
-                && currentResource >= skill.Cost;
-                // 침묵 상태 같은건 없는지
-        }
-
         /// <summary>
         /// 자신과 타겟이 동일한 팀 인지 반환
         /// </summary>
@@ -372,14 +371,8 @@ namespace Unit
             unitEvents.OnResourceChanged?.Invoke(GetResourceInfo());
             Debug.Log($"[{name}] 현재 자원 {currentResource}");
 
-            if (currentResource >= skill.Cost)
-            {
-                currentResource = skill.Cost;
-
-                if (CurFSM != UnitStateType.Move || CurFSM != UnitStateType.Stun ||
-                    CurFSM != UnitStateType.Dead)
-                    ChangeUnitState(UnitStateType.SKill);
-            }
+            if(CanUseSkill())
+                ChangeUnitState(UnitStateType.SKill);   // 스킬 사용이 가능하면 사용
         }
 
         public void UseResource(float amount)

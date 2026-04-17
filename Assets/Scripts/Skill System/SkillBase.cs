@@ -67,14 +67,14 @@ namespace Unit.Skill
 
         public virtual void Use()
         {
-            if (isUsing) return;
-            isUsing = true;
-
             if(owner == null)
             {
                 Debug.LogWarning($"[{skillName}] 해당 스킬의 사용자가 설정되지 않았습니다.");
                 return;
             }
+
+            if (isUsing) return;
+                isUsing = true;
 
             // 코스트 만큼 마나 소모
             owner.UseResource(cost);

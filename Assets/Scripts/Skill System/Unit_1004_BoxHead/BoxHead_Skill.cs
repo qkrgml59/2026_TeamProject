@@ -37,10 +37,41 @@ namespace Unit.Skill
             }
         }
 
+        public override bool CanUse()
+        {
+            // 베이스 먼저 확인
+            if(base.CanUse() == false) return false;
+            if(owner.targetUnit == null) return false;  
+            // 적이 멀리 있는 경우 사용 불가
+            if(HexMath.Distance(owner.offset, owner.targetUnit .offset) > 1) return false;
+
+            return true;
+        }
+
         protected override void OnStart()
         {
-            // 타겟 타일 구하기
-            Vector3Int dir = HexMath.GetDirectionCube(owner.offset, owner.targetUnit.offset);
+            Vector3Int dir = HexMath.CubeDirections[0];     // (유닛이 없는 경우) 임의 방향으로 사용 -> TODO : 마지막 위치 등을 저장해서 사용 
+            if(owner.targetUnit == null)
+            {
+                // 타겟이 없는 경우 재탐색 
+                var target = UnitManager.Instance.GetNearestEnemy(owner);
+
+                if (target == null)
+                {
+                    FinishSkill();      // 적을 찾지 못한경우 스킬 종료
+                    return;
+                }
+
+                
+                owner.SetTargetUnit(target);
+                if(HexMath.Distance(owner.offset, target.offset) > 1)
+                {
+                    FinishSkill();      // 적이 사거리 내에 없으면 스킬 종료
+                    return;
+                }
+            }
+            // 타겟이 있을땐 해당 방향으로
+            if(owner.targetUnit != null) dir = HexMath.GetDirectionCube(owner.offset, owner.targetUnit.offset);
             Vector3Int cube = HexMath.OffsetToCube(owner.offset);
 
             targetTiles.Clear();
