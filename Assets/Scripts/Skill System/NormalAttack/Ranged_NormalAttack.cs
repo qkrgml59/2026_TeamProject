@@ -33,7 +33,6 @@ namespace Unit.Skill
 
             // 투사체 발사
             FireProjectile();
-            isUsing = false;        // 데미지가 들어가면 재사용 가능하도록
 
             // 후딜레이
             yield return new WaitForSeconds(attackCycle * (1 - windupRatio));

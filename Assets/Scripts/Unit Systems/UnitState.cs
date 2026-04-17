@@ -60,8 +60,7 @@ namespace Unit
         public void StateEnter()
         {
             // 스킬 사용 가능 상태인 경우
-            if (_unit.IsSkillReady()
-                && _unit.skill.CanUse())
+            if(_unit.CanUseSkill())
             {
                 // 스킬 상태로 전환
                 _unit.ChangeUnitState(UnitStateType.SKill);
@@ -93,15 +92,6 @@ namespace Unit
             // 마나 재생
             _unit.RegenerateResource();
 
-            // 스킬 사용 가능 상태인 경우
-            if (_unit.IsSkillReady()
-                && _unit.skill.CanUse())
-            {
-                // 스킬 상태로 전환
-                _unit.ChangeUnitState(UnitStateType.SKill);
-                return;
-            }
-
             // 대상이 없는 경우 가까운 적 탐색
             if (_unit.targetUnit == null)
             {
@@ -111,6 +101,10 @@ namespace Unit
 
                 _unit.SetTargetUnit(target);
             }
+
+            // 스킬 사용이 가능하다면 사용
+            if(_unit.CanUseSkill())
+                _unit.ChangeUnitState(UnitStateType.SKill);
 
             // 사거리 안에 적이 있다면
             if (HexMath.Distance(_unit.offset,
@@ -226,6 +220,10 @@ namespace Unit
                 return;
             }
 
+            // 스킬 사용이 가능하다면 사용
+            if(_unit.CanUseSkill())
+                _unit.ChangeUnitState(UnitStateType.SKill);
+
             // 사거리 안에 적이 없다면
             if (HexMath.Distance(_unit.offset,
                 _unit.targetUnit.offset) > _unit.statSet.AttackRange.Value)
@@ -281,8 +279,7 @@ namespace Unit
 
         public void StateExit()
         {
-            if (_unit.skill != null)
-                _unit.skill.CancelSkill();
+            _unit.skill.CancelSkill();
         }
     }
 
