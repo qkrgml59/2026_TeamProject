@@ -1,5 +1,6 @@
 using Prototype.Card;
 using Prototype.Grid;
+using System.Collections;
 using UnityEngine;
 
 namespace Spell.Effects
@@ -11,11 +12,18 @@ namespace Spell.Effects
 
         public override bool TryExecute(HexTile tile)
         {
-            BattleCardManager.Instance.DrawCard();
+            BattleCardManager.Instance.StartCoroutine(DrawCardCoroutines());
 
             Debug.Log($"카드를 {drawCount}장 뽑습니다.");
 
             return true;
+        }
+
+        private IEnumerator DrawCardCoroutines()
+        {
+            yield return new WaitForEndOfFrame();
+
+            BattleCardManager.Instance.DrawCard(drawCount);
         }
 
         public override string GetDescription() => $"카드를 {drawCount}장 뽑습니다.";
