@@ -27,13 +27,12 @@ namespace UI
             this.index = index;
             this.onClick = onClick;
 
+            gameObject.SetActive(data != null);
+
             if (data == null)
-            {
-                gameObject.SetActive(false);
+            {      
                 return;
             }
-
-            gameObject.SetActive(true);
 
             nameTmp.text = data.cardName;
             descriptionTmp.text = data.description;

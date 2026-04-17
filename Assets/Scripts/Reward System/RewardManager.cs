@@ -79,11 +79,10 @@ namespace UI
                     StageManager.Instance.ReturnCardToPool(items[i]);    
             }
 
-            canvas.enabled = false;
-
             OnSelectReward?.Invoke(selected);
 
             Clear();
+            canvas.enabled = false;
         }
 
         public void Skip()

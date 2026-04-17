@@ -56,7 +56,7 @@ public class PackSelectManager : MonoBehaviour
     /// </summary>
     private void OnOpenDetail(CardPackView pack)
     {
-        PackDetailUI.Instance.Show(pack.GetCards());
+       // PackDetailUI.Instance.Show(pack.GetCards());
     }
 
     ///<summary>
