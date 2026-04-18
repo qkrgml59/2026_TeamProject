@@ -66,7 +66,7 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
 
     private void Start()
     {
-        SetGameThemes(totalStageCount);
+        //SetGameThemes(totalStageCount);
 
         InitCardPool();
         // 첫 라운드 세팅
@@ -96,6 +96,21 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
         Debug.Log($"{count}개의 테마 설정 완료");
     }
 
+    
+    ///<summary>
+    ///타이틀 씬에서 선택한 테마 적용
+    /// </summary>
+    public void ApplySelectedThemes(List<ThemeType> selectedThemes)
+    {
+        gameThemes.Clear();
+        gameThemes.AddRange(selectedThemes);
+
+        InitCardPool();
+
+        currentRound = stages[CurStageTheme].GetRandomRound(stageCycle[CurRoundIndex]);
+
+        Debug.Log("선택한 테마 적용 완료");
+    }
 
 
     /// <summary>
@@ -165,6 +180,44 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
         }
     }
 
+    /// <summary>
+    /// 카드팩 UI용 StageData 목록 반환
+    /// (읽기 전용)
+    /// </summary>
+    public List<StageData> GetStageDataList()
+    {
+        return stageDatas;
+    }
+
+    //나중에 수정해야할듯
+    public List<CardDataSO> GetPreviewCards(StageData pack, int count = 6)
+    {
+        List<CardDataSO> result = new List<CardDataSO>();
+
+        List<CardDataSO> temp = new List<CardDataSO>();
+
+        foreach (var e in pack.UnitCards)
+            for (int i = 0; i < e.count; i++)
+                temp.Add(e.cardData);
+
+        foreach (var e in pack.ItemCards)
+            for (int i = 0; i < e.count; i++)
+                temp.Add(e.cardData);
+
+        foreach (var e in pack.SpellCards)
+            for (int i = 0; i < e.count; i++)
+                temp.Add(e.cardData);
+
+        for (int i = 0; i < count; i++)
+        {
+            if (temp.Count == 0) break;
+
+            int rand = Random.Range(0, temp.Count);
+            result.Add(temp[rand]);
+        }
+
+        return result;
+    }
     public CardDataSO GetRandomCardData(CardType type)
     {
         switch(type)
@@ -215,6 +268,25 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
                 Debug.LogWarning("알 수 없는 카드 타입");
                 break;
         }
+    }
+
+    /// <summary>
+    /// 미리보기용 카드 반환
+    /// </summary>
+    public List<CardDataSO> PeekPackPreviewCards(int count)
+    {
+        List<CardDataSO> result = new List<CardDataSO>();
+
+        for (int i = 0; i < count; i++)
+        {
+            if (unitCards.Count == 0)
+                break;
+
+            int rand = Random.Range(0, unitCards.Count);
+            result.Add(unitCards[rand]);
+        }
+
+        return result;
     }
 
     //팩 미리보기 용 카드
