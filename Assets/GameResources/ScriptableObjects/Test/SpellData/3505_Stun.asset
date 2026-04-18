@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a06f9ba36c309448b6175e8f96870a1, type: 3}
   m_Name: 3505_Stun
   m_EditorClassIdentifier: Assembly-CSharp::Spell.SpellSO
-  icon: {fileID: 0}
+  icon: {fileID: 323947432, guid: f1a31b98f7aac6c4a8e1d99568bdcd33, type: 3}
   spellName: 
   tileArea: 0
   description: 

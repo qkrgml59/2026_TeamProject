@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Card_3501_Sacrifice
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.Spell.SpellCardDataSO
   cardId: 3501
-  icon: {fileID: 21300000, guid: 8819779313d130443b4d0aa9117cf3c6, type: 3}
+  icon: {fileID: 1665576791, guid: 6c3f74ea6d3c8c647a92944716e389de, type: 3}
   cardName: "\uC81C\uBB3C \uC758\uC2DD"
   description: 
-  cardCost: 0
+  cost: 0
   cardPrefab: {fileID: 5637523428877745675, guid: 93c96b38db3636441bd3ae7529c94caa, type: 3}
   spellSO: {fileID: 11400000, guid: c73d19a07bbc79b499e8f937fd1ab077, type: 2}
