@@ -11,18 +11,22 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 753a9d47837c7a34a8e27f2898f362f8, type: 3}
   m_Name: Horror_Elite_001
-  m_EditorClassIdentifier: Assembly-CSharp::StageData
+  m_EditorClassIdentifier: Assembly-CSharp::RoundData
   roundType: 1
   units:
-  - offset: {x: 3, y: 4}
-    unitData: {fileID: 11400000, guid: a1ae2dfee25f09a4e8040fb59dfb93f9, type: 2}
+  - offset: {x: 1, y: 7}
+    unitData: {fileID: 11400000, guid: bb38bd748662cfd41883122497b8520f, type: 2}
     star: 0
     items: []
-  - offset: {x: 4, y: 4}
-    unitData: {fileID: 11400000, guid: a1ae2dfee25f09a4e8040fb59dfb93f9, type: 2}
-    star: 0
+  - offset: {x: 2, y: 5}
+    unitData: {fileID: 11400000, guid: c8155bbbae31c454a870fd60d04c3223, type: 2}
+    star: 1
     items: []
-  - offset: {x: 3, y: 7}
+  - offset: {x: 2, y: 6}
+    unitData: {fileID: 11400000, guid: 9be5ffb73e74c904f80d949bd91137ce, type: 2}
+    star: 1
+    items: []
+  - offset: {x: 2, y: 7}
     unitData: {fileID: 11400000, guid: f0361fac29a574a45b9e869582378093, type: 2}
     star: 0
     items: []

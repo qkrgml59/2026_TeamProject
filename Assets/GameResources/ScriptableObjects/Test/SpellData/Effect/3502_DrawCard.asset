@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c6b0830a2ab0949b1a47deccd79ec2, type: 3}
   m_Name: 3502_DrawCard
   m_EditorClassIdentifier: Assembly-CSharp::Spell.Effects.DrawCardSpell
-  drawCount: 1
+  drawCount: 2

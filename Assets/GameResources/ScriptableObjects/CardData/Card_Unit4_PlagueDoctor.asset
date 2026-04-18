@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Card_Unit4_PlagueDoctor
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.Unit.UnitCardDataSO
   cardId: Unit4
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 2bbfec8063cdc1448b253815b517072b, type: 3}
   cardName: "\uC5ED\uBCD1\uC758\uC0AC"
   description: "\uD574\uB2F9 \uC720\uB2DB \uC18C\uD658"
   cost: 2

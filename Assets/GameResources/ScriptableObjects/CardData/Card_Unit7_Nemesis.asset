@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Card_Unit7_Nemesis
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.Unit.UnitCardDataSO
   cardId: Unit7
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: e8e1a33607eeadb44ad6d10da9ec2fb7, type: 3}
   cardName: "\uB124\uBA54\uC2DC\uC2A4"
   description: "\uD574\uB2F9 \uC720\uB2DB \uC18C\uD658"
   cost: 2

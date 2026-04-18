@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64efc55f9445e934fa867f01ed594132, type: 3}
   m_Name: 3503_BigStone
   m_EditorClassIdentifier: Assembly-CSharp::Spell.Effects.TileAttackSpell
-  damage: 10
+  damage: 200
   damageType: 3

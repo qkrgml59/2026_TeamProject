@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f114a61e51b31546865e311d902fd9e, type: 3}
   m_Name: Unit_1004_PlagueDoctor
   m_EditorClassIdentifier: Assembly-CSharp::Unit.UnitDataSO
-  ID: 
-  Name_KR: 
-  Name_EN: 
-  Race: 2
-  Cost: 0
+  ID: 1004
+  Name_KR: "\uC5ED\uBCD1\uC758\uC0AC"
+  Name_EN: PlagueDoctor
+  Race: 0
+  Cost: 2
   Race_Synergy_A: 0
   Race_Synergy_B: 0
   Synergy_A: 0
   Synergy_B: 0
   Synergy_C: 0
   statData: {fileID: 11400000, guid: 29704f0f34fb298428d2c0ade81d4a1a, type: 2}
-  NormalAttack_Type: 
-  NormalAttack_Prefab: {fileID: 0}
-  Skill_ID: 0
+  NormalAttack_Type: Melee
+  NormalAttack_Prefab: {fileID: 6588351147661766957, guid: 47644915a41e2dc42bd088897de24741, type: 3}
+  Skill_ID: 5004
   Skill_Prefab: {fileID: 0}
-  unitSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: 2bbfec8063cdc1448b253815b517072b, type: 3}

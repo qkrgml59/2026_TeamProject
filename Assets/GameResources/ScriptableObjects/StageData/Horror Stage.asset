@@ -47,10 +47,16 @@ MonoBehaviour:
   - cardData: {fileID: 11400000, guid: 303cc4b8d221a9243b624c1702d37db6, type: 2}
     count: 3
   normalRound:
-  - {fileID: 11400000, guid: 95d4edba6f382084fb6212eadf8c14a8, type: 2}
-  - {fileID: 11400000, guid: ffc90cf4527716140ba9e679e4063332, type: 2}
-  - {fileID: 11400000, guid: 2f1beda43c874e94d86f1e7facfd7c00, type: 2}
+  - {fileID: 11400000, guid: 092f8b1e9b89b2449b68c19d9d658648, type: 2}
+  - {fileID: 11400000, guid: a735c99f6a0928949acb86ea3b9309a1, type: 2}
+  - {fileID: 11400000, guid: 80cfbf9afad2b5143baf5c9163bef71f, type: 2}
+  - {fileID: 11400000, guid: 46f2b0c6b0cdb394bb283d20cbe4840f, type: 2}
+  - {fileID: 11400000, guid: 0bd31c73865475b4681608e61289d8fd, type: 2}
+  - {fileID: 11400000, guid: 266bd3f3a4a11e246a58ffe26075840b, type: 2}
   eliteRound:
-  - {fileID: 11400000, guid: dd39738a73a05dc4ea508b181059acbe, type: 2}
+  - {fileID: 11400000, guid: b33231d49cb5b914e8fe06244edee5ab, type: 2}
+  - {fileID: 11400000, guid: 1dee99a248c9bdf4f98e3d8ec78fb838, type: 2}
+  - {fileID: 11400000, guid: c24c79f01ae35804682e91751c1d4158, type: 2}
   bossRound:
-  - {fileID: 11400000, guid: 2c75c9b05af8dc34cb3bff213b675d3d, type: 2}
+  - {fileID: 11400000, guid: f125befaed1b3c34c9cf938d37991a82, type: 2}
+  - {fileID: 11400000, guid: d9cd312956de2bd44b40b99aeb1aa99c, type: 2}

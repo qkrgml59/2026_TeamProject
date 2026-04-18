@@ -22,7 +22,7 @@ MonoBehaviour:
   Defense: 30
   MagicResistance: 30
   AbilityPower: 0
-  AttackSpeed: 0.8
+  AttackSpeed: 1.2
   Attack_Rage: 1
-  Move_Speed: 5
+  Move_Speed: 1.8
   ManaRegeneration: 0
