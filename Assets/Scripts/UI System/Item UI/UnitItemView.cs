@@ -19,17 +19,10 @@ namespace Game.UI
 
         public void UpdateItems(List<ItemBase> items)
         {
-            List<Sprite> icons = new List<Sprite>();
-            foreach (var item in items)
-            {
-                if (item.itemData != null && item.itemData.icon != null)
-                    icons.Add(item.itemData.icon);
-            }
-
             for (int i = 0; i < slots.Length; i++)
             {
-                if (i < icons.Count)
-                    slots[i].Show(icons[i]);
+                if (i < items.Count)
+                    slots[i].Show(items[i]);
                 else
                     slots[i].Hide();
             }

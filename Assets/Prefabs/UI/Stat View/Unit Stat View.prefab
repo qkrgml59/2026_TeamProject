@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4775214310330990468}
   - component: {fileID: 6699213836973848739}
   m_Layer: 5
-  m_Name: Stat View
+  m_Name: Unit Stat View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

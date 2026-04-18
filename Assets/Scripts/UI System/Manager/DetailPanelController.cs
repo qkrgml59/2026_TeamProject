@@ -11,6 +11,7 @@ namespace Game.UI
     {
         [Header("유닛 상세 정보")] public UnitDetailVeiw unitDetailView;
         [Header("유닛 카드 정보")] public UnitCardDetailView unitCardDetailView;
+        [Header("아이템 상세 정보")] public ItemDetailView itemDetailView;
 
         private void Start()
         {
@@ -19,7 +20,7 @@ namespace Game.UI
 
         public void HideAll()
         {
-            if(unitDetailView != null)
+            if (unitDetailView != null)
             {
                 unitDetailView.UnBind();
                 unitDetailView.gameObject.SetActive(false);
@@ -30,6 +31,8 @@ namespace Game.UI
                 unitCardDetailView.Clear();
                 unitCardDetailView.gameObject.SetActive(false);
             }
+
+            if (itemDetailView != null) itemDetailView.Hide();
         }
 
         /// <summary>
@@ -64,6 +67,10 @@ namespace Game.UI
         public void ShowItemDetail(ItemSO item)
         {
             HideAll();
+
+            if(itemDetailView == null || item == null) return;
+
+            itemDetailView.Show(item);
         }
 
         /// <summary>

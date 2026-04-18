@@ -42,5 +42,24 @@ namespace StatSystem
 
             return text;
         }
+
+        public static string ModifierToString(StatModifier modifier)
+        {
+            string text = $"<sprite name=\"{modifier.statType}\"> ";
+
+            text += modifier.value.ToString("+0;-0;0");               // 양수는 + / 음수는 - 부호 붙여주고, 소수점 반올림
+
+            switch (modifier.modifierType)
+            {
+                case ModifierType.Percent:
+                    text += "%";
+                    break;
+                default:
+                    // 아무런 효과 없음
+                    break;
+            }
+
+            return text;
+        }
     }
 }
