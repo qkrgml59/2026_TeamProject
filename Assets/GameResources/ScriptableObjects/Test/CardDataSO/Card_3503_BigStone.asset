@@ -16,6 +16,6 @@ MonoBehaviour:
   icon: {fileID: -8664114341009592047, guid: e31da1f5fcdb11b41acf654c31b588f3, type: 3}
   cardName: "\uC9F1\uB3CC"
   description: 
-  cardCost: 1
+  cost: 1
   cardPrefab: {fileID: 5637523428877745675, guid: 93c96b38db3636441bd3ae7529c94caa, type: 3}
   spellSO: {fileID: 11400000, guid: ba1948b1b0fa1e14fabe647670025f72, type: 2}
