@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Card_3504_RunAway
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.Spell.SpellCardDataSO
   cardId: 3504
-  icon: {fileID: 21300000, guid: 0977ca87c3c7cb34ea1dc3d9908af876, type: 3}
+  icon: {fileID: 1022925966, guid: bbd7d08bdea5cb54da993f63b80bebdd, type: 3}
   cardName: "\uB3C4\uB9DD\uAC00\uAE30"
   description: 
   cost: 1

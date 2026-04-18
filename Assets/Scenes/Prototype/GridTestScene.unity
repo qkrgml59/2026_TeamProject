@@ -12032,7 +12032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8017349650323689236, guid: e7a80ad1ef9b6e643a0f2b4f255eca8d, type: 3}
       propertyPath: recipes.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8017349650323689236, guid: e7a80ad1ef9b6e643a0f2b4f255eca8d, type: 3}
       propertyPath: 'recipes.Array.data[0]'
