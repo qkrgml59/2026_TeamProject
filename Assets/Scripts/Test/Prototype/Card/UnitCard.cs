@@ -32,6 +32,9 @@ namespace Prototype.Card
 
         protected override bool TryUseCard(RaycastHit hit)
         {
+            if(BattleManager.Instance == null ||
+                BattleManager.Instance.currentBattleState != BattleState.Prepare) return false;     // 준비 턴에만 사용 가능
+
             if (unitData == null || unitData.unitDataSO == null) return false;
 
             HexTile tile = hit.transform.GetComponent<HexTile>();

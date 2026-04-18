@@ -21,11 +21,6 @@ namespace Unit
         HexTile originTile;
         bool canDrag = false;
 
-        private void Start() 
-        {
-            if(_unit != null)
-                canDrag = _unit.IsSameTeam(TeamType.Ally);
-        }
 
         // 마우스 클릭
         public virtual void OnPointerClick(PointerEventData eventData)
@@ -60,6 +55,12 @@ namespace Unit
         public virtual void OnBeginDrag(PointerEventData eventData)
         {
             if (eventData.button != PointerEventData.InputButton.Left) return;      // 좌클릭만 드래그 가능
+
+            if (_unit != null && BattleManager.Instance != null)
+                canDrag = _unit.IsSameTeam(TeamType.Ally)
+                    && BattleManager.Instance.currentBattleState == BattleState.Prepare;      // 아군 유닛 & 준비 상태일 때만
+            else
+                canDrag = false;
 
             if (_unit == null || !canDrag) return;
 
