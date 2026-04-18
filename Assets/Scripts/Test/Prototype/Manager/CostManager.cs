@@ -12,7 +12,7 @@ public class CostManager : SingletonMonoBehaviour<CostManager>
 
     private void Start()
     {
-        InitCost(10, 10);           // 테스트용 설정 추후 위치 이동 
+        InitCost(10, 10);
     }
 
     public void InitCost(int startCost, int _maxCost)           // 스테이지 시작할 때 사용 할 초기화 매서드

@@ -10,6 +10,9 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
     [SerializeField] private List<StageData> stageDatas = new List<StageData>();
     public Dictionary<ThemeType, StageData> stages = new();
 
+    [Header("스테이지 종료 시 코스트 회복량")]
+    public int recoverCostAmout = 1;
+
     [Header("게임 설정")]
     public int totalStageCount = 3;
     public List<RoundType> stageCycle = new List<RoundType>() {
@@ -120,7 +123,11 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
         if (BattleManager.Instance != null)
             BattleManager.Instance.RoundStart();
 
+        if (CostManager.Instance != null)
+            CostManager.Instance.RecoverCost(recoverCostAmout);
+
         Debug.Log($"[StageManager] 현재 : ({CurStageIndex + 1}스테이지 {CurRoundIndex + 1}라운드)");
+        Debug.Log($"[StageManager] 스테이지 종료! ({recoverCostAmout + 1}코스트 회복");
     }
 
     #region 카드 관련 기능
