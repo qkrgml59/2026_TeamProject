@@ -8,7 +8,7 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
 {
     [Header("모든 스테이지 원본")]
     [SerializeField] private List<StageData> stageDatas = new List<StageData>();
-    public Dictionary<ThemeType, StageData> stages = new();
+    public Dictionary<ThemeType, StageData> stages { get; private set; } = new();
 
     [Header("스테이지 종료 시 코스트 회복량")]
     public int recoverCostAmout = 1;
@@ -39,7 +39,7 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
     public int CurStageIndex => curStageIndex;
 
     [Header("라운드 정보(읽기 전용, 직접 수정 X)")]
-    [SerializeField] private int curRoundIndex = 0;
+    [SerializeField] private int curRoundIndex = -1;
     public int CurRoundIndex => curRoundIndex;
     [SerializeField] private RoundData currentRound;
     public RoundData CurrentRound => currentRound;
@@ -104,6 +104,8 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
     {
         gameThemes.Clear();
         gameThemes.AddRange(selectedThemes);
+
+        // TODO : 스테이지 및 라운드 인덱스 초기화 (또는 스테이지/라운드 정보 초기화 기능 추가 필요)
 
         InitCardPool();
 
@@ -190,6 +192,7 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
     }
 
     //나중에 수정해야할듯
+    // TODO : pack을 매개변수로 넘기지 말고, 테마 값으로 stage 딕셔너리에서 읽어오기
     public List<CardDataSO> GetPreviewCards(StageData pack, int count = 6)
     {
         List<CardDataSO> result = new List<CardDataSO>();
