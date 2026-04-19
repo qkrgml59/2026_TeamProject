@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c5858147469eae4880bfedf545414ea, type: 3}
+  m_Name: Horror Stage 4
+  m_EditorClassIdentifier: Assembly-CSharp::StageData
+  themeType: 6
+  unitCards:
+  - cardData: {fileID: 11400000, guid: 8efe29378d458824c91dd2b01fd8f43e, type: 2}
+    count: 3
+  - cardData: {fileID: 11400000, guid: b18293caf6a3fd646bf6f397a749edac, type: 2}
+    count: 3
+  - cardData: {fileID: 11400000, guid: 9c931e314ca8c874baf68847b1dba5f9, type: 2}
+    count: 3
+  - cardData: {fileID: 11400000, guid: db5f2e359c001824096aae66aaf176e8, type: 2}
+    count: 3
+  - cardData: {fileID: 11400000, guid: 60def9694fbfe26448355d446bcedd1c, type: 2}
+    count: 3
+  - cardData: {fileID: 11400000, guid: fd53720439f5862409f9d3f4da8a1cce, type: 2}
+    count: 3
+  - cardData: {fileID: 11400000, guid: 5882d0e232d1ff84aa1f43af02ef15cb, type: 2}
+    count: 3
+  - cardData: {fileID: 11400000, guid: 1f357a8b9935c8243a497f6ab10231c2, type: 2}
+    count: 3
+  - cardData: {fileID: 11400000, guid: f09f175962cc47747be4a25be97bec3f, type: 2}
+    count: 3
+  itemCards:
+  - cardData: {fileID: 11400000, guid: be64589b5c8ea934cb64fdb1c1ffd184, type: 2}
+    count: 3
+  - cardData: {fileID: 11400000, guid: baa29506d9f92f24ea891a363058d1b6, type: 2}
+    count: 3
+  spellCards:
+  - cardData: {fileID: 11400000, guid: d36275b21d2977b4d8725c097bde5b78, type: 2}
+    count: 3
+  - cardData: {fileID: 11400000, guid: fcb0a3e9573c1ea418f9e8f8836cc769, type: 2}
+    count: 3
+  - cardData: {fileID: 11400000, guid: 1fbf8b4393407334b851fb970642545d, type: 2}
+    count: 3
+  - cardData: {fileID: 11400000, guid: 303cc4b8d221a9243b624c1702d37db6, type: 2}
+    count: 3
+  normalRound:
+  - {fileID: 11400000, guid: 092f8b1e9b89b2449b68c19d9d658648, type: 2}
+  - {fileID: 11400000, guid: a735c99f6a0928949acb86ea3b9309a1, type: 2}
+  - {fileID: 11400000, guid: 80cfbf9afad2b5143baf5c9163bef71f, type: 2}
+  - {fileID: 11400000, guid: 46f2b0c6b0cdb394bb283d20cbe4840f, type: 2}
+  - {fileID: 11400000, guid: 0bd31c73865475b4681608e61289d8fd, type: 2}
+  - {fileID: 11400000, guid: 266bd3f3a4a11e246a58ffe26075840b, type: 2}
+  eliteRound:
+  - {fileID: 11400000, guid: b33231d49cb5b914e8fe06244edee5ab, type: 2}
+  - {fileID: 11400000, guid: 1dee99a248c9bdf4f98e3d8ec78fb838, type: 2}
+  - {fileID: 11400000, guid: c24c79f01ae35804682e91751c1d4158, type: 2}
+  bossRound:
+  - {fileID: 11400000, guid: f125befaed1b3c34c9cf938d37991a82, type: 2}
+  - {fileID: 11400000, guid: d9cd312956de2bd44b40b99aeb1aa99c, type: 2}

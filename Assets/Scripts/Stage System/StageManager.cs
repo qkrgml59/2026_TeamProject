@@ -69,6 +69,13 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
         //SetGameThemes(totalStageCount);
 
         InitCardPool();
+        
+        if(!stages.ContainsKey(CurStageTheme))
+        {
+            Debug.LogError($"테마 없음 : {CurStageTheme}");
+            return;
+        }
+
         // 첫 라운드 세팅
         currentRound = stages[CurStageTheme].GetRandomRound(stageCycle[CurRoundIndex]);
     }
@@ -102,18 +109,24 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
     /// </summary>
     public void ApplySelectedThemes(List<ThemeType> selectedThemes)
     {
-        gameThemes.Clear();
-        gameThemes.AddRange(selectedThemes);
-
-        // TODO : 스테이지 및 라운드 인덱스 초기화 (또는 스테이지/라운드 정보 초기화 기능 추가 필요)
-
-        InitCardPool();
-
-        currentRound = stages[CurStageTheme].GetRandomRound(stageCycle[CurRoundIndex]);
-
-        Debug.Log("선택한 테마 적용 완료");
+        unitCards.Clear(); itemCards.Clear(); spellCards.Clear();
+        foreach (ThemeType theme in selectedThemes)
+        {
+            if (stages.TryGetValue(theme, out var data))
+            {
+                AddCardsToPool(unitCards, data.UnitCards);
+                AddCardsToPool(itemCards, data.ItemCards);
+                AddCardsToPool(spellCards, data.SpellCards);
+            }
+        }
     }
 
+    private void AddCardsToPool(List<CardDataSO> pool, List<CardEntry> entries)
+    {
+        foreach (var entry in entries)
+            for (int i = 0; i < entry.count; i++)
+                pool.Add(entry.cardData);
+    }
 
     /// <summary>
     /// 다음 라운드로 변경
@@ -182,45 +195,7 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
         }
     }
 
-    /// <summary>
-    /// 카드팩 UI용 StageData 목록 반환
-    /// (읽기 전용)
-    /// </summary>
-    public List<StageData> GetStageDataList()
-    {
-        return stageDatas;
-    }
-
-    //나중에 수정해야할듯
-    // TODO : pack을 매개변수로 넘기지 말고, 테마 값으로 stage 딕셔너리에서 읽어오기
-    public List<CardDataSO> GetPreviewCards(StageData pack, int count = 6)
-    {
-        List<CardDataSO> result = new List<CardDataSO>();
-
-        List<CardDataSO> temp = new List<CardDataSO>();
-
-        foreach (var e in pack.UnitCards)
-            for (int i = 0; i < e.count; i++)
-                temp.Add(e.cardData);
-
-        foreach (var e in pack.ItemCards)
-            for (int i = 0; i < e.count; i++)
-                temp.Add(e.cardData);
-
-        foreach (var e in pack.SpellCards)
-            for (int i = 0; i < e.count; i++)
-                temp.Add(e.cardData);
-
-        for (int i = 0; i < count; i++)
-        {
-            if (temp.Count == 0) break;
-
-            int rand = Random.Range(0, temp.Count);
-            result.Add(temp[rand]);
-        }
-
-        return result;
-    }
+    
     public CardDataSO GetRandomCardData(CardType type)
     {
         switch(type)
@@ -273,40 +248,7 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
         }
     }
 
-    /// <summary>
-    /// 미리보기용 카드 반환
-    /// </summary>
-    public List<CardDataSO> PeekPackPreviewCards(int count)
-    {
-        List<CardDataSO> result = new List<CardDataSO>();
-
-        for (int i = 0; i < count; i++)
-        {
-            if (unitCards.Count == 0)
-                break;
-
-            int rand = Random.Range(0, unitCards.Count);
-            result.Add(unitCards[rand]);
-        }
-
-        return result;
-    }
-
-    //팩 미리보기 용 카드
-    public List<CardDataSO> GetPackPreviewCards(int count)
-    {
-        List<CardDataSO> result = new List<CardDataSO>();
-
-        for (int i= 0; i< count; i++)
-        {
-            var card = GetRandomCardData(CardType.Unit);
-
-            if (card != null)
-                result.Add(card);
-        }
-
-        return result;
-    }
+   
 
     #endregion
 }

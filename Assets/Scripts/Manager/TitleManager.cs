@@ -4,46 +4,56 @@ using UnityEngine;
 
 public class TitleManager : MonoBehaviour
 {
-    [SerializeField] private PackSelectView packView;
-    [SerializeField] private DeckDraftView deckView;
+    [SerializeField] private GameObject titlePanel;
+    [SerializeField] private GameObject packPanel;
+    [SerializeField] private GameObject deckPanel;
 
-    private PakcSelectPresenter packPresenter;
+    private PackSelectPresenter packPresenter;
     private DeckDraftPresenter deckPresenter;
 
     private void Start()
     {
-        // Pack 선택 시작
-        packPresenter = new PakcSelectPresenter(packView);
-        packPresenter.OnComplete += OnPackSelected;
+        titlePanel.SetActive(true);
+        packPanel.SetActive(false);
+        deckPanel.SetActive(false);
+    }
+
+    public void OnClickStart()
+    {
+        titlePanel.SetActive(false);
+        packPanel.SetActive(true);
+
+        packPresenter = new PackSelectPresenter(
+           packPanel.GetComponent<PackSelectView>()
+          );
+
+        packPresenter.OnComplete += OnPackSelected; ;
         packPresenter.Init();
     }
 
-    /// <summary>
-    /// 카드팩 3개 선택 완료
-    /// </summary>
     private void OnPackSelected(List<ThemeType> themes)
     {
         StageManager.Instance.ApplySelectedThemes(themes);
 
+        packPanel.SetActive(false);
+        deckPanel.SetActive(true);
+
         StartDeckDraft();
     }
 
-    /// <summary>
-    /// Deck Draft 시작
-    /// </summary>
     private void StartDeckDraft()
     {
-        deckPresenter = new DeckDraftPresenter(deckView);
+        deckPresenter = new DeckDraftPresenter(
+            deckPanel.GetComponent<DeckDraftView>()
+            );
+
         deckPresenter.OnComplete += OnDeckReady;
         deckPresenter.Init();
     }
 
-    /// <summary>
-    /// 덱 세팅 완료 -> 전투 이동
-    /// </summary>
     private void OnDeckReady()
     {
-        Debug.Log("덱 준비 완료 => 전투 시작");
-        // SceneManager.LoadScene("BattleScene");
+        Debug.Log("전투 시작");
+
     }
 }
