@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Card_3506_HealUnit
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.Spell.SpellCardDataSO
   cardId: 3506
-  icon: {fileID: -1126876640, guid: 4a3521fd66ec16040b2892cc1a42569a, type: 3}
+  icon: {fileID: 21300000, guid: 4a3521fd66ec16040b2892cc1a42569a, type: 3}
   cardName: "\uBD95\uB300 \uAC10\uAE30"
   description: 
   cost: 2

@@ -1,5 +1,6 @@
 using Item;
 using Prototype.Card.Item;
+using Prototype.Card.Spell;
 using Prototype.Card.Unit;
 using Spell;
 using Unit;
@@ -12,6 +13,7 @@ namespace Game.UI
         [Header("유닛 상세 정보")] public UnitDetailVeiw unitDetailView;
         [Header("유닛 카드 정보")] public UnitCardDetailView unitCardDetailView;
         [Header("아이템 상세 정보")] public ItemDetailView itemDetailView;
+        [Header("마법 상세 정보")] public SpellDetailView spellDetailView;
 
         private void Start()
         {
@@ -33,6 +35,8 @@ namespace Game.UI
             }
 
             if (itemDetailView != null) itemDetailView.Hide();
+
+            if (spellDetailView != null) spellDetailView.Hide();
         }
 
         /// <summary>
@@ -76,9 +80,13 @@ namespace Game.UI
         /// <summary>
         /// 스펠의 상세 설명을 보여줍니다.
         /// </summary>
-        public void ShowSpellDetail(SpellSO spell)
+        public void ShowSpellDetail(SpellCardDataSO spell)
         {
             HideAll();
+
+            if(spellDetailView == null || spell == null) return;
+
+            spellDetailView.Show(spell);
         }
     }
 }

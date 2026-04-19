@@ -72,7 +72,7 @@ namespace Prototype.Card
         public override void OnPointerClick(PointerEventData eventData)
         {
             if (DetailPanelController.Instance != null && spell != null && spell.spellSO != null)
-                DetailPanelController.Instance.ShowSpellDetail(spell.spellSO);
+                DetailPanelController.Instance.ShowSpellDetail(spell);
         }
     }
 }

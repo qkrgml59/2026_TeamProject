@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Card_3501_Sacrifice
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.Spell.SpellCardDataSO
   cardId: 3501
-  icon: {fileID: 1665576791, guid: 6c3f74ea6d3c8c647a92944716e389de, type: 3}
+  icon: {fileID: 21300000, guid: 6c3f74ea6d3c8c647a92944716e389de, type: 3}
   cardName: "\uC81C\uBB3C \uC758\uC2DD"
   description: 
   cost: 0

@@ -66,7 +66,7 @@ public class UnitCardDetailView : MonoBehaviour
         _statSet = new StatSet(_unitData.statData, 0);          // TODO : 유닛 성급 적용
 
         if (nameText != null) nameText.text = _unitData.Name_KR;
-        if (profile != null) profile.sprite = _unitData.unitSprite ?? dummyImage;
+        if (profile != null) profile.sprite = unitCard.icon ?? dummyImage;
 
         if (hpView != null)
         {
