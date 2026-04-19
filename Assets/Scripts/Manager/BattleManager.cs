@@ -83,6 +83,10 @@ public class BattleManager : SingletonMonoBehaviour<BattleManager>
         }
 
         delayRountine = StartCoroutine(DelayRountine(combatDuration, () => BattleEnd()));
+
+
+        // 전투 시작 직후 종료 가능 여부 확인
+        CheckBattleEnd();
     }
 
     [ContextMenu("전투 종료")]
@@ -104,8 +108,20 @@ public class BattleManager : SingletonMonoBehaviour<BattleManager>
             RewardManager.Instance.StartRewardPhase();
 
             RoundEnd();
-        })
-    );
+        }));
+    }
+
+    /// <summary>
+    /// 배틀 종료 여부 확인, 종료 가능하다면 종료
+    /// </summary>
+    public void CheckBattleEnd()
+    {
+        if (currentBattleState != BattleState.Combat) return;
+
+        if (UnitManager.Instance.IsBattleEnd())
+        {
+            BattleEnd();
+        }
     }
 
     [ContextMenu("라운드 종료")]

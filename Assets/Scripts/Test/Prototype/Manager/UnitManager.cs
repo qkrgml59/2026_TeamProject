@@ -12,6 +12,11 @@ namespace Unit
         private readonly List<UnitBase> _allyUnits = new();         // 아군 유닛 리스트
         private readonly List<UnitBase> _enemyUnits = new();        // 적군 유닛 리스트
 
+        /// <summary>
+        /// 배틀이 종료 되었는지 (아군 또는 적군이 없는지 확인)
+        /// </summary>
+        public bool IsBattleEnd() => _allyUnits.Count == 0 || _enemyUnits.Count == 0;
+
         public void RegisterUnit(UnitBase unit)
         {
             if (unit == null || _allUnits.Contains(unit))
@@ -37,13 +42,9 @@ namespace Unit
             _enemyUnits.Remove(unit);
 
 
-            // 전투중일 때만 전투 종료 확인
-            if (BattleManager.Instance.currentBattleState != BattleState.Combat) return;
-
-            // TODO: 전투 종료 판단 방식 변경 필요
-            if(_allyUnits.Count == 0 || _enemyUnits.Count == 0)
+            if (BattleManager.Instance != null)
             {
-                BattleManager.Instance.BattleEnd();
+                BattleManager.Instance.CheckBattleEnd();
             }
         }
 
