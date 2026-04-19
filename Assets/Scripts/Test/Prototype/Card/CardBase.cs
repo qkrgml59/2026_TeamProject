@@ -14,6 +14,7 @@ namespace Prototype.Card
         public Image icon;
         public TextMeshProUGUI cardName;
         public TextMeshProUGUI cardDescription;
+        public TextMeshProUGUI cardCost;
         public RectTransform rectTransform;
 
         public LayerMask tileLayer;
@@ -33,6 +34,7 @@ namespace Prototype.Card
             icon.sprite = data.icon;
             cardName.text = data.cardName;
             cardDescription.text = data.description;
+            cardCost.text = data.cost.ToString();
         }
 
         #region Preview Setting

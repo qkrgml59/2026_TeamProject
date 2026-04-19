@@ -12067,6 +12067,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2398538735240590170, guid: f607d22a715221b4ebb2e121c989f19b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9218105347718376252, guid: f607d22a715221b4ebb2e121c989f19b, type: 3}
       propertyPath: m_Name
       value: Spell Detail
