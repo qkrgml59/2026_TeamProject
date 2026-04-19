@@ -53,10 +53,8 @@ namespace Game.UI
         {
             if (itemView == null) return;
 
-            if(items.Count == 0) itemView.gameObject.SetActive(false);
-
-            itemView.gameObject.SetActive(true);
             itemView.UpdateItems(items);
+            itemView.gameObject.SetActive(items.Count > 0);
         }
     }
 }
