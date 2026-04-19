@@ -17,7 +17,7 @@ namespace UI
         [Header("메인 레이아웃")]
         public RectTransform packListRoot;    // 카드팩 슬롯들이 담긴 부모 오브젝트
         public TextMeshProUGUI countText;
-        public GameObject packSlotPrefab; // [추가] 생성할 카드팩 슬롯 프리팹
+        public GameObject packSlotPrefab;    // 생성할 카드팩 슬롯 프리팹
         public Button confirmButton;
 
         [Header("상세창 설정")]
@@ -39,7 +39,7 @@ namespace UI
 
         private void Update()
         {
-            // 상세창 활성화 시 ESC를 누르면 닫기 시도
+            //ESC를 누르면 닫기
             if (detailPanel.activeSelf && Input.GetKeyDown(KeyCode.Escape))
                 OnCloseDetail?.Invoke();
         }
@@ -81,6 +81,8 @@ namespace UI
             if (slotMap.TryGetValue(theme, out var slot)) slot.SetSelected(isSelected);
         }
 
+
+        //TODO : 상태창 카드팩이 안 보이는 거 수정 해야 함
         ///<summary>
         ///상세창 연출
         /// </summary>

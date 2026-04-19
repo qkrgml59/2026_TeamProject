@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TitleManager : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class TitleManager : MonoBehaviour
            packPanel.GetComponent<PackSelectView>()
           );
 
-        packPresenter.OnComplete += OnPackSelected; ;
+        packPresenter.OnComplete += OnPackSelected;
         packPresenter.Init();
     }
 
@@ -43,17 +44,20 @@ public class TitleManager : MonoBehaviour
 
     private void StartDeckDraft()
     {
-        deckPresenter = new DeckDraftPresenter(
-            deckPanel.GetComponent<DeckDraftView>()
-            );
+        // 뷰 가져오기
+        var draftView = deckPanel.GetComponent<DeckDraftView>();
+
+        //카드 생성
+        deckPresenter = new DeckDraftPresenter(draftView);
 
         deckPresenter.OnComplete += OnDeckReady;
-        deckPresenter.Init();
+
+        deckPresenter.StartDraft();
     }
 
     private void OnDeckReady()
     {
         Debug.Log("전투 시작");
-
+        SceneManager.LoadScene("GridTestScene");
     }
 }
