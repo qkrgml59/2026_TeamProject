@@ -4,6 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TilteScene.unity
+    guid: 6740b6d4c22e8b442940b0cf4949231b
+  - enabled: 1
+    path: Assets/Scenes/Prototype/GridTestScene.unity
+    guid: dad9887563816462fabe521037059906
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
