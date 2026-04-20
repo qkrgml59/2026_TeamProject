@@ -71,6 +71,7 @@ namespace Unit.Skill
                 yield break;
             }
 
+            // TODO : 랜더러 직접 수정 하는 방식 지양
             //출발 이펙트
             Renderer unitRenderer = owner.GetComponentInChildren<Renderer>();
             if (unitRenderer != null)
@@ -118,6 +119,11 @@ namespace Unit.Skill
                 StopCoroutine(skillRoutine);
                 skillRoutine = null;
             }
+
+            // 스킬 취소 시 투명 풀리도록 수정
+            Renderer unitRenderer = owner.GetComponentInChildren<Renderer>();
+            if (unitRenderer != null)
+                unitRenderer.enabled = true;
         }
 
         protected override void OnFinish()
