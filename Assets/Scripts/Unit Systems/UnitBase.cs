@@ -121,7 +121,7 @@ namespace Unit
                 { UnitStateType.Think, new ThinkState(this)},
                 { UnitStateType.Move, new MoveState(this)},
                 { UnitStateType.Attack, new AttackState(this)},
-                { UnitStateType.SKill, new SkillState(this)},
+                { UnitStateType.Skill, new SkillState(this)},
                 { UnitStateType.Stun, new StunState(this)},
                 { UnitStateType.Dead, new DeadState(this)}
             };
@@ -372,7 +372,7 @@ namespace Unit
             Debug.Log($"[{name}] 현재 자원 {currentResource}");
 
             if(CanUseSkill())
-                ChangeUnitState(UnitStateType.SKill);   // 스킬 사용이 가능하면 사용
+                ChangeUnitState(UnitStateType.Skill);   // 스킬 사용이 가능하면 사용
         }
 
         public void UseResource(float amount)

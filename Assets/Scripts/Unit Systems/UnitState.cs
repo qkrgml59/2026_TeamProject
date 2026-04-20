@@ -11,7 +11,7 @@ namespace Unit
         Think,      // 경로나 적 탐색
         Move,
         Attack,
-        SKill,
+        Skill,
         Stun,
         Dead
     }
@@ -63,7 +63,7 @@ namespace Unit
             if(_unit.CanUseSkill())
             {
                 // 스킬 상태로 전환
-                _unit.ChangeUnitState(UnitStateType.SKill);
+                _unit.ChangeUnitState(UnitStateType.Skill);
                 return;
             }
 
@@ -105,7 +105,7 @@ namespace Unit
 
             // 스킬 사용이 가능하다면 사용
             if(_unit.CanUseSkill())
-                _unit.ChangeUnitState(UnitStateType.SKill);
+                _unit.ChangeUnitState(UnitStateType.Skill);
 
             // 사거리 안에 적이 있다면
             if (HexMath.Distance(_unit.offset,
@@ -232,7 +232,7 @@ namespace Unit
 
             // 스킬 사용이 가능하다면 사용
             if(_unit.CanUseSkill())
-                _unit.ChangeUnitState(UnitStateType.SKill);
+                _unit.ChangeUnitState(UnitStateType.Skill);
 
             // 사거리 안에 적이 없다면
             if (HexMath.Distance(_unit.offset,
