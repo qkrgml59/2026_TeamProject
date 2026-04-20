@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unit;
 using UnityEngine;
 using Utilitys;
 
@@ -134,24 +135,24 @@ namespace Prototype.Grid.Pathfind
         /// <summary>
         /// 해당 경로가 유효한지 확인
         /// </summary>
-        public bool IsPathStillValid(List<HexTile> path, int currentIndex, HexTile targetTile, float attackRange)
+        public bool IsPathStillValid(List<HexTile> path, int currentIndex, UnitBase targetUnit, float attackRange)
         {
             if (path == null || path.Count == 0)
                 return false;
 
             for (int i = currentIndex; i < path.Count; i++)
             {
-                // 진입 불가능 하면서 타겟 타일도 아닌 경우
-                if (!path[i].CanReserve(null) && path[i] != targetTile)
+                // 진입 불가능 + 점유 유닛이 타겟도 아니면 불가능
+                if (!path[i].CanReserve(null) && path[i].ReservedUnit != targetUnit && path[i].OccupantUnit != targetUnit)
                     return false;
 
-                // 이동 중 대상 타일이 사거리 안에 있어도 유효한 경로
-                if (HexMath.Distance(path[i].Offset, targetTile.Offset) <= attackRange)
+                // 이동 중 대상이 사거리 안에 있어도 유효한 경로
+                if (HexMath.Distance(path[i].Offset, targetUnit.offset) <= attackRange)
                     return true;
             }
 
             // 도착지에서 사거리 안에 적이 없는 경우
-            if (HexMath.Distance(path[^1].Offset, targetTile.Offset) > attackRange)
+            if (HexMath.Distance(path[^1].Offset, targetUnit.offset) > attackRange)
                 return false;
 
             return true;

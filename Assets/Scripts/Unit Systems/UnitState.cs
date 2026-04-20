@@ -102,6 +102,7 @@ namespace Unit
                 _unit.SetTargetUnit(target);
             }
 
+
             // 스킬 사용이 가능하다면 사용
             if(_unit.CanUseSkill())
                 _unit.ChangeUnitState(UnitStateType.SKill);
@@ -182,6 +183,15 @@ namespace Unit
             // TODO: 물리 관련 설정 방식 변경 필요
             _unit.RigidInit();
             _unit.Kinematic(true);
+
+
+            // 이동 종료 타이밍에 새로운 적 탐색
+            var target = UnitManager.Instance.GetNearestEnemy(_unit);
+            if (target == null)
+                return;
+
+            // 대상이 없거나 새로운 타겟이라면
+            if (_unit.targetUnit == null || _unit.targetUnit != target) _unit.SetTargetUnit(target);
         }
     }
 

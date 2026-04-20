@@ -227,7 +227,7 @@ namespace Unit
             //if (path[^1].OccupantUnit != targetUnit)
                 //return false;
 
-            return GridManager.Instance.pathfinder.IsPathStillValid(path, curPathIndex, targetUnit.currentTile, statSet.AttackRange.Value);
+            return GridManager.Instance.pathfinder.IsPathStillValid(path, curPathIndex, targetUnit, statSet.AttackRange.Value);
         }
 
         public void ClearPath()
