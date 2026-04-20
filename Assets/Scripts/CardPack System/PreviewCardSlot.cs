@@ -16,6 +16,5 @@ public class PreviewCardSlot : MonoBehaviour
     {
         cardImage.sprite = data.icon;
         // 개수가 1개 이상인 경우에만 xN 형태로 표시
-        countText.text = count > 1 ? $"x{count}" : "";
     }
 }

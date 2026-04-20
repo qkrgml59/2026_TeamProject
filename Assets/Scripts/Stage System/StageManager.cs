@@ -66,9 +66,9 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
 
     private void Start()
     {
-        //SetGameThemes(totalStageCount);
+        SetGameThemes(totalStageCount);
 
-        InitCardPool();
+        //InitCardPool();
         
         if(!stages.ContainsKey(CurStageTheme))
         {
@@ -121,6 +121,8 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
         }
     }
 
+
+    // 이거 중복 코드 있어요
     private void AddCardsToPool(List<CardDataSO> pool, List<CardEntry> entries)
     {
         foreach (var entry in entries)

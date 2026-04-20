@@ -11,9 +11,7 @@ public class DeckDraftPresenter
 
     private List<CardDataSO> playerDeck = new List<CardDataSO>();
 
-    private List<CardDataSO> displayCards = new List<CardDataSO>(new CardDataSO[10]);
-
-    private int remainingRerolls = 3;        //교환 간으 횟수
+    private int remainingRerolls = 2;        //교환 간으 횟수
 
     public System.Action OnComplete;
 
@@ -29,36 +27,44 @@ public class DeckDraftPresenter
     public void StartDraft()
     {
         //랜덤으로 30장 채우기
-        GenerateRandomInitalDeck(30);
-
-        //10장 추출
-        PrepareDisplayCards();
+        GenerateRandomInitalDeck(6, 2, 2);
 
         //UI 업데이트
-        view.Show(displayCards, remainingRerolls);
+        view.Show(playerDeck, remainingRerolls);
     }
 
-    //초기 30장 덱 생성
-    private void GenerateRandomInitalDeck(int count)
+    //초기 덱 완성
+    private void GenerateRandomInitalDeck(int unit, int item, int spell)
     {
+        if (StageManager.Instance == null) return;
+
         playerDeck.Clear();
-        for (int i = 0; i< count; i++)
+
+        // 유닛 추가
+        for (int i = 0; i< unit; i++)
         {
-            CardType randomType = (CardType)Random.Range(0, 3);
-            var card = StageManager.Instance.GetRandomCardData(randomType);
-            if (card != null) playerDeck.Add(card);
+            CardDataSO card = StageManager.Instance.GetRandomCardData(CardType.Unit);
+            if (card != null)
+                playerDeck.Add(card);
+        }
+
+        // 아이템 추가
+        for (int i = 0; i < item; i++)
+        {
+            CardDataSO card = StageManager.Instance.GetRandomCardData(CardType.Item);
+            if (card != null)
+                playerDeck.Add(card);
+        }
+
+        // 스펠 추가
+        for (int i = 0; i < spell; i++)
+        {
+            CardDataSO card = StageManager.Instance.GetRandomCardData(CardType.Spell);
+            if (card != null)
+                playerDeck.Add(card);
         }
     }
 
-    private void PrepareDisplayCards()
-    {
-        //유닛 6
-        for (int i = 0; i < 6; i++) displayCards[i] = GetCardFromDeckByType(CardType.Unit);
-        //아이템 2
-        for (int i = 6; i < 8; i++) displayCards[i] = GetCardFromDeckByType(CardType.Item);
-        //스펠 2
-        for (int i = 8; i < 10; i++) displayCards[i] = GetCardFromDeckByType(CardType.Spell);
-    }
     private CardDataSO GetCardFromDeckByType(CardType type)
     {
         // 덱에서 해당 타입의 첫 번째 카드를 찾아서 반환하고 덱에선 잠시 제거
@@ -76,25 +82,28 @@ public class DeckDraftPresenter
             return;
         }
 
-        if (index < 0 || index >= displayCards.Count) return;
+        if (index < 0 || index >= playerDeck.Count) return;
 
-        CardDataSO oldCard = displayCards[index];
+        CardDataSO oldCard = playerDeck[index];
+
+
+        // 동일 카드가 나올 확률을 줄이고자 새로운 카드 먼저 받아오기
+        //새로운 카드 풀에서 가져옴
+        CardDataSO newCard = StageManager.Instance.GetRandomCardData(oldCard.CardType);
 
         //버린 카드 다시 풀로 반환
         StageManager.Instance.ReturnCardToPool(oldCard);
 
-        //새로운 카드 풀에서 가져옴
-        CardDataSO newCard = StageManager.Instance.GetRandomCardData(oldCard.CardType);
 
         if (newCard != null)
         {
             remainingRerolls--;
-            displayCards[index] = newCard;
+            playerDeck[index] = newCard;
             Debug.Log($"[Draft] {oldCard.cardName} => {newCard.cardName} 교체 완료");
         }
 
         //UI 업데이트
-        view.Refresh(displayCards, remainingRerolls);
+        view.Refresh(playerDeck, remainingRerolls);
     }
 
     public void ConfirmDeck()
@@ -103,13 +112,6 @@ public class DeckDraftPresenter
         {
             Debug.LogError("DeckManager 찾을 수 없긔");
             return;
-        }
-
-
-        // 교체 후 30장 완성
-        foreach (var card in displayCards)
-        {
-            if (card != null) playerDeck.Add(card);
         }
 
         // 덱에 전달
