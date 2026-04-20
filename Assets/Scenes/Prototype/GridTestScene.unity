@@ -305,7 +305,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &37851371
 RectTransform:
@@ -4151,7 +4151,7 @@ PrefabInstance:
       objectReference: {fileID: 225129930}
     - target: {fileID: 5075321492865920860, guid: 88c76fd2443698741a4aa6b9236f48e8, type: 3}
       propertyPath: m_Color.a
-      value: 0.72156864
+      value: 0.8627451
       objectReference: {fileID: 0}
     - target: {fileID: 6717760865855919862, guid: 88c76fd2443698741a4aa6b9236f48e8, type: 3}
       propertyPath: m_Pivot.x
@@ -4500,7 +4500,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 8
   m_TargetDisplay: 0
 --- !u!224 &725004207
 RectTransform:
@@ -6000,7 +6000,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &974802597
 RectTransform:
@@ -6036,7 +6036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.CardManager
   useDontDestroyOnLoad: 0
   cardCanvas: {fileID: 974802596}
-  defaultDrawCount: 4
+  defaultDrawCount: 5
   maxHandCount: 6
   _deck: []
   _handCards: []
@@ -9542,7 +9542,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 7
   m_TargetDisplay: 0
 --- !u!224 &1698934081
 RectTransform:
@@ -11220,7 +11220,7 @@ MonoBehaviour:
   useDontDestroyOnLoad: 1
   stageDatas:
   - {fileID: 11400000, guid: 0acf045cb1b669f49968efd99e9b0cfc, type: 2}
-  recoverCostAmout: 1
+  recoverCostAmout: 5
   totalStageCount: 1
   stageCycle: 000000000000000000000000010000000000000000000000000000000100000000000000000000000000000002000000
   gameThemes: 
@@ -22067,7 +22067,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 286020999153443656, guid: b7cbef75178920b49805d887d9876899, type: 3}
       propertyPath: m_Color.a
-      value: 0.72156864
+      value: 0.8627451
       objectReference: {fileID: 0}
     - target: {fileID: 823328022039902572, guid: b7cbef75178920b49805d887d9876899, type: 3}
       propertyPath: m_Name

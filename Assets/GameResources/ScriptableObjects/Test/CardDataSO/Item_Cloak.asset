@@ -15,6 +15,7 @@ MonoBehaviour:
   cardId: Item2
   icon: {fileID: -7320800790988269609, guid: 30f45f9a124dd104caedd36e5a3f8a75, type: 3}
   cardName: "\uB9DD\uD1A0"
-  description: "\uB9C8\uBC95 \uC800\uD56D\uB825 20\uC99D\uAC00"
+  description: "\uC720\uB2DB\uC5D0\uAC8C \uC544\uC774\uD15C\uC744 \uC7A5\uCC29\uD569\uB2C8\uB2E4."
+  cost: 0
   cardPrefab: {fileID: -4416521778009406744, guid: e139526d4a0bdee42a88d673ec9240a1, type: 3}
   itemSO: {fileID: 11400000, guid: 9b445e3d1e80c564c9f7b3ddd42e440d, type: 2}

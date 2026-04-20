@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a06f9ba36c309448b6175e8f96870a1, type: 3}
   m_Name: 3502_DrawCard
   m_EditorClassIdentifier: Assembly-CSharp::Spell.SpellSO
-  icon: {fileID: 21300000, guid: 58ce5409aec0a5b46944c19c9231ff5c, type: 3}
+  icon: {fileID: 21300000, guid: 7874a487b30d00d45a3fdac9d2c632bc, type: 3}
   spellName: "\uB85C\uC5F4"
   tileArea: 3
   description: "\uCE74\uB4DC \uB371\uC5D0\uC11C \uD55C \uC7A5\uC744 \uBF51\uC2B5\uB2C8\uB2E4."

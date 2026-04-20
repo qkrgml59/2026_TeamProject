@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemSO
   icon: {fileID: -7320800790988269609, guid: 30f45f9a124dd104caedd36e5a3f8a75, type: 3}
   itemName: "\uB9DD\uD1A0"
-  itemDescription: 
-  itemPrefab: {fileID: 521645222006639495, guid: 7779b40cfc5509c4c82c3121de2496b5, type: 3}
+  itemDescription: "\uB9C8\uBC95 \uC800\uD56D\uB825 20\uC99D\uAC00"
   modifiers:
   - statType: 5
     modifierType: 0
