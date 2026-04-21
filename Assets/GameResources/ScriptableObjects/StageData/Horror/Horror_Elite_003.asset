@@ -15,18 +15,18 @@ MonoBehaviour:
   roundType: 1
   units:
   - offset: {x: 2, y: 5}
-    unitData: {fileID: 11400000, guid: f7a1df685acaabf41a43d71c4852b93d, type: 2}
-    star: 1
-    items: []
-  - offset: {x: 2, y: 7}
     unitData: {fileID: 11400000, guid: f0361fac29a574a45b9e869582378093, type: 2}
     star: 0
     items: []
-  - offset: {x: 3, y: 5}
+  - offset: {x: 3, y: 4}
+    unitData: {fileID: 11400000, guid: f7a1df685acaabf41a43d71c4852b93d, type: 2}
+    star: 1
+    items: []
+  - offset: {x: 4, y: 4}
     unitData: {fileID: 11400000, guid: 901f6eed49834ae4eba15f5761ba4742, type: 2}
     star: 1
     items: []
-  - offset: {x: 3, y: 7}
+  - offset: {x: 4, y: 5}
     unitData: {fileID: 11400000, guid: f0361fac29a574a45b9e869582378093, type: 2}
     star: 0
     items: []

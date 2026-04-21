@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoundData
   roundType: 0
   units:
-  - offset: {x: 0, y: 7}
+  - offset: {x: 2, y: 6}
     unitData: {fileID: 11400000, guid: bb38bd748662cfd41883122497b8520f, type: 2}
     star: 0
     items: []
-  - offset: {x: 2, y: 5}
+  - offset: {x: 3, y: 4}
     unitData: {fileID: 11400000, guid: c8155bbbae31c454a870fd60d04c3223, type: 2}
     star: 0
     items: []
-  - offset: {x: 6, y: 7}
+  - offset: {x: 4, y: 6}
     unitData: {fileID: 11400000, guid: bb38bd748662cfd41883122497b8520f, type: 2}
     star: 0
     items: []
