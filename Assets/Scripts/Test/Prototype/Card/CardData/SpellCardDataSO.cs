@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Prototype.Card.Spell
 {
-    [CreateAssetMenu(fileName = "CardDataSO", menuName = "CardDataSO/SpellCardDataSO")]
+    [CreateAssetMenu(fileName = "Card_Spell", menuName = "CardDataSO/SpellCardDataSO")]
     public class SpellCardDataSO : CardDataSO
     {
         public SpellSO spellSO;

@@ -33,9 +33,21 @@ MonoBehaviour:
   - cardData: {fileID: 11400000, guid: f09f175962cc47747be4a25be97bec3f, type: 2}
     count: 3
   itemCards:
-  - cardData: {fileID: 11400000, guid: be64589b5c8ea934cb64fdb1c1ffd184, type: 2}
+  - cardData: {fileID: 11400000, guid: 79bf3f4252efca64cb866a10a046b89c, type: 2}
     count: 3
-  - cardData: {fileID: 11400000, guid: baa29506d9f92f24ea891a363058d1b6, type: 2}
+  - cardData: {fileID: 11400000, guid: 796fee3533242694e8ced36f410b3696, type: 2}
+    count: 3
+  - cardData: {fileID: 11400000, guid: 9e89a562335519d4daeb6df6dc1d2adf, type: 2}
+    count: 3
+  - cardData: {fileID: 11400000, guid: 61bfb6ee21fdbfc409275cd70ce5b17f, type: 2}
+    count: 3
+  - cardData: {fileID: 11400000, guid: 4d9478bf64f60984fbddf235027e526c, type: 2}
+    count: 3
+  - cardData: {fileID: 11400000, guid: 6a50e8851970dc04fbb65cc9ebdc18f3, type: 2}
+    count: 3
+  - cardData: {fileID: 11400000, guid: ac35ecb93f18b144c90c1a924c070d48, type: 2}
+    count: 3
+  - cardData: {fileID: 11400000, guid: 36ceb685da9ffb442a35ffd69e08f83f, type: 2}
     count: 3
   spellCards:
   - cardData: {fileID: 11400000, guid: d36275b21d2977b4d8725c097bde5b78, type: 2}

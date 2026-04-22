@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e5af0e7e9386424c9ee4d6494e03b54, type: 3}
   m_Name: Bloodthirster
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemRecipeSO
-  itemA: {fileID: 11400000, guid: 1133197a214243e488e8e0e6b28e5de6, type: 2}
-  itemB: {fileID: 11400000, guid: 9b445e3d1e80c564c9f7b3ddd42e440d, type: 2}
+  itemA: {fileID: 11400000, guid: 593f1e5ddf6d05f408f33a5610689afc, type: 2}
+  itemB: {fileID: 11400000, guid: e09a377c2cf93a04fb4fa7efd186c865, type: 2}
   resultCard: {fileID: 11400000, guid: fe074d1d52c12ff468a46b88801fb976, type: 2}

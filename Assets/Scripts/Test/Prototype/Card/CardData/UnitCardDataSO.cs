@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Prototype.Card.Unit
 {
-    [CreateAssetMenu(fileName = "CardDataSO", menuName = "CardDataSO/UnitCardDataSO")]
+    [CreateAssetMenu(fileName = "Card_Unit", menuName = "CardDataSO/UnitCardDataSO")]
     public class UnitCardDataSO : CardDataSO
     {
         public UnitDataSO unitDataSO;

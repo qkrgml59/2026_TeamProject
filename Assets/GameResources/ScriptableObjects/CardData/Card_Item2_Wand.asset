@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31d702e8bd259124a9b66c098b340c21, type: 3}
+  m_Name: Card_Item2_Wand
+  m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.Item.ItemCardDataSO
+  cardId: Item2
+  icon: {fileID: 0}
+  cardName: "\uC9C0\uD321\uC774"
+  description: "\uC720\uB2DB\uC5D0 \uC544\uC774\uD15C \uC7A5\uCC29"
+  cost: 0
+  cardPrefab: {fileID: -4416521778009406744, guid: e139526d4a0bdee42a88d673ec9240a1, type: 3}
+  itemSO: {fileID: 11400000, guid: ce7ab5821434f7e4f8ad6a531f9090d6, type: 2}
