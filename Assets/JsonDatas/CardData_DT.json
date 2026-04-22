@@ -1,6 +1,7 @@
 ﻿[
   {
     "cardID": "Unit1",
+    "Theme": "",
     "icon": "",
     "getID": "1001",
     "cardName": "너스",
@@ -9,6 +10,7 @@
   },
   {
     "cardID": "Unit2",
+    "Theme": "",
     "icon": "",
     "getID": "1002",
     "cardName": "피그",
@@ -17,6 +19,7 @@
   },
   {
     "cardID": "Unit3",
+    "Theme": "",
     "icon": "",
     "getID": "1003",
     "cardName": "레온",
@@ -25,6 +28,7 @@
   },
   {
     "cardID": "Unit4",
+    "Theme": "",
     "icon": "",
     "getID": "1004",
     "cardName": "역병의사",
@@ -33,6 +37,7 @@
   },
   {
     "cardID": "Unit5",
+    "Theme": "",
     "icon": "",
     "getID": "1005",
     "cardName": "고스트페이스",
@@ -41,6 +46,7 @@
   },
   {
     "cardID": "Unit6",
+    "Theme": "",
     "icon": "",
     "getID": "1006",
     "cardName": "릭커",
@@ -49,6 +55,7 @@
   },
   {
     "cardID": "Unit7",
+    "Theme": "",
     "icon": "",
     "getID": "1007",
     "cardName": "네메시스",
@@ -57,6 +64,7 @@
   },
   {
     "cardID": "Unit8",
+    "Theme": "",
     "icon": "",
     "getID": "1008",
     "cardName": "사각두",
@@ -65,6 +73,7 @@
   },
   {
     "cardID": "Unit9",
+    "Theme": "",
     "icon": "",
     "getID": "1009",
     "cardName": "데모고르곤",
@@ -73,26 +82,146 @@
   },
   {
     "cardID": "Spell1",
+    "Theme": "",
     "icon": "",
-    "getID": "",
-    "cardName": "",
-    "description": "",
+    "getID": "3501",
+    "cardName": "제물 의식",
+    "description": "손패의 무작위 카드 1장을 버리고 코스트 2만큼 즉시 회복합니다.",
     "cardPrefab": "Assets/Prefabs/UI/Spell_Card"
   },
   {
     "cardID": "Spell2",
+    "Theme": "",
     "icon": "",
-    "getID": "",
-    "cardName": "",
-    "description": "",
-    "cardPrefab": ""
+    "getID": "3502",
+    "cardName": "카드 뽑기",
+    "description": "덱에서 카드 두장을 드로우 합니다.",
+    "cardPrefab": "Assets/Prefabs/UI/Spell_Card"
   },
   {
     "cardID": "Spell3",
+    "Theme": "",
     "icon": "",
-    "getID": "",
-    "cardName": "",
-    "description": "",
-    "cardPrefab": ""
+    "getID": "3503",
+    "cardName": "짱돌",
+    "description": "지정한 적 유닛 최대 체력의 5%의 고정피해를 입힙니다.",
+    "cardPrefab": "Assets/Prefabs/UI/Spell_Card"
+  },
+  {
+    "cardID": "Spell4",
+    "Theme": "",
+    "icon": "",
+    "getID": "3504",
+    "cardName": "도망가기",
+    "description": "지정한 아군 유닛을 즉시 손패로 되돌립니다.",
+    "cardPrefab": "Assets/Prefabs/UI/Spell_Card"
+  },
+  {
+    "cardID": "Spell5",
+    "Theme": "",
+    "icon": "",
+    "getID": "3505",
+    "cardName": "몽둥이질",
+    "description": "지정한 적 유닛에게 1.5초간 [기절] 상태이상을 부여합니다.",
+    "cardPrefab": "Assets/Prefabs/UI/Spell_Card"
+  },
+  {
+    "cardID": "Spell6",
+    "Theme": "",
+    "icon": "",
+    "getID": "3506",
+    "cardName": "붕대 감기",
+    "description": "아군 유닛 최대 체력의 15%를 즉시 회복합니다.",
+    "cardPrefab": "Assets/Prefabs/UI/Spell_Card"
+  },
+  {
+    "cardID": "Spell7",
+    "Theme": "",
+    "icon": "",
+    "getID": "3507",
+    "cardName": "보호막",
+    "description": "유닛에게 5초간 유지되는 보호막을 부여합니다.",
+    "cardPrefab": "Assets/Prefabs/UI/Spell_Card"
+  },
+  {
+    "cardID": "Spell8",
+    "Theme": "",
+    "icon": "",
+    "getID": "3508",
+    "cardName": "여기보세요",
+    "description": "지정한 빈 타일에 주변 1칸범위의 적을 도발하는 허수아비 기물을 소환합니다.",
+    "cardPrefab": "Assets/Prefabs/UI/Spell_Card"
+  },
+  {
+    "cardID": "Item1",
+    "Theme": "",
+    "icon": "",
+    "getID": "2501",
+    "cardName": "대검",
+    "description": "공격력 10% 증가",
+    "cardPrefab": "Assets/Prefabs/UI/Item_Card"
+  },
+  {
+    "cardID": "Item2",
+    "Theme": "",
+    "icon": "",
+    "getID": "2502",
+    "cardName": "지팡이",
+    "description": "주문력 10 증가",
+    "cardPrefab": "Assets/Prefabs/UI/Item_Card"
+  },
+  {
+    "cardID": "Item3",
+    "Theme": "",
+    "icon": "",
+    "getID": "2503",
+    "cardName": "방패",
+    "description": "방어력 20 증가",
+    "cardPrefab": "Assets/Prefabs/UI/Item_Card"
+  },
+  {
+    "cardID": "Item4",
+    "Theme": "",
+    "icon": "",
+    "getID": "2504",
+    "cardName": "망토",
+    "description": "마법저항력 20 증가",
+    "cardPrefab": "Assets/Prefabs/UI/Item_Card"
+  },
+  {
+    "cardID": "Item5",
+    "Theme": "",
+    "icon": "",
+    "getID": "2505",
+    "cardName": "단검",
+    "description": "공격속도 10% 증가",
+    "cardPrefab": "Assets/Prefabs/UI/Item_Card"
+  },
+  {
+    "cardID": "Item6",
+    "Theme": "",
+    "icon": "",
+    "getID": "2506",
+    "cardName": "마법 수정",
+    "description": "시작마나 30 증가",
+    "cardPrefab": "Assets/Prefabs/UI/Item_Card"
+  },
+  {
+    "cardID": "Item7",
+    "Theme": "",
+    "icon": "",
+    "getID": "2507",
+    "cardName": "건틀릿",
+    "description": "치명타 확률 20% 증가",
+    "cardPrefab": "Assets/Prefabs/UI/Item_Card"
+  },
+  {
+    "cardID": "Item8",
+    "Theme": "",
+    "icon": "",
+    "getID": "2508",
+    "cardName": "갑옷",
+    "description": "체력 200 증가",
+    "cardPrefab": "Assets/Prefabs/UI/Item_Card"
   }
 ]

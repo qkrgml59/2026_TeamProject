@@ -9,6 +9,8 @@ using Prototype.Card.Unit;
 using Prototype.Card.Spell;
 using Unit;
 using Unit.Skill;
+using Item;
+using StatSystem;
 
 
 namespace GameEditor.JsonConverter
@@ -18,15 +20,18 @@ namespace GameEditor.JsonConverter
         // 체크박스용 bool 변수 추가
         private bool convertUnit = true;
         private bool convertCard = true;
+        private bool convertItem = true;
 
         // JSON 파일 경로 저장 변수
         private string unitJsonPath = "";
         private string cardJsonPath = "";
+        private string itemJsonPath = "";
 
         // 데이터 저장 경로
         private readonly string unitDataPath = "Assets/GameResources/ScriptableObjects/UnitData";
         private readonly string statDataPath = "Assets/GameResources/ScriptableObjects/StatData";
         private readonly string cardDataPath = "Assets/GameResources/ScriptableObjects/CardData";
+        private readonly string itemDataPath = "Assets/GameResources/ScriptableObjects/ItemData";
 
         [MenuItem("Tools/1. JSON to Data Converter")]
         public static void ShowWindow()
@@ -66,6 +71,20 @@ namespace GameEditor.JsonConverter
             EditorGUILayout.Space();
             EditorGUILayout.Space();
 
+            // [아이템 UI 영역]
+            GUILayout.BeginVertical("box");
+            convertItem = EditorGUILayout.ToggleLeft(" 3. Item Data 변환하기", convertItem, EditorStyles.boldLabel);
+            if (convertItem)
+            {
+                if (GUILayout.Button("Select Item JSON"))
+                    itemJsonPath = EditorUtility.OpenFilePanel("Select Item JSON", "", "json");
+                EditorGUILayout.LabelField("Path: ", string.IsNullOrEmpty(itemJsonPath) ? "None" : itemJsonPath);
+            }
+            GUILayout.EndVertical();
+
+            EditorGUILayout.Space();
+            EditorGUILayout.Space();
+
             if (GUILayout.Button("Convert Data & Generate Prefabs", GUILayout.Height(40)))
             {
                 ConvertProcess();
@@ -76,6 +95,7 @@ namespace GameEditor.JsonConverter
         {
             EnsureFolderExists(unitDataPath);
             EnsureFolderExists(cardDataPath);
+            EnsureFolderExists(itemDataPath);
 
             Dictionary<string, UnitDataSO> createdUnitsDict = new Dictionary<string, UnitDataSO>();
 
@@ -248,9 +268,90 @@ namespace GameEditor.JsonConverter
                 }
             }
 
+            if (convertItem && !string.IsNullOrEmpty(itemJsonPath))
+            {
+                string itemJsonText = File.ReadAllText(itemJsonPath);
+                List<ItemDataDTO> itemDTOs = JsonConvert.DeserializeObject<List<ItemDataDTO>>(itemJsonText);
+
+                foreach (var dto in itemDTOs)
+                {
+                    // 빈 행은 건너뛰기 (JSON에서 아이템 이름이 없는 경우)
+                    if (string.IsNullOrEmpty(dto.itemName)) continue;
+
+                    string assetName = $"Item_{dto.ID}_{dto.itemName_EN}.asset";
+                    string fullPath = $"{itemDataPath}/{assetName}";
+
+                    ItemSO itemData = AssetDatabase.LoadAssetAtPath<ItemSO>(fullPath);
+
+                    if (itemData != null)
+                    {
+                        Debug.Log($"[데이터 갱신] {fullPath} 아이템 데이터를 덮어씌웁니다.");
+                    }
+                    else
+                    {
+                        itemData = ScriptableObject.CreateInstance<ItemSO>();
+                        AssetDatabase.CreateAsset(itemData, fullPath);
+                    }
+
+                    itemData.itemName = dto.itemName;
+                    itemData.itemDescription = dto.itemDescription;
+
+                    // 아이콘 할당 (경로가 있을 경우)
+                    if (!string.IsNullOrEmpty(dto.icon_Path))
+                    {
+                        itemData.icon = AssetDatabase.LoadAssetAtPath<Sprite>(dto.icon_Path);
+                    }
+
+                    // 스탯 데이터 초기화 후 재할당
+                    itemData.modifiers.Clear();
+
+                    AddModifierIfValid(itemData, dto.statType_1, dto.modifierType_1, dto.value_1);
+                    AddModifierIfValid(itemData, dto.statType_2, dto.modifierType_2, dto.value_2);
+                    AddModifierIfValid(itemData, dto.statType_3, dto.modifierType_3, dto.value_3);
+                    AddModifierIfValid(itemData, dto.statType_4, dto.modifierType_4, dto.value_4);
+
+                    // 이펙트 모듈 할당 (경로가 있을 경우)
+                    itemData.effectModules.Clear();
+                    if (!string.IsNullOrEmpty(dto.effectModules_Path))
+                    {
+                        ItemEffectSO effectModule = AssetDatabase.LoadAssetAtPath<ItemEffectSO>(dto.effectModules_Path);
+                        if (effectModule != null)
+                        {
+                            itemData.effectModules.Add(effectModule);
+                        }
+                        else
+                        {
+                            Debug.LogWarning($"[할당 실패] {dto.effectModules_Path} 경로에서 이펙트 모듈을 찾을 수 없습니다.");
+                        }
+                    }
+
+                    EditorUtility.SetDirty(itemData);
+                }
+            }
+
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             EditorUtility.DisplayDialog("완료", "선택된 데이터 변환이 완료되었습니다.", "확인");
+        }
+
+        private void AddModifierIfValid(ItemSO itemData, string statTypeStr, string modifierTypeStr, float value)
+        {
+            if (string.IsNullOrEmpty(statTypeStr) || string.IsNullOrEmpty(modifierTypeStr)) return;
+
+            if (System.Enum.TryParse(statTypeStr, out StatType statType) &&
+                System.Enum.TryParse(modifierTypeStr, out ModifierType modifierType))
+            {
+                itemData.modifiers.Add(new StatModifier
+                {
+                    statType = statType,
+                    modifierType = modifierType,
+                    value = value
+                });
+            }
+            else
+            {
+                Debug.LogWarning($"[변환 오류] 스탯 타입({statTypeStr}) 또는 수치 타입({modifierTypeStr})을 Enum으로 변환할 수 없습니다.");
+            }
         }
 
         private void EnsureFolderExists(string path)
