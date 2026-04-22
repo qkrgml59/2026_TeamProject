@@ -725,7 +725,7 @@ namespace Unit
         private void OnValidate()
         {
             // TODO : 유닛 데이터 (스텟 데이터 X)에 있는 이미지나 애니메이터 사용하도록 변경
-            if (!Application.isPlaying && dummyImage != null)
+            if (dummyImage != null)
             {
                 ApplyVisual(dummyImage);
             }
