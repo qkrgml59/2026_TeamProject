@@ -79,5 +79,10 @@ namespace Unit.Skill
                 attackRoutine = null;
             }
         }
+
+        public override string GetDescription(StatSet statSet)
+        {
+            return $"현재 대상에게 <color=#EC8D34>{statSet.AttackDamage.Value}(<sprite name=\"AttackDamage\">)</color>의 물리피해를 입힙니다.";
+        }
     }
 }

@@ -99,6 +99,9 @@ namespace Unit.Skill
             //4. 타겟 설정
             owner.SetTargetUnit(farTarget);
 
+
+            // TODO : 즉시 기본공격 메커니즘 개발 필요
+
             // 5. 종료
             FinishSkill();
 
@@ -140,6 +143,11 @@ namespace Unit.Skill
                     Destroy(fx.gameObject);
 
             spawnedVFX.Clear();
+        }
+
+        public override string GetDescription(StatSet statSet)
+        {
+            return "가장 멀리 있는 적의 배후로 순간이동한 후 즉시 기본공격 합니다.";
         }
     }
 }

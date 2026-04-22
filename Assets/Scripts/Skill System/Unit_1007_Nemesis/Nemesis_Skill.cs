@@ -3,6 +3,7 @@ using Unit.Skill;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
+using StatSystem;
 
 namespace Unit.Skill
 {
@@ -90,7 +91,8 @@ namespace Unit.Skill
             farTarget.ApplyDamage(info);
 
             //6.스턴 적용 
-            farTarget.ChangeUnitState(UnitStateType.Stun);
+            // TODO: 기절 상태이상 추가 까지 주석 처리
+            //farTarget.ChangeUnitState(UnitStateType.Stun);
 
             yield return new WaitForSeconds(Value_B);
 
@@ -142,6 +144,15 @@ namespace Unit.Skill
                 StopCoroutine(skillRoutine);
                 skillRoutine = null;
             }
+        }
+
+        public override string GetDescription(StatSet statSet)
+        {
+            return $"가장 멀리 있는 적에게 촉수를 뻗어 자신의 앞으로 끌어당긴 후 뇌진탕 상태로 만듭니다." +
+                $"\n이후 주먹을 휘둘러 대상에게 즉시 <color=#786CFF>{baseDamage + Value_A * (1 + statSet.AbilityPower.Value * 0.01f)}(<sprite name=\"AbilityPower\">)</color>의 마법 피해를 입힙니다." +
+                $"\n<color=#575757>(대상 방향 칸이 비어있지 않다면 시계 방향 중 먼저 비어 있는 칸으로 끌어옵니다.)</color>" +
+                $"\n" +
+                $"\n<color=#575757>뇌진탕 - 뇌진탕 설명 추가.</color>";
         }
     }
 }

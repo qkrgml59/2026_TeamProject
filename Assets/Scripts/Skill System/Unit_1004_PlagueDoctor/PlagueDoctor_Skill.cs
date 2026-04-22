@@ -11,6 +11,7 @@ namespace Unit.Skill
     public class PlagueDoctor_Skill : SkillBase
     {
         [Header("스킬 수치")]
+        [SerializeField] private float baseDamage = 300;    // 기본 쉴드량
         [SerializeField] private float Value_A = 5f;   // 지속시간
         [SerializeField] private float Value_B = 0.2f; // 20% 감소
 
@@ -83,6 +84,14 @@ namespace Unit.Skill
                 StopCoroutine(skillRoutine);
                 skillRoutine = null;
             }
+        }
+
+        public override string GetDescription(StatSet statSet)
+        {
+            return $"고정 상태가 되며 보호막을 {baseDamage} 얻습니다. 그후 {Value_A}초 동안 주변 칸에 가스를 살포합니다." +
+                $"\n가스는 내부에 있는 적을 중독 시켜 방어력과 마법저항력을 {(Value_B * 100).ToString("F0")}% 감소시킵니다." +
+                $"\n" +
+                $"\n<color=#575757>고정 - 기본 공격과 이동이 불가능합니다.</color>";
         }
     }
 }

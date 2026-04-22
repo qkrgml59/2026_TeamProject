@@ -108,7 +108,7 @@ namespace Unit.Skill
                 skillEffects[i].transform.position = targetTiles[i].transform.position + Vector3.up * 0.3f;
                 skillEffects[i].Play();
 
-                yield return null;
+                yield return new WaitForSeconds(0.1f);
             }
 
             // 후딜레이
@@ -164,6 +164,14 @@ namespace Unit.Skill
                 StopCoroutine(skillRoutine);
                 skillRoutine = null;
             }
+        }
+
+        public override string GetDescription(StatSet statSet)
+        {
+            return $"현재 대상에게 <color=#EC8D34>{baseDamage + statSet.AttackDamage.Value * ValueA}(<sprite name=\"AttackDamage\">)</color>의 물리 피해를 입힙니다." +
+                $"\n이후 대상을 관통하는 충격파를 일으켜 대상 뒤 2칸 범위에 동일한 피해를 입힙니다." +
+                $"\n" +
+                $"\n피해량 <color=#EC8D34>{baseDamage + statSet.AttackDamage.Value * ValueA}</color>={baseDamage}+{(ValueA*100).ToString("F0")}%<sprite name=\"AttackDamage\">       [{(ValueA * 100).ToString("F0")}% / {(ValueA * 100).ToString("F0")}% / {(ValueA * 100).ToString("F0")}%]";
         }
     }
 }

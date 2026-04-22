@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Prototype.Grid;
+using StatSystem;
 
 namespace Unit.Skill
 {
@@ -170,7 +171,6 @@ namespace Unit.Skill
             dmg *= (100 + owner.statSet.DamageIncrease.Value) * 0.01f;
 
             return new DamageInfo(owner, dmg, DamageType.Physical, false);
-        
         }
 
         //은신
@@ -236,6 +236,13 @@ namespace Unit.Skill
             CleanupVFX();
         }
 
+        public override string GetDescription(StatSet statSet)
+        {
+            return $"체력이 가장 낮은 적에게 은신 상태로 빠르게 이동합니다." +
+                $"\n이후 대상에게 즉시 <color=#EC8D34>{skillDamage + statSet.AttackDamage.Value * Value_A}(<sprite name=\"AttackDamage\">)</color>물리 피해를 입힙니다." +
+                $"\n" +
+                $"\n<color=#575757>은신 - 기본 공격의 대상이 되지 않습니다.</color>";
+        }
     }
 }
 

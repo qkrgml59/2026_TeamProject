@@ -1,3 +1,4 @@
+using StatSystem;
 using System.Collections;
 using UnityEngine;
 
@@ -13,7 +14,6 @@ namespace Unit.Skill
         [Header("기본 정보")]
         [SerializeField] protected string skillName;
         [SerializeField] protected Sprite icon;
-        [SerializeField] protected string description;
 
         [Header("코스트")]
         [SerializeField] protected int cost;
@@ -37,8 +37,13 @@ namespace Unit.Skill
 
         public virtual string GetDescription()
         {
-            return description;
+            if (owner == null || owner.statSet == null) return null;
+
+            return GetDescription(owner.statSet);
         }
+
+        // TODO : 계수, 성급에 따른 변화 표시
+        public abstract string GetDescription(StatSet statSet);
 
         public virtual bool CanUse()
         {

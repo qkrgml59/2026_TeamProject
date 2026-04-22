@@ -1,4 +1,5 @@
 using Prototype.Grid;
+using StatSystem;
 using System.Collections;
 using Unit.Skill;
 using UnityEngine;
@@ -151,6 +152,10 @@ namespace Unit.Skill
             }
         }
 
+        public override string GetDescription(StatSet statSet)
+        {
+            return $"현재 대상을 공격 가능한 가장 먼 위치로 즉시 도약합니다.";
+        }
     }
 }
 

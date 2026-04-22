@@ -26,5 +26,5 @@ MonoBehaviour:
   NormalAttack_Type: Melee
   NormalAttack_Prefab: {fileID: 6588351147661766957, guid: 47644915a41e2dc42bd088897de24741, type: 3}
   Skill_ID: 5004
-  Skill_Prefab: {fileID: 0}
+  Skill_Prefab: {fileID: -5186591051459789387, guid: 5231adcf63f418f4ba51a95b8a870405, type: 3}
   unitSprite: {fileID: 21300000, guid: 2bbfec8063cdc1448b253815b517072b, type: 3}

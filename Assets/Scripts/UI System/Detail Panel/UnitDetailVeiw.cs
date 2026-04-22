@@ -21,6 +21,9 @@ namespace Game.UI
         public UnitHpView hpView;
         public UnitResourceView resourceView;
 
+        [Header("Skill View")]
+        public SkillViewController skillViewController;
+
         [Header("Item View")]
         public UnitItemView itemView;
 
@@ -75,6 +78,8 @@ namespace Game.UI
 
             if (resourceView != null) _unit.unitEvents.OnResourceChanged.AddListener(resourceView.OnResourceChanged);
 
+            if (skillViewController != null) skillViewController.Init(_unit.skill, _unit.statSet);
+
             if (itemView != null) _unit.unitEvents.OnItemChanged.AddListener(itemView.UpdateItems);
 
             // UI 강제 초기화
@@ -124,6 +129,8 @@ namespace Game.UI
                 _unit.unitEvents.OnResourceChanged.RemoveListener(resourceView.OnResourceChanged);
                 resourceView.Clear();       // 초기화
             }
+
+            if (skillViewController != null) skillViewController.Clear();
 
             if (itemView != null)
             {

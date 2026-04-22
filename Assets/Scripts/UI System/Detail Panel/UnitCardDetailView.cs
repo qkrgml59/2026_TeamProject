@@ -19,6 +19,9 @@ public class UnitCardDetailView : MonoBehaviour
     public UnitHpView hpView;
     public UnitResourceView resourceView;
 
+    [Header("Skill View")]
+    public SkillViewController skillViewController;
+
     [Header("Item View")]
     public UnitItemView itemView;
 
@@ -78,6 +81,8 @@ public class UnitCardDetailView : MonoBehaviour
         if (resourceView != null && _unitData.Skill_Prefab != null)
             resourceView.OnResourceChanged(new ResourceInfo(ResourceType.Mana, 0, _unitData.Skill_Prefab.Cost));     // TODO : 코스트 타입이나, 시작 코스트 반영
 
+        if (skillViewController != null) skillViewController.Init(unitCard.unitDataSO.Skill_Prefab, _statSet);
+
         if (itemView != null) itemView.Clear();
 
         // 스텟 초기화
@@ -101,6 +106,8 @@ public class UnitCardDetailView : MonoBehaviour
         if (hpView != null) hpView.Clear();             // 초기화
 
         if (resourceView != null) resourceView.Clear();       // 초기화
+
+        if (skillViewController != null) skillViewController.Clear();
 
         if (itemView != null) itemView.Clear();
 

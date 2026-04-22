@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemSO
   icon: {fileID: -1839783656, guid: 7a14e2f7aee539d499995ec035dcd9f6, type: 3}
   itemName: "\uB2E8\uAC80"
-  itemDescription: "\uACF5\uACA9\uC18D\uB3C4 10% \uC99D\uAC00"
+  itemDescription: "\uACF5\uACA9\uC18D\uB3C4 15% \uC99D\uAC00"
   modifiers:
   - statType: 3
     modifierType: 1
