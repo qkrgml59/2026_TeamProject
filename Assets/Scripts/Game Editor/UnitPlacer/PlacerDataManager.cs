@@ -242,6 +242,13 @@ namespace GameEditor.UnitPlacer
             }
         }
 
+        // 유닛 사용을 위한 임시 메서드
+        [ContextMenu("모든 유닛 활성화")]
+        public void ActiveAllUnitButton()
+        {
+            SetActiveAllUnitButton(true);
+        }
+
         // 전체 유닛 버튼 관리
         void SetActiveAllUnitButton(bool isActive)
         {

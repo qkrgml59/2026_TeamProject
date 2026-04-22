@@ -66,6 +66,7 @@ namespace GameEditor.UnitPlacer
         public void SetUnitData(UnitPlacement data) 
         {
             occupantUnitData = data;
+            occupantUnitData.offset = offset + new Vector2Int(0, 4);            // 실제 위치 차이 보정
             RefreshView();
         }
 
