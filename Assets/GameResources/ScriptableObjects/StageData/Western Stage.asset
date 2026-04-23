@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Western Stage
   m_EditorClassIdentifier: Assembly-CSharp::StageData
   themeType: 4
-  Packimage: {fileID: 21300000, guid: e47bc060a9a4f964c876591387214dec, type: 3}
+  Packimage: {fileID: -1803381366, guid: e47bc060a9a4f964c876591387214dec, type: 3}
   unitCards:
   - cardData: {fileID: 11400000, guid: 8efe29378d458824c91dd2b01fd8f43e, type: 2}
     count: 3
