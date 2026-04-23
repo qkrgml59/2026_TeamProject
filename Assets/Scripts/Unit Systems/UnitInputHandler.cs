@@ -67,8 +67,9 @@ namespace Unit
             Debug.Log("드래그 시작");
 
             //Debug.Log("드래그 시작");
-            originPos = _unit.transform.position;
             originTile = _unit.currentTile;
+            originPos = originTile.transform.position;
+
 
             // 프리뷰 활성화
             GridManager.Instance.OnBeginDrag?.Invoke(TeamType.Ally);
@@ -99,7 +100,8 @@ namespace Unit
             if (eventData.button != PointerEventData.InputButton.Left) return;      // 좌클릭만 드래그 가능
 
             if (_unit == null || !canDrag
-                || originTile == null) return;
+                || originTile == null) 
+                return;
 
             if(!TryMoveToTile(eventData))        // 이동에 실패한 경우 돌아가기
                 _unit.transform.position = originTile.transform.position;
@@ -120,6 +122,7 @@ namespace Unit
                     {
                         _unit.SetTile(tile);
                         _unit.transform.position = tile.transform.position;
+                        return true;
                     }
                     else if(tile.OccupantUnit != _unit)
                     {
@@ -133,9 +136,11 @@ namespace Unit
 
                         _unit.SetTile(tile);
                         _unit.transform.position = tile.transform.position;
+                        return true;
                     }
 
-                    return true;
+                    // 자기 자신과 위치를 바꾸려고 하는 경우
+                    return false;
                 }
             }
            
