@@ -24,6 +24,9 @@ namespace UI
         public GameObject detailPanel;
         public Transform detailContentParent;
         public GameObject detailCardPrefab;
+        public Image detailPackImage;
+        public TextMeshProUGUI detailPackName;
+
 
         private Dictionary<ThemeType, PackSlot> slotMap = new();
         private List<GameObject> activeDetailSlots = new List<GameObject>();
@@ -86,29 +89,21 @@ namespace UI
         ///<summary>
         ///상세창 연출
         /// </summary>
-        public void OpenDetail(List<CardEntry> entries)
+        public void OpenDetail(ThemeType theme, StageData stageData, List<CardEntry> entries)
         {
-            if (!isInitialized)
-            {
-                originPos = packListRoot.anchoredPosition;
-                isInitialized = true;
-            }
-
-            // 1. 목록 이동
-            packListRoot.anchoredPosition = new Vector2(originPos.x - 600f, originPos.y);
             detailPanel.SetActive(true);
 
-            // 2. 기존에 떠있던 상세 카드 제거
+            if (detailPackImage != null) detailPackImage.sprite = stageData.Packimage;
+            if (detailPackName != null) detailPackName.text = theme.ToString();
+
             foreach (var s in activeDetailSlots) Destroy(s);
             activeDetailSlots.Clear();
 
-            // 3. 새로운 상세 카드 생성
             foreach (var entry in entries)
             {
                 if (entry.cardData == null) continue;
                 GameObject go = Instantiate(detailCardPrefab, detailContentParent);
                 activeDetailSlots.Add(go);
-
                 if (go.TryGetComponent(out PreviewCardSlot slotScript))
                 {
                     slotScript.Init(entry.cardData, entry.count);
@@ -122,7 +117,6 @@ namespace UI
         public void HideDetail()
         {
             detailPanel.SetActive(false);
-            packListRoot.anchoredPosition = originPos;
         }
 
         public void UpdateCount(int count)

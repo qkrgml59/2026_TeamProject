@@ -25,7 +25,7 @@ namespace Game.UI
         public void UpdateTitles(int drawCount, int discardCount)
         {
             if (drawTitleText != null) drawTitleText.text = $"< 뽑을 카드 : {drawCount} >";
-            if (discardTitleText != null) discardTitleText.text = $"< 버린 카드 : {discardCount} >";
+            if (discardTitleText != null) discardTitleText.text = $"< 사용한 카드 : {discardCount} >";
         }
 
         public void Clear()

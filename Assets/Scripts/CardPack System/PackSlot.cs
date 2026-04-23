@@ -12,6 +12,7 @@ namespace UI
     {
         public TextMeshProUGUI nameText;
         public GameObject selectedFrame;
+        public Image packImage;
         private ThemeType themeKey;
         private PackSelectView view;
 
@@ -21,6 +22,11 @@ namespace UI
             this.view = view;
             nameText.text = theme.ToString();
             selectedFrame.SetActive(false);
+
+            if(packImage !=null && data !=null)
+            {
+                packImage.sprite = data.Packimage;
+            }
         }
 
         public void SetSelected(bool val) => selectedFrame.SetActive(val);
@@ -28,6 +34,8 @@ namespace UI
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            if (view == null) return;
+
             if (eventData.button == PointerEventData.InputButton.Left)
             {
                 Debug.Log($"[클릭] {themeKey} 팩 좌클릭됨");

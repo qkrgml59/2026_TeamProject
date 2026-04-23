@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Cyberpunk Stage
   m_EditorClassIdentifier: Assembly-CSharp::StageData
   themeType: 5
+  Packimage: {fileID: 21300000, guid: 2948d569eca13424f96b7907f777dccd, type: 3}
   unitCards:
   - cardData: {fileID: 11400000, guid: 8efe29378d458824c91dd2b01fd8f43e, type: 2}
     count: 3

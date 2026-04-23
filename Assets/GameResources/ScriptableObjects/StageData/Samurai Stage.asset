@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Samurai Stage
   m_EditorClassIdentifier: Assembly-CSharp::StageData
   themeType: 6
+  Packimage: {fileID: 21300000, guid: 47a2f0fbbe54ba740b44bcd11edddb46, type: 3}
   unitCards:
   - cardData: {fileID: 11400000, guid: 8efe29378d458824c91dd2b01fd8f43e, type: 2}
     count: 3

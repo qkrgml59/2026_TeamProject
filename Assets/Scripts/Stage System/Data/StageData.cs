@@ -10,6 +10,7 @@ public class StageData : ScriptableObject
 {
     [Header("테마 종류")]
     public ThemeType themeType;
+    public Sprite Packimage;
 
     [Header("카드 정보")]
     [SerializeField] private List<CardEntry> unitCards = new();

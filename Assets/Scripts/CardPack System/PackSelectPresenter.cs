@@ -59,7 +59,7 @@ public class PackSelectPresenter
             allEntries.AddRange(data.ItemCards);
             allEntries.AddRange(data.SpellCards);
 
-            view.OpenDetail(allEntries);
+            view.OpenDetail(theme, data, allEntries);
         }
     }
     
