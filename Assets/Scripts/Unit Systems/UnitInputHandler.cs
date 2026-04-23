@@ -102,7 +102,7 @@ namespace Unit
                 || originTile == null) return;
 
             if(!TryMoveToTile(eventData))        // 이동에 실패한 경우 돌아가기
-                _unit.transform.position = originPos;
+                _unit.transform.position = originTile.transform.position;
             
             GridManager.Instance.OnEndDrag?.Invoke();
         }
