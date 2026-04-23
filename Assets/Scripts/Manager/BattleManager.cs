@@ -18,6 +18,9 @@ public enum BattleState
 
 public class BattleManager : SingletonMonoBehaviour<BattleManager>
 {
+    [Header("디버그 모드")]
+    public bool debugMode = false;
+
     [Header("각 단계 시간 설정")]
     public float combatDuration = 30f;
     public float roundEndDuration = 3f;
@@ -204,6 +207,8 @@ public class BattleManager : SingletonMonoBehaviour<BattleManager>
 
     void OnGUI()
     {
+        if (!debugMode) return;
+
         // 텍스트 표시
         if(StageManager.Instance != null)
         GUI.Label(new Rect(10, 10, 300, 40), $"{StageManager.Instance.CurStageIndex + 1} - {StageManager.Instance.CurRoundIndex + 1} 스테이지 : {StageManager.Instance.CurrentRound?.roundType} 라운드");
