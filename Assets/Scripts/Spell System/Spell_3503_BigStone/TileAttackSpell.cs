@@ -1,4 +1,5 @@
 using Prototype.Grid;
+using Unit;
 using UnityEngine;
 
 namespace Spell.Effects
@@ -24,10 +25,19 @@ namespace Spell.Effects
             //타일 위에 유닛이 있을 때
             if (tile.OccupantUnit != null)
             {
+                UnitBase targetUnit = tile.OccupantUnit;
+                string targetName = targetUnit.name;
+
                 // 아군에게 사용 시 예외 처리
-                if (tile.OccupantUnit.team == Unit.TeamType.Ally)
+                if (targetUnit.team == Unit.TeamType.Ally)
                 {
                     Debug.LogWarning("아군 유닛에게는 공격 마법을 사용할 수 없습니다!");
+                    return false;
+                }
+
+                if (targetUnit.CurFSM == UnitStateType.Dead)
+                {
+                    Debug.LogWarning("대상이 이미 사망하여 마법이 취소되었습니다.");
                     return false;
                 }
 
@@ -38,9 +48,9 @@ namespace Spell.Effects
                     isCritical : false
                 );
 
-                tile.OccupantUnit.ApplyDamage(info);
+                targetUnit.ApplyDamage(info);
 
-                Debug.Log($"카드 사용 {tile.OccupantUnit.name}에게 {damage}의 피해를 입힘.");
+                Debug.Log($"카드 사용 {targetName}에게 {damage}의 피해를 입힘.");
 
                 /*      //이펙트 추가 시.
                 if (projectilePrefab != null)
