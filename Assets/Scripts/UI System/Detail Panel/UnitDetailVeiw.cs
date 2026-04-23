@@ -64,6 +64,9 @@ namespace Game.UI
             if(unit == null) return;
             _unit = unit;
 
+            // 유닛 파괴됨 이벤트 등록
+            _unit.unitEvents.OnDestroyedUnit.AddListener(OnUnitDestroyed);
+
             if (_unit.UnitData != null)
             {
                 if (nameText != null) nameText.text = _unit.UnitData.Name_KR;
@@ -116,6 +119,9 @@ namespace Game.UI
         {
             if (_unit == null) return;
 
+            // 유닛 파괴 이벤트 구독 취소
+            _unit.unitEvents.OnDestroyedUnit.RemoveListener(OnUnitDestroyed);
+
             if (nameText != null) nameText.text = "";
 
             if (hpView != null)
@@ -152,6 +158,14 @@ namespace Game.UI
                 // view에 해당하는 스텟을 받아 이벤트 제거
                 stat.onValueChanged -= OnStatChanged;
             }
+        }
+
+        public void OnUnitDestroyed(UnitBase unit)
+        {
+            if (unit != _unit) return;      // 다른 유닛의 이벤트인 경우 무시
+            UnBind();
+            
+            gameObject.SetActive(false);
         }
     } 
 }
