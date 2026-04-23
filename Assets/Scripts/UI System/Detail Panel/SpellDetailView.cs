@@ -2,10 +2,9 @@ using Prototype.Card.Spell;
 using Spell;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
+
 
 public class SpellDetailView : MonoBehaviour
 {

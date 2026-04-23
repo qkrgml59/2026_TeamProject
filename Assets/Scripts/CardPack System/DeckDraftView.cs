@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.EventSystems;
-using UnityEditor.ShortcutManagement;
+
 
 namespace Title.UI
 {
