@@ -3,61 +3,66 @@ using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TitleManager : MonoBehaviour
+namespace Title.UI
 {
-    [SerializeField] private GameObject titlePanel;
-    [SerializeField] private GameObject packPanel;
-    [SerializeField] private GameObject deckPanel;
-
-    private PackSelectPresenter packPresenter;
-    private DeckDraftPresenter deckPresenter;
-
-    private void Start()
+    public class TitleManager : MonoBehaviour
     {
-        titlePanel.SetActive(true);
-        packPanel.SetActive(false);
-        deckPanel.SetActive(false);
-    }
+        [SerializeField] private GameObject titlePanel;
+        [SerializeField] private GameObject packPanel;
+        [SerializeField] private GameObject deckPanel;
 
-    public void OnClickStart()
-    {
-        titlePanel.SetActive(false);
-        packPanel.SetActive(true);
+        private PackSelectPresenter packPresenter;
+        private DeckDraftPresenter deckPresenter;
 
-        packPresenter = new PackSelectPresenter(
-           packPanel.GetComponent<PackSelectView>()
-          );
+        private void Start()
+        {
+            titlePanel.SetActive(true);
+            packPanel.SetActive(false);
+            deckPanel.SetActive(false);
+        }
 
-        packPresenter.OnComplete += OnPackSelected;
-        packPresenter.Init();
-    }
+        public void OnClickStart()
+        {
+            titlePanel.SetActive(false);
+            packPanel.SetActive(true);
 
-    private void OnPackSelected(List<ThemeType> themes)
-    {
-        StageManager.Instance.ApplySelectedThemes(themes);
+            packPresenter = new PackSelectPresenter(
+               packPanel.GetComponent<PackSelectView>()
+              );
 
-        packPanel.SetActive(false);
-        deckPanel.SetActive(true);
+            packPresenter.OnComplete += OnPackSelected;
+            packPresenter.Init();
+        }
 
-        StartDeckDraft();
-    }
+        private void OnPackSelected(List<ThemeType> themes)
+        {
+            StageManager.Instance.ApplySelectedThemes(themes);
 
-    private void StartDeckDraft()
-    {
-        // 뷰 가져오기
-        var draftView = deckPanel.GetComponent<DeckDraftView>();
+            packPanel.SetActive(false);
+            deckPanel.SetActive(true);
 
-        //카드 생성
-        deckPresenter = new DeckDraftPresenter(draftView);
+            StartDeckDraft();
+        }
 
-        deckPresenter.OnComplete += OnDeckReady;
+        private void StartDeckDraft()
+        {
+            // 뷰 가져오기
+            var draftView = deckPanel.GetComponent<DeckDraftView>();
 
-        deckPresenter.StartDraft();
-    }
+            //카드 생성
+            deckPresenter = new DeckDraftPresenter(draftView);
 
-    private void OnDeckReady()
-    {
-        Debug.Log("전투 시작");
-        SceneManager.LoadScene("GridTestScene");
+            deckPresenter.OnComplete += OnDeckReady;
+
+            deckPresenter.StartDraft();
+        }
+
+        private void OnDeckReady()
+        {
+            Debug.Log("전투 시작");
+            SceneManager.LoadScene("GridTestScene");
+        }
     }
 }
+
+

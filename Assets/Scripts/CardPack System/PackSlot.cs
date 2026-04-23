@@ -1,10 +1,12 @@
 using TMPro;
+using UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace UI
+namespace Title.UI
 {
+    
     /// <summary>
     /// 카드팩 슬롯 입력 처리
     /// </summary>
@@ -23,14 +25,14 @@ namespace UI
             nameText.text = theme.ToString();
             selectedFrame.SetActive(false);
 
-            if(packImage !=null && data !=null)
+            if (packImage != null && data != null)
             {
                 packImage.sprite = data.Packimage;
             }
         }
 
         public void SetSelected(bool val) => selectedFrame.SetActive(val);
-      
+
 
         public void OnPointerClick(PointerEventData eventData)
         {
@@ -41,15 +43,18 @@ namespace UI
                 Debug.Log($"[클릭] {themeKey} 팩 좌클릭됨");
                 view.OnLeftClickPack?.Invoke(themeKey);
             }
-                
+
             if (eventData.button == PointerEventData.InputButton.Right)
             {
                 Debug.Log($"[클릭] {themeKey} 팩 우클릭됨 (상세보기)");
                 view.OnRightClickPack?.Invoke(themeKey);
             }
-                
+
         }
     }
 
 }
+
+
+
 

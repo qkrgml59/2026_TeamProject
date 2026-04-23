@@ -4,81 +4,106 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
+using UnityEditor.ShortcutManagement;
 
-/// <summary>
-/// 덱 드래프트 UI
-/// </summary>
-public class DeckDraftView : MonoBehaviour
+namespace Title.UI
 {
-    public Action<int> OnSelectCard;
-    public Action OnConfirm;
-
-    [Header("UI")]
-    public Transform slotRoot;
-    public GameObject cardSlotPrefab;
-    public Button confirmButton;
-    [SerializeField] private TextMeshProUGUI rerollText;
-
-    private List<PreviewCardSlot> activeSlots = new List<PreviewCardSlot>();
-
-    private void Awake()
+    /// <summary>
+    /// 덱 드래프트 UI
+    /// </summary>
+    public class DeckDraftView : MonoBehaviour
     {
-        if (confirmButton != null)
+        public Action<int, int> OnCardClick;
+        public Action<int, bool> OnCardHover;
+        public Action OnReplace;
+        public Action OnConfirm;
+
+        [Header("UI")]
+        public Transform slotRoot;
+        public GameObject cardSlotPrefab;
+        public Button replaceButton;
+        public Button confirmButton;
+        [SerializeField] private TextMeshProUGUI rerollText;
+
+        private List<DraftCardSlot> activeDraftSlots = new List<DraftCardSlot>();
+        private List<GameObject> selectionVisuals = new List<GameObject>();
+
+        private void Awake()
+        {
+            replaceButton.onClick.AddListener(() => OnReplace?.Invoke());
             confirmButton.onClick.AddListener(() => OnConfirm?.Invoke());
-    }
 
-    public void Show(List<CardDataSO> cards, int rerollCount)
-    {
-        UpdateRerollUI(rerollCount);
-
-        foreach (Transform child in slotRoot) Destroy(child.gameObject);
-        activeSlots.Clear();
-
-        for (int i = 0; i < cards.Count; i++)
-        {
-            int index = i; //버그 방지... 클로저 방지라는데 클로저가 뭘까요
-            GameObject go = Instantiate(cardSlotPrefab, slotRoot);
-
-            if (go.TryGetComponent(out PreviewCardSlot slot))
-            {
-                //버튼 연결
-                Button btn = go.GetComponent<Button>();
-                if (btn == null) btn = go.AddComponent<Button>();
-
-                btn.onClick.AddListener(() => OnSelectCard?.Invoke(index));
-
-                // 데이터 바인딩
-                slot.Init(cards[i], 1);
-                activeSlots.Add(slot);
-            }
+            AddButtonHoverEffect(replaceButton);
+            AddButtonHoverEffect(confirmButton);
         }
-    }
 
-    //TODO : 여기도 카드팩 선택 처럼 연출 넣기
-    //교체 카드 UI
-    public void Refresh(List<CardDataSO> cards, int rerollCount)
-    {
-        UpdateRerollUI(rerollCount);
-
-        for (int i = 0; i < cards.Count; i++)
+        public void Show(List<CardDataSO> cards, int rerollCount)
         {
-            if (i < activeSlots.Count)
+            UpdateRerollUI(rerollCount, false);
+
+            foreach (Transform child in slotRoot) Destroy(child.gameObject);
+            activeDraftSlots.Clear();
+
+
+            for (int i = 0; i < cards.Count; i++)
             {
-                activeSlots[i].Init(cards[i], 1);
+                int index = i; //버그 방지... 클로저 방지라는데 클로저가 뭘까요
+                GameObject go = Instantiate(cardSlotPrefab, slotRoot);
+
+                DraftCardSlot draftSlot = go.GetComponent<DraftCardSlot>();
+
+                if (draftSlot !=null)
+                {
+                    draftSlot.Init(cards[i], 1);
+                    activeDraftSlots.Add(draftSlot);
+
+                    var detector = go.GetComponent<PointerDetector>() ?? go.AddComponent<PointerDetector>();
+                    detector.OnPointerClickEvent = (btnType) => OnCardClick?.Invoke(index, btnType);
+                    detector.OnPointerHoverEvent = (isHover) => OnCardHover?.Invoke(index, isHover);
+
+                }
             }
+            UpdateRerollUI(rerollCount, false);
         }
-    }
 
-    private void UpdateRerollUI(int count)
-    {
-        if (rerollText != null)
-            rerollText.text = $"남은 교환 횟수 : {count}";
-
-        
-        if (count <= 0)
+        public void UpdateCardVisual(int index, bool isSelected, float scale)
         {
-            //텍스트 색 변경
-            rerollText.color = Color.red;
+            if (index < 0 || index >= activeDraftSlots.Count) return;
+
+            // 크기 조절 (호버 연출)
+            activeDraftSlots[index].transform.localScale = Vector3.one * scale;
+
+            // 선택 연출 (DraftCardSlot의 함수 호출)
+            activeDraftSlots[index].SetSelect(isSelected);
+
+        }
+
+        public void UpdateRerollUI(int count, bool hasSelection)
+        {
+            if (rerollText != null)
+                rerollText.text = $"남은 교환 횟수 : {count} /2 ";
+
+            //횟수 남을때랑 선택한 카드가 있을 때 
+            replaceButton.interactable = (count > 0 && hasSelection);
+
+            rerollText.color= (count <= 0) ? Color.red : Color.black;
+            replaceButton.GetComponent<Image>().color = (count <=0) ? Color.white : Color.gray;
+        }
+
+        private void AddButtonHoverEffect(Button btn)
+        {
+            //?? -> 내 왼쪽이  Null이면 오른쪽을 실행해!!! 라는 뜻
+            var detector = btn.gameObject.GetComponent<PointerDetector>() ?? btn.gameObject.AddComponent<PointerDetector>();
+            detector.OnPointerHoverEvent = (isHover) =>
+            {
+                if (btn.interactable)
+                    btn.transform.localScale = isHover ? Vector3.one * 1.1f : Vector3.one;
+            };
         }
     }
 }
+
+
+
+

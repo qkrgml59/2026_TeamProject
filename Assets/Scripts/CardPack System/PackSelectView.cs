@@ -5,8 +5,8 @@ using Prototype.Card;
 using TMPro;
 using UnityEngine.UI;
 
-namespace UI
-{
+namespace Title.UI
+{ 
     public class PackSelectView : MonoBehaviour
     {
         public System.Action<ThemeType> OnLeftClickPack;
