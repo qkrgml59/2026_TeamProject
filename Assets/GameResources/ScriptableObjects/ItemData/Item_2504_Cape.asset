@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77005181d1e17c4c810a7242d4d619e, type: 3}
   m_Name: Item_2504_Cape
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemSO
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: b28a78faac21b2b429df20cfab39bedf, type: 3}
   itemName: "\uB9DD\uD1A0"
   itemDescription: "\uB9C8\uBC95\uC800\uD56D\uB825 20 \uC99D\uAC00"
   modifiers:

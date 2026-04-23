@@ -59,6 +59,8 @@ MonoBehaviour:
     count: 3
   - cardData: {fileID: 11400000, guid: 303cc4b8d221a9243b624c1702d37db6, type: 2}
     count: 3
+  - cardData: {fileID: 11400000, guid: ee5780d107a74d24f8b4808f264dee11, type: 2}
+    count: 3
   normalRound:
   - {fileID: 11400000, guid: 092f8b1e9b89b2449b68c19d9d658648, type: 2}
   - {fileID: 11400000, guid: a735c99f6a0928949acb86ea3b9309a1, type: 2}

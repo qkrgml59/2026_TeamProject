@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Card_Item7_Gauntlet
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.Item.ItemCardDataSO
   cardId: Item7
-  icon: {fileID: -979020407, guid: 7a14e2f7aee539d499995ec035dcd9f6, type: 3}
+  icon: {fileID: 21300000, guid: 3764ed55481086044ae613a8b7e3d00c, type: 3}
   cardName: "\uAC74\uD2C0\uB9BF"
   description: "\uC720\uB2DB\uC5D0 \uC544\uC774\uD15C \uC7A5\uCC29"
   cost: 0

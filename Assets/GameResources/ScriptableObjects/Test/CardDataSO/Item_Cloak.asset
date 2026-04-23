@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Item_Cloak
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.Item.ItemCardDataSO
   cardId: Item2
-  icon: {fileID: -7320800790988269609, guid: 30f45f9a124dd104caedd36e5a3f8a75, type: 3}
+  icon: {fileID: 21300000, guid: b28a78faac21b2b429df20cfab39bedf, type: 3}
   cardName: "\uB9DD\uD1A0"
   description: "\uC720\uB2DB\uC5D0\uAC8C \uC544\uC774\uD15C\uC744 \uC7A5\uCC29\uD569\uB2C8\uB2E4."
   cost: 0

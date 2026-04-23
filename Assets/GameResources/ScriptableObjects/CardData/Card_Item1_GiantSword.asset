@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Card_Item1_GiantSword
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.Item.ItemCardDataSO
   cardId: Item1
-  icon: {fileID: 1292259692, guid: 7a14e2f7aee539d499995ec035dcd9f6, type: 3}
+  icon: {fileID: 21300000, guid: 2c68fcf941361554ba7f5a6447feea25, type: 3}
   cardName: "\uB300\uAC80"
   description: "\uC720\uB2DB\uC5D0 \uC544\uC774\uD15C \uC7A5\uCC29"
   cost: 0

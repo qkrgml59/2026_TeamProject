@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Card_Item3_Shield
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.Item.ItemCardDataSO
   cardId: Item3
-  icon: {fileID: -1480561350, guid: 7a14e2f7aee539d499995ec035dcd9f6, type: 3}
+  icon: {fileID: 21300000, guid: c2f8d5222f338ff40a879e7971796dd9, type: 3}
   cardName: "\uBC29\uD328"
   description: "\uC720\uB2DB\uC5D0 \uC544\uC774\uD15C \uC7A5\uCC29"
   cost: 0
