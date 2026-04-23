@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a06f9ba36c309448b6175e8f96870a1, type: 3}
+  m_Name: Spell_3503_BigStone
+  m_EditorClassIdentifier: Assembly-CSharp::Spell.SpellSO
+  icon: {fileID: 21300000, guid: 148db28d1ba5e2040b3b3c9fcb6dc2fe, type: 3}
+  spellName: "\uC9F1\uB3CC"
+  tileArea: 3
+  description: "\uC9C0\uC815\uD55C \uC801 \uC720\uB2DB \uCD5C\uB300 \uCCB4\uB825\uC758
+    5%\uC758 \uACE0\uC815\uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
+  effect: {fileID: 11400000, guid: d567eb3f3720c58459c4643b5ef74b56, type: 2}

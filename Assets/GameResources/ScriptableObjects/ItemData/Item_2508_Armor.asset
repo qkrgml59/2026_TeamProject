@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77005181d1e17c4c810a7242d4d619e, type: 3}
   m_Name: Item_2508_Armor
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemSO
-  icon: {fileID: 716546133, guid: 7a14e2f7aee539d499995ec035dcd9f6, type: 3}
+  icon: {fileID: 2172342012233351780, guid: 0d7d0bf8307514eaf81aa72f558d3fb4, type: 3}
   itemName: "\uAC11\uC637"
   itemDescription: "\uCCB4\uB825 200 \uC99D\uAC00"
   modifiers:

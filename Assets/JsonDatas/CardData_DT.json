@@ -4,224 +4,299 @@
     "Theme": "",
     "icon": "",
     "getID": "1001",
+    "Cost": 1,
     "cardName": "너스",
+    "cardName_EN": "Nurse",
     "description": "해당 유닛 소환",
-    "cardPrefab": "Assets/Prefabs/UI/Unit_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Unit_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/UnitData/Unit_1001_Nurse"
   },
   {
     "cardID": "Unit2",
     "Theme": "",
     "icon": "",
     "getID": "1002",
+    "Cost": 1,
     "cardName": "피그",
+    "cardName_EN": "Pig",
     "description": "해당 유닛 소환",
-    "cardPrefab": "Assets/Prefabs/UI/Unit_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Unit_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/UnitData/Unit_1002_Pig"
   },
   {
     "cardID": "Unit3",
     "Theme": "",
     "icon": "",
     "getID": "1003",
+    "Cost": 1,
     "cardName": "레온",
+    "cardName_EN": "Leon",
     "description": "해당 유닛 소환",
-    "cardPrefab": "Assets/Prefabs/UI/Unit_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Unit_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/UnitData/Unit_1003_Leon"
   },
   {
     "cardID": "Unit4",
     "Theme": "",
     "icon": "",
     "getID": "1004",
+    "Cost": 2,
     "cardName": "역병의사",
+    "cardName_EN": "PlagueDoctor",
     "description": "해당 유닛 소환",
-    "cardPrefab": "Assets/Prefabs/UI/Unit_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Unit_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/UnitData/Unit_1004_PlagueDoctor"
   },
   {
     "cardID": "Unit5",
     "Theme": "",
     "icon": "",
     "getID": "1005",
+    "Cost": 2,
     "cardName": "고스트페이스",
+    "cardName_EN": "GhostFace",
     "description": "해당 유닛 소환",
-    "cardPrefab": "Assets/Prefabs/UI/Unit_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Unit_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/UnitData/Unit_1005_GhostFace"
   },
   {
     "cardID": "Unit6",
     "Theme": "",
     "icon": "",
     "getID": "1006",
+    "Cost": 2,
     "cardName": "릭커",
+    "cardName_EN": "Licker",
     "description": "해당 유닛 소환",
-    "cardPrefab": "Assets/Prefabs/UI/Unit_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Unit_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/UnitData/Unit_1006_Licker"
   },
   {
     "cardID": "Unit7",
     "Theme": "",
     "icon": "",
     "getID": "1007",
+    "Cost": 2,
     "cardName": "네메시스",
+    "cardName_EN": "Nemesis",
     "description": "해당 유닛 소환",
-    "cardPrefab": "Assets/Prefabs/UI/Unit_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Unit_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/UnitData/Unit_1007_Nemesis"
   },
   {
     "cardID": "Unit8",
     "Theme": "",
     "icon": "",
     "getID": "1008",
+    "Cost": 3,
     "cardName": "사각두",
+    "cardName_EN": "BoxHead",
     "description": "해당 유닛 소환",
-    "cardPrefab": "Assets/Prefabs/UI/Unit_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Unit_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/UnitData/Unit_1008_BoxHead"
   },
   {
     "cardID": "Unit9",
     "Theme": "",
     "icon": "",
     "getID": "1009",
+    "Cost": 3,
     "cardName": "데모고르곤",
+    "cardName_EN": "Demogorgon",
     "description": "해당 유닛 소환",
-    "cardPrefab": "Assets/Prefabs/UI/Unit_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Unit_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/UnitData/Unit_1009_Demogorgon"
   },
   {
     "cardID": "Spell1",
     "Theme": "",
-    "icon": "",
+    "icon": "Assets/GameResources/Sprites/Icon/Item/3501_Sacrifice_Icon.png",
     "getID": "3501",
+    "Cost": 0,
     "cardName": "제물 의식",
+    "cardName_EN": "Sacrifice",
     "description": "손패의 무작위 카드 1장을 버리고 코스트 2만큼 즉시 회복합니다.",
-    "cardPrefab": "Assets/Prefabs/UI/Spell_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Spell_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/SpellData/Spell_3501_Sacrifice"
   },
   {
     "cardID": "Spell2",
     "Theme": "",
-    "icon": "",
+    "icon": "Assets/GameResources/Sprites/Icon/Item/3502_DrawCard_Icon.png",
     "getID": "3502",
+    "Cost": 1,
     "cardName": "카드 뽑기",
+    "cardName_EN": "DrawCard",
     "description": "덱에서 카드 두장을 드로우 합니다.",
-    "cardPrefab": "Assets/Prefabs/UI/Spell_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Spell_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/SpellData/Spell_3502_DrawCard"
   },
   {
     "cardID": "Spell3",
     "Theme": "",
-    "icon": "",
+    "icon": "Assets/GameResources/Sprites/Icon/Item/3503_BigStone_Icon.png",
     "getID": "3503",
+    "Cost": 1,
     "cardName": "짱돌",
+    "cardName_EN": "BigStone",
     "description": "지정한 적 유닛 최대 체력의 5%의 고정피해를 입힙니다.",
-    "cardPrefab": "Assets/Prefabs/UI/Spell_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Spell_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/SpellData/Spell_3503_BigStone"
   },
   {
     "cardID": "Spell4",
     "Theme": "",
-    "icon": "",
+    "icon": "Assets/GameResources/Sprites/Icon/Item/3504_RunAway_Icon.png",
     "getID": "3504",
+    "Cost": 1,
     "cardName": "도망가기",
+    "cardName_EN": "RunAway",
     "description": "지정한 아군 유닛을 즉시 손패로 되돌립니다.",
-    "cardPrefab": "Assets/Prefabs/UI/Spell_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Spell_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/SpellData/Spell_3504_RunAway"
   },
   {
     "cardID": "Spell5",
     "Theme": "",
-    "icon": "",
+    "icon": "Assets/GameResources/Sprites/Icon/Item/3505_Stun_Icon.png",
     "getID": "3505",
+    "Cost": 2,
     "cardName": "몽둥이질",
+    "cardName_EN": "Stun",
     "description": "지정한 적 유닛에게 1.5초간 [기절] 상태이상을 부여합니다.",
-    "cardPrefab": "Assets/Prefabs/UI/Spell_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Spell_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/SpellData/Spell_3505_Stun"
   },
   {
     "cardID": "Spell6",
     "Theme": "",
-    "icon": "",
+    "icon": "Assets/GameResources/Sprites/Icon/Item/3506_HealUnit_Icon.png",
     "getID": "3506",
+    "Cost": 2,
     "cardName": "붕대 감기",
+    "cardName_EN": "HealUnit",
     "description": "아군 유닛 최대 체력의 15%를 즉시 회복합니다.",
-    "cardPrefab": "Assets/Prefabs/UI/Spell_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Spell_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/SpellData/Spell_3506_HealUnit"
   },
   {
     "cardID": "Spell7",
     "Theme": "",
-    "icon": "",
+    "icon": "Assets/GameResources/Sprites/Icon/Item/3507_Shild_Icon.png",
     "getID": "3507",
+    "Cost": 2,
     "cardName": "보호막",
+    "cardName_EN": "Shild",
     "description": "유닛에게 5초간 유지되는 보호막을 부여합니다.",
-    "cardPrefab": "Assets/Prefabs/UI/Spell_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Spell_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/SpellData/Spell_3507_Shild"
   },
   {
     "cardID": "Spell8",
     "Theme": "",
-    "icon": "",
+    "icon": "Assets/GameResources/Sprites/Icon/Item/3508_DummySpawn_Icon.png",
     "getID": "3508",
+    "Cost": 3,
     "cardName": "여기보세요",
+    "cardName_EN": "DummySpawn",
     "description": "지정한 빈 타일에 주변 1칸범위의 적을 도발하는 허수아비 기물을 소환합니다.",
-    "cardPrefab": "Assets/Prefabs/UI/Spell_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Spell_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/SpellData/Spell_3508_DummySpawn"
   },
   {
     "cardID": "Item1",
     "Theme": "",
-    "icon": "",
+    "icon": "Assets/GameResources/Sprites/Icon/Spell/2501_GiantSword_Icon.png",
     "getID": "2501",
+    "Cost": 1,
     "cardName": "대검",
+    "cardName_EN": "GiantSword",
     "description": "공격력 10% 증가",
-    "cardPrefab": "Assets/Prefabs/UI/Item_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Item_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/ItemData/Item_2501_GiantSword"
   },
   {
     "cardID": "Item2",
     "Theme": "",
-    "icon": "",
+    "icon": "Assets/GameResources/Sprites/Icon/Spell/2502_Wand_Icon.png",
     "getID": "2502",
+    "Cost": 1,
     "cardName": "지팡이",
+    "cardName_EN": "Wand",
     "description": "주문력 10 증가",
-    "cardPrefab": "Assets/Prefabs/UI/Item_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Item_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/ItemData/Item_2502_Wand"
   },
   {
     "cardID": "Item3",
     "Theme": "",
-    "icon": "",
+    "icon": "Assets/GameResources/Sprites/Icon/Spell/2503_Shield_Icon.png",
     "getID": "2503",
+    "Cost": 1,
     "cardName": "방패",
+    "cardName_EN": "Shield",
     "description": "방어력 20 증가",
-    "cardPrefab": "Assets/Prefabs/UI/Item_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Item_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/ItemData/Item_2503_Shield"
   },
   {
     "cardID": "Item4",
     "Theme": "",
-    "icon": "",
+    "icon": "Assets/GameResources/Sprites/Icon/Spell/2504_Cape_Icon.png",
     "getID": "2504",
+    "Cost": 1,
     "cardName": "망토",
+    "cardName_EN": "Cape",
     "description": "마법저항력 20 증가",
-    "cardPrefab": "Assets/Prefabs/UI/Item_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Item_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/ItemData/Item_2504_Cape"
   },
   {
     "cardID": "Item5",
     "Theme": "",
-    "icon": "",
+    "icon": "Assets/GameResources/Sprites/Icon/Spell/2505_MiniSword_Icon.png",
     "getID": "2505",
+    "Cost": 1,
     "cardName": "단검",
+    "cardName_EN": "MiniSword",
     "description": "공격속도 10% 증가",
-    "cardPrefab": "Assets/Prefabs/UI/Item_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Item_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/ItemData/Item_2505_MiniSword"
   },
   {
     "cardID": "Item6",
     "Theme": "",
-    "icon": "",
+    "icon": "Assets/GameResources/Sprites/Icon/Spell/2506_Gem_Icon.png",
     "getID": "2506",
+    "Cost": 1,
     "cardName": "마법 수정",
+    "cardName_EN": "Gem",
     "description": "시작마나 30 증가",
-    "cardPrefab": "Assets/Prefabs/UI/Item_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Item_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/ItemData/Item_2506_Gem"
   },
   {
     "cardID": "Item7",
     "Theme": "",
-    "icon": "",
+    "icon": "Assets/GameResources/Sprites/Icon/Spell/2507_Gauntlet_Icon.png",
     "getID": "2507",
+    "Cost": 1,
     "cardName": "건틀릿",
+    "cardName_EN": "Gauntlet",
     "description": "치명타 확률 20% 증가",
-    "cardPrefab": "Assets/Prefabs/UI/Item_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Item_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/ItemData/Item_2507_Gauntlet"
   },
   {
     "cardID": "Item8",
     "Theme": "",
-    "icon": "",
+    "icon": "Assets/GameResources/Sprites/Icon/Spell/2508_Armor_Icon.png",
     "getID": "2508",
+    "Cost": 1,
     "cardName": "갑옷",
+    "cardName_EN": "Armor",
     "description": "체력 200 증가",
-    "cardPrefab": "Assets/Prefabs/UI/Item_Card"
+    "cardPrefab_Path": "Assets/Prefabs/UI/Item_Card",
+    "SO_Path": "Assets/GameResources/ScriptableObjects/ItemData/Item_2508_Armor"
   }
 ]

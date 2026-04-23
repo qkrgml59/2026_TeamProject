@@ -1,16 +1,18 @@
 #if UNITY_EDITOR
-using UnityEngine;
-using UnityEditor;
-using System.IO;
-using System.Collections.Generic;
+using Item;
 using Newtonsoft.Json;
 using Prototype.Card;
-using Prototype.Card.Unit;
+using Prototype.Card.Item;
 using Prototype.Card.Spell;
+using Prototype.Card.Unit;
+using Spell;
+using StatSystem;
+using System.Collections.Generic;
+using System.IO;
 using Unit;
 using Unit.Skill;
-using Item;
-using StatSystem;
+using UnityEditor;
+using UnityEngine;
 
 
 namespace GameEditor.JsonConverter
@@ -18,20 +20,23 @@ namespace GameEditor.JsonConverter
     public class JsonToCardConverter : EditorWindow
     {
         // 체크박스용 bool 변수 추가
-        private bool convertUnit = true;
-        private bool convertCard = true;
-        private bool convertItem = true;
+        private bool convertUnit = false;
+        private bool convertCard = false;
+        private bool convertItem = false;
+        private bool convertSpell = false;
 
         // JSON 파일 경로 저장 변수
         private string unitJsonPath = "";
         private string cardJsonPath = "";
         private string itemJsonPath = "";
+        private string spellJsonPath = "";
 
         // 데이터 저장 경로
         private readonly string unitDataPath = "Assets/GameResources/ScriptableObjects/UnitData";
         private readonly string statDataPath = "Assets/GameResources/ScriptableObjects/StatData";
         private readonly string cardDataPath = "Assets/GameResources/ScriptableObjects/CardData";
         private readonly string itemDataPath = "Assets/GameResources/ScriptableObjects/ItemData";
+        private readonly string spellDataPath = "Assets/GameResources/ScriptableObjects/SpellData";
 
         [MenuItem("Tools/1. JSON to Data Converter")]
         public static void ShowWindow()
@@ -82,9 +87,20 @@ namespace GameEditor.JsonConverter
             }
             GUILayout.EndVertical();
 
+            // [스펠 UI 영역]
+            GUILayout.BeginVertical("box");
+            convertSpell = EditorGUILayout.ToggleLeft(" 4. Spell Data 변환하기", convertSpell, EditorStyles.boldLabel);
+            if (convertSpell)
+            {
+                if (GUILayout.Button("Select Spell JSON"))
+                    spellJsonPath = EditorUtility.OpenFilePanel("Select Spell JSON", "", "json");
+                EditorGUILayout.LabelField("Path: ", string.IsNullOrEmpty(spellJsonPath) ? "None" : spellJsonPath);
+            }
+            GUILayout.EndVertical();
             EditorGUILayout.Space();
             EditorGUILayout.Space();
 
+            // [변환 실행 버튼]
             if (GUILayout.Button("Convert Data & Generate Prefabs", GUILayout.Height(40)))
             {
                 ConvertProcess();
@@ -96,6 +112,7 @@ namespace GameEditor.JsonConverter
             EnsureFolderExists(unitDataPath);
             EnsureFolderExists(cardDataPath);
             EnsureFolderExists(itemDataPath);
+            EnsureFolderExists(spellDataPath);
 
             Dictionary<string, UnitDataSO> createdUnitsDict = new Dictionary<string, UnitDataSO>();
 
@@ -189,7 +206,7 @@ namespace GameEditor.JsonConverter
                 }
             }
 
-            // 2. CardData 변환 (체크된 경우에만 실행)
+            // 2. CardData 변환
             if (convertCard && !string.IsNullOrEmpty(cardJsonPath))
             {
                 string cardJsonText = File.ReadAllText(cardJsonPath);
@@ -197,77 +214,83 @@ namespace GameEditor.JsonConverter
 
                 foreach (var dto in cardDTOs)
                 {
-                    string enName = "Unknown";
-                    UnitDataSO linkedUnit = null;
+                    if (string.IsNullOrEmpty(dto.cardID)) continue;
 
-                    if (!string.IsNullOrEmpty(dto.getID) && createdUnitsDict.TryGetValue(dto.getID, out linkedUnit))
+                    string enName = dto.cardName_EN;
+                    if (string.IsNullOrEmpty(enName) && !string.IsNullOrEmpty(dto.SO_Path))
                     {
-                        enName = linkedUnit.Name_EN;
+                        string[] parts = dto.SO_Path.Split('_');
+                        if (parts.Length > 0) enName = parts[parts.Length - 1];
                     }
+                    if (string.IsNullOrEmpty(enName)) enName = "Unknown"; 
 
                     string assetName = $"Card_{dto.cardID}_{enName}.asset";
-                    if (string.IsNullOrEmpty(dto.getID)) assetName = $"Card_{dto.cardID}.asset";
-
                     string fullPath = $"{cardDataPath}/{assetName}";
 
-                    if (AssetDatabase.LoadAssetAtPath<CardDataSO>(fullPath) != null)
-                    {
-                        Debug.LogWarning($"[중복 방지] {fullPath} 파일이 이미 존재합니다.");
-                        continue;
-                    }
+                    CardDataSO newCardSO = AssetDatabase.LoadAssetAtPath<CardDataSO>(fullPath);
+                    bool isNew = false;
 
-                    CardDataSO newCardSO = null;
-
-                    if (dto.cardID.StartsWith("Unit"))
+                    if (newCardSO == null)
                     {
-                        UnitCardDataSO unitCard = ScriptableObject.CreateInstance<UnitCardDataSO>();
-                        if (linkedUnit != null) unitCard.unitDataSO = linkedUnit;
-                        newCardSO = unitCard;
-                    }
-                    else if (dto.cardID.StartsWith("Spell"))
-                    {
-                        SpellCardDataSO spellCard = ScriptableObject.CreateInstance<SpellCardDataSO>();
-                        newCardSO = spellCard;
-                    }
-                    else
-                    {
-                        newCardSO = ScriptableObject.CreateInstance<CardDataSO>();
+                        isNew = true;
+                        if (dto.cardID.StartsWith("Unit")) newCardSO = ScriptableObject.CreateInstance<UnitCardDataSO>();
+                        else if (dto.cardID.StartsWith("Spell")) newCardSO = ScriptableObject.CreateInstance<SpellCardDataSO>();
+                        else if (dto.cardID.StartsWith("Item")) newCardSO = ScriptableObject.CreateInstance<ItemCardDataSO>();
+                        else newCardSO = ScriptableObject.CreateInstance<UnitCardDataSO>();
                     }
 
                     newCardSO.cardId = dto.cardID;
                     newCardSO.cardName = dto.cardName;
                     newCardSO.description = dto.description;
+                    newCardSO.cost = dto.Cost;
 
-                    if (!string.IsNullOrEmpty(dto.cardPrefab))
+                    // 프리팹 매핑
+                    if (!string.IsNullOrEmpty(dto.cardPrefab_Path))
                     {
-                        string prefabPath = dto.cardPrefab;
+                        string prefabPath = dto.cardPrefab_Path;
                         if (!prefabPath.EndsWith(".prefab")) prefabPath += ".prefab";
-
                         GameObject prefabObj = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
+                        if (prefabObj != null) newCardSO.cardPrefab = prefabObj.GetComponentInChildren<CardBase>(true);
+                    }
 
-                        if (prefabObj != null)
+                    if (!string.IsNullOrEmpty(dto.SO_Path))
+                    {
+                        string soPath = dto.SO_Path;
+                        if (!soPath.EndsWith(".asset")) soPath += ".asset";
+
+                        if (newCardSO is UnitCardDataSO unitCard)
                         {
-                            CardBase targetScript = prefabObj.GetComponentInChildren<CardBase>(true);
-
-                            if (targetScript != null)
-                            {
-                                newCardSO.cardPrefab = targetScript;
-                            }
-                            else
-                            {
-                                Debug.LogWarning($"[할당 실패] {prefabPath} 프리팹 안에 CardBase (또는 UnitCard/SpellCard 등) 스크립트가 붙어있지 않습니다!");
-                            }
+                            UnitDataSO originalUnit = AssetDatabase.LoadAssetAtPath<UnitDataSO>(soPath);
+                            if (originalUnit != null) unitCard.unitDataSO = originalUnit;
                         }
-                        else
+                        else if (newCardSO is SpellCardDataSO spellCard)
                         {
-                            Debug.LogWarning($"[파일 찾기 실패] {prefabPath} 경로에 프리팹이 존재하지 않습니다.");
+                            SpellSO originalSpell = AssetDatabase.LoadAssetAtPath<SpellSO>(soPath);
+                            if (originalSpell != null)
+                            {
+                                spellCard.spellSO = originalSpell;
+                                spellCard.icon = originalSpell.icon;
+                            }
+                            if (spellCard.icon == null) spellCard.icon = AutoFindSprite(dto.icon);
+                        }
+                        else if (newCardSO is ItemCardDataSO itemCard)
+                        {
+                            ItemSO originalItem = AssetDatabase.LoadAssetAtPath<ItemSO>(soPath);
+                            if (originalItem != null)
+                            {
+                                itemCard.itemSO = originalItem;
+                                itemCard.icon = originalItem.icon;
+                            }
+                            if (itemCard.icon == null) itemCard.icon = AutoFindSprite(dto.icon);
                         }
                     }
 
-                    AssetDatabase.CreateAsset(newCardSO, fullPath);
+                    if (isNew) AssetDatabase.CreateAsset(newCardSO, fullPath);
+                    else EditorUtility.SetDirty(newCardSO);
                 }
             }
 
+            // 3. ItemData 변환
             if (convertItem && !string.IsNullOrEmpty(itemJsonPath))
             {
                 string itemJsonText = File.ReadAllText(itemJsonPath);
@@ -275,19 +298,13 @@ namespace GameEditor.JsonConverter
 
                 foreach (var dto in itemDTOs)
                 {
-                    // 빈 행은 건너뛰기 (JSON에서 아이템 이름이 없는 경우)
                     if (string.IsNullOrEmpty(dto.itemName)) continue;
 
                     string assetName = $"Item_{dto.ID}_{dto.itemName_EN}.asset";
                     string fullPath = $"{itemDataPath}/{assetName}";
 
                     ItemSO itemData = AssetDatabase.LoadAssetAtPath<ItemSO>(fullPath);
-
-                    if (itemData != null)
-                    {
-                        Debug.Log($"[데이터 갱신] {fullPath} 아이템 데이터를 덮어씌웁니다.");
-                    }
-                    else
+                    if (itemData == null)
                     {
                         itemData = ScriptableObject.CreateInstance<ItemSO>();
                         AssetDatabase.CreateAsset(itemData, fullPath);
@@ -296,42 +313,103 @@ namespace GameEditor.JsonConverter
                     itemData.itemName = dto.itemName;
                     itemData.itemDescription = dto.itemDescription;
 
-                    // 아이콘 할당 (경로가 있을 경우)
-                    if (!string.IsNullOrEmpty(dto.icon_Path))
-                    {
-                        itemData.icon = AssetDatabase.LoadAssetAtPath<Sprite>(dto.icon_Path);
-                    }
+                    itemData.icon = AutoFindSprite(dto.icon_Path);
+                    if (itemData.icon == null) itemData.icon = AutoFindSprite(dto.itemName_EN);
 
-                    // 스탯 데이터 초기화 후 재할당
                     itemData.modifiers.Clear();
-
                     AddModifierIfValid(itemData, dto.statType_1, dto.modifierType_1, dto.value_1);
                     AddModifierIfValid(itemData, dto.statType_2, dto.modifierType_2, dto.value_2);
                     AddModifierIfValid(itemData, dto.statType_3, dto.modifierType_3, dto.value_3);
                     AddModifierIfValid(itemData, dto.statType_4, dto.modifierType_4, dto.value_4);
 
-                    // 이펙트 모듈 할당 (경로가 있을 경우)
                     itemData.effectModules.Clear();
                     if (!string.IsNullOrEmpty(dto.effectModules_Path))
                     {
                         ItemEffectSO effectModule = AssetDatabase.LoadAssetAtPath<ItemEffectSO>(dto.effectModules_Path);
-                        if (effectModule != null)
-                        {
-                            itemData.effectModules.Add(effectModule);
-                        }
-                        else
-                        {
-                            Debug.LogWarning($"[할당 실패] {dto.effectModules_Path} 경로에서 이펙트 모듈을 찾을 수 없습니다.");
-                        }
+                        if (effectModule != null) itemData.effectModules.Add(effectModule);
                     }
 
                     EditorUtility.SetDirty(itemData);
                 }
             }
 
+            // 4. SpellData 변환
+            if (convertSpell && !string.IsNullOrEmpty(spellJsonPath))
+            {
+                string spellJsonText = File.ReadAllText(spellJsonPath);
+                List<SpellDataDTO> spellDTOs = JsonConvert.DeserializeObject<List<SpellDataDTO>>(spellJsonText);
+
+                foreach (var dto in spellDTOs)
+                {
+                    if (string.IsNullOrEmpty(dto.spellName)) continue;
+
+                    string assetName = $"Spell_{dto.ID}_{dto.spellName_EN}.asset";
+                    string fullPath = $"{spellDataPath}/{assetName}";
+
+                    SpellSO spellData = AssetDatabase.LoadAssetAtPath<SpellSO>(fullPath);
+                    if (spellData == null)
+                    {
+                        spellData = ScriptableObject.CreateInstance<SpellSO>();
+                        AssetDatabase.CreateAsset(spellData, fullPath);
+                    }
+
+                    spellData.spellName = dto.spellName.Trim();
+                    spellData.description = dto.description?.Trim();
+
+                    if (!string.IsNullOrEmpty(dto.targetType) && System.Enum.TryParse(dto.targetType.Trim(), out TeamType teamType))
+                    {
+                        spellData.tileArea = teamType;
+                    }
+
+                    spellData.icon = AutoFindSprite(dto.icon?.Trim());
+                    if (spellData.icon == null) spellData.icon = AutoFindSprite(dto.spellName_EN?.Trim());
+
+                    if (!string.IsNullOrEmpty(dto.effect))
+                    {
+                        string effectPath = dto.effect.Trim();
+                        if (!effectPath.EndsWith(".asset"))
+                        {
+                            effectPath += ".asset";
+                        }
+
+                        SpellEffectSO effectSO = AssetDatabase.LoadAssetAtPath<SpellEffectSO>(effectPath);
+
+                        if (effectSO != null)
+                        {
+                            spellData.effect = effectSO;
+                        }
+                        else
+                        {
+                            Debug.LogWarning($"[할당 실패] {effectPath} 경로에서 SpellEffectSO를 찾을 수 없습니다. 경로와 파일명을 다시 확인해주세요.");
+                        }
+                    }
+
+                    EditorUtility.SetDirty(spellData);
+                }
+            }
+
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             EditorUtility.DisplayDialog("완료", "선택된 데이터 변환이 완료되었습니다.", "확인");
+        }
+
+        private Sprite AutoFindSprite(string searchName)
+        {
+            if (string.IsNullOrEmpty(searchName)) return null;
+
+            Sprite spr = AssetDatabase.LoadAssetAtPath<Sprite>(searchName);
+            if (spr != null) return spr;
+
+            string fileName = Path.GetFileNameWithoutExtension(searchName);
+
+            string[] guids = AssetDatabase.FindAssets($"{fileName} t:Sprite");
+            if (guids.Length > 0)
+            {
+                string realPath = AssetDatabase.GUIDToAssetPath(guids[0]);
+                return AssetDatabase.LoadAssetAtPath<Sprite>(realPath);
+            }
+
+            return null; 
         }
 
         private void AddModifierIfValid(ItemSO itemData, string statTypeStr, string modifierTypeStr, float value)

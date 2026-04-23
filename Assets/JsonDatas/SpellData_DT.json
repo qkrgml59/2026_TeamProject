@@ -1,0 +1,132 @@
+﻿[
+  {
+    "ID": "3501",
+    "icon": "Assets/GameResources/Sprites/Icon/Item/3501_Sacrifice_Icon.png",
+    "spellName": "제물 의식",
+    "spellName_EN": "Sacrifice",
+    "Cost": 0,
+    "targetType": "Player",
+    "description": "손패의 무작위 카드 1장을 버리고 코스트 2만큼 즉시 회복합니다.",
+    "effect": "Assets/GameResources/ScriptableObjects/SpellData/Effect/3501_Sacrifice"
+  },
+  {
+    "ID": "3502",
+    "icon": "Assets/GameResources/Sprites/Icon/Item/3502_DrawCard_Icon.png",
+    "spellName": "카드 뽑기",
+    "spellName_EN": "DrawCard",
+    "Cost": 1,
+    "targetType": "Player",
+    "description": "덱에서 카드 두장을 드로우 합니다.",
+    "effect": "Assets/GameResources/ScriptableObjects/SpellData/Effect/3502_DrawCard"
+  },
+  {
+    "ID": "3503",
+    "icon": "Assets/GameResources/Sprites/Icon/Item/3503_BigStone_Icon.png",
+    "spellName": "짱돌",
+    "spellName_EN": "BigStone",
+    "Cost": 1,
+    "targetType": "Enemy",
+    "description": "지정한 적 유닛 최대 체력의 5%의 고정피해를 입힙니다.",
+    "effect": "Assets/GameResources/ScriptableObjects/SpellData/Effect/3503_BigStone"
+  },
+  {
+    "ID": "3504",
+    "icon": "Assets/GameResources/Sprites/Icon/Item/3504_RunAway_Icon.png",
+    "spellName": "도망가기",
+    "spellName_EN": "RunAway",
+    "Cost": 1,
+    "targetType": "Ally",
+    "description": "지정한 아군 유닛을 즉시 손패로 되돌립니다.",
+    "effect": "Assets/GameResources/ScriptableObjects/SpellData/Effect/3504_RunAway"
+  },
+  {
+    "ID": "3505",
+    "icon": "Assets/GameResources/Sprites/Icon/Item/3505_Stun_Icon.png",
+    "spellName": "몽둥이질",
+    "spellName_EN": "Stun",
+    "Cost": 2,
+    "targetType": "Enemy",
+    "description": "지정한 적 유닛에게 1.5초간 [기절] 상태이상을 부여합니다.",
+    "effect": "Assets/GameResources/ScriptableObjects/SpellData/Effect/3505_Stun"
+  },
+  {
+    "ID": "3506",
+    "icon": "Assets/GameResources/Sprites/Icon/Item/3506_HealUnit_Icon.png",
+    "spellName": "붕대 감기",
+    "spellName_EN": "HealUnit",
+    "Cost": 2,
+    "targetType": "Ally",
+    "description": "아군 유닛 최대 체력의 15%를 즉시 회복합니다.",
+    "effect": "Assets/GameResources/ScriptableObjects/SpellData/Effect/3506_HealUnit"
+  },
+  {
+    "ID": "3507",
+    "icon": "Assets/GameResources/Sprites/Icon/Item/3507_Shild_Icon.png",
+    "spellName": "보호막",
+    "spellName_EN": "Shild",
+    "Cost": 2,
+    "targetType": "Ally",
+    "description": "유닛에게 5초간 유지되는 보호막을 부여합니다.",
+    "effect": "Assets/GameResources/ScriptableObjects/SpellData/Effect/3507_Shild"
+  },
+  {
+    "ID": "3508",
+    "icon": "Assets/GameResources/Sprites/Icon/Item/3508_DummySpawn_Icon.png",
+    "spellName": "여기보세요",
+    "spellName_EN": "DummySpawn",
+    "Cost": 3,
+    "targetType": "Grid",
+    "description": "지정한 빈 타일에 주변 1칸범위의 적을 도발하는 허수아비 기물을 소환합니다.",
+    "effect": "Assets/GameResources/ScriptableObjects/SpellData/Effect/3508_DummySpawn"
+  },
+  {
+    "ID": "3001",
+    "icon": "Assets/GameResources/Sprites/Icon/Item/3001_Revive_Icon.png",
+    "spellName": "",
+    "spellName_EN": "Revive",
+    "Cost": 4,
+    "targetType": "Ally",
+    "description": "지정한 아군 1명에게 표식을 남깁니다. 해당 아군이 사망했을 경우 체력 30% 상태로 즉시 부활합니다.",
+    "effect": "Assets/GameResources/ScriptableObjects/SpellData/Effect/3001_Revive"
+  },
+  {
+    "ID": "3101",
+    "icon": "Assets/GameResources/Sprites/Icon/Item/3101_BounceBall_Icon.png",
+    "spellName": "",
+    "spellName_EN": "BounceBall",
+    "Cost": 4,
+    "targetType": "Enemy",
+    "description": "주변 1칸의 적에게 최대 2번까지 튕기며 입히는 마법 데미지가 점점 데미지가 늘어나는 바운스볼을 소환합니다.",
+    "effect": "Assets/GameResources/ScriptableObjects/SpellData/Effect/3101_BounceBall"
+  },
+  {
+    "ID": "3301",
+    "icon": "Assets/GameResources/Sprites/Icon/Item/3301_FastAS_Icon.png",
+    "spellName": "",
+    "spellName_EN": "FastAS",
+    "Cost": 3,
+    "targetType": "Ally",
+    "description": "아군 한명의 공격속도를 3초간 50% 증가시킵니다.",
+    "effect": "Assets/GameResources/ScriptableObjects/SpellData/Effect/3301_FastAS"
+  },
+  {
+    "ID": "3401",
+    "icon": "Assets/GameResources/Sprites/Icon/Item/3401_Smoke_Icon.png",
+    "spellName": "",
+    "spellName_EN": "Smoke",
+    "Cost": 3,
+    "targetType": "Grid",
+    "description": "2x2 범위내 적들의 기본 공격을 2초간 100% 빗나가게 만듭니다.",
+    "effect": "Assets/GameResources/ScriptableObjects/SpellData/Effect/3401_Smoke"
+  },
+  {
+    "ID": "3401",
+    "icon": "Assets/GameResources/Sprites/Icon/Item/3401_SwitchUnit_Icon.png",
+    "spellName": "",
+    "spellName_EN": "SwitchUnit",
+    "Cost": 4,
+    "targetType": "Grid",
+    "description": "필드 위 아군 1명과 적군 1명의 위치를 강제로 바꿉니다.",
+    "effect": "Assets/GameResources/ScriptableObjects/SpellData/Effect/3401_SwitchUnit"
+  }
+]
