@@ -15501,6 +15501,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2031349014735122445, guid: 8d5d4012c9d5b2641bd185884bb39371, type: 3}
+      propertyPath: debugMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031349014735122445, guid: 8d5d4012c9d5b2641bd185884bb39371, type: 3}
       propertyPath: combatDuration
       value: 45
       objectReference: {fileID: 0}
