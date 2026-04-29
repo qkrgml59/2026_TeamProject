@@ -110,6 +110,36 @@ namespace Unit
             return team == TeamType.Ally ? _allyUnits : _enemyUnits;
         }
 
+
+        /// <summary>
+        /// 동일한 ID, 성급의 유닛을 반환합니다.
+        /// </summary>
+        public IReadOnlyList<UnitBase>GetSameUnits(UnitBase unit)
+        {
+            return GetSameUnits(unit.UnitData, unit.star, unit.team);
+        }
+
+
+        /// <summary>
+        /// 동일한 ID, 성급의 유닛을 반환합니다.
+        /// </summary>
+        public IReadOnlyList<UnitBase>GetSameUnits(UnitDataSO unitData, int star, TeamType team)
+        {
+            var units = GetUnits(team);
+
+            List<UnitBase> sameUnits = new();
+
+            for(int i = 0; i < units.Count; i++)
+            {
+                if(units[i].UnitData.ID != unitData.ID ||
+                    units[i].star != star) continue;                // Id 또는 성급이 다르면 넘기기
+
+                sameUnits.Add(units[i]);
+            }
+
+            return sameUnits;
+        }
+
         #endregion
 
         #region Searching Method

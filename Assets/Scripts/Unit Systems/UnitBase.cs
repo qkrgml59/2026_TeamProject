@@ -31,7 +31,7 @@ namespace Unit
 
         // 스텟 정보
         public StatSet statSet { get; private set; }
-        public int star { get; private set; }
+        public int star { get; private set; } = 0;
         public float currentHp { get; private set; } = 0;
         public float shield { get; private set; } = 0;
 
