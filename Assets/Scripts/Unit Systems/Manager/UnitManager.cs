@@ -114,16 +114,16 @@ namespace Unit
         /// <summary>
         /// 동일한 ID, 성급의 유닛을 반환합니다.
         /// </summary>
-        public IReadOnlyList<UnitBase>GetSameUnits(UnitBase unit)
+        public List<UnitBase>GetSameUnits(UnitBase unit)
         {
-            return GetSameUnits(unit.UnitData, unit.star, unit.team);
+            return GetSameUnits(unit.UnitData.ID, unit.star, unit.team);
         }
 
 
         /// <summary>
         /// 동일한 ID, 성급의 유닛을 반환합니다.
         /// </summary>
-        public IReadOnlyList<UnitBase>GetSameUnits(UnitDataSO unitData, int star, TeamType team)
+        public List<UnitBase>GetSameUnits(string ID, int star, TeamType team)
         {
             var units = GetUnits(team);
 
@@ -131,7 +131,7 @@ namespace Unit
 
             for(int i = 0; i < units.Count; i++)
             {
-                if(units[i].UnitData.ID != unitData.ID ||
+                if(units[i].UnitData.ID != ID ||
                     units[i].star != star) continue;                // Id 또는 성급이 다르면 넘기기
 
                 sameUnits.Add(units[i]);

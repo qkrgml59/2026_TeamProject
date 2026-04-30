@@ -443,6 +443,17 @@ namespace Unit
                 unitEvents.OnItemChanged?.Invoke(EquippedItems);
             }
         }
+
+        public void UnequipAllItems()
+        {
+            foreach(var item in EquippedItems)
+            {
+                item.RemoveItem(this);
+                EquippedItems.Remove(item);
+            }
+
+            unitEvents.OnItemChanged?.Invoke(EquippedItems);
+        }
         #endregion
 
         #region CombatEvent Listner

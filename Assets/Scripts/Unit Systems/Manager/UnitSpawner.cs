@@ -1,6 +1,8 @@
 using UnityEngine;
 using Utilitys;
 using Prototype.Grid;
+using System.Collections.Generic;
+using Item;
 
 namespace Unit
 {
@@ -30,11 +32,27 @@ namespace Unit
         // TODO : 임시 유닛 (라운드 동안만 유지되는 유닛) 배치 기능 추가
 
 
-        // TODO : 카드 쪽에서 합성 가능 여부 확인하는 기능 추가
-        // public bool CanCombine(Unit unit)
-        // {
-            
-        // }
+
+        int _mergeCount = 3;            // 합성에 필요한 유닛 개수
+
+        public bool CanCombine(UnitBase unit, out List<UnitBase> materials)
+        {
+            materials = UnitManager.Instance.GetSameUnits(unit);
+            if (materials.Count < _mergeCount) return false;
+
+            return true;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool CanCombine(string ID, int star, TeamType team, out List<UnitBase> materials)
+        {
+            materials = UnitManager.Instance.GetSameUnits(ID, star, team);
+            if (materials.Count < _mergeCount) return false;
+
+            return true;
+        }
 
 
         /// <summary>
@@ -42,9 +60,57 @@ namespace Unit
         /// </summary>
         public bool TryCombine(UnitBase unit)           // 메인 유닛 + 재료 유닛 2개 방식으로 변경
         {
-            UnitManager.Instance.GetSameUnits(unit);
+            if(!CanCombine(unit, out List<UnitBase> materials))
+                return false;
+
+            // 아이템 (+ 위치) 기준으로 정렬
+            materials.Sort((a, b) =>
+            {
+                // 1. 아이템 개수 (많은 게 앞으로)
+                int itemCompare = b.EquippedItems.Count.CompareTo(a.EquippedItems.Count);
+                if (itemCompare != 0)
+                    return itemCompare;
+
+                // 2. (0,0)과의 거리 (가까운 게 앞으로)
+                return a.offset.sqrMagnitude.CompareTo(b.offset.sqrMagnitude);
+            });
+
             
-            // TODO : 합성 추가중
+            // 베이스 유닛 설정 (가장 앞 유닛)
+            if(materials.Count == 0) return false;
+
+            UnitBase baseUnit = materials[0];
+            materials.RemoveAt(0);
+
+
+            // 랜덤 아이템 장착
+            TryTransferRandomItems(baseUnit, materials);
+
+            
+
+            return true;
+        }
+
+        bool TryTransferRandomItems(UnitBase baseUnit, List<UnitBase> materials)
+        {
+            if (baseUnit.EquippedItems.Count >= 3)
+                return false;
+
+            List<ItemBase> items = new List<ItemBase>();
+
+            for (int i = 0; i < materials.Count; i++)
+            {
+                items.AddRange(materials[i].EquippedItems);
+                materials[i].UnequipAllItems();     // 재료 유닛의 모든 아이템 제거
+            }
+
+            // 전체 아이템 목록중에서 랜덤으로 장착
+            while(items.Count > 0 && baseUnit.EquippedItems.Count < 3)
+            {
+                ItemBase item = items[Random.Range(0, items.Count - 1)];
+                baseUnit.TryEquippedItem(item);
+            }
+
             return true;
         }
     }   
