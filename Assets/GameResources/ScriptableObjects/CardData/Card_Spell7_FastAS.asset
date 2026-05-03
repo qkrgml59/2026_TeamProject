@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab0c62b2d32278d4ebe648ff0e63d3b9, type: 3}
+  m_Name: Card_Spell7_FastAS
+  m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.Spell.SpellCardDataSO
+  cardId: Spell7
+  icon: {fileID: -1839783656, guid: 7a14e2f7aee539d499995ec035dcd9f6, type: 3}
+  cardName: "\uC790\uADF9\uC81C"
+  description: "\uD0C0\uAC9F \uB300\uC0C1\uC758 \uACF5\uACA9 \uC18D\uB3C4\uB97C 3\uCD08\uAC04
+    50% \uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+  cost: 3
+  cardPrefab: {fileID: 5637523428877745675, guid: 93c96b38db3636441bd3ae7529c94caa, type: 3}
+  spellSO: {fileID: 11400000, guid: 240ba7dd8b0f62f4b9068eefcbdd7509, type: 2}
