@@ -1,10 +1,11 @@
+using Item;
+using Prototype.Card;
+using Prototype.Card.Item;
 using Prototype.Grid;
 using StatSystem;
 using System.Collections.Generic;
-using UnityEngine;
 using Unit.Skill;
-using Item;
-using Prototype.Card;
+using UnityEngine;
 
 
 namespace Unit
@@ -496,7 +497,24 @@ namespace Unit
 
         public bool TryEquippedItem(ItemBase item)
         {
-            if (!CanEquipItem(this.team)) return false;
+            foreach (ItemBase equippedItem in EquippedItems)
+            {
+                ItemCardDataSO resultRecipe = ItemManager.Instance.GetRecipeResult(item.itemData, equippedItem.itemData);             // ItemManager에서 조합법 확인
+
+                if (resultRecipe != null && resultRecipe.itemSO != null)
+                {
+                    // 장착중인 DefaultItem해제 및 제거
+                    UnequipItem(equippedItem);
+
+                    // 조합 아이템 생성
+                    item = new ItemBase(resultRecipe.itemSO);
+
+                    Debug.Log($"아이템 조합 성공! {resultRecipe.itemSO.itemName}");
+                    break;
+                }
+            }
+
+            if (!CanEquipItem(team)) return false;
 
             item.ApplyItem(this);       // 아이템 효과 적용
             EquippedItems.Add(item);
@@ -520,9 +538,8 @@ namespace Unit
             foreach(var item in EquippedItems)
             {
                 item.RemoveItem(this);
-                EquippedItems.Remove(item);
             }
-
+            EquippedItems.Clear();
             unitEvents.OnItemChanged?.Invoke(EquippedItems);
         }
         #endregion

@@ -114,10 +114,12 @@ namespace Unit
             }
 
             // 전체 아이템 목록중에서 랜덤으로 장착
-            while(items.Count > 0 && baseUnit.EquippedItems.Count < 3)
+            while(items.Count > 0)
             {
-                ItemBase item = items[Random.Range(0, items.Count - 1)];
+                int index = Random.Range(0, items.Count - 1);
+                ItemBase item = items[index];
                 baseUnit.TryEquippedItem(item);
+                items.RemoveAt(index);
             }
 
             return true;
