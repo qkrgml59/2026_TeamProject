@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4376248208798465218}
   - component: {fileID: 7094899086725530831}
+  - component: {fileID: 7425637223518524316}
   m_Layer: 0
   m_Name: UnitManager
   m_TagString: Untagged
@@ -45,3 +46,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Unit.UnitManager
   useDontDestroyOnLoad: 1
+--- !u!114 &7425637223518524316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2877645422712830168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc0bf062f2ba845e7b5171364d26e0d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unit.UnitSpawner
+  useDontDestroyOnLoad: 1
+  unitPrefab: {fileID: 5114845127532008112, guid: e8470f5bc8489db4cbaaf7c98d2143ae, type: 3}

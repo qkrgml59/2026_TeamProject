@@ -43,18 +43,13 @@ namespace Prototype.Card
             {
                 if (tile.CanReserve(null) && tile.TeamType == TeamType.Ally)        // 배치 가능하고, 아군칸 일때만 배치
                 {
-                    UnitBase unit = Instantiate(unitPrefab, tile.transform.position, Quaternion.identity);
+                    UnitBase unit = UnitSpawner.Instance.SpawnUnit(unitData.unitDataSO, tile, TeamType.Ally, cardLevel);
 
+                    if (unit == null) return false;
+
+                    // 도망가기 용 카드 데이터 저장
                     unit.originCardData = this.cardData;
-                    unit.Init(unitData.unitDataSO, TeamType.Ally);
-                    unit.PlaceUnit(tile);
 
-                    UnitManager.Instance.RegisterUnit(unit);
-                    UnitUIManager.Instance.Create(unit);
-
-                    unit.RecalculateUnitStats();
-
-                    Debug.Log($"{unit.name} 배치 성공");
                     return true;
                 }
                 return false;

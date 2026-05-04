@@ -10,7 +10,11 @@ namespace Prototype.Card
 {
     public abstract class CardBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
     {
+        [Header("카드 정보")]
         public CardDataSO cardData;
+        [SerializeField] protected int cardLevel = 0;
+
+        [Header("컴포넌트")]
         public Image icon;
         public TextMeshProUGUI cardName;
         public TextMeshProUGUI cardDescription;

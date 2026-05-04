@@ -2,6 +2,7 @@ using UnityEngine;
 using Prototype.Grid;
 using Unit;
 using Prototype.UI;
+using Item;
 
 public class TestEnemyPlacer : MonoBehaviour
 {
@@ -33,14 +34,16 @@ public class TestEnemyPlacer : MonoBehaviour
 
             if (targetTile != null && targetTile.CanReserve(null))
             {
-                UnitBase target = Instantiate(unitPrefab, targetTile.transform.position, Quaternion.identity);
-                target.Init(u.unitData, teamType);
-                target.PlaceUnit(targetTile);
-                UnitManager.Instance.RegisterUnit(target);
-                UnitUIManager.Instance.Create(target);
-                target.RecalculateUnitStats();
+                UnitBase target = UnitSpawner.Instance.SpawnUnit(u.unitData, targetTile, TeamType.Enemy, u.star);
 
-                // TODO : 아이템이 있다면 장착
+                if (target == null) continue;
+
+                // 아이템이 있다면 장착
+                foreach(var item in u.items)
+                {
+                    ItemBase newItem = new ItemBase(item);
+                    target.TryEquippedItem(newItem);
+                }
             }
         }
 
