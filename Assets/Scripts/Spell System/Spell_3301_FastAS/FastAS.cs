@@ -22,7 +22,7 @@ namespace Spell
 
             UnitBase targetUnit = tile.OccupantUnit;
 
-            if (BattleManager.Instance.currentBattleState != BattleState.Combat)
+            if (BattleManager.currentBattleState != BattleState.Combat)
             {
                 Debug.LogWarning("자극제는 전투 중에만 사용할 수 있습니다!");
                 return false;

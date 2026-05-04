@@ -80,6 +80,8 @@ namespace Unit
         public float currentResource { get; private set; } = 0;
         // TODO : 최대 마나는 스킬 적용 시 저장? 근데 마나 강탈 당하면???
 
+        #region 데이터 초기화/설정
+
         /// <summary>
         /// 유닛의 배치 (초기 위치 설정)
         /// </summary>
@@ -90,7 +92,76 @@ namespace Unit
             startTile = tile;
             transform.position = startTile.transform.position;
             SetTile(tile);
+
+            // 비전투 중인 아군의 경우 합성 확인
+            if(BattleManager.currentBattleState == BattleState.Prepare && team == TeamType.Ally)
+            {
+                UnitSpawner.Instance.TryCombine(this);
+            }   
         }
+
+        public void Init(UnitDataSO data, TeamType team, int star = 0)
+        {
+            this.team = team;
+            this.star = star;
+
+            if (data == null)
+                Debug.LogWarning("유닛 정보를 지정하지 않은 유닛이 있습니다.", this);
+            else
+                unitDataSO = data;
+
+            if (unitDataSO.statData == null)
+                Debug.LogWarning("스텟 정보를 지정하지 않은 유닛이 있습니다.", this);
+            else
+                unitStatData = unitDataSO.statData;
+
+            statSet = new StatSet(unitStatData, star);
+
+            // 아이템 등의 효과 초기화(또는 재적용)
+            RecalculateUnitStats();
+
+            // TODO : 자식 위치에 생성 -> 추적으로 변경
+            // 기본 공격 & 스킬 생성
+            if (unitDataSO.NormalAttack_Prefab != null)
+                normalAttack = Instantiate(unitDataSO.NormalAttack_Prefab, transform.position, Quaternion.identity, transform);
+            if (unitDataSO.Skill_Prefab != null)
+                skill = Instantiate(unitDataSO.Skill_Prefab, transform.position, Quaternion.identity, transform);
+
+            normalAttack?.Init(this);
+            skill?.Init(this);
+
+            // 이미지 적용
+            if (unitDataSO.unitSprite != null)
+                ApplyVisual(unitDataSO.unitSprite.texture);
+
+            // 이름 변경
+            transform.name = unitDataSO.Name_EN;
+        }
+
+        /// <summary>
+        /// 유닛의 성급을 올립니다.
+        /// </summary>
+        public void UpgradeUnitGrade()
+        {
+            star = Mathf.Clamp(star + 1, 0, 2);
+            SetUnitGrade(star);
+        }
+
+
+        /// <summary>
+        /// 유닛의 성급을 설정합니다.
+        /// </summary>
+        public void SetUnitGrade(int star)
+        {
+            statSet.SetStatByStar(star);        // 능력치 변경
+
+            unitEvents.OnUpdateGrade?.Invoke(star);
+
+            // 유닛 스텟의 상태를 재구성
+            RecalculateUnitStats();
+        }
+
+        #endregion
 
         #region FSM
         public void ChangeUnitState(UnitStateType targetState)
@@ -276,7 +347,7 @@ namespace Unit
 
             if (damage <= 0) return;
             if (CurFSM == UnitStateType.Idle || CurFSM == UnitStateType.Dead) return;           // 대기상태 또는 사망상태면 데미지 받지 않음
-            if (BattleManager.Instance.currentBattleState != BattleState.Combat) return;
+            if (BattleManager.currentBattleState != BattleState.Combat) return;
 
 
             // 방어력, 피해 감소 등 계산
@@ -306,7 +377,7 @@ namespace Unit
 
             if (healAmount <= 0) return;
             if (CurFSM == UnitStateType.Idle || CurFSM == UnitStateType.Dead) return;           // 대기상태 또는 사망상태면 회복 받지 않음
-            if (BattleManager.Instance.currentBattleState != BattleState.Combat) return;
+            if (BattleManager.currentBattleState != BattleState.Combat) return;
 
             // 회복 증가 등 생략
 
@@ -553,44 +624,6 @@ namespace Unit
         {
             _rigidbody = GetComponent<Rigidbody>();
             FSMInit();
-        }
-
-        public void Init(UnitDataSO data, TeamType team, int star = 0)
-        {
-            this.team = team;
-            this.star = star;
-
-            if (data == null)
-                Debug.LogWarning("유닛 정보를 지정하지 않은 유닛이 있습니다.", this);
-            else
-                unitDataSO = data;
-
-            if(unitDataSO.statData == null)
-                Debug.LogWarning("스텟 정보를 지정하지 않은 유닛이 있습니다.", this);
-            else
-                unitStatData = unitDataSO.statData;
-
-            statSet = new StatSet(unitStatData, star);
-
-            // 아이템 등의 효과 초기화(또는 재적용)
-            currentHp = statSet.MaxHp.Value;
-
-            // TODO : 자식 위치에 생성 -> 추적으로 변경
-            // 기본 공격 & 스킬 생성
-            if (unitDataSO.NormalAttack_Prefab != null)
-                normalAttack = Instantiate(unitDataSO.NormalAttack_Prefab, transform.position, Quaternion.identity, transform);
-            if (unitDataSO.Skill_Prefab != null)
-                skill = Instantiate(unitDataSO.Skill_Prefab, transform.position, Quaternion.identity, transform);
-
-            normalAttack?.Init(this);
-            skill?.Init(this);
-
-            // 이미지 적용
-            if(unitDataSO.unitSprite != null)
-                ApplyVisual(unitDataSO.unitSprite.texture);
-
-            // 이름 변경
-            transform.name = unitDataSO.Name_EN;
         }
 
         private void Start()

@@ -26,6 +26,12 @@ namespace Unit
             UnitUIManager.Instance.Create(target);
             target.RecalculateUnitStats();
 
+            // 비전투 중인 아군의 경우 합성 확인
+            if (BattleManager.currentBattleState == BattleState.Prepare && team == TeamType.Ally)
+            {
+                TryCombine(target);
+            }
+
             return target;
         }
 
@@ -78,6 +84,7 @@ namespace Unit
             
             // 베이스 유닛 설정 (가장 앞 유닛)
             if(materials.Count == 0) return false;
+            if (materials.Count > _mergeCount) materials.RemoveRange(_mergeCount, materials.Count - _mergeCount);       // 합성에 필요한 개수 만큼만 남김
 
             UnitBase baseUnit = materials[0];
             materials.RemoveAt(0);
@@ -86,7 +93,9 @@ namespace Unit
             // 랜덤 아이템 장착
             TryTransferRandomItems(baseUnit, materials);
 
-            
+            // 유닛 정리
+            UpgradeUnitGrade(baseUnit);         // 유닛 성급 증가
+            RemoveMaterialUnits(materials);     // 재료 유닛 삭제
 
             return true;
         }
@@ -112,6 +121,21 @@ namespace Unit
             }
 
             return true;
+        }
+
+        void UpgradeUnitGrade(UnitBase baseUnit)
+        {
+            baseUnit.UpgradeUnitGrade();
+        }
+
+        void RemoveMaterialUnits(List<UnitBase> materials)
+        {
+            foreach(var u in materials)
+            {
+                u.Die();
+            }
+
+            materials.Clear();
         }
     }   
 }

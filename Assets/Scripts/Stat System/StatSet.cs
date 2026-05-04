@@ -8,9 +8,14 @@ namespace StatSystem
     {
         Dictionary<StatType, Stat> stats = new Dictionary<StatType, Stat>();
 
+        private UnitStatSO _statData;
+
         //생성자 초기화
         public StatSet(UnitStatSO unitStatSO, int star = 0)
         {
+            if (unitStatSO == null) return;
+            _statData = unitStatSO;
+
             stats.Clear();
 
             // 기초 스텟 선언
@@ -38,22 +43,24 @@ namespace StatSystem
             stats.Add(StatType.MoveSpeed, new Stat(StatType.MoveSpeed, unitStatSO.Move_Speed));        // 이동속도 초기값
 
             // 1성으로 초기화
-            SetStatByStar(unitStatSO, star);
+            SetStatByStar(star);
         }
 
         /// <summary>
         /// 유닛의 성급에 따른 기초 스텟 적용
         /// </summary>
         /// <param name="star">유닛의 성급 ( 1성 = 0 )</param>
-        public void SetStatByStar(UnitStatSO unitStatSO, int star)
+        public void SetStatByStar(int star)
         {
-            if (unitStatSO.statsByStart.Length <= star)
+            if (_statData == null) return;
+
+            if (_statData.statsByStart.Length <= star)
             {
-                Debug.LogWarning($"{unitStatSO.name}의 ${star + 1}성 데이터가 없습니다.");
+                Debug.LogWarning($"{_statData.name}의 ${star + 1}성 데이터가 없습니다.");
                 return;
             }
 
-            StatByStar data = unitStatSO.statsByStart[star];
+            StatByStar data = _statData.statsByStart[star];
 
             // 성급에 따른 스텍 적용
             stats[StatType.HealthPoint].SetBaseValue(data.MaxHp);

@@ -38,7 +38,7 @@ namespace Item
 
         private void CheckEffect(HealthInfo info)
         {
-            if (BattleManager.Instance.currentBattleState != BattleState.Combat) return;
+            if (BattleManager.currentBattleState != BattleState.Combat) return;
             if (_hasTriggered) return;
             if (_equippedUnit == null || _equippedUnit.CurFSM == UnitStateType.Dead) return;
 

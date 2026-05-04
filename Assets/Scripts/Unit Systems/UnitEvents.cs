@@ -15,6 +15,9 @@ namespace Unit
     [Serializable]
     public class UnitEvents
     {
+        [Header("유닛 성급 변경")]
+        public UnityEvent<int> OnUpdateGrade;
+
         //[Header("기본 공격 이벤트")]
         //public UnityEvent<UnitBase> OnNormalAttack;                     // 기본 공격 시작
 

@@ -16,7 +16,7 @@ namespace Spell.Effects
         public override bool TryExecute(HexTile tile)
         {
             // 전투 중이 아닐 때의 예외 처리
-            if (BattleManager.Instance.currentBattleState != BattleState.Combat)
+            if (BattleManager.currentBattleState != BattleState.Combat)
             {
                 Debug.LogWarning("전투가 시작된 후에만 사용할 수 있습니다!");
                 return false;

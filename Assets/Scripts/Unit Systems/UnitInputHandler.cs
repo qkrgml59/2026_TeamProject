@@ -58,7 +58,7 @@ namespace Unit
 
             if (_unit != null && BattleManager.Instance != null)
                 canDrag = _unit.IsSameTeam(TeamType.Ally)
-                    && BattleManager.Instance.currentBattleState == BattleState.Prepare;      // 아군 유닛 & 준비 상태일 때만
+                    && BattleManager.currentBattleState == BattleState.Prepare;      // 아군 유닛 & 준비 상태일 때만
             else
                 canDrag = false;
 

@@ -35,7 +35,7 @@ public class BattleManager : SingletonMonoBehaviour<BattleManager>
     public event Action OnBattleStart;
     public event Action OnBattleEnd;
 
-    public BattleState currentBattleState { get; private set; } = BattleState.Prepare;
+    public static BattleState currentBattleState { get; private set; } = BattleState.Prepare;
 
     // 임시 코루틴
     Coroutine delayRountine;
