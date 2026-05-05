@@ -14,6 +14,7 @@ namespace Game.UI
         public UnitHpView hpView;
         public UnitItemView itemView;
         public UnitResourceView resourceView;
+        public StarViewBase starView;
 
         // 유닛 추적용
         RectTransform rectTransform;

@@ -17,6 +17,9 @@ namespace Game.UI
         public TextMeshProUGUI nameText;
         public Image profile;
 
+        [Header("성급 표시")]
+        public StarViewBase starView;
+
         [Header("Bar View")]
         public UnitHpView hpView;
         public UnitResourceView resourceView;
@@ -73,6 +76,13 @@ namespace Game.UI
                 if (profile != null) profile.sprite = _unit.UnitData.unitSprite ?? dummyImage;
             }
 
+            if (starView != null)
+            {
+                starView.SetStar(unit.star);
+                _unit.unitEvents.OnUpdateGrade.AddListener(starView.SetStar);
+            }
+
+
             if (hpView != null)
             {
                 _unit.unitEvents.OnHpChanged.AddListener(hpView.OnHpChanged);
@@ -123,6 +133,8 @@ namespace Game.UI
             _unit.unitEvents.OnDestroyedUnit.RemoveListener(OnUnitDestroyed);
 
             if (nameText != null) nameText.text = "";
+
+            if (starView != null) _unit.unitEvents.OnUpdateGrade.RemoveListener(starView.SetStar);
 
             if (hpView != null)
             {

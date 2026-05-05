@@ -40,9 +40,13 @@ namespace Unit
 
 
         int _mergeCount = 3;            // 합성에 필요한 유닛 개수
+        int _maxStar = 2;               // 최대 성급 확인
 
         public bool CanCombine(UnitBase unit, out List<UnitBase> materials)
         {
+            materials = null;
+            if (unit.star >= _maxStar) return false;     // 최대성급이면 합성 불가
+
             materials = UnitManager.Instance.GetSameUnits(unit);
             if (materials.Count < _mergeCount) return false;
 
@@ -77,8 +81,13 @@ namespace Unit
                 if (itemCompare != 0)
                     return itemCompare;
 
-                // 2. (0,0)과의 거리 (가까운 게 앞으로)
-                return a.offset.sqrMagnitude.CompareTo(b.offset.sqrMagnitude);
+                // 2. x는 0에 가까울수록 우선
+                int xCompare = Mathf.Abs(a.offset.x).CompareTo(Mathf.Abs(b.offset.x));
+                if (xCompare != 0)
+                    return xCompare;
+
+                // 3. y는 클수록 우선
+                return b.offset.y.CompareTo(a.offset.y);
             });
 
             
@@ -96,6 +105,9 @@ namespace Unit
             // 유닛 정리
             UpgradeUnitGrade(baseUnit);         // 유닛 성급 증가
             RemoveMaterialUnits(materials);     // 재료 유닛 삭제
+
+            // 합성 완료 된 유닛을 기준으로 합성 여부 재확인
+            TryCombine(baseUnit);               
 
             return true;
         }

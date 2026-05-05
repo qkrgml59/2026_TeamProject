@@ -21,18 +21,24 @@ namespace Game.UI
             if (_view.hpView != null)
             {
                 _view.hpView.SetTeamColor(_unit.team);
-                unit.unitEvents.OnHpChanged.AddListener(_view.hpView.OnHpChanged);
+                _unit.unitEvents.OnHpChanged.AddListener(_view.hpView.OnHpChanged);
             }
 
             if(_view.itemView != null)
             {
                 _view.itemView.Clear();
-                unit.unitEvents.OnItemChanged.AddListener(_view.OnItemChanged);
+                _unit.unitEvents.OnItemChanged.AddListener(_view.OnItemChanged);
             }
 
             if(_view.resourceView != null)
             {
-                unit.unitEvents.OnResourceChanged.AddListener(_view.resourceView.OnResourceChanged);
+                _unit.unitEvents.OnResourceChanged.AddListener(_view.resourceView.OnResourceChanged);
+            }
+
+            if(_view.starView != null)
+            {
+                _view.starView.SetStar(unit.star);
+                _unit.unitEvents.OnUpdateGrade.AddListener(_view.starView.SetStar);
             }
         }
 
@@ -48,6 +54,9 @@ namespace Game.UI
 
             if (_view.resourceView != null)
                 _unit.unitEvents.OnResourceChanged.RemoveListener(_view.resourceView.OnResourceChanged);
+
+            if (_view.starView != null)
+                _unit.unitEvents.OnUpdateGrade.RemoveListener(_view.starView.SetStar);
 
             GameObject.Destroy(_view.gameObject);
         }

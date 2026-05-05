@@ -15,6 +15,9 @@ public class UnitCardDetailView : MonoBehaviour
     public TextMeshProUGUI nameText;
     public Image profile;
 
+    [Header("성급 표시")]
+    public StarViewBase starView;
+
     [Header("Bar View")]
     public UnitHpView hpView;
     public UnitResourceView resourceView;
@@ -71,6 +74,8 @@ public class UnitCardDetailView : MonoBehaviour
         if (nameText != null) nameText.text = _unitData.Name_KR;
         if (profile != null) profile.sprite = unitCard.icon ?? dummyImage;
 
+        if (starView != null) starView.SetStar(0);              // TODO : 유닛 성급 적용
+
         if (hpView != null)
         {
             float hp = _statSet.MaxHp.Value;
@@ -102,6 +107,8 @@ public class UnitCardDetailView : MonoBehaviour
     public void Clear()
     {
         if (nameText != null) nameText.text = "";
+
+        if (starView != null) starView.SetStar(-1);
 
         if (hpView != null) hpView.Clear();             // 초기화
 
