@@ -34,7 +34,7 @@ namespace Unit
         public StatSet statSet { get; private set; }
         public int star { get; private set; } = 0;
         public float currentHp { get; private set; } = 0;
-        public float shield { get; private set; } = 0;
+        public ShieldContainer shield { get; private set; } = new ShieldContainer();
 
         [Header("아이템 정보")]
         public List<ItemBase> EquippedItems { get; private set; } = new List<ItemBase>();           // 장착 중인 아이템 리스트
@@ -350,6 +350,8 @@ namespace Unit
             if (CurFSM == UnitStateType.Idle || CurFSM == UnitStateType.Dead) return;           // 대기상태 또는 사망상태면 데미지 받지 않음
             if (BattleManager.currentBattleState != BattleState.Combat) return;
 
+            // 보호막은 방어력 계산 전에 흡수
+            damage = shield.AbsorbDamage(damage);
 
             // 방어력, 피해 감소 등 계산
             damage = DamageCalculator.CalculateFinalDamage(info, this);
@@ -488,6 +490,22 @@ namespace Unit
 
         #endregion
 
+        #region 보호막 관리
+
+        public void ApplyShield(ShieldEntry newShield)
+        {
+            shield.AddShield(newShield);
+        }
+
+        // 보호막 만료 시 이벤트
+        public void OnShieldExpired()
+        {
+            // 보호막 변경 시 체력바 변경
+            unitEvents.OnHpChanged?.Invoke(GetHealthInfo());
+        }
+
+        #endregion
+
         #region 아이템 관리
         public bool CanEquipItem(TeamType team)
         {
@@ -552,7 +570,7 @@ namespace Unit
         public void RecalculateUnitStats()
         {
             currentHp = statSet.MaxHp.Value;
-            shield = 0;
+            shield.Clear();
 
             currentResource = 0;
 
@@ -652,13 +670,18 @@ namespace Unit
 
         private void Update()
         {
-            //if(BattleManager.Instance.currentBattleState == BattleState.Combat)
+            if (BattleManager.currentBattleState == BattleState.Combat)
+            {
                 currentFSM?.StateUpdate();
+                shield.ShiledUpdate();      // 보호막 업데이트
+            }
+
+
         }
 
         private void FixedUpdate()
         {
-            //if (BattleManager.Instance.currentBattleState == BattleState.Combat)
+            if (BattleManager.currentBattleState == BattleState.Combat)
                 currentFSM?.StateFixedUpdate();
         }
 
@@ -686,6 +709,8 @@ namespace Unit
 
             unitEvents.OnNormalAttackHit.AddListener(OnNormalAttackHit);
             unitEvents.OnDealtHit.AddListener(OnDealtHit);
+
+            shield.OnShieldExpired += OnShieldExpired;
         }
 
         public void RemoveEventListener()
@@ -703,6 +728,8 @@ namespace Unit
 
             if (targetUnit != null)
                 targetUnit.unitEvents.OnDead.RemoveListener(OnTargetDead);
+
+            shield.OnShieldExpired -= OnShieldExpired;
         }
         #endregion
 
@@ -751,7 +778,7 @@ namespace Unit
         /// </summary>
         public HealthInfo GetHealthInfo()
         {
-            return new HealthInfo(currentHp, statSet.MaxHp.Value, shield);
+            return new HealthInfo(currentHp, statSet.MaxHp.Value, shield.Amount);
         }
 
         /// <summary>
