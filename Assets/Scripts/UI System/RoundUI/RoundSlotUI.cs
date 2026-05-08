@@ -8,8 +8,13 @@ namespace UI.Round
 
     public class RoundSlotUI : MonoBehaviour
     {
+        [Header("아이콘")]
         [SerializeField] private Image icon;
+
+        [Header("현재 라운드 강조")]
         [SerializeField] private GameObject highlight;
+
+        [Header("클리어 표시")]
         [SerializeField] private GameObject cleared;
 
         public void SetData(RoundType type)
@@ -35,7 +40,10 @@ namespace UI.Round
         }
         public void SetState(bool isCurrent, bool isPassed)
         {
+            //현재 라운드 강조
             highlight.SetActive(isCurrent);
+
+            //지나간 라운드 표시
             cleared.SetActive(isPassed);
         }
     }

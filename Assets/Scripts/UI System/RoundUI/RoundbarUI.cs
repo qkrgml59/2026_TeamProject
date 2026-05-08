@@ -6,12 +6,10 @@ namespace UI.Round
     public class RoundbarUI : MonoBehaviour
     {
         [SerializeField] private List<RoundSlotUI> slots;
-        [SerializeField] private RectTransform indicator;
 
         private void Start()
         {
             Build();
-            Refresh();
         }
 
         public void Build()
@@ -20,8 +18,17 @@ namespace UI.Round
 
             for (int i = 0; i < slots.Count; i++)
             {
-                if (i < cycle.Count)
-                    slots[i].SetData(cycle[i]);
+                // 사용 안 하는 슬롯 숨기기
+                if (i >= cycle.Count)
+                {
+                    slots[i].gameObject.SetActive(false);
+                    continue;
+                }
+
+                slots[i].gameObject.SetActive(true);
+
+                // 슬롯 타입 설정
+                slots[i].SetData(cycle[i]);
             }
         }
 
@@ -37,17 +44,8 @@ namespace UI.Round
                 slots[i].SetState(isCurrent, isPassed);
             }
 
-            MoveIndicator(cur);
         }
 
-        private void MoveIndicator(int index)
-        {
-            if (index < 0) return;
-
-            RectTransform target = slots[index].GetComponent<RectTransform>();
-
-            indicator.position = target.position;
-        }
     }
 }
 

@@ -205,26 +205,26 @@ public class BattleManager : SingletonMonoBehaviour<BattleManager>
         Callback?.Invoke();
     }
 
-    void OnGUI()
-    {
-        if (!debugMode) return;
+    //void OnGUI()
+    //{
+    //    if (!debugMode) return;
 
-        // 텍스트 표시
-        if(StageManager.Instance != null)
-        GUI.Label(new Rect(10, 10, 300, 40), $"{StageManager.Instance.CurStageIndex + 1} - {StageManager.Instance.CurRoundIndex + 1} 스테이지 : {StageManager.Instance.CurrentRound?.roundType} 라운드");
-        GUI.Label(new Rect(10, 30, 300, 40), $"현재 상태 : {currentBattleState}");
+    //    // 텍스트 표시
+    //    if(StageManager.Instance != null)
+    //    GUI.Label(new Rect(10, 10, 300, 40), $"{StageManager.Instance.CurStageIndex + 1} - {StageManager.Instance.CurRoundIndex + 1} 스테이지 : {StageManager.Instance.CurrentRound?.roundType} 라운드");
+    //    GUI.Label(new Rect(10, 30, 300, 40), $"현재 상태 : {currentBattleState}");
 
-        if (currentBattleState == BattleState.Prepare)
-        {
-            // 버튼
-            if (GUI.Button(new Rect(10, 60, 150, 40), "전투 시작"))
-            {
-                BattleStart();
-            }
-        }
-        else
-        {
-            GUI.Label(new Rect(10, 50, 310, 40), $"남은 시간 : {duration:F0}초");
-        }
-    }
+    //    if (currentBattleState == BattleState.Prepare)
+    //    {
+    //        // 버튼
+    //        if (GUI.Button(new Rect(10, 60, 150, 40), "전투 시작"))
+    //        {
+    //            BattleStart();
+    //        }
+    //    }
+    //    else
+    //    {
+    //        GUI.Label(new Rect(10, 50, 310, 40), $"남은 시간 : {duration:F0}초");
+    //    }
+    //}
 }
