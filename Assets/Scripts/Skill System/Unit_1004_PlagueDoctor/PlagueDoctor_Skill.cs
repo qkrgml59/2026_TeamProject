@@ -15,7 +15,33 @@ namespace Unit.Skill
         [SerializeField] private float Value_A = 5f;   // 지속시간
         [SerializeField] private float Value_B = 0.2f; // 20% 감소
 
+        [Header("스킬 효과")]
+        [SerializeField] private ParticleSystem shieldParticle;
+        private ParticleSystem _shield;
+
+        [SerializeField] private ParticleSystem fogParticle;
+        private ParticleSystem[] _fogs;
+
         private Coroutine skillRoutine;
+
+        // 디버프용 타일 저장
+        List<HexTile> tiles = new List<HexTile>();
+
+        public override void Init(UnitBase _owner)
+        {
+            base.Init(_owner);
+
+            // 연기 파티클 사전 생성
+            if (fogParticle != null)
+            {
+                _fogs = new ParticleSystem[6];
+                for (int i = 0; i < 6; i++)
+                {
+                    _fogs[i] = Instantiate(fogParticle, Vector3.zero, Quaternion.identity);
+                    _fogs[i].gameObject.SetActive(false);
+                }
+            }
+        }
 
         protected override void OnStart()
         {
@@ -27,20 +53,29 @@ namespace Unit.Skill
             //1.공격 제한
             owner.SetTargetUnit(null);
             //공격 불가 TODO : 나중에... 상태 넣어야 함
-            //TODO : 이런 느낌으로 쉴드도 넣어야..owner.AddShield(shieldAmount);
+
+            ShieldEntry shield = new ShieldEntry(this, baseDamage, Value_A);
+            owner.ApplyShield(shield);
+
+            // 보호막 효과 생성
+            ShieldSetActive(true);
+            owner.shield.OnShieldRemoved += ShieldRemoved; 
+
             yield return null;
 
 
+            // FIX : 중심 타일은 디버프가 필요 없어 보여서 제외
+
             //2. 중심 타일 구하기 
             Vector3Int centerCube = HexMath.OffsetToCube(owner.offset);
-            HexTile centerTile = GridManager.Instance.GetTile(centerCube);
+            //HexTile centerTile = GridManager.Instance.GetTile(centerCube);
 
 
             //3. 주변 타일 하나씩 직접 가져오기
-            List<HexTile> tiles = new List<HexTile>();
+            tiles.Clear();
 
-            if (centerTile != null)
-                tiles.Add(centerTile);
+            //if (centerTile != null)
+            //    tiles.Add(centerTile);
             //주변 6칸
             foreach (var dir in HexMath.CubeDirections)
             {
@@ -56,6 +91,9 @@ namespace Unit.Skill
                 if (tiles[i] == null) continue;
 
                 // TODO: 실제 디버프 효과 넣어야 함
+
+                // 연기 효과 생성
+                SetFogOnTile(i, tiles[i]);
                 Debug.Log($"타일 {tiles[i].name} 영향 받음");
             }
 
@@ -68,6 +106,7 @@ namespace Unit.Skill
 
             FinishSkill();
         }
+
         protected override void OnCancel()
         {
             if (skillRoutine != null)
@@ -75,6 +114,10 @@ namespace Unit.Skill
                 StopCoroutine(skillRoutine);
                 skillRoutine = null;
             }
+
+            owner.shield.OnShieldRemoved -= ShieldRemoved;
+            ShieldSetActive(false);
+            FogsSetActive(false);
         }
 
         protected override void OnFinish()
@@ -83,6 +126,57 @@ namespace Unit.Skill
             {
                 StopCoroutine(skillRoutine);
                 skillRoutine = null;
+            }
+
+            owner.shield.OnShieldRemoved -= ShieldRemoved;
+            ShieldSetActive(false);
+            FogsSetActive(false);
+        }
+
+        void ShieldRemoved(Object source)
+        {
+            if (source != this) return;
+
+            ShieldSetActive(false);
+        }
+
+        void ShieldSetActive(bool active)
+        {
+            if (active)
+            {
+                if (_shield != null)
+                    _shield.gameObject.SetActive(true);
+                else if (shieldParticle != null)
+                    _shield = Instantiate(shieldParticle, owner.transform);
+            }
+            else
+            {
+                if (_shield != null) _shield.gameObject.SetActive(false);
+            }
+        }
+
+        void FogsSetActive(bool active)
+        {
+            for (int i = 0; i < _fogs.Length; i++)
+            {
+                if (_fogs[i] != null) _fogs[i].gameObject.SetActive(active);
+            }
+        }
+
+        void SetFogOnTile(int index, HexTile tile)
+        {
+            if (index >= _fogs.Length) return;
+
+            _fogs[index].transform.position = tile.transform.position;
+            _fogs[index].gameObject.SetActive(true);
+        }
+
+        private void OnDestroy()
+        {
+            // 연기 효과는 유닛의 자식이 아니므로 따로 제거
+            for (int i = 0; i < _fogs.Length; i++)
+            {
+                if (_fogs[i] != null) Destroy(_fogs[i]);
             }
         }
 

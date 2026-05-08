@@ -44,9 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76fc88729ad493e4da4631e9c4cab044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unit.Skill.PlagueDoctor_Skill
-  skillName: 
+  skillName: "\uAC00\uC2A4 \uC0B4\uD3EC"
   icon: {fileID: 0}
   cost: 120
   baseDamage: 300
   Value_A: 5
   Value_B: 0.2
+  shieldParticle: {fileID: 871324411638548334, guid: 5fae79d5c764c3b44b9a080a80a0b852, type: 3}
+  fogParticle: {fileID: 5984480896937644378, guid: a5751cdcc19e35141b9794ed4c040008, type: 3}

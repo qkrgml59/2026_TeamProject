@@ -1,5 +1,8 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
+using Object = UnityEngine.Object;
+
 
 public class ShieldContainer
 {
@@ -8,9 +11,15 @@ public class ShieldContainer
     public float Amount => TotalShieldAmount();
 
     /// <summary>
-    /// 보호막 만료 이벤트
+    /// 보호막 변경 이벤트
     /// </summary>
-    public event Action OnShieldExpired;
+    public event Action OnShieldChanged;
+
+
+    /// <summary>
+    /// 보호막 제거 이벤트
+    /// </summary>
+    public event Action<Object> OnShieldRemoved;
 
     public void ShiledUpdate()
     {
@@ -73,8 +82,8 @@ public class ShieldContainer
         else
             shields.Insert(index, newShield);
 
-        
-        CleanUpShields();
+
+        OnShieldChanged.Invoke();
     }
 
     public void Clear()
@@ -91,12 +100,13 @@ public class ShieldContainer
         {
             if (shields[i].IsExpired || shields[i].amount <= 0)
             {
+                OnShieldRemoved?.Invoke(shields[i].source);
                 shields.RemoveAt(i);            // 만료 되었거나 남은 값이 0 이하일 경우 제거
                 isChanged = true;
             }
         }
 
-        if(isChanged) OnShieldExpired.Invoke();
+        if(isChanged) OnShieldChanged.Invoke();
     }
 
     float TotalShieldAmount()

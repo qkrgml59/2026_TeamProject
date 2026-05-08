@@ -498,7 +498,7 @@ namespace Unit
         }
 
         // 보호막 만료 시 이벤트
-        public void OnShieldExpired()
+        public void OnShieldChanged()
         {
             // 보호막 변경 시 체력바 변경
             unitEvents.OnHpChanged?.Invoke(GetHealthInfo());
@@ -710,7 +710,7 @@ namespace Unit
             unitEvents.OnNormalAttackHit.AddListener(OnNormalAttackHit);
             unitEvents.OnDealtHit.AddListener(OnDealtHit);
 
-            shield.OnShieldExpired += OnShieldExpired;
+            shield.OnShieldChanged += OnShieldChanged;
         }
 
         public void RemoveEventListener()
@@ -729,7 +729,7 @@ namespace Unit
             if (targetUnit != null)
                 targetUnit.unitEvents.OnDead.RemoveListener(OnTargetDead);
 
-            shield.OnShieldExpired -= OnShieldExpired;
+            shield.OnShieldChanged -= OnShieldChanged;
         }
         #endregion
 
