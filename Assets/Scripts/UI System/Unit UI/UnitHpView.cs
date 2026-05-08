@@ -52,7 +52,7 @@ namespace Game.UI
             {
                 // 체력 텍스트 표시
                 curHpText.text = $"{info.currentHp.ToString("F0")}/{info.maxHp.ToString("F0")}";
-                if (info.shield > 0) curHpText.text += $"+({info.shield.ToString("F0")}";              // 보호막이 있는 경우 뒤에 표기
+                if (info.shield > 0) curHpText.text += $"+({info.shield.ToString("F0")})";              // 보호막이 있는 경우 뒤에 표기
             }
 
 
