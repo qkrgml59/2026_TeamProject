@@ -230,6 +230,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Prototype.Card.UnitCard
   cardData: {fileID: 0}
+  cardLevel: 0
+  originalColor: {r: 1, g: 1, b: 1, a: 1}
+  changedColor: {r: 0.4, g: 0.4, b: 0.4, a: 1}
+  originalTextColor: {r: 0, g: 0, b: 0, a: 1}
+  changedTextColor: {r: 0.58431375, g: 0, b: 0, a: 1}
   icon: {fileID: 7951301106824965884}
   cardName: {fileID: 6326267407703299677}
   cardDescription: {fileID: 5594204965708107154}

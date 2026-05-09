@@ -14,6 +14,11 @@ namespace Prototype.Card
         public CardDataSO cardData;
         [SerializeField] protected int cardLevel = 0;
 
+        public Color originalColor = Color.white;
+        public Color changedColor = new Color(.4f, .4f, .4f, 1f);
+        public Color originalTextColor = Color.black;
+        public Color changedTextColor = Color.red;
+
         [Header("컴포넌트")]
         public Image icon;
         public TextMeshProUGUI cardName;
@@ -32,6 +37,22 @@ namespace Prototype.Card
                 rectTransform = GetComponent<RectTransform>();
         }
 
+        private void Start()
+        {
+            if (CostManager.Instance != null)
+            {
+                CostManager.Instance.OnCostChanged.AddListener(ChangedImageColor);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (CostManager.Instance != null)
+            {
+                CostManager.Instance.OnCostChanged.RemoveListener(ChangedImageColor);
+            }
+        }
+
         public virtual void Init(CardDataSO data)
         {
             cardData = data;
@@ -39,6 +60,23 @@ namespace Prototype.Card
             cardName.text = data.cardName;
             cardDescription.text = data.description;
             cardCost.text = data.cost.ToString();
+
+            if (CostManager.Instance != null)
+            {
+                ChangedImageColor(CostManager.Instance.currentCost, CostManager.Instance.maxCost);
+            }
+        }
+
+        private void ChangedImageColor(int currentCost, int maxCost)
+        {
+            if (cardData == null) return;
+
+            bool canAfford = currentCost >= cardData.cost;
+
+            icon.color = canAfford ? originalColor : changedColor;
+            cardName.color = canAfford ? originalTextColor : changedTextColor;
+            cardCost.color = canAfford ? originalTextColor : changedTextColor;
+
         }
 
         #region Preview Setting
