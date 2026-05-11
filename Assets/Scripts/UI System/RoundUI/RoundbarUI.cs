@@ -5,7 +5,14 @@ namespace UI.Round
 {
     public class RoundbarUI : MonoBehaviour
     {
-        [SerializeField] private List<RoundSlotUI> slots;
+        [Header("슬롯 프리팹")]
+        [SerializeField] private RoundSlotUI slotPrefab;
+
+        [Header("슬롯 부모")]
+        [SerializeField] private Transform slotParent;
+
+        // 생성된 슬롯 저장
+        private List<RoundSlotUI> slots = new List<RoundSlotUI>();
 
         private void Start()
         {
@@ -18,18 +25,28 @@ namespace UI.Round
 
             for (int i = 0; i < slots.Count; i++)
             {
-                // 사용 안 하는 슬롯 숨기기
-                if (i >= cycle.Count)
-                {
-                    slots[i].gameObject.SetActive(false);
-                    continue;
-                }
-
-                slots[i].gameObject.SetActive(true);
-
-                // 슬롯 타입 설정
-                slots[i].SetData(cycle[i]);
+                Destroy(slots[i].gameObject);
             }
+
+            slots.Clear();
+
+            // 라운드 개수만큼 생성
+            for (int i = 0; i < cycle.Count; i++)
+            {
+                // 슬롯 생성
+                RoundSlotUI slot =
+                    Instantiate(
+                        slotPrefab,
+                        slotParent);
+
+                // 타입 설정
+                slot.SetData(cycle[i]);
+
+                // 리스트 저장
+                slots.Add(slot);
+            }
+
+            Refresh();
         }
 
         public void Refresh()
