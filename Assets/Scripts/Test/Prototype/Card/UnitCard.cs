@@ -43,7 +43,7 @@ namespace Prototype.Card
             {
                 if (tile.CanReserve(null) && tile.TeamType == TeamType.Ally)        // 배치 가능하고, 아군칸 일때만 배치
                 {
-                    UnitBase unit = UnitSpawner.Instance.SpawnUnit(unitData.unitDataSO, tile, TeamType.Ally, cardLevel);
+                    UnitBase unit = UnitSpawner.Instance.SpawnUnit(unitData.unitDataSO, tile, TeamType.Ally, star : this.cardLevel);
 
                     if (unit == null) return false;
 

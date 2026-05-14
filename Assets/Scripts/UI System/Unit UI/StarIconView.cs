@@ -12,7 +12,7 @@ public class StarIconView : StarViewBase
 
     private GameObject[] icons;         // 생성된 별 아이콘들
 
-    private void Start()
+    private void Awake()
     {
         if (starRef == null || content == null) return;
 

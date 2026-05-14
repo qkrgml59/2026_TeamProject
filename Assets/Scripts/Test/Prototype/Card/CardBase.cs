@@ -19,6 +19,8 @@ namespace Prototype.Card
         public Color originalTextColor = Color.black;
         public Color changedTextColor = Color.red;
 
+        public StarViewBase starView;
+
         [Header("컴포넌트")]
         public Image icon;
         public TextMeshProUGUI cardName;
@@ -60,6 +62,11 @@ namespace Prototype.Card
             cardName.text = data.cardName;
             cardDescription.text = data.description;
             cardCost.text = data.cost.ToString();
+
+            if (starView != null)
+            {
+                starView.SetStar(cardLevel);
+            }
 
             if (CostManager.Instance != null)
             {
