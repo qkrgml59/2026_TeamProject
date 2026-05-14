@@ -4,6 +4,7 @@ using Prototype.Card.Item;
 using Prototype.Grid;
 using StatSystem;
 using System.Collections.Generic;
+using Unit.Animation;
 using Unit.Skill;
 using UnityEngine;
 
@@ -20,12 +21,12 @@ namespace Unit
 
     public class UnitBase : MonoBehaviour, IHealthReceiver
     {
+        [Header("컴포넌트")]
+        [SerializeField] private UnitAnimator animator;
+
         [Header("유닛 정보")]
         public TeamType team { get; private set; } = TeamType.Ally;
         public CardDataSO originCardData { get; set; }              // 도망가기에 사용할 유닛 카드데이터 원본 변수
-        [SerializeField] private Texture2D dummyImage;
-        [SerializeField] private Renderer quadRenderer;
-        private MaterialPropertyBlock mpb;
         [SerializeField] private UnitDataSO unitDataSO;
         public UnitDataSO UnitData => unitDataSO;
         private UnitStatSO unitStatData;
@@ -132,8 +133,8 @@ namespace Unit
             skill?.Init(this);
 
             // 이미지 적용
-            if (unitDataSO.unitSprite != null)
-                ApplyVisual(unitDataSO.unitSprite.texture);
+            if (animator != null)
+                animator.Init(this, unitDataSO.animationData);
 
             // 이름 변경
             transform.name = unitDataSO.Name_EN;
@@ -272,6 +273,8 @@ namespace Unit
             if(path[curPathIndex].TryReserve(this))
             {
                 reservedTile = path[curPathIndex];
+                HexDirectionType lookDir = HexMath.GetDirection(currentTile.Offset, reservedTile.Offset);
+                unitEvents.OnLookDirectionChanged?.Invoke(lookDir);
             }
             else
             {
@@ -322,6 +325,12 @@ namespace Unit
 
             normalAttack.Use();
             //unitEvents.OnNormalAttack?.Invoke(this);
+
+            if (targetUnit != null)
+            {
+                HexDirectionType lookDir = HexMath.GetDirection(currentTile.Offset, targetUnit.offset);
+                unitEvents.OnLookDirectionChanged?.Invoke(lookDir);
+            }
         }
 
         public bool CanUseSkill()
@@ -751,25 +760,7 @@ namespace Unit
         }
         #endregion
 
-        #region Visual Function
-        // 유닛 텍스쳐 적용
-        public void ApplyVisual(Texture2D texture)
-        {
-            if (quadRenderer == null || dummyImage == null)
-                return;
-
-            // 텍스쳐가 없다면 더미 이미지로 띄워줌
-            if(texture == null)
-                texture = dummyImage;
-
-            if (mpb == null)
-                mpb = new MaterialPropertyBlock();
-
-            quadRenderer.GetPropertyBlock(mpb);
-            mpb.SetTexture("_BaseMap", texture);              
-            quadRenderer.SetPropertyBlock(mpb);
-        }
-        #endregion
+      
 
         #region Event Info Fuction
 
@@ -809,16 +800,7 @@ namespace Unit
 
         #region Debugging
 
-#if UNITY_EDITOR
-        private void OnValidate()
-        {
-            // TODO : 유닛 데이터 (스텟 데이터 X)에 있는 이미지나 애니메이터 사용하도록 변경
-            if (dummyImage != null)
-            {
-                ApplyVisual(dummyImage);
-            }
-        }
-        #endif
+
 
         private void OnDrawGizmos()
         {

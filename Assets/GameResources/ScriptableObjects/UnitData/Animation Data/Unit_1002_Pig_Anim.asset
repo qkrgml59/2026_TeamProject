@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5db5ad6c9c304942815381dc4912840, type: 3}
+  m_Name: Unit_1002_Pig_Anim
+  m_EditorClassIdentifier: Assembly-CSharp::Unit.Animation.UnitAnimationSO
+  unitData: {fileID: 11400000, guid: c8155bbbae31c454a870fd60d04c3223, type: 2}
+  LeftBack: {fileID: 21300000, guid: 09f05e471dce8ed4485295039beb1aef, type: 3}
+  LeftFront: {fileID: 21300000, guid: abba56f78afa29e45a6ecee4b19ce8e6, type: 3}
+  RightBack: {fileID: 21300000, guid: 911677853779f8c40a5d34f446bba08d, type: 3}
+  RightFront: {fileID: 21300000, guid: 7934aea29a4293946bc699476e1650b0, type: 3}

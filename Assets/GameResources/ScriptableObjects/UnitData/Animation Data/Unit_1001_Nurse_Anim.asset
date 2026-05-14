@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5db5ad6c9c304942815381dc4912840, type: 3}
+  m_Name: Unit_1001_Nurse_Anim
+  m_EditorClassIdentifier: Assembly-CSharp::Unit.Animation.UnitAnimationSO
+  unitData: {fileID: 11400000, guid: bb38bd748662cfd41883122497b8520f, type: 2}
+  LeftBack: {fileID: 21300000, guid: ea1a0aa8ccd018e46a4fb6826bb88436, type: 3}
+  LeftFront: {fileID: 21300000, guid: 20cddef4d33924047af5f4855c1ff4be, type: 3}
+  RightBack: {fileID: 21300000, guid: 00e5ee5b0e8156740b63a8e7d273a3a9, type: 3}
+  RightFront: {fileID: 21300000, guid: 04e8f7705d0fd30499cfdb59dfc031a4, type: 3}

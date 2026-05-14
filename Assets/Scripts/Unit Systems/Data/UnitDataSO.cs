@@ -1,4 +1,6 @@
+using Unit.Animation;
 using Unit.Skill;
+using UnityEditor;
 using UnityEngine;
 
 namespace Unit
@@ -28,8 +30,23 @@ namespace Unit
         [Header("스킬 ID")] public int Skill_ID;
         [Header("스킬 프리팹")] public SkillBase Skill_Prefab;
 
-        // TODO : 임시 이미지, 추후 삭제
-        [Header("(임시) 유닛 이미지")]
-        public Sprite unitSprite;
+        [Header("애니메이션 정보")]
+        public UnitAnimationSO animationData;
+        public Sprite unitSprite => animationData ? animationData.RightFront : null;
+
+
+#if UNITY_EDITOR
+
+        public void OnValidate()
+        {
+            // SO 변경 시 자동으로 이미지 변경?
+            //if (animationData != null)
+            //{
+            //    animationData.unitData = this;
+            //    animationData.AutoAssignDirectionalSprites();
+            //}
+        }
+
+#endif
     }
 }

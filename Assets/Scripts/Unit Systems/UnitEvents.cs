@@ -5,6 +5,7 @@ using Unit;
 using UnityEngine;
 using UnityEngine.Events;
 using StatSystem;
+using Prototype.Grid;
 
 namespace Unit
 {
@@ -60,5 +61,8 @@ namespace Unit
 
         [Header("FSM 변경")]
         public UnityEvent<UnitBase, UnitStateType> OnUnitFSMChanged;
+
+        [Header("애니메이션 이벤트")]
+        public UnityEvent<HexDirectionType> OnLookDirectionChanged;
     }
 }

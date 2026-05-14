@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5db5ad6c9c304942815381dc4912840, type: 3}
+  m_Name: Unit_1007_Nemesis_Anim
+  m_EditorClassIdentifier: Assembly-CSharp::Unit.Animation.UnitAnimationSO
+  unitData: {fileID: 11400000, guid: f7a1df685acaabf41a43d71c4852b93d, type: 2}
+  LeftBack: {fileID: 21300000, guid: ec5d9aa07f2f729499baa13c311dc46b, type: 3}
+  LeftFront: {fileID: 21300000, guid: e8e1a33607eeadb44ad6d10da9ec2fb7, type: 3}
+  RightBack: {fileID: 21300000, guid: b8a07f0f98e83e6469b2fb2ef5c38512, type: 3}
+  RightFront: {fileID: 21300000, guid: 6f213f8876ce06a4899d423e689cf87c, type: 3}

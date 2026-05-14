@@ -4,11 +4,34 @@ namespace Prototype.Grid
 {
     public enum HexDirectionType
     {
+        /// <summary>
+        /// Cube(1, -1, 0)
+        /// </summary>
         Right,
+
+        /// <summary>
+        /// Cube(0, -1, 1)
+        /// </summary>
         TopRight,
+
+        /// <summary>
+        /// Cube(-1, 0, 1)
+        /// </summary>
         TopLeft,
+
+        /// <summary>
+        /// Cube(-1, 1, 0)
+        /// </summary>
         Left,
+
+        /// <summary>
+        /// Cube(0, 1, -1)
+        /// </summary>
         BottomLeft,
+
+        /// <summary>
+        /// Cube(1, 0, -1)
+        /// </summary>
         BottomRight
     }
 
@@ -25,16 +48,37 @@ namespace Prototype.Grid
         {
             new Vector3Int(1, -1, 0),   // Right
             new Vector3Int(-1, 1, 0),   // Left
-            new Vector3Int(1, 0, -1),   // TopRight
-            new Vector3Int(0, 1, -1),   // TopLeft
-            new Vector3Int(-1, 0, 1),   // BottomLeft
-            new Vector3Int(0, -1, 1)    // BottomRight
+            new Vector3Int(1, 0, -1),   // BottomRight
+            new Vector3Int(0, 1, -1),   // BottomLeft
+            new Vector3Int(-1, 0, 1),   // TopLeft
+            new Vector3Int(0, -1, 1)    // TopRight
         };
 
         /// <summary>
-        /// Cube 좌표계에서의 특정 방향을 반환
+        /// Direction Type을 큐브 좌표계 방향으로 전환
         /// </summary>
-        public static Vector3Int GetCubeDirection(HexDirectionType dir) => CubeDirections[(int)dir];
+        public static Vector3Int ToCubeDirection(HexDirectionType dir) => CubeDirections[(int)dir];
+
+
+        /// <summary>
+        /// 큐브 좌표계 방향을 Direction Type으로 전환
+        /// </summary>
+        public static HexDirectionType ToDirectionType(Vector3Int dir)
+        {
+            return dir switch
+            {
+                { x: 1, y: -1, z: 0 } => HexDirectionType.Right,
+                { x: -1, y: 1, z: 0 } => HexDirectionType.Left,
+
+                { x: 1, y: 0, z: -1 } => HexDirectionType.BottomRight,
+                { x: 0, y: 1, z: -1 } => HexDirectionType.BottomLeft,
+
+                { x: -1, y: 0, z: 1 } => HexDirectionType.TopLeft,
+                { x: 0, y: -1, z: 1 } => HexDirectionType.TopRight,
+
+                _ => HexDirectionType.Left
+            };
+        }
 
         #endregion
 
@@ -91,6 +135,14 @@ namespace Prototype.Grid
             float z = tileSize * 1.5f * row;
 
             return new Vector3(x, 0f, z);
+        }
+
+        public static HexDirectionType GetDirection(Vector2Int fromOffset, Vector2Int toOffset)
+        {
+            Vector3Int cubeDir =
+                GetDirectionCube(fromOffset, toOffset);
+
+            return ToDirectionType(cubeDir);
         }
 
         /// <summary>
