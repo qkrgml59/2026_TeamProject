@@ -23,12 +23,14 @@ namespace GameEditor.JsonConverter
         private bool convertUnit = false;
         private bool convertCard = false;
         private bool convertItem = false;
+        private bool convertRecipe = false;
         private bool convertSpell = false;
 
         // JSON 파일 경로 저장 변수
         private string unitJsonPath = "";
         private string cardJsonPath = "";
         private string itemJsonPath = "";
+        private string recipeJsonPath = "";
         private string spellJsonPath = "";
 
         // 데이터 저장 경로
@@ -36,6 +38,7 @@ namespace GameEditor.JsonConverter
         private readonly string statDataPath = "Assets/GameResources/ScriptableObjects/StatData";
         private readonly string cardDataPath = "Assets/GameResources/ScriptableObjects/CardData";
         private readonly string itemDataPath = "Assets/GameResources/ScriptableObjects/ItemData";
+        private readonly string recipeDataPath = "Assets/GameResources/ScriptableObjects/ItemRecipeData";
         private readonly string spellDataPath = "Assets/GameResources/ScriptableObjects/SpellData";
 
         [MenuItem("Tools/1. JSON to Data Converter")]
@@ -49,62 +52,32 @@ namespace GameEditor.JsonConverter
             GUILayout.Label("Phase 1: Factory Converter", EditorStyles.boldLabel);
             EditorGUILayout.Space();
 
-            // [유닛 UI 영역]
-            GUILayout.BeginVertical("box");
-            convertUnit = EditorGUILayout.ToggleLeft(" 1. Unit Data 변환하기", convertUnit, EditorStyles.boldLabel);
-            if (convertUnit)
-            {
-                if (GUILayout.Button("Select Unit JSON"))
-                    unitJsonPath = EditorUtility.OpenFilePanel("Select Unit JSON", "", "json");
-                EditorGUILayout.LabelField("Path: ", string.IsNullOrEmpty(unitJsonPath) ? "None" : unitJsonPath);
-            }
-            GUILayout.EndVertical();
+            DrawUISection(" 1. Unit Data 변환하기", ref convertUnit, ref unitJsonPath);
+            DrawUISection(" 2. Card Data 변환하기", ref convertCard, ref cardJsonPath);
+            DrawUISection(" 3. Item Data 변환하기", ref convertItem, ref itemJsonPath);
+            DrawUISection(" 4. Recipe Data 변환하기", ref convertRecipe, ref recipeJsonPath);
+            DrawUISection(" 5. Spell Data 변환하기", ref convertSpell, ref spellJsonPath);
 
             EditorGUILayout.Space();
 
-            // [카드 UI 영역]
-            GUILayout.BeginVertical("box");
-            convertCard = EditorGUILayout.ToggleLeft(" 2. Card Data 변환하기", convertCard, EditorStyles.boldLabel);
-            if (convertCard)
-            {
-                if (GUILayout.Button("Select Card JSON"))
-                    cardJsonPath = EditorUtility.OpenFilePanel("Select Card JSON", "", "json");
-                EditorGUILayout.LabelField("Path: ", string.IsNullOrEmpty(cardJsonPath) ? "None" : cardJsonPath);
-            }
-            GUILayout.EndVertical();
-
-            EditorGUILayout.Space();
-            EditorGUILayout.Space();
-
-            // [아이템 UI 영역]
-            GUILayout.BeginVertical("box");
-            convertItem = EditorGUILayout.ToggleLeft(" 3. Item Data 변환하기", convertItem, EditorStyles.boldLabel);
-            if (convertItem)
-            {
-                if (GUILayout.Button("Select Item JSON"))
-                    itemJsonPath = EditorUtility.OpenFilePanel("Select Item JSON", "", "json");
-                EditorGUILayout.LabelField("Path: ", string.IsNullOrEmpty(itemJsonPath) ? "None" : itemJsonPath);
-            }
-            GUILayout.EndVertical();
-
-            // [스펠 UI 영역]
-            GUILayout.BeginVertical("box");
-            convertSpell = EditorGUILayout.ToggleLeft(" 4. Spell Data 변환하기", convertSpell, EditorStyles.boldLabel);
-            if (convertSpell)
-            {
-                if (GUILayout.Button("Select Spell JSON"))
-                    spellJsonPath = EditorUtility.OpenFilePanel("Select Spell JSON", "", "json");
-                EditorGUILayout.LabelField("Path: ", string.IsNullOrEmpty(spellJsonPath) ? "None" : spellJsonPath);
-            }
-            GUILayout.EndVertical();
-            EditorGUILayout.Space();
-            EditorGUILayout.Space();
-
-            // [변환 실행 버튼]
             if (GUILayout.Button("Convert Data & Generate Prefabs", GUILayout.Height(40)))
             {
                 ConvertProcess();
             }
+        }
+
+        private void DrawUISection(string label, ref bool toggle, ref string path)
+        {
+            GUILayout.BeginVertical("box");
+            toggle = EditorGUILayout.ToggleLeft(label, toggle, EditorStyles.boldLabel);
+            if (toggle)
+            {
+                if (GUILayout.Button("Select JSON"))
+                    path = EditorUtility.OpenFilePanel("Select JSON", "", "json");
+                EditorGUILayout.LabelField("Path: ", string.IsNullOrEmpty(path) ? "None" : path);
+            }
+            GUILayout.EndVertical();
+            EditorGUILayout.Space();
         }
 
         private void ConvertProcess()
@@ -112,6 +85,7 @@ namespace GameEditor.JsonConverter
             EnsureFolderExists(unitDataPath);
             EnsureFolderExists(cardDataPath);
             EnsureFolderExists(itemDataPath);
+            EnsureFolderExists(recipeDataPath);
             EnsureFolderExists(spellDataPath);
 
             Dictionary<string, UnitDataSO> createdUnitsDict = new Dictionary<string, UnitDataSO>();
@@ -333,7 +307,9 @@ namespace GameEditor.JsonConverter
                 }
             }
 
-            // 4. SpellData 변환
+
+
+            // 5. SpellData 변환
             if (convertSpell && !string.IsNullOrEmpty(spellJsonPath))
             {
                 string spellJsonText = File.ReadAllText(spellJsonPath);
@@ -388,10 +364,78 @@ namespace GameEditor.JsonConverter
                 }
             }
 
+            // 4. RecipeData 변환 
+            if (convertRecipe && !string.IsNullOrEmpty(recipeJsonPath))
+            {
+                string recipeJsonText = File.ReadAllText(recipeJsonPath);
+                List<RecipeDataDTO> recipeDTOs = JsonConvert.DeserializeObject<List<RecipeDataDTO>>(recipeJsonText);
+
+                foreach (var dto in recipeDTOs)
+                {
+                    // 영문 이름(ResultCard)이 비어있으면 스킵
+                    if (string.IsNullOrEmpty(dto.ResultCard)) continue;
+
+                    string assetName = $"Recipe_{dto.ResultCard.Trim()}.asset";
+                    string fullPath = $"{recipeDataPath}/{assetName}";
+
+                    ItemRecipeSO recipeData = AssetDatabase.LoadAssetAtPath<ItemRecipeSO>(fullPath);
+                    if (recipeData == null)
+                    {
+                        recipeData = ScriptableObject.CreateInstance<ItemRecipeSO>();
+                        AssetDatabase.CreateAsset(recipeData, fullPath);
+                    }
+
+                    // 재료 아이템 A 탐색 (파일명에 "Item_ID" 가 포함된 ItemSO 검색)
+                    recipeData.itemA = SearchItemSOByID(dto.ItemA);
+                    if (recipeData.itemA == null) Debug.LogWarning($"[레시피 연결 실패] ID가 {dto.ItemA}인 재료 아이템을 찾을 수 없습니다.");
+
+                    // 재료 아이템 B 탐색
+                    recipeData.itemB = SearchItemSOByID(dto.ItemB);
+                    if (recipeData.itemB == null) Debug.LogWarning($"[레시피 연결 실패] ID가 {dto.ItemB}인 재료 아이템을 찾을 수 없습니다.");
+
+                    // 결과 카드 탐색 (파일명에 영문 이름이 포함된 ItemCardDataSO 검색)
+                    recipeData.resultCard = SearchItemCardByName(dto.ResultCard);
+                    if (recipeData.resultCard == null) Debug.LogWarning($"[레시피 연결 실패] 이름에 '{dto.ResultCard}'가 포함된 ItemCardDataSO를 찾을 수 없습니다.");
+
+                    EditorUtility.SetDirty(recipeData);
+                }
+            }
+
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             EditorUtility.DisplayDialog("완료", "선택된 데이터 변환이 완료되었습니다.", "확인");
         }
+
+
+        private ItemSO SearchItemSOByID(string itemID)
+        {
+            if (string.IsNullOrEmpty(itemID)) return null;
+
+            // itemDataPath 폴더 내에서 이름에 "Item_{itemID}"가 포함된 ItemSO 타입 에셋 찾기
+            string[] guids = AssetDatabase.FindAssets($"Item_{itemID.Trim()} t:ItemSO", new[] { itemDataPath });
+            if (guids.Length > 0)
+            {
+                string path = AssetDatabase.GUIDToAssetPath(guids[0]);
+                return AssetDatabase.LoadAssetAtPath<ItemSO>(path);
+            }
+            return null;
+        }
+
+        // [추가됨] 파일명으로 ItemCardDataSO 검색
+        private ItemCardDataSO SearchItemCardByName(string cardNameEn)
+        {
+            if (string.IsNullOrEmpty(cardNameEn)) return null;
+
+            // cardDataPath 폴더 내에서 이름에 영문이름이 포함된 ItemCardDataSO 타입 에셋 찾기
+            string[] guids = AssetDatabase.FindAssets($"{cardNameEn.Trim()} t:ItemCardDataSO", new[] { cardDataPath });
+            if (guids.Length > 0)
+            {
+                string path = AssetDatabase.GUIDToAssetPath(guids[0]);
+                return AssetDatabase.LoadAssetAtPath<ItemCardDataSO>(path);
+            }
+            return null;
+        }
+
 
         private Sprite AutoFindSprite(string searchName)
         {

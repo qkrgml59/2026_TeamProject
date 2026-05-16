@@ -10,13 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c77005181d1e17c4c810a7242d4d619e, type: 3}
-  m_Name: Item_2501_GiantSword
+  m_Name: Item_2603_2603
   m_EditorClassIdentifier: Assembly-CSharp::Item.ItemSO
   icon: {fileID: 0}
-  itemName: "\uB300\uAC80"
-  itemDescription: "\uACF5\uACA9\uB825 10% \uC99D\uAC00"
+  itemName: 2603
+  itemDescription: "\uACF5\uACA9\uB825 15% \uC99D\uAC00\n\uBC29\uC5B4\uB825 20 \uC99D\uAC00"
   modifiers:
   - statType: 1
     modifierType: 1
-    value: 10
+    value: 15
+  - statType: 4
+    modifierType: 0
+    value: 20
   effectModules: []
