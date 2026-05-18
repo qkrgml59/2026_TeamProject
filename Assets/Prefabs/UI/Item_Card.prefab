@@ -235,6 +235,7 @@ MonoBehaviour:
   changedColor: {r: 0.4, g: 0.4, b: 0.4, a: 1}
   originalTextColor: {r: 0, g: 0, b: 0, a: 1}
   changedTextColor: {r: 0.58431375, g: 0, b: 0, a: 1}
+  starView: {fileID: 0}
   icon: {fileID: 7951301106824965884}
   cardName: {fileID: 6326267407703299677}
   cardDescription: {fileID: 5594204965708107154}
@@ -584,7 +585,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: f9a8fe2fb415cbc4b8187bb032bea7fe, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
